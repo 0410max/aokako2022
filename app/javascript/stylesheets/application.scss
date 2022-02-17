@@ -1,0 +1,49 @@
+@import '~bootstrap/scss/bootstrap';
+
+                                        // application.html.erb
+
+.header {
+  height: 45px;
+  width: 100%;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.header li {
+  float: left;
+  list-style: none;
+  line-height: 28px;
+}
+
+.aokako-font {
+  font-size: 27px;
+  color: black;
+  font-family: 'Apple Chancery';
+  margin-left: 220px;
+  font-weight: bold;
+}
+
+.aokako-font:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.login-font {
+  color: black;
+  margin-left: 660px;
+
+}
+
+.login-font:hover {
+  text-decoration: none;
+  color:black;
+}
+
+.signin-font {
+  color: black;
+  margin-left: 50px;
+}
+
+.signin-font:hover {
+  text-decoration: none;
+  color: black;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aokako</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class='header'>
+      <% if user_signed_in? %>
+        <ul>
+          <li><%= link_to 'Aokako' ,kakomons_path %></li>
+          <li></li>
+        </ul>
+      <% else %>
+        <ul>
+          <li><%= link_to 'Aokako' ,root_path,class:'aokako-font' %></li>
+          <li class='top'><%= link_to 'ログイン' ,new_user_session_path,class:'login-font' %></li>
+          <li><%= link_to '新規登録',new_user_registration_path,class:'signin-font' %></li>
+        </ul>
+      <% end %>
+    </div>
+
+    <%= yield %>
+  </body>
+</html>
