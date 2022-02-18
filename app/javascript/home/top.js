@@ -4,7 +4,7 @@ class PhotoViewer {
         this.images = images;
         this.currentIndex = 0;
     }
-    
+
     init(){
         this.updatePhotoViewer();
     }
@@ -46,13 +46,15 @@ class PhotoViewer {
 /*global images*/
 // eslint-disable-next-line no-native-reassign
 images = [
-　'assets/images/青山1.jpeg',
-  'assets/images/相模原1.jpeg',
-  'assets/images/相模原2.1.jpeg',
-  'assets/images/相模原3.jpeg',
-  'assets/images/相模原3.jpeg',
-  'assets/images/相模原6.jpeg',
-  'assets/images/相模原4.jpeg',
-  'assets/images/相模原5.jpeg'
+　'images/青山1.jpeg',
+  'images/相模原1.jpeg',
+  'images/相模原2.jpeg',
+  'images/相模原3.jpeg',
+  'images/相模原6.jpeg',
+  'images/相模原4.jpeg',
+  'images/相模原5.jpeg'
 ];
+
+document.addEventListener('DOMContentLoaded', () => {
 new PhotoViewer(document.getElementById('top'),images).init();
+});

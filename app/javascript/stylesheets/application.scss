@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
                                         // application.html.erb
 
@@ -47,3 +48,30 @@
   text-decoration: none;
   color: black;
 }
+
+.fa-house {
+  color: black;
+  margin-left: 500px;
+  font-size: 20px;
+}
+
+.fa-user-plus {
+  color: black;
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+.fa-plus {
+  border: 2px solid black;
+  border-radius: 3px;
+  color: black;
+  margin-left: 30px;
+  font-size: 15px;
+  padding: 1px 2px;
+}
+
+.logout-font {
+  color: black;
+  margin-left: 30px;
+}
+

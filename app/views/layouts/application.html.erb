@@ -4,17 +4,28 @@
     <title>Aokako</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= image_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <div class='header'>
       <% if user_signed_in? %>
         <ul>
-          <li><%= link_to 'Aokako' ,kakomons_path %></li>
-          <li></li>
+          <li><%= link_to 'Aokako' ,kakomons_path,class:'aokako-font' %></li>
+          <li>
+            <%= link_to kakomons_path do %>
+              <i class="fa-solid fa-house"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to users_path do %>
+              <i class="fa-solid fa-user-plus"></i>
+            <% end %>
+          </li>
+          <li><i class="fa-solid fa-plus"></i></li>
+          <li><%= link_to 'ログアウト',destroy_user_session_path,class:'logout-font',method: :delete %></li>
         </ul>
       <% else %>
         <ul>
@@ -26,5 +37,6 @@
     </div>
 
     <%= yield %>
+
   </body>
 </html>
