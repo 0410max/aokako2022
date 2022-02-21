@@ -1,2 +1,16 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+    <div class='col-md-8'>
+        <div class='kakomon-show'>
+            <article>
+                <div class='kakomon-top'>
+                    <%= image_tag @user.get_profile_image %>
+                </div>
+                <div class='kakomon-image'>
+                    <%= image_tag @user.kakomons.image,size: "50x50" %>
+                </div>
+            </article>
+        </div>
+    </div>
+    <div class='col-md-4'>
+    </div>
+</div>

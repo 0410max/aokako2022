@@ -1,5 +1,5 @@
 <div class='container'>
-  <div class='col-md-8 mt-3'>
+  <div class='col-md-8 pt-3'>
     <div id="depSelector">
       <h2>過去問一覧</h2>
       <p>学部 :  <select class="departments"></select></p>
@@ -15,17 +15,19 @@
       </p>
     </div>
 
-
     <div class='kakomon-content'>
-      <div class='kakomon-top'>
+      <% @kakomons.each do |kakomon| %>
+        <div class='kakomon-top'>
+          <%= image_tag kakomon.user.get_profile_image %>
+          <%= kakomon.user.name %>
+        </div>
+        <div class='kakomon-body'>
+          <%= image_tag kakomon.image, size: "200x200" %>
+        </div>
+        <div class-'kakomon-bottom'>
 
-      </div>
-      <div class='kakomon-body'>
-
-      </div>
-      <div class-'kakomon-bottom'>
-
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class='col-md-4'>

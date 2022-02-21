@@ -59,7 +59,10 @@ class DepSelector{
     }
 }
 
-document.addEventListener('turbolinks:load', () => {
-const depSelector = new DepSelector(document.getElementById('depSelector'));
-depSelector.init();
+/*global windows*/
+document.addEventListener("turbolinks:load", function() {
+    windows.onload = function() {
+        const depSelector = new DepSelector(document.getElementById('depSelector'));
+        depSelector.init();
+    };
 });

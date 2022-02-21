@@ -15,6 +15,8 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
 import "../stylesheets/homes";
+import "../stylesheets/kakomons";
+import "../stylesheets/users";
 import '@fortawesome/fontawesome-free/js/all';
 
 

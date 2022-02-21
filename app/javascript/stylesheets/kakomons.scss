@@ -1,3 +1,39 @@
 // Place all the styles related to the kakomons controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+                      // new.html.erb
+
+.new-container {
+  width: 500px; // スマホではここを400pxにする
+  margin: 0 auto;
+}
+
+.new-container li {
+  list-style: none;
+}
+
+.new-container ul {
+  padding-left: 0;
+}
+
+.year-select {
+  width: 150px;
+  height: 30px;
+}
+
+.prof-new {
+  width: 200px;
+  height: 40px;
+}
+
+.comment-new {
+  width: 350px;
+  height: 100px;
+}
+
+                          // index.html.erb
+
+#depSelector {
+  margin-left: 40px;
+}
