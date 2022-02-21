@@ -23,7 +23,11 @@
               <i class="fa-solid fa-user-plus"></i>
             <% end %>
           </li>
-          <li><i class="fa-solid fa-plus"></i></li>
+          <li>
+            <%= link_to new_kakomon_path do %>
+              <i class="fa-solid fa-plus"></i>
+            <% end %>
+          </li>
           <li><%= link_to 'ログアウト',destroy_user_session_path,class:'logout-font',method: :delete %></li>
         </ul>
       <% else %>

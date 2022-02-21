@@ -55,6 +55,6 @@ images = [
   'images/相模原5.jpeg'
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
 new PhotoViewer(document.getElementById('top'),images).init();
 });
