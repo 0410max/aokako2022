@@ -17,14 +17,23 @@
   padding-left: 0;
 }
 
-.year-select {
+.year {
   width: 150px;
   height: 30px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+.departments,.courses {
+  width: 240px;
+  height: 30px;
+  border: 1px solid gray;
+  border-radius: 3px;
 }
 
 .prof-new {
-  width: 200px;
-  height: 40px;
+  width: 240px;
+  height: 30px;
 }
 
 .comment-new {
@@ -32,8 +41,91 @@
   height: 100px;
 }
 
+.kakomon-submit {
+  padding: 0;
+  color: white;
+  background-color: #a9a9a9;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.kakomon-submit:hover {
+  filter: brightness(110%);
+}
+
                           // index.html.erb
 
 #depSelector {
-  margin-left: 40px;
+  margin-left: 20px;
+}
+
+.tarm {
+  height: 30px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+.kakomon-content {
+  border: 1px solid #dbdbdb;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.article-top {
+  padding:10px;
+}
+
+.index-profile-image {
+  border-radius: 20px;
+}
+
+.article-body {
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.article-bottom {
+  border-bottom: 1px solid #dbdbdb;
+  padding: 10px;
+}
+
+.comment-count {
+  color: #8e8e8e;
+  font-size: 15px;
+}
+
+.kakomon-date {
+  color: #8e8e8e;
+  font-size: 12px;
+}
+
+.article-comment {
+  padding: 5px;
+  position: relative;
+}
+
+.comment-form {
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 14px;
+  height: 35px;
+  width: 200px;
+}
+
+.comment-submit {
+  background-color: white;
+  border: none;
+  font-weight: bold;
+  color: #0095F6;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.comment-submit:hover {
+  background-color: white;
+  border: none;
+  font-weight: bold;
+  color: #0095F6;
 }

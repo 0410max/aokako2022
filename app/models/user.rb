@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :kakomons
+  has_many :comments
   has_one_attached :profile_image
   validates :name,presence:true,length: {minimum:2,maximum: 20}, uniqueness: { case_sensitive: false }
   validates :introduction,length: {maximum: 50}

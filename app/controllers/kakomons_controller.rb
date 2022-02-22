@@ -1,6 +1,7 @@
 class KakomonsController < ApplicationController
   def index
     @kakomons = Kakomon.all.order(created_at: :desc)
+    @comment = Comment.new
   end
 
   def new

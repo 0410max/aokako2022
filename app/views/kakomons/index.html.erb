@@ -1,11 +1,9 @@
 <div class='container'>
-  <div class='col-md-8 pt-3'>
+  <div class='col-md-7 offset-md-1 pt-3'>
     <div id="depSelector">
       <h2>過去問一覧</h2>
-      <p>学部 :  <select class="departments"></select></p>
-      <p>学科 :  <select class="courses"></select></p>
-      <p>学期 :
-        <select>
+      <p class='mt-3'>学期 :
+        <select class='tarm'>
           <option hidden>選択してください</option>
           <option>前期 中間</option>
           <option>前期 期末</option>
@@ -13,23 +11,42 @@
           <option>後期 期末</option>
         </select>
       </p>
+      <p>学部 :  <select class="departments"></select></p>
+      <p>学科 :  <select class="courses"></select></p>
     </div>
 
-    <div class='kakomon-content'>
-      <% @kakomons.each do |kakomon| %>
-        <div class='kakomon-top'>
-          <%= image_tag kakomon.user.get_profile_image %>
+    <% @kakomons.each do |kakomon| %>
+      <article class='kakomon-content'>
+        <div class='article-top'>
+          <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
           <%= kakomon.user.name %>
         </div>
-        <div class='kakomon-body'>
-          <%= image_tag kakomon.image, size: "200x200" %>
+        <div class='article-body'>
         </div>
-        <div class-'kakomon-bottom'>
-
+        <div class='article-bottom'>
+          年度 : <br>
+          学期 : <br>
+          学部 : <br>
+          学科 : <br>
+          教授 : <%= kakomon.prof %><br>
+          投稿者コメント : <%= kakomon.comment %><br>
+          <% unless kakomon.comments.count === 0 %>
+            <span class='comment-count'>コメント<%= kakomon.comments.count %>件をすべてみる</span><br>
+          <% end %>
+          <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
         </div>
-      <% end %>
-    </div>
+        <div class='article-comment'>
+          <%= form_with(model:[kakomon,@comment], local: true) do |f| %>
+            <i class="fa-light fa-comment-lines"></i>
+            <%= f.text_area :comment,placeholder:"コメントを追加...",class:'comment-form pt-2' %>
+            <%= f.submit "投稿する",class:'btn btn-light comment-submit' %>
+          <% end %>
+        </div>
+      <article>
+    <% end %>
   </div>
+
+
   <div class='col-md-4'>
 
   </div>

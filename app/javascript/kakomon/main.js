@@ -13,7 +13,7 @@ class DepSelector{
     }
 
     async getDeps() {
-        const depResponse = await fetch('dep.json');
+        const depResponse = await fetch('/dep.json');
         return await depResponse.json();
     }
 
@@ -59,10 +59,7 @@ class DepSelector{
     }
 }
 
-/*global windows*/
-document.addEventListener("turbolinks:load", function() {
-    windows.onload = function() {
-        const depSelector = new DepSelector(document.getElementById('depSelector'));
-        depSelector.init();
-    };
+document.addEventListener('turbolinks:load', () => {
+const depSelector = new DepSelector(document.getElementById('depSelector'));
+depSelector.init();
 });
