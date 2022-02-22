@@ -49,6 +49,6 @@ class KakomonsController < ApplicationController
   private
 
   def kakomon_params
-    params.require(:kakomon).permit(:image,:year,:prof,:comment)
+    params.require(:kakomon).permit(:image,:sub,:year,:prof,:comment)
   end
 end

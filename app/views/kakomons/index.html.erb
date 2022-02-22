@@ -1,18 +1,9 @@
 <div class='container'>
   <div class='col-md-7 offset-md-1 pt-3'>
-    <div id="depSelector">
+    <div id="depSelector" class='kakomon-index'>
       <h2>過去問一覧</h2>
-      <p class='mt-3'>学期 :
-        <select class='tarm'>
-          <option hidden>選択してください</option>
-          <option>前期 中間</option>
-          <option>前期 期末</option>
-          <option>後期 中間</option>
-          <option>後期 期末</option>
-        </select>
-      </p>
-      <p>学部 :  <select class="departments"></select></p>
-      <p>学科 :  <select class="courses"></select></p>
+      <p class="departments"></p>
+      <p class="courses"></p>
     </div>
 
     <% @kakomons.each do |kakomon| %>
@@ -24,14 +15,16 @@
         <div class='article-body'>
         </div>
         <div class='article-bottom'>
-          年度 : <br>
-          学期 : <br>
+          科目 : <%= kakomon.sub %><br>
+          年度 : <%= kakomon.year %><br>
           学部 : <br>
           学科 : <br>
           教授 : <%= kakomon.prof %><br>
-          投稿者コメント : <%= kakomon.comment %><br>
+          <% unless kakomon.comment === nil %>  <!--ここをコメントがあるときだけ表示するっていう書き方にしたいAWSだからできないのかも-->
+            <span class='kakomon-user-name'><%= kakomon.user.name %></span><%= kakomon.comment %><br>
+          <% end %>
           <% unless kakomon.comments.count === 0 %>
-            <span class='comment-count'>コメント<%= kakomon.comments.count %>件をすべてみる</span><br>
+            <span class='comment-count'>コメント<%= kakomon.comments.count %>件をみる</span><br>
           <% end %>
           <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
         </div>

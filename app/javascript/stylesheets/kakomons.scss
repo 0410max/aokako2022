@@ -31,6 +31,11 @@
   border-radius: 3px;
 }
 
+.sub-new {
+  width: 240px;
+  height: 30px;
+}
+
 .prof-new {
   width: 240px;
   height: 30px;
@@ -70,6 +75,7 @@
   border: 1px solid #dbdbdb;
   background-color: white;
   border-radius: 2px;
+  display: block;
 }
 
 .article-top {
@@ -87,6 +93,11 @@
 .article-bottom {
   border-bottom: 1px solid #dbdbdb;
   padding: 10px;
+}
+
+.kakomon-user-name {
+  font-weight: 600;
+  margin-right: 10px;
 }
 
 .comment-count {
@@ -110,7 +121,7 @@
   resize: none;
   font-size: 14px;
   height: 35px;
-  width: 200px;
+  width: 500px;
 }
 
 .comment-submit {
