@@ -36,7 +36,7 @@ class DepSelector{
     createDepOptionsHtml() {
         const depSelectorElm = this.rootElm.querySelector('.departments');
         depSelectorElm.innerHTML = `
-          <%= f.select :dep,options_for_select(this.departments.map{|c|[this.departments.name,this.depCode]},this.depCode),{},{class:'option'}
+          <%= f.select :dep,options_for_select(this.departments.map{|c|[this.departments.name,this.depCode]},this.depCode),{},{class:'option'} %>
         `;
 
         depSelectorElm.addEventListener('change',(event) =>{
@@ -48,7 +48,7 @@ class DepSelector{
     createCorOptionHtml(){
         const corSelectorElm = this.rootElm.querySelector('.courses');
         corSelectorElm.innerHTML =`
-          <%= f.select :cor,options_for_select(this.courses.map{|c|[this.courses.name,this.couses.code]},this.couses.code),{},{class:'option'}
+          <%= f.select :cor,options_for_select(this.courses.map{|c|[this.courses.name,this.couses.code]},this.couses.code),{},{class:'option'} %>
         `;
     }
 

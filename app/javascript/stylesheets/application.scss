@@ -63,16 +63,21 @@
 
 .fa-plus {
   border: 2px solid black;
-  border-radius: 3px;
+  border-radius: 5px;
   color: black;
   margin-left: 30px;
   font-size: 15px;
   padding: 1px 2px;
+  position: relative;
+  top: 1px;
 }
 
-.logout-font {
-  color: black;
+.nav-profile-image {
   margin-left: 30px;
+  border-radius: 20px;
+  border: 1px solid #dbdbdb;
+  position: relative;
+  bottom: 3px;
 }
 
 .body {

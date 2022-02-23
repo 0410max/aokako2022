@@ -29,7 +29,7 @@
               <i class="fa-solid fa-plus"></i>
             <% end %>
           </li>
-          <li><%= link_to 'ログアウト',destroy_user_session_path,class:'logout-font',method: :delete %></li>
+          <li><%= image_tag current_user.get_profile_image,size:'25x25',class:'nav-profile-image' %></li>
         </ul>
       <% else %>
         <ul>

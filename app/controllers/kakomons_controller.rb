@@ -4,6 +4,16 @@ class KakomonsController < ApplicationController
     @comment = Comment.new
   end
 
+  def search
+    @comment = Comment.new
+    if params[:sub].present?
+      @kakomons = Kakomon.where('sub LIKE ?', "%#{params[:sub]}%")
+    else
+      @kakomons = Kakomon.none
+      @no_kakomon = '該当する過去問はありません。'
+    end
+  end
+
   def new
     @kakomon = Kakomon.new
   end

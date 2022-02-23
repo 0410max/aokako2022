@@ -4,11 +4,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :kakomons
-  has_many :comments
+  has_many :kakomons,dependent: :destroy
+  has_many :comments,dependent: :destroy
+  has_many :favorites,dependent: :destroy
   has_one_attached :profile_image
+
   validates :name,presence:true,length: {minimum:2,maximum: 20}, uniqueness: { case_sensitive: false }
   validates :introduction,length: {maximum: 50}
+
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
 
   def get_profile_image
     unless profile_image.attached?

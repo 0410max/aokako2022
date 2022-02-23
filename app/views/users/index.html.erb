@@ -1,5 +1,5 @@
 <div class='container'>
-  <div class='col-md-6 pt-3 user-index'>
+  <div class='col-md-8 pt-3 user-index'>
     <div id="depSelector">
       <h2>ユーザー一覧</h2>
       <p>学部 :  <select class="departments"></select></p>
@@ -10,6 +10,10 @@
         <tbody>
           <td><%= image_tag user.get_profile_image,size:'30x30',class:'index-profile-image' %></td>
           <td><%= user.name %></td>
+          <td>学部</td>
+          <td>学科</td>
+          <td>投稿数<%= user.kakomons.count %>件</td>
+          <td>フォロー</td>
         </tbody>
       <% end %>
     </table>
