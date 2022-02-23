@@ -3,13 +3,13 @@
 
                                         // application.html.erb
 
-.header {
+#header {
   height: 45px;
   width: 100%;
   border-bottom: 1px solid #dbdbdb;
 }
 
-.header li {
+#header li {
   float: left;
   list-style: none;
   line-height: 28px;

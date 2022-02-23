@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <div class='header'>
+    <div id='header'>
       <% if user_signed_in? %>
         <ul>
           <li><%= link_to 'Aokako' ,kakomons_path,class:'aokako-font' %></li>
@@ -29,7 +29,11 @@
               <i class="fa-solid fa-plus"></i>
             <% end %>
           </li>
-          <li><%= image_tag current_user.get_profile_image,size:'25x25',class:'nav-profile-image' %></li>
+          <li>
+            <%= link_to user_path(current_user) do %>
+              <%= image_tag current_user.get_profile_image,size:'25x25',class:'nav-profile-image' %>
+            <% end %>
+          </li>
         </ul>
       <% else %>
         <ul>
@@ -39,6 +43,8 @@
         </ul>
       <% end %>
     </div>
+
+
     <div class='body'>
       <%= yield %>
     </div>
