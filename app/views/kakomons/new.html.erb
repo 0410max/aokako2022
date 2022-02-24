@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='col-mg-3 pt-3 new-container'>
     <div id='depSelector'>
-    <h3>新規投稿</h3>
+    <h2>新規投稿</h2>
       <%= form_with model:@kakomon,class:'kakomon-new' do |f| %>
         <ul>
           <li class='mt-2'>画像を選択  :   <%= f.file_field :image, accept: "image/*", multiple: true %></li>
@@ -11,10 +11,9 @@
               ["2014", "2014"],["2015", "2015"],["2016", "2016"],["2017", "2017"],["2018", "2018"],
               ["2019", "2019"],["2020", "2020"],["2021", "2021"],["2022", "2022"]], {include_blank: "選択して下さい"},{class:'year'} %>
           </li>
-          <li class='mt-2'>学部 :  <select class="departments"></select></li>
-          <li class='mt-2'>学科 :  <select class="courses"></select></li>
+          <li class='mt-2'>科目 :  <%= f.text_field :sub,class:'prof-new' %></li>
           <li class='mt-2'>教授 :  <%= f.text_field :prof,class:'prof-new' %></li>
-          <li class='mt-2'><%= f.text_field :comment,class:'comment-new',placeholder:'コメント(任意)' %></li>
+          <li class='mt-2'>コメント(任意)<br><%= f.text_area :comment,class:'comment-new' %></li>
         </ul>
         <%= f.submit '投稿',class:'btn btn-light kakomon-submit' %>
       <% end %>

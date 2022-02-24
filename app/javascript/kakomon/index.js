@@ -36,7 +36,8 @@ class DepSelector{
     createDepOptionsHtml() {
         const depSelectorElm = this.rootElm.querySelector('.departments');
         depSelectorElm.innerHTML = `
-          <%= f.select :dep,options_for_select(this.departments.map{|c|[this.departments.name,this.depCode]},this.depCode),{},{class:'option'} %>
+          <%= f.select :dep,[[this.departments.name,this.]],{},{class:'option'} %>
+          <%= f.select :year, [["2010", "2010"],["2011", "2011"]], {include_blank: "選択して下さい"},{class:'year'} %>
         `;
 
         depSelectorElm.addEventListener('change',(event) =>{

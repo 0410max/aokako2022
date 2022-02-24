@@ -2,6 +2,8 @@ class KakomonsController < ApplicationController
   def index
     @kakomons = Kakomon.all.order(created_at: :desc)
     @comment = Comment.new
+    @dep = params[:departments]
+    @cor = params[:courses]
   end
 
   def search
@@ -22,7 +24,7 @@ class KakomonsController < ApplicationController
     @kakomon = Kakomon.new(kakomon_params)
     @kakomon.user_id = current_user.id
     if @kakomon.save
-      redirect_to user_path(@kakomon)
+      redirect_to user_path(@kakomon.user)
       flash[:notice] = '投稿されました'
     else
       render :new
@@ -59,6 +61,6 @@ class KakomonsController < ApplicationController
   private
 
   def kakomon_params
-    params.require(:kakomon).permit(:image,:sub,:year,:prof,:comment)
+    params.require(:kakomon).permit(:image,:sub,:dep,:cor,:year,:prof,:comment)
   end
 end

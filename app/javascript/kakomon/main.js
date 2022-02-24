@@ -51,7 +51,7 @@ class DepSelector{
     toOptionsHtml(records) {
         return records.map((record)=>{
             return`
-                <option name="${record.name}" value="${record.code}">
+                <option value="${record.code}">
                     ${record.name}
                 </option>
             `;
