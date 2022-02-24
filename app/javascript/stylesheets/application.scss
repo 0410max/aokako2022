@@ -3,13 +3,13 @@
 
                                         // application.html.erb
 
-.header {
+#header {
   height: 45px;
   width: 100%;
   border-bottom: 1px solid #dbdbdb;
 }
 
-.header li {
+#header li {
   float: left;
   list-style: none;
   line-height: 28px;
@@ -63,18 +63,24 @@
 
 .fa-plus {
   border: 2px solid black;
-  border-radius: 3px;
+  border-radius: 5px;
   color: black;
   margin-left: 30px;
   font-size: 15px;
   padding: 1px 2px;
+  position: relative;
+  top: 1px;
 }
 
-.logout-font {
-  color: black;
+.nav-profile-image {
   margin-left: 30px;
+  border-radius: 20px;
+  border: 1px solid #dbdbdb;
+  position: relative;
+  bottom: 3px;
 }
 
 .body {
   background-color: #fafafa;
+  min-height: 730px;
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_21_094108) do
+ActiveRecord::Schema.define(version: 2022_02_23_001603) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,21 @@ ActiveRecord::Schema.define(version: 2022_02_21_094108) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "kakomon_id"
+    t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "kakomon_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "kakomons", force: :cascade do |t|
     t.integer "year"
     t.string "prof"
@@ -40,6 +55,8 @@ ActiveRecord::Schema.define(version: 2022_02_21_094108) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "comment"
     t.integer "user_id"
+    t.string "tarm"
+    t.string "sub"
   end
 
   create_table "users", force: :cascade do |t|

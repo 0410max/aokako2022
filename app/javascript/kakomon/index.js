@@ -35,7 +35,10 @@ class DepSelector{
 
     createDepOptionsHtml() {
         const depSelectorElm = this.rootElm.querySelector('.departments');
-        depSelectorElm.innerHTML = this.toOptionsHtml(this.departments);
+        depSelectorElm.innerHTML = `
+          <%= f.select :dep,[[this.departments.name,this.]],{},{class:'option'} %>
+          <%= f.select :year, [["2010", "2010"],["2011", "2011"]], {include_blank: "選択して下さい"},{class:'year'} %>
+        `;
 
         depSelectorElm.addEventListener('change',(event) =>{
             this.depCode = event.target.value;
@@ -45,18 +48,11 @@ class DepSelector{
 
     createCorOptionHtml(){
         const corSelectorElm = this.rootElm.querySelector('.courses');
-        corSelectorElm.innerHTML = this.toOptionsHtml(this.courses);
+        corSelectorElm.innerHTML =`
+          <%= f.select :cor,options_for_select(this.courses.map{|c|[this.courses.name,this.couses.code]},this.couses.code),{},{class:'option'} %>
+        `;
     }
 
-    toOptionsHtml(records) {
-        return records.map((record)=>{
-            return`
-                <option value="${record.code}">
-                    ${record.name}
-                </option>
-            `;
-        }).join(' ');
-    }
 }
 
 document.addEventListener('turbolinks:load', () => {

@@ -13,18 +13,36 @@
   list-style: none;
 }
 
+.kakomon-new {
+  margin-top: 20px;
+}
+
 .new-container ul {
   padding-left: 0;
 }
 
-.year-select {
+.year {
   width: 150px;
+  height: 30px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+.departments,.courses {
+  width: 240px;
+  height: 30px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+.sub-new {
+  width: 240px;
   height: 30px;
 }
 
 .prof-new {
-  width: 200px;
-  height: 40px;
+  width: 240px;
+  height: 30px;
 }
 
 .comment-new {
@@ -32,8 +50,131 @@
   height: 100px;
 }
 
+.kakomon-submit {
+  padding: 0;
+  color: white;
+  background-color: #a9a9a9;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.kakomon-submit:hover {
+  color: white;
+  background-color: #a9a9a9;
+  filter: brightness(110%);
+}
+
                           // index.html.erb
 
+.kakomon.index {
+  margin: 0 auto;
+}
+
 #depSelector {
-  margin-left: 40px;
+  margin-left: 20px;
+}
+
+.tarm {
+  height: 30px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+.index-kakomon-content {
+  width: 600px;
+  border: 1px solid #dbdbdb;
+  background-color: white;
+  border-radius: 2px;
+  margin: 10px;
+  display: block;
+}
+
+.article-top {
+  padding:10px;
+}
+
+.index-profile-image {
+  border-radius: 20px;
+}
+
+.article-body {
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.article-bottom {
+  border-bottom: 1px solid #dbdbdb;
+  padding: 10px;
+}
+
+.kakomon-user-name {
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.comment-count {
+  color: #8e8e8e;
+  font-size: 15px;
+}
+
+.kakomon-date {
+  color: #8e8e8e;
+  font-size: 12px;
+}
+
+.article-comment {
+  padding: 5px;
+  line-height: 15px;
+  position: relative;
+}
+
+.comment-form {
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 14px;
+  width: 300px;
+}
+
+.comment-submit {
+  background-color: white;
+  border: none;
+  font-weight: bold;
+  color: #0095F6;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.comment-submit:hover {
+  background-color: white;
+  border: none;
+  font-weight: bold;
+  color: #0095F6;
+}
+
+.search {
+  width: 240px;
+  height: 30px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+.search-submit {
+  padding: 0;
+  color: white;
+  background-color: #a9a9a9;
+  padding: 3px 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.search-submit:hover {
+  filter: brightness(110%);
+}
+
+.no-kakomon {
+  margin-top: 20px;
+  margin-left: 20px;
+  color:gray;
 }

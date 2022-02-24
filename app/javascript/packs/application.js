@@ -8,7 +8,7 @@ require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
 require("home/top");
-require('kakomon/main');
+require("kakomon/main");
 
 import "jquery";
 import "popper.js";

@@ -3,7 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @kakomons = @user.kakomons
+    @kakomons = @user.kakomons.order(created_at: :desc)
+    @comment = Comment.new
   end
 
   def index

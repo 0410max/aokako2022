@@ -1,6 +1,19 @@
 class KakomonsController < ApplicationController
   def index
     @kakomons = Kakomon.all.order(created_at: :desc)
+    @comment = Comment.new
+    @dep = params[:departments]
+    @cor = params[:courses]
+  end
+
+  def search
+    @comment = Comment.new
+    if params[:sub].present?
+      @kakomons = Kakomon.where('sub LIKE ?', "%#{params[:sub]}%")
+    else
+      @kakomons = Kakomon.none
+      @no_kakomon = '該当する過去問はありません。'
+    end
   end
 
   def new
@@ -11,7 +24,7 @@ class KakomonsController < ApplicationController
     @kakomon = Kakomon.new(kakomon_params)
     @kakomon.user_id = current_user.id
     if @kakomon.save
-      redirect_to user_path(@kakomon)
+      redirect_to user_path(@kakomon.user)
       flash[:notice] = '投稿されました'
     else
       render :new
@@ -48,6 +61,6 @@ class KakomonsController < ApplicationController
   private
 
   def kakomon_params
-    params.require(:kakomon).permit(:image,:year,:prof,:comment)
+    params.require(:kakomon).permit(:image,:sub,:dep,:cor,:year,:prof,:comment)
   end
 end
