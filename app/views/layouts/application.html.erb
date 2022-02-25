@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -34,6 +35,8 @@
               <%= image_tag current_user.get_profile_image,size:'25x25',class:'nav-profile-image' %>
             <% end %>
           </li>
+          <li>
+          <%= link_to 'ログアウト',destroy_user_session_path ,method: :delete %>
         </ul>
       <% else %>
         <ul>

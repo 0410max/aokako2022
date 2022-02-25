@@ -1,0 +1,37 @@
+<div class='container'>
+
+    <div class='col-md-10 users-show'>
+        <div class='users-show-top'>
+            <table>
+                <tr>
+                    <td rowspan='4'><%= image_tag @user.get_profile_image,size:'150x150',class:'show-profile-image' %></td>
+                </tr>
+                <tr>
+                    <td colspan='2' class='td-user-name '><span class='show-user-name'><%= @user.name %></span>
+                    <%= link_to 'プロフィールを編集',edit_user_path(@user),class:'user-setting' %></td>
+                </tr>
+                <tr>
+                    <td class='dep-width'>国際政治経済学部</td>
+                    <td class='cor-width'>国際政治経済学科</td>
+                </tr>
+                <tr>
+                    <td colspan='2' class='td-introduction'>
+                        <%= simple_format(@user.introduction) %>
+                    </td>
+                </tr>
+            </table>
+
+            </div>
+            
+        <div class='count-follower-following'>
+        <span class='following-page-kakomon-count'>
+            <%= link_to user_path(@user) do %>
+                投稿<%= @user.kakomons.count %>件
+            <% end %>
+        </span>
+        <span class='following-page-followings'><%= link_to 'フォロー中',followings_user_path %></span>
+        <span class='following-page-followers'><%= link_to 'フォロワー',followers_user_path %></span>
+        </div>
+       
+  </div>
+</div>
