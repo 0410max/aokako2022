@@ -144,6 +144,41 @@
     border-bottom: 1px solid #dbdbdb;
 }
 
+.user-show-top {
+    color: black;
+}
+
+.user-show-top:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.user-show-top-follower {
+    color: gray;
+}
+
+.user-show-top-follower:hover {
+    color: gray;
+    text-decoration: none;
+}
+
+.user-show-top-following {
+    color: gray;
+}
+
+.user-show-top-following:hover {
+    color: gray;
+    text-decoration: none;
+}
+
+.user-show-top-show {
+    color: gray;
+}
+
+.user-show-top-show:hover {
+    color: gray;
+    text-decoration: none;
+}
 
 
 .show-profile-image {
@@ -189,6 +224,7 @@
 
 .td-users-name {
     line-height: 15px;
+    width: 120px;
 }
 
 .user-article-bottom {
@@ -206,7 +242,6 @@
     text-decoration: none;
     color: black;
 }
-
 
                                                 // edit.html.erb
 

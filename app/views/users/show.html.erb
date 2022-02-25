@@ -27,18 +27,18 @@
             
         <div class='count-follower-following'>
             <span class='kakomon-count'>
-                <%= link_to user_path(@user) do %>
+                <%= link_to user_path(@user),class:'user-show-top' do %>
                     投稿<%= @user.kakomons.count %>件
                 <% end %>
             </span>
-            <span class='span-following'><%= link_to 'フォロー中',followings_user_path %></span>
-            <span class='span-follower'><%= link_to 'フォロワー',followers_user_path %></span>
+            <span class='span-following'><%= link_to 'フォロー中',followings_user_path,class:'user-show-top-show' %></span>
+            <span class='span-follower'><%= link_to 'フォロワー',followers_user_path,class:'user-show-top-show' %></span>
         </div>
 
-        <div class='users-show-content mt-2'>
-            <% if @user.kakomons.count === 0 %>
-                <span class='no-kakomon'>投稿はありません</span>
-            <% else %>
+        <% if @user.kakomons.count === 0 %>
+            <span class='no-kakomon'>投稿はありません</span>
+        <% else %>
+            <div class='users-show-content mt-2'>
                 <% @kakomons.each do |kakomon| %>
                     <div class='show-kakomon-content'>
                         <div class='article-body'>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 <% end %>
-            <% end %>
-        </div>
-  </div>
+            </div>
+        <% end %>
+    </div>
 </div>

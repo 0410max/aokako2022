@@ -80,7 +80,20 @@
   bottom: 3px;
 }
 
-.body {
+#body {
   background-color: #fafafa;
   min-height: 730px;
+}
+
+#footer {
+  background-color: #fafafa;
+}
+
+.footer {
+  width: 200px;
+  margin: 0 auto;
+  color: gray;
+  font-size: 13px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
