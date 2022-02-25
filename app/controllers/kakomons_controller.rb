@@ -2,8 +2,6 @@ class KakomonsController < ApplicationController
   def index
     @kakomons = Kakomon.all.order(created_at: :desc)
     @comment = Comment.new
-    @dep = params[:departments]
-    @cor = params[:courses]
   end
 
   def search
@@ -61,6 +59,6 @@ class KakomonsController < ApplicationController
   private
 
   def kakomon_params
-    params.require(:kakomon).permit(:image,:sub,:dep,:cor,:year,:prof,:comment)
+    params.require(:kakomon).permit(:image,:sub,:year,:prof,:comment)
   end
 end

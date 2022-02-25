@@ -2,10 +2,8 @@
   <div class='col-md-10 offset-md-1 pt-3'>
     <div id="depSelector" class='kakomon-index'>
       <h2>過去問一覧</h2>
-      <p>学部 :  <select class="departments"></select></p>
-      <p>学科 :  <select class="courses"></select></p>
       <%= form_with url: search_kakomons_path,method: :get, local: true do |f| %>
-        科目 :  <%= f.text_field :sub,class:'search mb-3 mr-2' %>
+        <%= f.text_field :sub,class:'search mb-3 mr-2',placeholder:'科目名' %>
         <%= f.submit '検索する',class:'search-submit' %>
       <% end %>
     </div>

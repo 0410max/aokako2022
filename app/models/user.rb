@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_one_attached :profile_image
 
   validates :name,presence:true,length: {minimum:2,maximum: 20}, uniqueness: { case_sensitive: false }
-  validates :introduction,length: {maximum: 50}
+  validates :introduction,length: {maximum: 100}
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

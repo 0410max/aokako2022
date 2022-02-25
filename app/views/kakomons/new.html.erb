@@ -4,7 +4,7 @@
     <h2>新規投稿</h2>
       <%= form_with model:@kakomon,class:'kakomon-new' do |f| %>
         <ul>
-          <li class='mt-2'>画像を選択  :   <%= f.file_field :image, accept: "image/*", multiple: true %></li>
+          <li class='mt-2'>画像を選択  :   <%= f.file_field :image, accept: "image/*" %></li>
           <li class='mt-2'>
             年度  :
               <%= f.select :year, [["2010", "2010"],["2011", "2011"],["2012", "2012"],["2013", "2013"],

@@ -1,4 +1,7 @@
+<%= flash[:notice] %>
+
 <div class='container'>
+
     <div class='col-md-10 users-show'>
         <div class='users-show-top'>
             <table>
@@ -14,48 +17,30 @@
                     <td>学科</td>
                 </tr>
                 <tr>
-                    <td>投稿何件</td>
+                    <td>投稿<%= @user.kakomons.count %>件</td>
                     <td>フォロワー</td>
                     <td>フォロー中</td>
                 </tr>
             </table>
+            <% unless @user.introduction === '' %>
+                <p class='user-introduction'><%= simple_format(@user.introduction) %></p>
+            <% end %>
         </div>
 
-        <div class='users-show-content mt-5'>
+        <div class='users-show-content mt-2'>
             <% if @user.kakomons.count === 0 %>
                 <p>投稿はありません</p>
             <% else %>
                 <% @kakomons.each do |kakomon| %>
-                    <div class='kakomon-top'>
-                        <article class='show-kakomon-content'>
-                            <div class='article-top'>
-                                <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-                                <%= kakomon.user.name %><br>
-                            </div>
-                            <div class='article-body'>
-                            </div>
-                            <div class='article-bottom'>
-                                科目 : <%= kakomon.sub %><br>
-                                年度 : <%= kakomon.year %><br>
-                                学部 : <br>
-                                学科 : <br>
-                                教授 : <%= kakomon.prof %><br>
-                                <% unless kakomon.comment === '' %>
-                                    <span class='kakomon-user-name'><%= kakomon.user.name %></span><%= kakomon.comment %><br>
-                                <% end %>
-                                <% unless kakomon.comments.count === 0 %>
-                                    <span class='comment-count'>コメント<%= kakomon.comments.count %>件をみる</span><br>
-                                <% end %>
-                                <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
-                            </div>
-                            <div class='article-comment'>
-                                <%= form_with(model:[kakomon,@comment], local: true) do |f| %>
-                                  <i class="fa-light fa-comment-lines"></i>
-                                  <%= f.text_area :comment,placeholder:"コメントを追加...",class:'comment-form pt-2' %>
-                                  <%= f.submit "投稿する",class:'btn btn-light comment-submit' %>
-                                <% end %>
-                            </div>
-                        </article>
+                    <div class='show-kakomon-content'>
+                        <div class='article-body'>
+                            <%= image_tag kakomon.image,size:'400x400' %>
+                        </div>
+                        <div class='user-article-bottom'>
+                            科目 : <%= kakomon.sub %><br>
+                            教授 : <%= kakomon.prof %><br>
+                            <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
+                        </div>
                     </div>
                 <% end %>
             <% end %>

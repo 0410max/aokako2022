@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-mg-8 user-edit">
+      <% if @user.errors.any? %>
+        <div class="error">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this book from being saved:</h2>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="user-info">
+        <h3 class='user-edit-top'>プロフィールを編集</h3>
+        <%= form_with model:@user,local:true do |f| %>
+          <p>プロフィール画像</p>
+          <%= f.file_field :profile_image,accept: "image/*" %>  
+          <p>ニックネーム</p>
+          <%= f.text_field :name,class:'edit-user-name'%>
+          <p>自己紹介</p>
+          <%= f.text_area :introduction,class:'edit-user-introduction' %>
+          <p><%= f.submit'編集',class:'btn btn-light edit-user-submit'%></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
