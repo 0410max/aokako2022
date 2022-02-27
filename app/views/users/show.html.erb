@@ -1,4 +1,8 @@
-<%= flash[:notice] %>
+<% if flash[:notice] %>
+    <div class='alert alert-secondary'>
+        <%= flash[:notice] %>
+    </div>
+<% end %>
 
 <div class='container'>
 
@@ -23,6 +27,19 @@
                 </tr>
             </table>
 
+            <% unless @user.id == current_user.id %>    
+                <% if @haveRoom == true %>    
+                    <%= link_to "ダイレクトメッセージ",room_path(@roomId) %>    
+                <% else %>
+                    <%= form_with model: @room, local: true do |f|%>   
+                        <%= fields_for @RoomUser do |r| %>  
+                            <%= r.hidden_field :user_id, value: @user.id %>  
+                        <% end %>
+                        <%= f.submit "チャットを始める" %>
+                    <% end %>
+                <% end %>
+            <% end %>
+
             </div>
             
         <div class='count-follower-following'>
@@ -42,7 +59,7 @@
                 <% @kakomons.each do |kakomon| %>
                     <div class='show-kakomon-content'>
                         <div class='article-body'>
-                            <%= image_tag kakomon.image,size:'400x400' %>
+                            <%= image_tag kakomon.image,size:'401x400' %>
                         </div>
                         <div class='user-article-bottom'>
                             科目 : <%= kakomon.sub %><br>

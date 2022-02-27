@@ -11,6 +11,11 @@ class User < ApplicationRecord
   has_many :followings,through: :relationships,source: :follower
   has_many :reverse_of_relationshiops,class_name:'Relationship',foreign_key: :follower_id
   has_many :followers,through: :reverse_of_relationshiops,source: :following
+  
+  has_many :room_users
+  has_many :rooms, through: :room_users
+  has_many :messages
+
   has_one_attached :profile_image
 
   validates :name,presence:true,length: {minimum:2,maximum: 10}, uniqueness: { case_sensitive: false }

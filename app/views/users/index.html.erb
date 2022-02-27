@@ -5,33 +5,40 @@
       <p>学部 :  <select class="departments"></select></p>
       <p>学科 :  <select class="courses"></select></p>
     </div>
-    <table class='table table'>
+    <table>
       <tbody>
         <tr>
-        <td class='td-profile-image'><%= image_tag current_user.get_profile_image,size:'30x30',class:'index-profile-image' %></td>
+        <td class='td-profile-image'>
+          <%= link_to user_path(current_user) do %>
+            <%= image_tag current_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+          <% end %>
+        </td>
           <td class='td-user-name'><span class='user-name-height'><%= current_user.name %></span></td>
-          <td class='td-dep'>コミュニティ人間科学部</td>
-          <td class='td-cor'>コミュニティ人間科学科</td>
-          <td></td>
+          <td>投稿<%= current_user.kakomons.count %>件</td>
         </tr>
         <% @users.each do |user| %>
-          <% unless user === current_user %>
-            <td class='td-profile-image'><%= image_tag user.get_profile_image,size:'30x30',class:'index-profile-image' %></td>
-            <td class='td-users-name'><span class='user-name-height'><%= user.name %></span></td>
-            <td class='td-dep'>理工学部</td>
-            <td class='td-cor'>電気電子工学科</td>
-            <td class='td-follow'>
-              <% if user.followed_by?(current_user) %>
-                <%= link_to 'フォロー中',user_relationships_path(user),method: :delete,class:'user-followed',data:{confirm:'フォローを解除しますか？'} %>
-              <% else %>
-                <% unless user == current_user %>
-                  <%= link_to 'フォローする',user_relationships_path(user),method: :post,class:'user-following' %>
+          <tr>
+            <% unless user === current_user %>
+              <td class='td-profile-image'> 
+                <%= link_to user_path(user) do %>
+                  <%= image_tag user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                 <% end %>
-              <% end %>
-            </td>
-          <% end %>
-        </tbody>
-      <% end %>
+              </td>
+              <td class='td-users-name'><span class='user-name-height'><%= user.name %></span></td>
+              <td>投稿<%= user.kakomons.count %>件</td>
+              <td class='td-follow'>
+                <% if user.followed_by?(current_user) %>
+                  <%= link_to 'フォロー中',user_relationships_path(user),method: :delete,class:'user-followed',data:{confirm:'フォローを解除しますか？'} %>
+                <% else %>
+                  <% unless user == current_user %>
+                    <%= link_to 'フォローする',user_relationships_path(user),method: :post,class:'user-following' %>
+                  <% end %>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

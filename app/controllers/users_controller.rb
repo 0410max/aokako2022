@@ -5,6 +5,24 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @kakomons = @user.kakomons.order(created_at: :desc)
     @comment = Comment.new
+
+    @currentRoomUser = RoomUser.where(user_id: current_user.id)  
+    @receiveUser = RoomUser.where(user_id: @user.id)  
+    
+    unless @user.id == current_user.id  
+      @currentRoomUser.each do |cu|    
+        @receiveUser.each do |u|   
+          if cu.room_id == u.room_id    
+            @haveRoom = true    
+            @roomId = cu.room_id   
+          end
+        end
+      end
+      unless @haveroom   
+        @room = Room.new
+        @RoomUser = RoomUser.new
+      end
+    end
   end
 
   def index
@@ -50,3 +68,4 @@ class UsersController < ApplicationController
     end
   end
 end
+

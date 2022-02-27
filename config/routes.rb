@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'messages/create'
+  get 'rooms/create'
+  get 'rooms/show'
   devise_for :users
   root'homes#top'
   resources :users, only:[:index,:show,:edit,:update] do 
@@ -12,4 +15,6 @@ Rails.application.routes.draw do
     get :search, on: :collection
   end
 
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create,:show]
 end
