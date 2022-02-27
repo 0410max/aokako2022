@@ -13,13 +13,13 @@
             <%= image_tag current_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
           <% end %>
         </td>
-          <td class='td-user-name'><span class='user-name-height'><%= current_user.name %></span></td>
+          <td class='td-user-name' height='50'><span class='user-name-height'><%= current_user.name %></span></td>
           <td>投稿<%= current_user.kakomons.count %>件</td>
         </tr>
         <% @users.each do |user| %>
           <tr>
             <% unless user === current_user %>
-              <td class='td-profile-image'> 
+              <td class='td-profile-image' height='50'> 
                 <%= link_to user_path(user) do %>
                   <%= image_tag user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                 <% end %>

@@ -31,12 +31,18 @@
             <% end %>
           </li>
           <li>
+            <%= link_to rooms_path do %>
+              <i class="fa-solid fa-comment"></i>
+            <% end %>
+          </li>
+          <li>
             <%= link_to user_path(current_user) do %>
               <%= image_tag current_user.get_profile_image,size:'25x25',class:'nav-profile-image' %>
             <% end %>
           </li>
           <li>
-          <%= link_to 'ログアウト',destroy_user_session_path ,method: :delete %>
+            <%= link_to 'ログアウト',destroy_user_session_path ,method: :delete %>
+          </li>
         </ul>
       <% else %>
         <ul>

@@ -17,6 +17,7 @@ import "../stylesheets/application";
 import "../stylesheets/homes";
 import "../stylesheets/kakomons";
 import "../stylesheets/users";
+import "../stylesheets/rooms"
 import '@fortawesome/fontawesome-free/js/all';
 
 
