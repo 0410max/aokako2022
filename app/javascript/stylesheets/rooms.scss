@@ -60,6 +60,10 @@
     padding-top: 20px;
 }
 
+.rooms-show-top {
+    text-align: center;
+}
+
 .rooms-show-profile-image {
     border-radius: 30px;
     margin-bottom: 20px;
@@ -74,27 +78,67 @@
 
 .message-area {
     width: 100%;
-    height: 500px;
+    height: 450px;
     border: 1px solid #dbdbdb;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
     overflow: auto;
 }
 
+.message-content {
+    margin-left: 20px;
+}
+
+.message-profile-image {
+    margin: 5px 10px;
+    border-radius: 20px;
+}
+
+.message-user-name {
+    margin-left: 20px;
+}
+
+
 .message-text-area {
-    width: 100%;
-    height: 70px;
+    width: 485px;
+    height: 76px;
     resize: none;
     outline: none;
+    border: none;
+}
+
+.message-wrapper {
+    padding: 5px;
+    background-color: white;
+    margin: 5px;
+    border: 1px solid gray; 
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.message-created-at {
+    font-size: 13px;
+    color: gray;
+}
+
+.rooms-show-form {
+    position: relative;
     border-bottom: 1px solid #dbdbdb;
     border-right: 1px solid #dbdbdb;
     border-left: 1px solid #dbdbdb;
     border-top: none;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
+    background-color: white;
 }
 
 .message-submit {
-    text-align: center;
-
+    position: absolute;
+    top: 26px;
+    right: 5px;
+    border: none;
+    background-color: white;
+    outline: none;
+    font-weight: 600;
+    color: #0095F6;
 }

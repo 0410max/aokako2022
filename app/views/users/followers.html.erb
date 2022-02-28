@@ -52,32 +52,32 @@
             <span class='follower-page-followers'><%= link_to 'フォロワー',followers_user_path,class:'user-show-top' %></span>
         </div>
        
-        <% if @user.followings.count === 0 %>
+        <% if @user.followers.count === 0 %>
             <p class='no-kakomon'>ここにすべてのフォロワーが表示されます<p>
         <% else %>
             <div class='following-table'>
-                <table>
+                <table class='user-index-table'>
                     <tbody>
                         <% @users.each do |user| %>
                             <tr>
-                                <% unless user === current_user %>
-                                    <td class='td-profile-image'> 
-                                        <%= link_to user_path(user) do %>
-                                            <%= image_tag user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-                                        <% end %>
-                                    </td>
-                                    <td class='td-users-name'><span class='user-name-height'><%= user.name %></span></td>
-                                    <td>投稿<%= user.kakomons.count %>件</td>
-                                    <td class='td-follow'>
-                                        <% if user.followed_by?(current_user) %>
-                                            <%= link_to 'フォロー中',user_relationships_path(user),method: :delete,class:'user-followed',data:{confirm:'フォローを解除しますか？'} %>
-                                        <% else %>
-                                            <% unless user == current_user %>
-                                                <%= link_to 'フォローする',user_relationships_path(user),method: :post,class:'user-following' %>
-                                            <% end %>
-                                        <% end %>
-                                    </td>
+                            <% unless user === current_user %>
+                                <td class='td-profile-image' height='50'> 
+                                <%= link_to user_path(user) do %>
+                                    <%= image_tag user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                                 <% end %>
+                                </td>
+                                <td class='td-user-name'><span class='user-name-height'><%= user.name %></span></td>
+                                <td>投稿<%= user.kakomons.count %>件</td>
+                                <td class='td-follow'>
+                                <% if user.followed_by?(current_user) %>
+                                    <%= link_to 'フォロー中',user_relationships_path(user),method: :delete,class:'user-followed',data:{confirm:'フォローを解除しますか？'} %>
+                                <% else %>
+                                    <% unless user == current_user %>
+                                    <%= link_to 'フォローする',user_relationships_path(user),method: :post,class:'user-following' %>
+                                    <% end %>
+                                <% end %>
+                                </td>
+                            <% end %>
                             </tr>
                         <% end %>
                     </tbody>

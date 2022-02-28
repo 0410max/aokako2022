@@ -3,17 +3,29 @@
         <div class='col-md-6 rooms-show'>
             <% @RoomUsers.each do |r| %> 
                 <% unless r.user.name === current_user.name %>
-                    <%= image_tag r.user.get_profile_image,size:'40x40',class:'rooms-show-profile-image' %>
-                    <span class='rooms-show-top-name'><%= r.user.name %>とのメッセージ</span>
-                <% end %>
+                    <div class='rooms-show-top'>
+                        <%= image_tag r.user.get_profile_image,size:'40x40',class:'rooms-show-profile-image' %>
+                        <span class='rooms-show-top-name'><%= r.user.name %>とのメッセージ</span>
+                    </div>
+                    <% end %>
             <% end %>
 
             <div class='message-area'>
                 <% if @messages.present? %>
                     <% @messages.each do |m| %>
-                        <%= m.message %>
-                        <%= m.created_at.strftime("%Y-%m-%d %H:%M") %>
-                    <% end %>
+                        <div class='message-wrapper'>
+                            <table>
+                                <tr>
+                                    <td rowspan='2'><%= image_tag m.user.get_profile_image,size:'40x40',class:'message-profile-image' %></td>
+                                    <td>
+                                        <span><%= m.user.name %><span><br />
+                                        <span class='message-created-at'><%= m.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <span class='message-content'><%= simple_format(m.message) %></span>
+                        </div>
+                    <% end %>  
                 <% else %>
                     <p>メッセージはまだありません</p>
                 <% end %>
@@ -26,7 +38,7 @@
                     <%= f.submit '送信',class:'message-submit' %>
                 <% end %>
             </div>
-            
+
         </div>
     </div>
 </div>
