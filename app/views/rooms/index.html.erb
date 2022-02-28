@@ -1,7 +1,19 @@
 <div class='container'>
     <div class='row'>
         <div class='col-md-6 rooms-index'>
-        ss
+            <% if @rooms.count === 0 %>
+                <p class='no-dm'>dmをしていません</p>
+            <% else %>
+                <% @rooms.each do |room| %>
+                    <% @anotherUser = (room.users.where.not(id:current_user.id))[0] %>
+                    <%= link_to room_path(room),class:'rooms-show-link' do %>
+                        <div class='room-index'>
+                            <%= image_tag @anotherUser.get_profile_image,size:'40x40',class:'rooms-index-profile-image'%>
+                            <span class='rooms-index-user-name'><%= @anotherUser.name %></span>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
         </div>
     </div>
 </div>

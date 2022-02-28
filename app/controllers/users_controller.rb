@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     @user.update(user_params)
     if @user.save
-      flash[:notice] = "プロフィールが保存されました"
+      flash[:notice] = "保存されました"
       redirect_to user_path(@user.id)
     else
       render :edit
@@ -47,11 +47,47 @@ class UsersController < ApplicationController
   def followings
     @user = User.find(params[:id])
     @users = @user.followings
+
+    @currentRoomUser = RoomUser.where(user_id: current_user.id)  
+    @receiveUser = RoomUser.where(user_id: @user.id)  
+    
+    unless @user.id == current_user.id  
+      @currentRoomUser.each do |cu|    
+        @receiveUser.each do |u|   
+          if cu.room_id == u.room_id    
+            @haveRoom = true    
+            @roomId = cu.room_id   
+          end
+        end
+      end
+      unless @haveroom   
+        @room = Room.new
+        @RoomUser = RoomUser.new
+      end
+    end
   end
 
   def followers
     @user = User.find(params[:id])
     @users = @user.followers
+
+    @currentRoomUser = RoomUser.where(user_id: current_user.id)  
+    @receiveUser = RoomUser.where(user_id: @user.id)  
+    
+    unless @user.id == current_user.id  
+      @currentRoomUser.each do |cu|    
+        @receiveUser.each do |u|   
+          if cu.room_id == u.room_id    
+            @haveRoom = true    
+            @roomId = cu.room_id   
+          end
+        end
+      end
+      unless @haveroom   
+        @room = Room.new
+        @RoomUser = RoomUser.new
+      end
+    end
   end
 
 

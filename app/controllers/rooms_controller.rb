@@ -20,9 +20,8 @@ class RoomsController < ApplicationController
   end
   
   def index
-    @rooms = Room.all
+    @rooms = current_user.rooms.joins(:messages).includes(:messages).order("messages.created_at DESC")
   end
-
   private
 
   def join_room_params

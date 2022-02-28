@@ -1,20 +1,21 @@
 <div class='container'>
-  <div class='col-md-10 offset-md-1 pt-3 kakomon-index'>
-    <div id="depSelector" class='kakomon-index'>
-      <h2>過去問一覧</h2>
-      <%= form_with url: search_kakomons_path,method: :get, local: true do |f| %>
-        <%= f.text_field :sub,class:'search mb-2 mr-2',placeholder:'科目名' %>
-        <%= f.submit '検索する',class:'search-submit' %>
-      <% end %>
-    </div>
+  <div class="depSelector">
+    <h2>過去問一覧</h2>
+    <%= form_with url: search_kakomons_path,method: :get, local: true do |f| %>
+      <%= f.text_field :sub,class:'search mb-2 mr-2',placeholder:'科目名' %>
+      <%= f.submit '検索する',class:'search-submit' %>
+    <% end %>
+  </div>
+
+  <div class='col-md-10 pt-3 kakomon-index'>
     <% @kakomons.each do |kakomon| %>
-      <article class='index-kakomon-content'>
+      <div class='index-kakomon-content'>
         <div class='article-top'>
           <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
           <%= kakomon.user.name %><br>
         </div>
         <div class='article-body'>
-          <%= image_tag kakomon.image,size:'548x733' %>
+          <%= image_tag kakomon.image,size:'434x580' %>
         </div>
         <div class='article-bottom'>
           科目 : <%= kakomon.sub %><br>
@@ -37,12 +38,7 @@
               <%= f.submit "投稿する",class:'btn btn-light comment-submit' %>
             <% end %>
           </div>
-      </article>
+      </div>
     <% end %>
-  </div>
-
-
-  <div class='col-md-4'>
-
   </div>
 </div>

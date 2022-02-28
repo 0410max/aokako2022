@@ -4,11 +4,28 @@
         <div class='users-show-top'>
             <table>
                 <tr>
-                    <td rowspan='4'><%= image_tag @user.get_profile_image,size:'150x150',class:'show-profile-image' %></td>
+                    <td rowspan='5'><%= image_tag @user.get_profile_image,size:'150x150',class:'show-profile-image' %></td>
                 </tr>
                 <tr>
-                    <td colspan='2' class='td-user-name' height='40'><span class='show-user-name'><%= @user.name %></span>
-                    <%= link_to 'プロフィールを編集',edit_user_path(@user),class:'user-setting' %></td>
+                    <td class='td-user-name'><span class='show-user-name'><%= @user.name %></span></td>
+                    <td>
+                        <% if @user === current_user %>
+                            <%= link_to 'プロフィールを編集',edit_user_path(@user),class:'user-setting' %>
+                        <% else %>
+                                <% unless @user.id == current_user.id %>    
+                                    <% if @haveRoom == true %>    
+                                        <%= link_to "メッセージを送信",room_path(@roomId),class:'make-room' %>
+                                    <% else %>
+                                        <%= form_with model: @room,local: true do |f|%>   
+                                            <%= fields_for @RoomUser do |r| %>  
+                                                <%= r.hidden_field :user_id, value: @user.id %>  
+                                            <% end %>
+                                            <%= f.submit "メッセージを送信",class:'make-room' %>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                        <% end %>
+                    </td>
                 </tr>
                 <tr>
                     <td class='dep-width' height='40'>国際政治経済学部</td>
@@ -20,8 +37,7 @@
                     </td>
                 </tr>
             </table>
-
-            </div>
+        </div>
             
         <div class='count-follower-following'>
             <span class='following-page-kakomon-count'>

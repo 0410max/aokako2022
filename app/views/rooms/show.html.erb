@@ -1,30 +1,32 @@
-<div class="chat-room">
-    <h1>メッセージ</h1>
-    <% @RoomUsers.each do |r| %> 
-        <div class="user-name">
-            <%= r.user.name %>さん
-        </div>
-    <% end %>
-<div class="chats">
-    <div class="chat">
-        <% if @messages.present? %>
-            <% @messages.each do |m| %>
-                <div class="chat-text">
-                    <%= m.message %>
-                    <%= m.created_at.strftime("%Y-%m-%d %H:%M") %>
-                </div>
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-6 rooms-show'>
+            <% @RoomUsers.each do |r| %> 
+                <% unless r.user.name === current_user.name %>
+                    <%= image_tag r.user.get_profile_image,size:'40x40',class:'rooms-show-profile-image' %>
+                    <span class='rooms-show-top-name'><%= r.user.name %>とのメッセージ</span>
+                <% end %>
             <% end %>
-        <%else%>
-            <p>メッセージはまだありません</p>
-        <% end %>
-   </div>
-   
-    <div class="posts">
-        <%= form_with model: @message, local: true do |f| %>
-            <%= f.text_field :message, placeholder: "メッセージを入力してください" %>
-            <%= f.hidden_field :room_id, value: @room.id %>
-            <%= f.submit "送信する" %>
-        <% end %>
+
+            <div class='message-area'>
+                <% if @messages.present? %>
+                    <% @messages.each do |m| %>
+                        <%= m.message %>
+                        <%= m.created_at.strftime("%Y-%m-%d %H:%M") %>
+                    <% end %>
+                <% else %>
+                    <p>メッセージはまだありません</p>
+                <% end %>
+            </div>
+        
+            <div class='rooms-show-form'>
+                <%= form_with model: @message, local: true do |f| %>
+                    <%= f.text_area :message, placeholder: "メッセージを入力してください",class:'message-text-area' %>
+                    <%= f.hidden_field :room_id, value: @room.id %>
+                    <%= f.submit '送信',class:'message-submit' %>
+                <% end %>
+            </div>
+            
+        </div>
     </div>
-   
 </div>

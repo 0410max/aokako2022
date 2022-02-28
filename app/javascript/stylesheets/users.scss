@@ -6,6 +6,15 @@
 
 .user-index {
     margin: 0 auto;
+    padding-top: 20px;
+}
+
+#depSelector {
+    margin-left: 155px;
+}
+
+.user-index-table {
+    margin: 0 auto;
 }
 
 
@@ -20,6 +29,7 @@
 
 .user-following:hover {
     text-decoration: none;
+    color: white;
 }
 
 .user-followed {
@@ -42,7 +52,7 @@
 }
 
 .td-user-name {
-    width: 200px;
+    width: 100px;
     line-height: 50px;
 }
 
@@ -64,7 +74,7 @@
                                                     // show.html.erb
 
 .alert-secondary {
-    width: 300px;
+    width: 160px;
     height: 50px;
     position: absolute;
     top: 70px;
@@ -93,6 +103,7 @@
     padding-top: 30px;
 }
 
+
 .count-follower-following {
     margin-top: 10px;
     padding-top: 10px;
@@ -106,8 +117,18 @@
     width: 33%;
 }
 
+.make-room {
+    border: 1px solid #dbdbdb;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: black;
+    background-color: #fafafa;
+}
 
-
+.make-room:hover {
+    text-decoration: none;
+    color: black;
+}
 
 .kakomon-count {
     padding-bottom: 10px;
@@ -233,8 +254,9 @@
 }
 
 .td-users-name {
-    line-height: 15px;
+    line-height: 50px;
     width: 120px;
+    display: flex;
 }
 
 .user-article-bottom {
