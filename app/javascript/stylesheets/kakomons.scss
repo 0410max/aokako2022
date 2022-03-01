@@ -89,6 +89,7 @@
   border-radius: 2px;
   margin-bottom: 20px;
   max-width: 436px;
+  position: relative;
 }
 
 .index-kakomon-content:nth-child(odd) {
@@ -100,6 +101,46 @@
   padding-top: 20px;
 }
 
+#modalContent {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.modalContentShow {
+  opacity: 1;
+  visibility: visible;
+}
+
+.index-modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.8);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 80%;
+  max-width: 600px;
+  padding: 50px;
+  background-color: #fff;
+  z-index: 2;
+}
+
 .article-top {
   padding:10px;
 }
@@ -107,6 +148,10 @@
 .index-profile-image {
   border-radius: 20px;
   margin-right: 5px;
+}
+
+.kakomon-user-name-top {
+  margin-right: 313px;
 }
 
 .article-body {

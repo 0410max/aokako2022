@@ -1,4 +1,6 @@
 class KakomonsController < ApplicationController
+  before_action :correct_user,only: [:edit, :update]
+      
   def index
     @kakomons = Kakomon.all.order(created_at: :desc)
     @comment = Comment.new
@@ -31,11 +33,6 @@ class KakomonsController < ApplicationController
 
   def edit
     @kakomon = Kakomon.find(params[:id])
-    if @kakomon.user === current_user
-      render :edit
-    else
-      redirect_to :index
-    end
   end
 
   def update
@@ -59,6 +56,16 @@ class KakomonsController < ApplicationController
   private
 
   def kakomon_params
-    params.require(:kakomon).permit(:sub,:year,:prof,:comment,image:[])
+    params.require(:kakomon).permit(:image,:sub,:year,:prof,:comment)
+  end
+
+  def correct_user
+    @kakomon = Kakomon.find(params[:id])
+    @user = @kakomon.user
+    if @user == current_user 
+      render :edit
+    else
+      redirecto_to kakomon_path(@kakomon)
+    end
   end
 end

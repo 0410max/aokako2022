@@ -38,4 +38,10 @@ class User < ApplicationRecord
     end
     profile_image
   end
+
+  def dep_cor(user) 
+    if user.number == '5' 
+      dep = '理工学部' 
+    end
+  end
 end

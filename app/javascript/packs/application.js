@@ -9,6 +9,7 @@ require("@rails/activestorage").start();
 require("channels");
 require("home/top");
 require("kakomon/main");
+require('kakomon/index')
 
 import "jquery";
 import "popper.js";

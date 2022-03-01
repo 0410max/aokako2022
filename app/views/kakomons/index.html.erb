@@ -1,3 +1,13 @@
+<div id='modalContent'>
+  <div id='index-modal'>
+    <div class='modal-content'>
+        <span>報告する</span><br />
+        <span>投稿へ移動</span><br />
+        <span>キャンセル</span>
+    </div>
+  </div>
+</div>
+
 <div class='container'>
   <div class="depSelector">
     <h2>過去問一覧</h2>
@@ -12,7 +22,8 @@
         <div class='index-kakomon-content'>
           <div class='article-top'>
             <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-            <%= kakomon.user.name %><br>
+            <span class='kakomon-user-name-top'><%= kakomon.user.name %></span>
+            <span id='indexModal'><i class="fa-solid fa-bars"></i></span>
           </div>
           <div class='article-body'> 
               <%= image_tag kakomon.image,size:'434x580' %>

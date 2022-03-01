@@ -23,6 +23,9 @@ class UsersController < ApplicationController
         @RoomUser = RoomUser.new
       end
     end
+
+    @number2 = @user.number.slice(1)
+    @number3 = @user.number.slice(2)
   end
 
 
