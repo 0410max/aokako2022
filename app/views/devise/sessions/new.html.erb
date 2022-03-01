@@ -1,11 +1,19 @@
 <div class='container'>
   <div class='col-lg-6 pt-5'>
     <h2>ログイン</h2>
+    <% if @user.errors.any? %>
+        <div class="error">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this book from being saved:</h2>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </div>
+      <% end %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <%= form_with model: @user, url: user_session_path do |f| %>
       <div class="field">
-        <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        <%= f.label :number %><br />
+        <%= f.text_field :number, autofocus: true, autocomplete: "number" %>
       </div>
 
       <div class="field">

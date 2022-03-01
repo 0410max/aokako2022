@@ -11,7 +11,7 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id]) 
     if RoomUser.where(user_id: current_user.id, room_id: @room.id).present?
-      @messages = @room.messages
+      @messages = @room.messages.order("messages.created_at desc")
       @message = Message.new
       @RoomUsers = @room.room_users
     else
