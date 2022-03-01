@@ -18,18 +18,18 @@
                         <% if @user === current_user %>
                             <%= link_to 'プロフィールを編集',edit_user_path(@user),class:'user-setting' %>
                         <% else %>
-                                <% unless @user.id == current_user.id %>    
-                                    <% if @haveRoom == true %>    
-                                        <%= link_to "メッセージを送信",room_path(@roomId),class:'make-room' %>
-                                    <% else %>
-                                        <%= form_with model: @room,local: true do |f|%>   
-                                            <%= fields_for @RoomUser do |r| %>  
-                                                <%= r.hidden_field :user_id, value: @user.id %>  
-                                            <% end %>
-                                            <%= f.submit "メッセージを送信",class:'make-room' %>
+                            <% unless @user.id == current_user.id %>    
+                                <% if @haveRoom == true %>    
+                                    <%= link_to "メッセージを送信",room_path(@roomId),class:'make-room' %>
+                                <% else %>
+                                    <%= form_with model: @room,local: true do |f|%>   
+                                        <%= fields_for @RoomUser do |r| %>  
+                                            <%= r.hidden_field :user_id, value: @user.id %>  
                                         <% end %>
+                                        <%= f.submit "メッセージを送信",class:'make-room' %>
                                     <% end %>
-                                <% end %>
+                                    <% end %>
+                            <% end %>
                         <% end %>
                     </td>
                 </tr>
@@ -43,13 +43,6 @@
                     </td>
                 </tr>
             </table>
-
-            <%= @number1 %>
-            <%= @number2 %>
-            <%= @number3 %>
-            <%= @number4 %>
-            <%= @number5 %>
-            <%= @number6 %>
 
             </div>
             

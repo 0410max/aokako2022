@@ -23,14 +23,8 @@ class UsersController < ApplicationController
         @RoomUser = RoomUser.new
       end
     end
-
-    @number1 = @user.number[0]
-    @number2 = @user.number[1]
-    @number3 = @user.number[2]
-    @number4 = @user.number[3]
-    @number5 = @user.number[4]
-    @number6 = @user.number[5]
   end
+
 
   def index
     @users = User.all

@@ -8,29 +8,29 @@
   </div>
 
   <div class='col-md-10 pt-3 kakomon-index'>
-    <% @kakomons.each do |kakomon| %>
-      <div class='index-kakomon-content'>
-        <div class='article-top'>
-          <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-          <%= kakomon.user.name %><br>
-        </div>
-        <div class='article-body'>
-          <%= image_tag kakomon.image,size:'434x580' %>
-        </div>
-        <div class='article-bottom'>
-          科目 : <%= kakomon.sub %><br>
-          年度 : <%= kakomon.year %><br>
-          学部 : <%= @dep %><br>
-          学科 : <%= @cor %><br>
-          教授 : <%= kakomon.prof %><br>
-          <% unless kakomon.comment === '' %>
-            <span class='kakomon-user-name'><%= kakomon.user.name %></span><%= kakomon.comment %><br>
-          <% end %>
-          <% unless kakomon.comments.count === 0 %>
-            <span class='comment-count'>コメント<%= kakomon.comments.count %>件をみる</span><br>
-          <% end %>
-          <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
-        </div>
+      <% @kakomons.each do |kakomon| %>
+        <div class='index-kakomon-content'>
+          <div class='article-top'>
+            <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+            <%= kakomon.user.name %><br>
+          </div>
+          <div class='article-body'> 
+              <%= image_tag kakomon.image,size:'434x580' %>
+          </div>
+          <div class='article-bottom'>
+            科目 : <%= kakomon.sub %><br>
+            年度 : <%= kakomon.year %><br>
+            学部 : <%= @dep %><br>
+            学科 : <%= @cor %><br>
+            教授 : <%= kakomon.prof %><br>
+            <% unless kakomon.comment === '' %>
+              <span class='kakomon-user-name'><%= kakomon.user.name %></span><%= kakomon.comment %><br>
+            <% end %>
+            <% unless kakomon.comments.count === 0 %>
+              <span class='comment-count'>コメント<%= kakomon.comments.count %>件をみる</span><br>
+            <% end %>
+            <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
+          </div>
           <div class='article-comment'>
             <%= form_with(model:[kakomon,@comment], local: true) do |f| %>
               <i class="fa-light fa-comment-lines"></i>
@@ -38,7 +38,7 @@
               <%= f.submit "投稿する",class:'btn btn-light comment-submit' %>
             <% end %>
           </div>
-      </div>
-    <% end %>
+        </div>
+      <% end %>
   </div>
 </div>
