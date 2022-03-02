@@ -26,8 +26,8 @@ class User < ApplicationRecord
   validate :check_number2
   validates :introduction,length: {maximum: 50}
 
-  def check_number
-    if number.slice(0) != '1' || number.slice(0) != '１'
+  def check_number1
+    if number.slice(0) != '1' || number.slice(0) != '１' || number.slice(0) != 'a'
       errors.add(:number, "学生番号が不正です。")
     end
   end
