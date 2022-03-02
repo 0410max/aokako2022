@@ -1,13 +1,3 @@
-<div id='modalContent'>
-  <div id='index-modal'>
-    <div class='modal-content'>
-        <span>報告する</span><br />
-        <span>投稿へ移動</span><br />
-        <span>キャンセル</span>
-    </div>
-  </div>
-</div>
-
 <div class='container'>
   <div class="depSelector">
     <h2>過去問一覧</h2>
@@ -23,7 +13,8 @@
           <div class='article-top'>
             <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
             <span class='kakomon-user-name-top'><%= kakomon.user.name %></span>
-            <span id='indexModal'><i class="fa-solid fa-bars"></i></span>
+            <span class='index-modal-button'><i class="fa-solid fa-bars"></i></span>
+            <div class='index-modal'></div>
           </div>
           <div class='article-body'> 
               <%= image_tag kakomon.image,size:'434x580' %>
@@ -35,7 +26,6 @@
             学科 : <%= @cor %><br>
             教授 : <%= kakomon.prof %><br>
             <% unless kakomon.comment === '' %>
-              <span class='kakomon-user-name'><%= kakomon.user.name %></span><%= kakomon.comment %><br>
             <% end %>
             <% unless kakomon.comments.count === 0 %>
               <span class='comment-count'>コメント<%= kakomon.comments.count %>件をみる</span><br>
