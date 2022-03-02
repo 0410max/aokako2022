@@ -2,7 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-home-top p{
-    text-align: center;
+.homes-top {
+    padding-top: 70px;
+    width: 500px;
+    margin: 0 auto;
+    min-height: 630px;
 }
 
+.homes-top-content {
+    text-align: center;
+    font-size: 18px;
+    z-index: 2;
+}
+
+.homes-top-aokako-font {
+    font-size: 20px;
+    color: black;
+    font-family: 'Apple Chancery';
+    font-weight: bold;
+}
+
+.aokako-alert {
+    color: red;
+    font-size: 15px;
+}

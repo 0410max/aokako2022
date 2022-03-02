@@ -46,14 +46,12 @@ class PhotoViewer {
 /*global images*/
 // eslint-disable-next-line no-native-reassign
 images = [
-　'images/青山1.jpeg',
   'images/相模原1.jpeg',
   'images/相模原2.jpeg',
-  'images/相模原3.jpeg',
-  'images/相模原6.jpeg',
   'images/相模原4.jpeg',
   'images/相模原5.jpeg'
 ];
+
 
 document.addEventListener('turbolinks:load', () => {
 new PhotoViewer(document.getElementById('top'),images).init();

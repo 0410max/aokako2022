@@ -1,6 +1,37 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+
+                                          // devise/registraiton.html.erb
+.registrations {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 20px;
+}                             
+
+.registrations-content {
+  margin-left: 150px;
+}
+
+.sessions {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.sessions-content {
+  margin-left: 150px;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+label {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
                                         // application.html.erb
 
 #header {
