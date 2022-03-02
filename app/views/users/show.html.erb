@@ -34,8 +34,9 @@
                 </tr>
                 <tr>
                     <td class='dep-width' height='40'>
-                        <%= render 'depCor',number2:@number2,number3:@number3 %>
-                        <%= @user.dep %><%= @user.cor %>
+                        <%= render 'depCor',user:@user,number2:@number2,number3:@number3 %>
+                        <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
+                        <%= @user.year %><br /><%= @user.dep %><br /><%= @user.cor %>
                     </td>
                 </tr>
                 <tr>

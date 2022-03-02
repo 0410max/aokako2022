@@ -28,8 +28,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class='dep-width' height='40'>国際政治経済学部</td>
-                    <td class='cor-width'>国際政治経済学科</td>
+                    <td class='dep-width' height='40'>
+                        <%= render 'depCor',user:@user,number2:@number2,number3:@number3 %>
+                        <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
+                        <%= @user.year %><br /><%= @user.dep %><br /><%= @user.cor %>                                                
+                    </td>
                 </tr>
                 <tr>
                     <td colspan='2' class='td-introduction' height='40'>
