@@ -34,6 +34,10 @@ label {
 
                                         // application.html.erb
 
+.error li {
+  list-style: none;
+}                  
+                      
 #header {
   height: 45px;
   width: 100%;
