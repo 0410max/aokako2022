@@ -7,18 +7,31 @@
     <% end %>
   </div>
 
+  <% #モーダルbg %>
+  <div class='index-modal-bg'></div>
+
   <div class='col-md-10 pt-3 kakomon-index'>
       <% @kakomons.each do |kakomon| %>
         <div class='index-kakomon-content'>
           <div class='article-top'>
+            <% #アイコン、名前 %>
             <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
             <span class='kakomon-user-name-top'><%= kakomon.user.name %></span>
-            <span class='index-modal-button'><i class="fa-solid fa-bars"></i></span>
-            <div class='index-modal'></div>
+            <span class='index-modal-show-button'><i class="fa-solid fa-bars"></i></span>
+            <% #モーダル %>
+            <div class='index-modal'>
+              <div class='modal-content'>
+                <div>報告する</div><br />
+                <div><%= link_to '投稿へ移動',kakomon_path(kakomon) %></div><br />
+                <div class='index-modal-close-button'>キャンセル</div>
+              </div>
+            </div>
           </div>
+          <% # 画像 %>
           <div class='article-body'> 
               <%= image_tag kakomon.image,size:'434x580' %>
           </div>
+          #投稿の下部分
           <div class='article-bottom'>
             科目 : <%= kakomon.sub %><br>
             年度 : <%= kakomon.year %><br>
