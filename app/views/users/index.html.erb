@@ -7,12 +7,8 @@
     </div>
     <table class='user-index-table'>
 
+      <% #モーダルbg %>
       <div class='bg' id='bg'></div>
-      <div class='user-index-modal'>
-      qq
-        <div>フォローをやめる</div>
-        <div>キャンセル</div>
-      </div>
 
       <tbody>
         <tr>
@@ -24,7 +20,16 @@
           <td class='td-user-name' height='50'><span class='user-name-height'><%= current_user.name %></span></td>
           <td>投稿<%= current_user.kakomons.count %>件</td>
         </tr>
+        <% modalNumber = 0 %>
         <% @users.each do |user| %>
+
+          <div class='user-index-modal' data-id = modalNumber>
+            <div><%= image_tag user.get_profile_image,size:'30x30',class:'index-profile-image' %></div>
+            <div><%= user.name %></div>
+            <div>フォローをやめる</div>
+            <div>キャンセル</div>
+          </div>
+
           <tr>
             <% unless user === current_user %>
               <td class='td-profile-image' height='50'> 
@@ -36,7 +41,7 @@
               <td>投稿<%= user.kakomons.count %>件</td>
               <td class='td-follow'>
                 <% if user.followed_by?(current_user) %>
-                  <button class='user-index-modal-open'>フォロー中</button>
+                  <span class='user-index-modal-open'>フォロー中</span>
                 <% else %>
                   <% unless user == current_user %>
                     <%= link_to 'フォローする',user_relationships_path(user),method: :post,class:'user-following' %>
@@ -45,6 +50,7 @@
               </td>
             <% end %>
           </tr>
+          <% modalNumber = modalNumber + 1 %>
         <% end %>
       </tbody>
     </table>
