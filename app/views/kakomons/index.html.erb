@@ -10,12 +10,15 @@
   <% #モーダルbg %>
   <div class='index-modal-bg'></div>
 
+
   <div class='col-md-10 pt-3 kakomon-index'>
       <% @kakomons.each do |kakomon| %>
         <div class='index-kakomon-content'>
           <div class='article-top'>
             <% #アイコン、名前 %>
-            <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+            <%= link_to user_path(kakomon.user),class:'kakomons-index-profile-image' do %>
+              <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+            <% end %>
             <span class='kakomon-user-name-top'><%= kakomon.user.name %></span>
             <span class='index-modal-show-button'><i class="fa-solid fa-bars"></i></span>
             <% #モーダル %>

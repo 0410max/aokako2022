@@ -10,6 +10,7 @@ require("channels");
 require("home/top");
 require("kakomon/main");
 require('kakomon/index')
+require('user/follow');
 
 import "jquery";
 import "popper.js";

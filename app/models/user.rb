@@ -22,21 +22,7 @@ class User < ApplicationRecord
 
   validates :name,presence:true,length: {maximum: 10},uniqueness: true
   validates :number,presence:true,length: {is:8},uniqueness: true
-  validate :check_number1
-  validate :check_number2
   validates :introduction,length: {maximum: 50}
-
-  def check_number1
-    if number.slice(0) != '1' || number.slice(0) != '１' || number.slice(0) != 'a'
-      errors.add(:number, "学生番号が不正です。")
-    end
-  end
-
-  def check_number2
-    if number.slice(1) != '1' || number.slice(1) != '１' || number.slice(1) != '2' || number.slice(1) != '２' || number.slice(1) != '3' || number.slice(1) != '３' || number.slice(1) != '4' || number.slice(1) != '４' || number.slice(1) != '5' || number.slice(1) != '５' || number.slice(1) != '6' || number.slice(1) != '６' || number.slice(1) != '7' || number.slice(1) != '７' || number.slice(1) != '8' || number.slice(1) != '８' || number.slice(1) != '9' || number.slice(1) != '９' || number.slice(1) != 'A' || number.slice(1) != 'a' || number.slice(1) != 'B' || number.slice(1) != 'b'
-      errors.add(:number, "学生番号が不正です。")
-    end
-  end
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
