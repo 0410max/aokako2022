@@ -10,7 +10,7 @@
           <%= f.file_field :profile_image,accept: "image/*" %>  
           <p>ニックネーム</p>
           <%= f.text_field :name,class:'edit-user-name'%>
-          <p>自己紹介</p>
+          <p>自己紹介(100文字以内)</p>
           <%= f.text_area :introduction,class:'edit-user-introduction' %>
           <br />
           <% if @user.errors.any? %>

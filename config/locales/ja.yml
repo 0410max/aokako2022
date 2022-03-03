@@ -2,7 +2,7 @@ ja:
   activerecord:
     attributes:
       user:
-        name: ニックネーム
+        name: ユーザーネーム
         number: 学生番号
         password: パスワード
         email: Eメール
