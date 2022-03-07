@@ -32,18 +32,36 @@
                     </div>
                     <% #コメント %>
                     <div class='comment-index'>
+                        <div class='kakomon-comment-content-top'>
+                            <%= image_tag @kakomon.user.get_profile_image,size:'30x30' %>
+                            <span class='kakomon-comment-name'><%= @kakomon.user.name %></span>
+                            <div class='kakomon-comment-content'>
+                                <%= @kakomon.comment %>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
                         <% @comments.each do |comment| %>
-                            <%= image_tag comment.user.get_profile_image,size:'30x30',class:'show-profile-image' %>
-                            <%= comment.user %>
-                            <%= comment %>
+                            <div class='other-user-comment'>
+                                <%= image_tag comment.user.get_profile_image,size:'30x30' %>
+                                <span class='comment-user-name'><%= comment.user.name %></span>
+                                <div class='other-user-comment-content'>
+                                    <%= simple_format(comment.comment) %>
+                                    <span class='kakomon-date'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+                                    <% if comment.user === current_user %>
+                                        <span class='delete-comment'><%= link_to '削除',kakomon_comment_path(comment.kakomon,comment),class:'delete-comment-link',method: :delete %></span>
+                                    <% end %>
+                                </div>
+                            </div>
+                            <br />
                         <% end %>
                     </div>
                     <div class='kakomons-show-comment-new'>
                         <%= form_with(model:[@kakomon,@comment], local: true) do |f| %>
-                        <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
-                        <%= f.submit "投稿する",class:'kakomons-show-comment-submit' %>
+                            <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
+                            <%= f.submit "投稿する",class:'kakomons-show-comment-submit' %>
                         <% end %>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>

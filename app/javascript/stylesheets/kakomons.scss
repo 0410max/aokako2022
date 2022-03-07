@@ -169,6 +169,10 @@
   border-bottom: 1px solid #dbdbdb;
 }
 
+.image-link:hover{
+  opacity: 0.9;
+}
+
 .article-bottom {
   padding: 10px;
 }
@@ -181,6 +185,11 @@
 .comment-count {
   color: #8e8e8e;
   font-size: 15px;
+}
+
+.kakomon-show-link:hover {
+  text-decoration: none;
+  color: gray;
 }
 
 .kakomon-date {
@@ -255,7 +264,7 @@
 
 .kakomons-show {
   margin-left: 180px;
-  padding-top: 50px;
+  padding-top: 10px;
 }                                
 
 .kakomons-show-content {
@@ -324,6 +333,49 @@
   position: absolute;
   right: 20px;
   top: 10px;
+}
+
+.kakomon-comment-content-top {
+  margin: 10px;
+}
+
+.kakomon-comment-content {
+  margin-left: 15px;
+  margin-left: 15px;
+}
+
+.kakomon-comment-name {
+  margin-left: 10px;
+}
+
+.other-user-comment {
+  margin-left: 10px;
+}
+
+.comment-user-name {
+  margin-left: 10px;
+}
+
+.other-user-comment-content {
+  margin-left: 15px;
+}
+
+.other-user-comment-content p {
+  margin-bottom: 0;
+}
+
+.delete-comment {
+  font-size: 11px;
+  margin-left: 20px;
+}
+
+.delete-comment-link {
+  color: gray;
+}
+
+.delete-comment-link:hover {
+  color: gray;
+  text-decoration: none;
 }
 
 .kakomons-show-comment-new {
