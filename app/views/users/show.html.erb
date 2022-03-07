@@ -38,6 +38,11 @@
                         <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
                         <%= @user.year %><br /><%= @user.dep %><br /><%= @user.cor %>
                     </td>
+                    <td>
+                        <% if @user === current_user %>
+                            <%= link_to 'ログアウト',destroy_user_session_path,class:'user-setting',method: :delete %>
+                        <% end %>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan='2' class='td-introduction' height='40'>
@@ -64,7 +69,9 @@
                 <% @kakomons.each do |kakomon| %>
                     <div class='show-kakomon-content'>
                         <div class='article-body'>
-                            <%= image_tag kakomon.image,size:'401x400' %>
+                            <%= link_to kakomon_path(kakomon) do %>
+                                <%= image_tag kakomon.image,size:'401x400',class:'kakomon-show-link' %>
+                            <% end %>
                         </div>
                         <div class='user-article-bottom'>
                             科目 : <%= kakomon.sub %><br>

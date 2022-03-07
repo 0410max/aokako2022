@@ -10,6 +10,7 @@
   <% #モーダルbg %>
   <div class='index-modal-bg'></div>
 
+  
 
   <div class='col-md-10 pt-3 kakomon-index'>
       <% @kakomons.each do |kakomon| %>
@@ -48,13 +49,7 @@
             <% end %>
             <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
           </div>
-          <div class='article-comment'>
-            <%= form_with(model:[kakomon,@comment], local: true) do |f| %>
-              <i class="fa-light fa-comment-lines"></i>
-              <%= f.text_area :comment,placeholder:"コメントを追加...",class:'comment-form pt-2' %>
-              <%= f.submit "投稿する",class:'btn btn-light comment-submit' %>
-            <% end %>
-          </div>
+          
         </div>
       <% end %>
   </div>

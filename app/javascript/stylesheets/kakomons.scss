@@ -170,7 +170,6 @@
 }
 
 .article-bottom {
-  border-bottom: 1px solid #dbdbdb;
   padding: 10px;
 }
 
@@ -250,3 +249,106 @@
   margin-left: 30px;
   color:gray;
 }
+
+
+                                // show.html.erb
+
+.kakomons-show {
+  margin-left: 180px;
+  padding-top: 50px;
+}                                
+
+.kakomons-show-content {
+  display: flex;
+}                      
+
+// イメージ
+.kakomons-show-image {
+  border: 1px solid #dbdbdb;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  width: 45%;
+}
+
+.kakomon-image-size{
+  width: 100%;
+  height: 100%;
+}
+
+// コメント
+.comment-wrapper {
+  border: 1px solid #dbdbdb;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-left: none; 
+  width: 45%;
+  position: relative;
+  background-color: white;
+  position: relative;
+}
+
+.kakomons-show-user-info {
+  padding: 10px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.kakomons-show-user-name {
+  padding-left: 10px; 
+}
+
+.kakomons-show-user-following {
+  padding-left: 20px;
+  color: black;
+}
+
+.kakomons-show-user-following:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.kakomons-show-user-followed {
+  padding-left: 20px;
+  font-weight: bold;
+  color: #0095f6;
+}
+
+.kakomons-show-user-followed:hover {
+  text-decoration: none;
+  padding-left: 20px;
+  font-weight: bold;
+  color: #0095f6;
+}
+
+.kakomons-show-top-button {
+  margin-left: 200px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.kakomons-show-comment-new {
+  border-top: 1px solid #dbdbdb; 
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.kakomons-show-text-area {
+  width: 450px;
+  height: 50px;
+  resize: none;
+  border: none;
+  outline: none;
+}
+
+.kakomons-show-comment-submit {
+  position: absolute;
+  bottom: 16px;
+  right: 5px;
+  background-color: white;
+  border: none;
+  color: #0095f6;
+  font-weight: bold;
+}
+
+

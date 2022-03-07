@@ -1,0 +1,51 @@
+<div class='conainer'>
+    <div class='row'>
+        <div class='col-md-10 kakomons-show'>
+            <div class='kakomons-show-content'>
+                <div class='kakomons-show-image'>
+                    <div>
+                        <% #モーダル %>
+                        <div class='index-modal'>
+                        <div class='modal-content'>
+                            <div>報告する</div><br />
+                            <div class='index-modal-close-button'>キャンセル</div>
+                        </div>
+                        </div>
+                    </div>
+                    <%= image_tag @kakomon.image,class:'kakomon-image-size' %>
+                </div>
+                <div class='comment-wrapper'>
+                    <% #アイコン、名前 %>   
+                    <div class='kakomons-show-user-info'>
+                        <%= link_to user_path(@kakomon.user),class:'kakomons-index-profile-image' do %>
+                            <%= image_tag @kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                        <% end %>
+                        <span class='kakomons-show-user-name'><%= @kakomon.user.name %></span>
+                        <% if @kakomon.user.followed_by?(current_user) %>
+                            <%= link_to'フォロー中',user_relationships_path(@kakomon.user),method: :delete,class:'kakomons-show-user-following' %>
+                        <% else %>
+                            <% unless @kakomon.user == current_user %>
+                                <%= link_to 'フォローする',user_relationships_path(@kakomon.user),method: :post,class:'kakomons-show-user-followed' %>
+                            <% end %>
+                        <% end %>
+                        <span class='kakomons-show-top-button'><i class="fa-solid fa-bars"></i></span>
+                    </div>
+                    <% #コメント %>
+                    <div class='comment-index'>
+                        <% @comments.each do |comment| %>
+                            <%= image_tag comment.user.get_profile_image,size:'30x30',class:'show-profile-image' %>
+                            <%= comment.user %>
+                            <%= comment %>
+                        <% end %>
+                    </div>
+                    <div class='kakomons-show-comment-new'>
+                        <%= form_with(model:[@kakomon,@comment], local: true) do |f| %>
+                        <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
+                        <%= f.submit "投稿する",class:'kakomons-show-comment-submit' %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,6 +17,20 @@
     margin: 0 auto;
 }
 
+.user-followed {
+    color: black;
+    float:right;
+    border: 1px solid #dbdbdb;
+    padding: 2px 10px;
+    border-radius:3px;
+    line-height: 25px
+}
+
+.user-followed:hover{
+    text-decoration: none;
+    color: black;
+}
+
 .user-following {
     background-color: #0095F6;
     color: white;
@@ -31,15 +45,6 @@
     color: white;
 }
 
-.user-index-modal-open {
-    color: black;
-    float:right;
-    border: 1px solid #dbdbdb;
-    padding: 2px 10px;
-    border-radius:3px;
-    line-height: 25px
-}
-
 .user-index-modal-open:hover {
     text-decoration: none;
     color: black;
@@ -47,8 +52,7 @@
 }
 
 .user-index-modal {
-    opacity: 0;
-    visibility: hidden;
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -58,10 +62,6 @@
     z-index: 11;
     background-color: white;
     border-radius: 8px;
-    &.is-show {
-        opacity: 1;
-        visibility: visible;
-    }
 }
 
 .bg {
@@ -75,9 +75,7 @@
     z-index: 10;
 }
 
-.no_scroll {
-    overflow: hidden;
-}
+
 
 .td-profile-image {
     width: 50px;
@@ -313,6 +311,9 @@
     margin: 0 auto;
 }
 
+.kakomon-show-link:hover {
+    opacity: 0.8;
+}
                                                 // edit.html.erb
 
 .user-edit {

@@ -4,23 +4,23 @@
 
                                           // devise/registraiton.html.erb
 .registrations {
-  width: 100%;
+  padding-top: 100px;
+  padding-left: 360px;
   margin: 0 auto;
-  padding-top: 20px;
+  min-height: 837px;
+  width: 930px;
 }                             
 
-.registrations-content {
-  margin-left: 150px;
-}
-
 .sessions {
-  width: 100%;
+  padding-top: 100px;
+  padding-left: 360px;
   margin: 0 auto;
-  padding-top: 20px;
+  min-height: 837px;
+  width: 930px;
 }
 
-.sessions-content {
-  margin-left: 150px;
+.new-user{
+  padding-left: 100px;
 }
 
 .actions {
@@ -145,10 +145,119 @@ label {
 }
 
 .footer {
-  width: 200px;
+  width: 300px;
   margin: 0 auto;
   color: gray;
   font-size: 13px;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+@media (max-width:1200px) {
+  .aokako-font{
+    margin-left: 200px;
+  }
+  .login-font{
+    margin-left: 500px;
+  }
+}
+
+@media (max-width:1100px) {
+  .aokako-font{
+    margin-left: 100px;
+  }
+}
+
+@media (max-width:1000px) {
+  .fa-house {
+    margin-left: 400px;
+  }
+  .login-font{
+    margin-left: 400px;
+  }
+}
+
+@media (max-width:900px) {
+  .fa-house {
+    margin-left: 300px;
+  }
+  .login-font{
+    margin-left: 400px;
+  }
+}
+
+@media (max-width:800px) {
+  .fa-house {
+    margin-left: 200px;
+  }
+  .login-font{
+    margin-left: 300px;
+  }
+
+}
+
+@media (max-width:700px) {
+  .fa-house {
+    margin-left: 100px;
+  }
+  .login-font{
+    margin-left: 200px;
+  }
+}
+
+@media (max-width:600px) {
+  .aokako-font{
+    margin-left: 20px;
+  }
+  .fa-house {
+    margin-left: 100px;
+  }
+  .login-font{
+    margin-left: 150px;
+  }
+}
+
+@media (max-width:500px) {
+  .fa-house {
+    margin-left: 80px;
+  }
+  .login-font{
+    margin-left: 150px;
+  }
+  .aokako-font{
+    margin-left: 10px;
+  }
+  .signin-font {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width:450px) {
+  .fa-house {
+    margin-left: 50px;
+  }
+  .login-font{
+    margin-left: 100px;
+  }
+  .aokako-font{
+    margin-left: 10px;
+  }
+  .signin-font {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width:400px) {
+  .fa-house {
+    margin-left: 50px;
+  }
+  .login-font{
+    margin-left: 80px;
+  }
+  .aokako-font{
+    margin-left: 10px;
+  }
+  .signin-font {
+    margin-left: 20px;
+  }
 }

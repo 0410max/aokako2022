@@ -20,6 +20,12 @@ class KakomonsController < ApplicationController
     @kakomon = Kakomon.new
   end
 
+  def show
+    @kakomon = Kakomon.find(params[:id])
+    @comments = @kakomon.comments
+    @comment = Comment.new
+  end
+  
   def create
     @kakomon = Kakomon.new(kakomon_params)
     @kakomon.user_id = current_user.id
