@@ -40,4 +40,8 @@ class User < ApplicationRecord
     profile_image
   end
 
+  def email_required?
+    false
+  end
+
 end

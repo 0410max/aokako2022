@@ -4,7 +4,7 @@
 
                                           // devise/registraiton.html.erb
 .registrations {
-  padding-top: 100px;
+  padding-top: 20px;
   padding-left: 360px;
   margin: 0 auto;
   min-height: 837px;
@@ -12,7 +12,7 @@
 }                             
 
 .sessions {
-  padding-top: 100px;
+  padding-top: 20px;
   padding-left: 360px;
   margin: 0 auto;
   min-height: 837px;
@@ -30,6 +30,15 @@
 label {
   margin-bottom: 0;
   margin-top: 10px;
+}
+
+ul {
+  padding: 0;
+}
+
+#error_explanation li {
+  list-style: none;
+  color: red;
 }
 
                                         // application.html.erb

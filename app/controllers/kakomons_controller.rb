@@ -16,14 +16,14 @@ class KakomonsController < ApplicationController
     end
   end
 
-  def new
-    @kakomon = Kakomon.new
-  end
-
   def show
     @kakomon = Kakomon.find(params[:id])
     @comments = @kakomon.comments
     @comment = Comment.new
+  end
+
+  def new
+    @kakomon = Kakomon.new
   end
   
   def create
@@ -37,26 +37,11 @@ class KakomonsController < ApplicationController
     end
   end
 
-  def edit
-    @kakomon = Kakomon.find(params[:id])
-  end
-
-  def update
-    kakomon = Kakomon(params[:id])
-    kakomon.update(kakomon_params)
-    if kakomon.save
-      flash[:notice] = "更新されました"
-      redirect_to kakomon_path(kakomon)
-    else
-      render :edit
-    end
-  end
-
   def destroy
     kakomon = Kakomon.find(params[:id])
     kakomon.destroy
     flash[:notice] = "削除されました"
-    redirect_to kakomon_path(kakomon)
+    redirect_to user_path(current_user)
   end
 
   private

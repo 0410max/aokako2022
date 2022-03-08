@@ -7,9 +7,8 @@ require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
-require("home/top");
 require("kakomon/main");
-require('kakomon/index')
+require('kakomon/show');
 require('user/follow');
 require("jquery")
 

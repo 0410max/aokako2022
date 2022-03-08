@@ -8,3 +8,10 @@ ja:
         email: Eメール
         remember_me: 次回から自動でログイン
         introduction: 自己紹介
+      kakomon:
+        image: 画像
+        year: 年度
+        prof: 教授名
+        comment: コメント
+        sub: 科目名
+        

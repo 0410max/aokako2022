@@ -2,8 +2,7 @@
   <div class='col-md-10 sessions'>
     <div class='sessions-content'>
       <h2>ログイン</h2>
-      <%= form_with model: @user, url: user_session_path do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_with model: @user, url: user_session_path,local: true do |f| %>
 
         <div class="field">
           <%= f.label :number %><br />
@@ -22,6 +21,7 @@
         <% end %>
 
         <div class="actions">
+          <%= render "devise/shared/error_messages", resource: resource %>
           <%= f.submit "ログイン" %>
         </div>
       <% end %>

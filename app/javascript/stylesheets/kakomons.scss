@@ -10,29 +10,6 @@
   padding-left: 50px;
 }                    
 
-
-.index-modal-bg {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-}
-
-.index-modal {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
 .kakomons-index-profile-image:hover {
   text-decoration: none;
 }
@@ -83,6 +60,12 @@
 .comment-new {
   width: 350px;
   height: 100px;
+  resize: none;
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
 }
 
 .kakomon-submit {
@@ -107,29 +90,6 @@
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-}
-
-.index-modal-bg {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.8);
-}
-
-.modal-content {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-  width: 80%;
-  max-width: 300px;
-  padding: 50px;
-  background-color: #fff;
-  z-index: 2;
 }
 
 .index-kakomon-content {
@@ -271,6 +231,77 @@
   display: flex;
 }                      
 
+// モーダル
+.index-modal-bg {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.index-modal {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+  background-color: #fff;
+  border: none;
+  text-align: center;
+}
+
+.no_scroll {
+  overflow: hidden;
+}
+
+.kakomon-delete {
+  padding: 10px;
+  border-bottom: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+
+.kakomon-delete-link {
+  color:#ed4956;
+}
+
+.kakomon-delete-link:hover {
+  color:#ed4956;
+  text-decoration: none;
+}
+
+.kakomon-edit {
+  padding: 10px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.kakomon-edit-link{
+  color: black;
+}
+
+.kakomon-edit-link:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.kakomon-report {
+  padding: 10px;
+  font-weight: bold;
+  color:#ed4956;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.index-modal-close-button {
+  padding: 10px;
+}
+
 // イメージ
 .kakomons-show-image {
   border: 1px solid #dbdbdb;
@@ -335,6 +366,17 @@
   top: 10px;
 }
 
+.comment-scroll {
+  height: 607px;
+  overflow: scroll;
+}
+
+.no-comment {
+  color: gray;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
 .kakomon-comment-content-top {
   margin: 10px;
 }
@@ -345,7 +387,7 @@
 }
 
 .kakomon-comment-name {
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .other-user-comment {
@@ -401,6 +443,7 @@
   border: none;
   color: #0095f6;
   font-weight: bold;
+  opacity: 0.5;
 }
 
 

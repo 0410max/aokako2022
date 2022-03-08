@@ -7,11 +7,6 @@
     <% end %>
   </div>
 
-  <% #モーダルbg %>
-  <div class='index-modal-bg'></div>
-
-  
-
   <div class='col-md-10 pt-3 kakomon-index'>
       <% @kakomons.each do |kakomon| %>
         <div class='index-kakomon-content'>
@@ -33,8 +28,6 @@
           <div class='article-bottom'>
             科目 : <%= kakomon.sub %><br>
             年度 : <%= kakomon.year %><br>
-            学部 : <%= @dep %><br>
-            学科 : <%= @cor %><br>
             教授 : <%= kakomon.prof %><br>
             <% unless kakomon.comment === '' %>
             <% end %>
