@@ -9,4 +9,5 @@ class Kakomon < ApplicationRecord
   validates :prof, presence:true
   validates :comment,length:{maximum: 200}
 
+
 end

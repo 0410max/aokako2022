@@ -15,9 +15,6 @@ class User < ApplicationRecord
   has_many :rooms, through: :room_users
   has_many :messages
 
-  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
-  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
-
   has_one_attached :profile_image
 
   validates :name,presence:true,length: {maximum: 10},uniqueness: true,format:{with:/\A[a-zA-Z0-9]+\z/}
