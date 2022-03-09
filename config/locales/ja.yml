@@ -14,4 +14,11 @@ ja:
         prof: 教授名
         comment: コメント
         sub: 科目名
+  views:
+      pagination:
+        first: '最初'
+        last: '最後'
+        previous: '前'
+        next: '次'
+        truncate: '...'
         

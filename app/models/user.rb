@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+         
   has_many :kakomons,dependent: :destroy
   has_many :comments,dependent: :destroy
   has_many :favorites,dependent: :destroy
@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :room_users
   has_many :rooms, through: :room_users
   has_many :messages
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   has_one_attached :profile_image
 

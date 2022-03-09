@@ -13,7 +13,5 @@ Rails.application.routes.draw do
   end
   resources :messages, only: [:create,:destroy]
   resources :rooms, only: [:create,:show,:index]
-  resources :activities, only: [:index] do
-    patch :read, on: :member
-  end
+  resources :notifications,only:[:index]
 end

@@ -11,6 +11,32 @@
                     <% end %>
             <% end %>
 
+            <div class='message-area'>
+                <% if @messages.present? %>
+                    <div class='message-wrapper'>
+                        <% @messages.each do |m| %>
+                            <% if m.user_id == current_user.id %>
+                                <div class='current_user-wrapper'>
+                                    <div class="current_user fukidasi">
+                                        <%= safe_join(m.message.split("\n"),tag(:br)) %>
+                                        <span class='current_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%-S") %></span>
+                                    </div>
+                                </div>
+                            <% else %>
+                                <%= image_tag m.user.get_profile_image,size:'30x30',class:'rooms-show-profile-image' %>
+                                <div class="visited_user fukidasi">
+                                    <%= safe_join(m.message.split("\n"),tag(:br)) %>
+                                    <span class='visited_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%S") %></span>
+                                </div>
+                                <br />
+                            <% end %>
+                        <% end %>   
+                    </div>
+                <% else %>
+                    <p>メッセージはまだありません</p>
+                <% end %>
+            </div>
+
             <div class='rooms-show-form'>
                 <%= form_with model: @message, local: true do |f| %>
                     <%= f.text_area :message, placeholder: "メッセージを入力してください",class:'message-text-area' %>
@@ -18,28 +44,6 @@
                     <%= f.submit '送信',class:'message-submit' %>
                 <% end %>
             </div>
-
-            <div class='message-area'>
-                <% if @messages.present? %>
-                    <% @messages.each do |m| %>
-                        <div class='message-wrapper'>
-                            <table>
-                                <tr>
-                                    <td rowspan='2'><%= image_tag m.user.get_profile_image,size:'40x40',class:'message-profile-image' %></td>
-                                    <td>
-                                        <span><%= m.user.name %><span><br />
-                                        <span class='message-created-at'><%= m.created_at.strftime("%Y/%m/%d %H:%M") %></span>
-                                    </td>
-                                </tr>
-                            </table>
-                            <div class='message-content'><%= simple_format(m.message) %></div>
-                        </div>
-                    <% end %>  
-                <% else %>
-                    <p>メッセージはまだありません</p>
-                <% end %>
-            </div>
-
         </div>
     </div>
 </div>

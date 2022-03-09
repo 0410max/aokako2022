@@ -2,7 +2,6 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 
-                                          // devise/registraiton.html.erb
 .registrations {
   padding-top: 20px;
   padding-left: 360px;
@@ -63,7 +62,7 @@ ul {
   font-size: 27px;
   color: black;
   font-family: 'Apple Chancery';
-  margin-left: 220px;
+  margin-left: 250px;
   font-weight: bold;
 }
 
@@ -95,7 +94,7 @@ ul {
 
 .fa-house {
   color: black;
-  margin-left: 500px;
+  margin-left: 580px;
   font-size: 20px;
 }
 
@@ -146,22 +145,8 @@ ul {
 
 #body {
   background-color: #fafafa;
-  min-height: 630px;
+  min-height: 725px;
 }
-
-#footer {
-  background-color: #fafafa;
-}
-
-.footer {
-  width: 300px;
-  margin: 0 auto;
-  color: gray;
-  font-size: 13px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
 @media (max-width:1200px) {
   .aokako-font{
     margin-left: 200px;
