@@ -2,7 +2,7 @@ class KakomonsController < ApplicationController
   before_action :correct_user,only: [:edit, :update]
       
   def index
-    @kakomons = Kakomon.page(params[:page]).per(1).order(created_at: :desc)
+    @kakomons = Kakomon.page(params[:page]).per(10).order(created_at: :desc)
     @comment = Comment.new
   end
 

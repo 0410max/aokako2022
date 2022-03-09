@@ -221,23 +221,15 @@
 
 
 .pagenate {
-  margin-top: 30px;
+  width: 300px;
+  margin: 50px auto;
+  text-align: center;
 }
 
-.first-button {
+.page-number {
   border: 1px solid #dbdbdb;
-}
-
-.prev-button {
-  border: 1px solid #dbdbdb;
-}
-
-.next-button {
-  border: 1px solid #dbdbdb;
-}
-
-.last-button {
-  border: 1px solid #dbdbdb;
+  padding: 5px 10px;
+  font-size: 20px;
 }
 
 
