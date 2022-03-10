@@ -1,12 +1,7 @@
 <div class='container'>
   <div class="depSelector">
     <h3>過去問一覧</h3>
-    <%= form_with url: search_kakomons_path,method: :get, local: true do |f| %>
-      <%= f.text_field :sub,class:'search mb-2 mr-2',placeholder:'科目名' %>
-      <%= f.submit '検索する',class:'search-submit' %>
-    <% end %>
-    <input type="hidden" id="kakomonsCount" value="<%= @kakomonsCount %>">
-    <span class='no-kakomons-count'><span>
+    <%= render 'search' %>
   </div>
 
   <div class='col-md-10 pt-3 kakomon-index'>
@@ -14,7 +9,7 @@
       <div class='index-kakomon-content'>
         <div class='article-top'>
           <% #アイコン、名前 %>
-          <%= link_to user_path(kakomon.user),class:'kakomons-index-profile-image' do %>
+          <%= link_to user_path(kakomon.user),class:'index-profile-image-link' do %>
             <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
           <% end %>
           <span class='kakomon-user-name-top'><%= kakomon.user.name %></span>
@@ -22,9 +17,9 @@
         </div>
         <% # 画像 %>
         <div class='article-body'> 
-            <%= link_to kakomon_path(kakomon),class:'image-link' do %>
-              <%= image_tag kakomon.image,class:'kakomon-image-size' %>
-            <% end %>
+          <%= link_to kakomon_path(kakomon),class:'image-link' do %>
+            <%= image_tag kakomon.image,class:'kakomon-image-size' %>
+          <% end %>
         </div>
         <% #投稿の下部分 %>
         <div class='article-bottom'>

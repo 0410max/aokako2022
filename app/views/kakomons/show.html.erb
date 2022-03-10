@@ -4,22 +4,8 @@
             <div class='kakomons-show-content'>
                 <div class='kakomons-show-image'>
                     <% #モーダル %>
-                    <div class='index-modal-bg'></div>
-                    <div>
-                        <div class='index-modal'>
-                            <div class='modal-content'>
-                                <% if @kakomon.user === current_user %>
-                                    <div class='kakomon-delete'>
-                                        <%= link_to'削除する',kakomon_path(@kakomon),class:'kakomon-delete-link',method: :delete %>
-                                    </div>
-                                <% else %>
-                                    <div class='kakomon-report'>報告する</div>
-                                <% end %>
-                                <div class='index-modal-close-button'>キャンセル</div>
-                            </div>
-                        </div>
-                    </div>
-                    <%= image_tag @kakomon.image,class:'kakomon-image-size' %>
+                    <%= render 'modal'%>
+                    <%= image_tag @kakomon.image,class:'kakomons-show-image-size' %>
                 </div>
                 <div class='comment-wrapper'>
                     <% #アイコン、名前 %>   

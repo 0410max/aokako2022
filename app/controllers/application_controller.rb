@@ -3,11 +3,11 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!,except: [:top]
 
   def after_sign_in_path_for(resource)
-    kakomons_path
+    user_path(resource)
   end
 
   def after_log_in_path_for(resource)
-    kaokmons_path
+    user_path(resource)
   end
 
   def after_log_out_path_for(resource)
