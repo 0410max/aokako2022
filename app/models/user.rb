@@ -20,7 +20,8 @@ class User < ApplicationRecord
   has_one_attached :profile_image
 
   validates :name,presence:true,length: {maximum: 10},uniqueness: true,format:{with:/\A[a-zA-Z0-9]+\z/}
-  validates :number,presence:true,length: {is:8},uniqueness: true
+  validates :number,presence:true,uniqueness: true
+  validate :number_format
   validates :introduction,length: {maximum: 100}
 
   def favorited_by?(user)
@@ -41,6 +42,12 @@ class User < ApplicationRecord
 
   def email_required?
     false
+  end
+
+  def number_format
+    if number.slice(0) != 'a' ||number.length != 8 
+      errors.add(:number, "が不正です")
+    end
   end
 
 end

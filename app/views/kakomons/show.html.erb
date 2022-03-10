@@ -1,6 +1,6 @@
 <div class='conainer'>
     <div class='row'>
-        <div class='col-md-10 kakomons-show'>
+        <div class='col-md-9 kakomons-show'>
             <div class='kakomons-show-content'>
                 <div class='kakomons-show-image'>
                     <% #モーダル %>
@@ -24,7 +24,7 @@
                 <div class='comment-wrapper'>
                     <% #アイコン、名前 %>   
                     <div class='kakomons-show-user-info'>
-                        <%= link_to user_path(@kakomon.user),class:'kakomons-index-profile-image' do %>
+                        <%= link_to user_path(@kakomon.user),class:'index-profile-image-link' do %>
                             <%= image_tag @kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                         <% end %>
                         <span class='kakomons-show-user-name'><%= @kakomon.user.name %></span>
@@ -52,7 +52,9 @@
                                 <br />
                                 <% @comments.each do |comment| %>
                                     <div class='other-user-comment'>
-                                        <%= image_tag comment.user.get_profile_image,size:'30x30' %>
+                                        <%= link_to user_path(comment.user),class:'index-profile-image-link' do %>
+                                            <%= image_tag comment.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                                        <% end %>
                                         <span class='comment-user-name'><%= comment.user.name %></span>
                                         <div class='other-user-comment-content'>
                                             <%= simple_format(comment.comment) %>

@@ -4,6 +4,7 @@ class KakomonsController < ApplicationController
   def index
     @kakomons = Kakomon.page(params[:page]).per(10).order(created_at: :desc)
     @comment = Comment.new
+    @kakomonsCount = current_user.kakomons.count
   end
 
   def search

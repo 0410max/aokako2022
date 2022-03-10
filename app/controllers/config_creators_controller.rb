@@ -1,0 +1,3 @@
+class ConfigCreatersController < ApplicationController
+    
+end

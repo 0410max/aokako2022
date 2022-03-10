@@ -1,36 +1,39 @@
 <div class='container'>
-  <div class='row'>
-    <div class='col-md-10 registrations'>
-      <h2>新規登録</h2>
-      <%= form_with model: @user, url: user_registration_path,local: true, id: 'new_user', class: 'new_user' do |f| %>
+  <div class='col-md-10 registrations'>
+    <h3>新規登録</h3>
+    <%= form_with model: @user, url: user_registration_path,local: true, id: 'new_user', class: 'new_user' do |f| %>
 
-        <div class="field">
-          <label>ユーザーネーム(英数)</label><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-        </div>
+      <div class="field">
+        <label>ユーザーネーム(英数)</label><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
 
-        <div class="field">
-          <%= f.label :number %><br />
-          <%= f.text_field :number, autofocus: true, autocomplete: "number" %>
-        </div>
+      <div class='registrations-alert'>
+        --以下はcourse powerと同じです--
+      </div>
 
-        <div class="field">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
+      <div class="field">
+        <%= f.label :number %><br />
+        <%= f.text_field :number, autofocus: true, autocomplete: "number" %>
+      </div>
 
-        <div class="field">
-          <%= f.label :パスワード確認 %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
 
-        <div class="actions">
-          <%= render "devise/shared/error_messages", resource: resource %>  
-          <%= f.submit "新規登録" %>
-        </div>
-      <% end %>
-    </div>
+      <div class="field">
+        <%= f.label :パスワード確認 %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= render "devise/shared/error_messages", resource: resource %>  
+        <%= f.submit "新規登録" %>
+      </div>
+    <% end %>
   </div>
 </div>
+

@@ -9,7 +9,7 @@ require("@rails/activestorage").start();
 require("channels");
 require("kakomon/main");
 require('kakomon/show');
-require('user/follow');
+require('kakomon/index');
 require("jquery")
 
 import "jquery";

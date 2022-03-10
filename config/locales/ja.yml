@@ -5,6 +5,7 @@ ja:
         name: ユーザーネーム
         number: 学生番号
         password: パスワード
+        password_confirmation: パスワード確認
         email: Eメール
         remember_me: 次回から自動でログイン
         introduction: 自己紹介
