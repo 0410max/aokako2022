@@ -146,6 +146,11 @@
   margin-right: 10px;
 }
 
+.kakomons-index-image-size {
+    width: 425.5px;
+    height: 580px;
+}
+
 .comment-count {
   color: #8e8e8e;
   font-size: 15px;
@@ -325,9 +330,16 @@
 }
 
 // イメージ
-.kakomon-image-size {
-  width: 425.5px;
-  height: 580px;
+.kakomons-show-image {
+  border: 1px solid #dbdbdb;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  width: 45%;
+}
+
+.kakomons-show-image-size {
+  width: 100%;
+  height: 100%;
 }
 
 
