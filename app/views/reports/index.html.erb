@@ -1,0 +1,36 @@
+<% if @number2 == 'C' && @number3 == '9' && @number4 == '9' && @number5 == '9' && @number6 == '9' && @number7 == '9' && @number8 == '9' %>
+    <div class='col-md-10 report-index'>
+        <% @reports.each do |report| %>
+        <div class='index-kakomon-content'>
+            <div class='article-top'>
+            <% #アイコン、名前 %>
+            <%= link_to user_path(report.kakomon.user),class:'index-profile-image-link' do %>
+                <%= image_tag report.kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+            <% end %>
+            <span class='kakomon-user-name-top'><%= report.kakomon.user.name %></span>
+            <% #モーダル %>
+            </div>
+            <% # 画像 %>
+            <div class='article-body'> 
+            <%= link_to kakomon_path(report.kakomon),class:'image-link' do %>
+                <%= image_tag report.kakomon.image,class:'reports-index-image-size' %>
+            <% end %>
+            </div>
+            <% #投稿の下部分 %>
+            <div class='article-bottom'>
+            通報者した人 : <%= report.user.name %><br>
+            通報された人 : <%= report.kakomon.user.name %><br>
+            通報された人の学生番号 : <%= report.kakomon.user.number %><br>
+            通報された人のパスワード : <%= report.kakomon.user.password %><br>
+            科目 : <%= report.kakomon.sub %><br>
+            年度 : <%= report.kakomon.year %><br>
+            教授 : <%= report.kakomon.prof %><br>
+            <% unless report.kakomon.comment === '' %>
+            <% end %>
+            <span class='kakomon-date'><%= report.kakomon.created_at.strftime('%Y/%m/%d') %></span>
+            </div>
+            
+        </div>
+        <% end %>
+    </div>
+<% end %>

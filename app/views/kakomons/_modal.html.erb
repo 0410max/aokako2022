@@ -6,8 +6,15 @@
                 <div class='kakomon-delete'>
                     <%= link_to'削除する',kakomon_path(@kakomon),class:'kakomon-delete-link',method: :delete %>
                 </div>
+            <% elsif @number2 == 'C' && @number3 == '9' && @number4 == '9' && @number5 == '9' && @number6 == '9' && @number7 == '9' && @number8 == '9' %>
+                <div class='kakomon-delete'>
+                    <%= link_to'削除する',kakomon_path(@kakomon),class:'kakomon-delete-link',method: :delete %>
+                </div>
             <% else %>
-                <div class='kakomon-report'>報告する</div>
+                <%= form_with(model:[@kakomon,@report],local:true) do |f| %>
+                    <%= f.hidden_field :id, :value => @kakomon.id %>
+                    <%= f.submit '報告する',class:'kakomon-report' %>
+                <% end %>
             <% end %>
             <div class='index-modal-close-button'>キャンセル</div>
         </div>

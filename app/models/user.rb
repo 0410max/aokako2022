@@ -16,11 +16,13 @@ class User < ApplicationRecord
   has_many :messages
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+  has_many :reports,dependent: :destroy
 
   has_one_attached :profile_image
 
   validates :name,presence:true,length: {maximum: 10},uniqueness: true,format:{with:/\A[a-zA-Z0-9]+\z/}
   validates :number,presence:true,uniqueness: true
+  validate :number_confirmation
   validate :number_format
   validates :introduction,length: {maximum: 100}
 
@@ -44,9 +46,19 @@ class User < ApplicationRecord
     false
   end
 
+  def password_required?
+    false
+  end
+
   def number_format
     if number.slice(0) != 'a' ||number.length != 8 
       errors.add(:number, "が不正です")
+    end
+  end
+
+  def number_confirmation
+    if number_password != number_password_confirmation
+        errors.add(:number_password,"がパスワード確認と一致しません")
     end
   end
 

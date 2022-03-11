@@ -28,6 +28,10 @@ class UsersController < ApplicationController
     @number3 = @user.number.slice(2)
     @number4 = @user.number.slice(3)
     @number5 = @user.number.slice(4)
+    @number6 = @user.number.slice(5)
+    @number7 = @user.number.slice(6)
+    @number8 = @user.number.slice(7)
+
   end
 
 
@@ -41,6 +45,9 @@ class UsersController < ApplicationController
     @number3 = @user.number.slice(2)
     @number4 = @user.number.slice(3)
     @number5 = @user.number.slice(4)
+    @number6 = @user.number.slice(5)
+    @number7 = @user.number.slice(6)
+    @number8 = @user.number.slice(7)
     
   end
 
@@ -80,6 +87,9 @@ class UsersController < ApplicationController
     @number3 = @user.number.slice(2)
     @number4 = @user.number.slice(3)
     @number5 = @user.number.slice(4)
+    @number6 = @user.number.slice(5)
+    @number7 = @user.number.slice(6)
+    @number8 = @user.number.slice(7)
   end
 
   def followers
@@ -107,6 +117,9 @@ class UsersController < ApplicationController
     @number3 = @user.number.slice(2)
     @number4 = @user.number.slice(3)
     @number5 = @user.number.slice(4)
+    @number6 = @user.number.slice(5)
+    @number7 = @user.number.slice(6)
+    @number8 = @user.number.slice(7)
   end
 
 

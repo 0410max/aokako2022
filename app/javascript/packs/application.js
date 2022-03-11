@@ -20,6 +20,7 @@ import "../stylesheets/homes";
 import "../stylesheets/kakomons";
 import "../stylesheets/users";
 import "../stylesheets/rooms"
+import "../stylesheets/reports";
 import '@fortawesome/fontawesome-free/js/all';
 Rails.start()
 Turbolinks.start()
