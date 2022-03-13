@@ -11,7 +11,11 @@
                 <div class='kakomons-show-image'>
                     <% #モーダル %>
                     <%= render 'modal'%>
-                    <%= image_tag @kakomon.image,class:'kakomons-show-image-size' %>
+                    <% if @kakomon.images.attached? %>
+                        <% @kakomon.images.each do |image| %>
+                            <%= image_tag image,class:'kakomons-show-image-size' %>
+                        <% end %>
+                    <% end %>
                 </div>
                 <div class='comment-wrapper'>
                     <% #アイコン、名前 %>   

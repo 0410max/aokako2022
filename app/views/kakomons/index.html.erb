@@ -18,7 +18,11 @@
         <% # 画像 %>
         <div class='article-body'> 
           <%= link_to kakomon_path(kakomon),class:'image-link' do %>
-            <%= image_tag kakomon.image,class:'kakomons-index-image-size' %>
+            <% if kakomon.images.attached? %>
+              <% kakomon.images.each do |image| %>
+                <%= image_tag image,class:'kakomons-index-image-size' %>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
         <% #投稿の下部分 %>
