@@ -11,9 +11,9 @@ class KakomonsController < ApplicationController
     @comment = Comment.new
     if params[:sub].present?
       @kakomons = Kakomon.where('sub LIKE ?', "%#{params[:sub]}%")
+      @kakomons = @kakomons.page(params[:page]).per(10).order(created_at: :desc)
     else
       @kakomons = Kakomon.none
-      @no_kakomon = '該当する過去問はありません。'
     end
   end
 

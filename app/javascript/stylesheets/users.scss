@@ -13,8 +13,14 @@
     margin-left: 155px;
 }
 
+.no-user {
+    color: gray;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
 .user-index-table {
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 .user-followed {
@@ -78,7 +84,7 @@
 
 
 .td-profile-image {
-    width: 50px;
+    width: 100px;
     padding-right: 0;
 }
 
@@ -154,6 +160,19 @@
     border-radius: 3px;
     color: black;
     background-color: #fafafa;
+}
+
+.ban {
+    border: 1px solid #dbdbdb;
+    padding: 7px 10px;
+    border-radius: 3px;
+    color: black;
+    background-color: #fafafa;
+}
+
+.ban:hover {
+    text-decoration: none;
+    color: black;
 }
 
 .make-room:hover {
@@ -329,11 +348,34 @@
     margin-top: 20px;
 }
 
+#image { 
+    display: none;
+}
+
+.button {
+    display: block;
+    width: 110px;
+    text-align: center;
+    background-color: #ebebeb;
+    padding: 2px;
+    border-radius: 3px;
+    border: 1px solid gray;
+}
+
+.user-info label {
+    margin: 0;
+}
+
 .edit-user-name {
     width: 400px;
     height: 30px;
     border: 1px solid gray;
     border-radius: 3px;
+}
+
+.ban-exp {
+    color:gray;
+    font-size: 15px;
 }
 
 .edit-user-introduction{

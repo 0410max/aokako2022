@@ -6,10 +6,17 @@
         <%= render 'depCor',user:@user,number2:@number2,number3:@number3 %>
         <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
         <%= form_with model:@user,local:true do |f| %>
-          <p>プロフィール画像</p>
-          <%= f.file_field :profile_image,accept: "image/*" %>  
+          <p>プロフィール画像</p>          
+          <label for="image">
+            <span class="button">画像を選択</span><%= f.file_field :profile_image,accept: "image/*", id: "image" %>
+          </label>
+          <span id="file-name"></span>
           <p>ニックネーム</p>
           <%= f.text_field :name,class:'edit-user-name'%>
+          <% unless @user === current_user %>
+            <p>学生番号</p>
+            <%= f.text_field :number,class:'edit-user-name'%>
+          <% end %>
           <p>自己紹介(100文字以内)</p>
           <%= f.text_area :introduction,class:'edit-user-introduction' %>
           <br />
@@ -27,3 +34,4 @@
     </div>
   </div>
 </div>
+

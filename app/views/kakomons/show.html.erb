@@ -32,10 +32,13 @@
                     <% #コメント %>
                     <div class='comment-scroll'>
                         <% if @kakomon.comment === '' && @comments.count === 0 %>
-                            科目 : <%= @kakomon.sub %><br>
-                            年度 : <%= @kakomon.year %><br>
-                            教授 : <%= @kakomon.prof %><br>
-                            <div class='no-comment'>コメントはありません。</div>
+                            <div class='kakomon-exp'>
+                                科目 : <%= @kakomon.sub %><br>
+                                年度 : <%= @kakomon.year %><br>
+                                教授 : <%= @kakomon.prof %><br>
+                                <span class='kakomon-show-date'><%= @kakomon.created_at.strftime('%Y/%m/%d') %></span>
+                            </div>
+                            <div class='no-comment'>コメントはありません</div>
                         <% else %>
                             <div class='comment-index'>
                                 <div class='kakomon-comment-content-top'>   
@@ -79,3 +82,4 @@
         </div>
     </div>
 </div>
+

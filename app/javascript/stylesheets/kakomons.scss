@@ -125,10 +125,6 @@
   margin-right: 5px;
 }
 
-.kakomon-user-name-top {
-  margin-right: 313px;
-}
-
 .article-body {
   border-bottom: 1px solid #dbdbdb;
 }
@@ -147,7 +143,7 @@
 }
 
 .kakomons-index-image-size {
-    width: 425.5px;
+    width: 100%;
     height: 580px;
 }
 
@@ -399,19 +395,20 @@
   overflow: scroll;
 }
 
+.kakomon-exp {
+  padding: 10px;
+}
+
 .no-comment {
   color: gray;
   padding-top: 10px;
   padding-left: 10px;
 }
 
-.kakomon-comment-content-top {
-  margin: 10px;
-}
-
 .kakomon-comment-content {
-  margin-right: 15px;
-  margin-left: 15px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .kakomon-show-date {

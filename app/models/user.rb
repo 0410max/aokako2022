@@ -22,7 +22,6 @@ class User < ApplicationRecord
 
   validates :name,presence:true,length: {maximum: 10},uniqueness: true,format:{with:/\A[a-zA-Z0-9]+\z/}
   validates :number,presence:true,uniqueness: true
-  validate :number_confirmation
   validate :number_format
   validates :introduction,length: {maximum: 100}
 
@@ -51,14 +50,8 @@ class User < ApplicationRecord
   end
 
   def number_format
-    if number.slice(0) != 'a' ||number.length != 8 
+    if number.slice(0) != 'a' ||number.length != 8 || number.slice(5) == '5' || number.slice(5) == '6' || number.slice(5) == '7' || number.slice(5) == '8' || number.slice(5) == '9'
       errors.add(:number, "が不正です")
-    end
-  end
-
-  def number_confirmation
-    if number_password != number_password_confirmation
-        errors.add(:number_password,"がパスワード確認と一致しません")
     end
   end
 

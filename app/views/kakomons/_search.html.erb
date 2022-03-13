@@ -2,6 +2,8 @@
     <%= f.text_field :sub,class:'search mb-2 mr-2',placeholder:'科目名' %>
     <% if current_user.number.slice(3)==='2' && current_user.number.slice(4) === '2' %>
       <%= f.submit '検索する',class:'search-submit' %>
+    <% elsif current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
+      <%= f.submit '検索する',class:'search-submit' %>
     <% else %>
       <% if current_user.kakomons.count === 0 %>
         <span class='no-kakomon-search-submit'>検索する</span><br />

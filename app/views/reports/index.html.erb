@@ -16,12 +16,12 @@
                 <%= image_tag report.kakomon.image,class:'reports-index-image-size' %>
             <% end %>
             </div>
+        </div>
+        <div class='index-kakomon-content-right'>
             <% #投稿の下部分 %>
             <div class='article-bottom'>
             通報者した人 : <%= report.user.name %><br>
-            通報された人 : <%= report.kakomon.user.name %><br>
             通報された人の学生番号 : <%= report.kakomon.user.number %><br>
-            通報された人のパスワード : <%= report.kakomon.user.password %><br>
             科目 : <%= report.kakomon.sub %><br>
             年度 : <%= report.kakomon.year %><br>
             教授 : <%= report.kakomon.prof %><br>
