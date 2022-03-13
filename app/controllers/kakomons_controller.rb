@@ -57,7 +57,7 @@ class KakomonsController < ApplicationController
   private
 
   def kakomon_params
-    params.require(:kakomon).permit(:sub,:year,:prof,:comment,images:[])
+    params.require(:kakomon).permit(:image1,:image2,:image3,:sub,:year,:prof,:comment)
   end
 
   def correct_user

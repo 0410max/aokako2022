@@ -2,9 +2,9 @@ document.addEventListener("turbolinks:load", function () {
     $(function () {
         $('#image').on("change", function () {
         var file = this.files[0];
-        const fileName = document.getElementById("file-name");
+        const fileName = document.getElementById("kakomon-file-name");
         if (file != null) {
-            fileName.insertAdjacentHTML('afterbegin', file.name);
+            fileName.insertAdjacentHTML('afterbegin',file.name);
         }
         });
     });

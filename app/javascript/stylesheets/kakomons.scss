@@ -18,6 +18,9 @@
   text-decoration: none;
 }
 
+.file-name {
+  width: 300px;
+}
 
 .new-container {
   width: 500px; // スマホではここを400pxにする
@@ -331,6 +334,7 @@
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   width: 45%;
+  display: flex;
 }
 
 .kakomons-show-image-size {

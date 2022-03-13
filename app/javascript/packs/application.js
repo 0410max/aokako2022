@@ -8,10 +8,10 @@ require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
 require('kakomon/showComment');
-require('kakomon/showImage')
 require('kakomon/index');
+require('kakomon/edit');
 require('user/edit');
-require("jquery")
+require("jquery");
 
 import "jquery";
 import "popper.js";
@@ -23,7 +23,6 @@ import "../stylesheets/users";
 import "../stylesheets/rooms"
 import "../stylesheets/reports";
 import '@fortawesome/fontawesome-free/js/all';
-Rails.start()
 Turbolinks.start()
 global.FontAwesome.config.mutateApproach = 'sync'
 

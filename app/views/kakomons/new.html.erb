@@ -5,13 +5,12 @@
       <h3>新規投稿</h3>
 
       <%= form_with model:@kakomon,class:'kakomon-new',local: true do |f| %>
-
         <ul>
           <li class='mt-2'>画像 : 
             <label for="image">
-              <span class="button">画像を選択</span><%= f.file_field :images,accept: "image/*", id: "image",multiple:true %>
+              <span class="button">画像を選択</span><%= f.file_field :image1,accept: "image/*", id: "image" %>
             </label>
-            <span id="file-name"></span>
+            <span id="kakomon-file-name"></span>
           </li>
           <li class='mt-2'>
             年度  :

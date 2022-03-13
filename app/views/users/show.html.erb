@@ -87,18 +87,13 @@
                     <div class='show-kakomon-content'>
                         <div class='article-body'>
                             <%= link_to kakomon_path(kakomon) do %>
-                                <% if kakomon.images.attached? %>
-                                    <% kakomon.images.each do |image| %>
-                                        <%= image_tag image,size:'401x400',class:'kakomon-show-link' %>
-                                    <% end %>
-                                <% end %>
+                                <%= image_tag kakomon.image1,size:'401x400',class:'kakomon-show-link' %>
                             <% end %>
                         </div>
                         <div class='user-article-bottom'>
                             科目 : <%= kakomon.sub %><br>
                             年度 : <%= kakomon.year %><br>
                             教授 : <%= kakomon.prof %><br>
-                            
                             <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
                         </div>
                     </div>
