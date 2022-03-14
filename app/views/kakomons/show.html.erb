@@ -8,10 +8,19 @@
     <div class='row'>
         <div class='col-md-9 kakomons-show'>
             <div class='kakomons-show-content'>
-                <div class='kakomons-show-image'>
-                    <% #モーダル %>
-                    <%= render 'modal'%>
-                    <%= image_tag @kakomon.image1,class:'kakomons-show-image-size' %>
+                <% #モーダル %>
+                <%= render 'modal'%>
+
+                <div class='slideshow'>
+                    <div class='slideshow-slides'>
+                        <span class='slide'><%= image_tag @kakomon.image1,class:'kakomons-show-image-size' %></span>
+                        <span class='slide'><%= image_tag @kakomon.image2,class:'kakomons-show-image-size' %></span>
+                        <span class='slide'><%= image_tag @kakomon.image3,class:'kakomons-show-image-size' %></span>
+                    </div>
+                </div>
+                <div class='slideshow-nav'>
+                    <span class='prev'><</span>
+                    <span class='next'>></span>
                 </div>
                 <div class='comment-wrapper'>
                     <% #アイコン、名前 %>   

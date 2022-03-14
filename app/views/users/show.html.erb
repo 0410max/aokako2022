@@ -48,6 +48,9 @@
                     <td>
                         <% if @user === current_user %>
                             <%= link_to 'ログアウト',destroy_user_session_path,class:'user-setting',method: :delete %>
+                            <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
+                                <%= link_to '報告',kakomon_reports_path(1),class:'reports' %>
+                            <% end %>
                         <% end %>
                     </td>
                 </tr>

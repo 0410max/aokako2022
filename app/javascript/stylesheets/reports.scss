@@ -21,3 +21,16 @@
     width: 45%;
     border: 1px solid #dbdbdb;
 }
+
+.reports {
+    padding: 5px 10px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    color: black;
+    margin-left: 3px;
+}
+
+.reports:hover {
+    text-decoration: none;
+    color: black;
+}

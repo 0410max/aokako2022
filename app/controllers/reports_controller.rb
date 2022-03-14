@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
     end
 
     def index
-        @reports = Report.all
+        @reports = Report.page(params[:page]).per(10).order(created_at: :desc)
         @number2 = current_user.number.slice(1)
         @number3 = current_user.number.slice(2)
         @number4 = current_user.number.slice(3)

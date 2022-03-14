@@ -19,7 +19,7 @@ class KakomonsController < ApplicationController
 
   def show
     @kakomon = Kakomon.find(params[:id])
-    @comments = @kakomon.comments
+    @comments = @kakomon.comments.order(created_at: :desc)
     @comment = Comment.new
     @report = Report.new
 

@@ -5,13 +5,19 @@
       <h3>新規投稿</h3>
 
       <%= form_with model:@kakomon,class:'kakomon-new',local: true do |f| %>
+        <span class='image-count'>画像は1度に3枚まで投稿できます</span>
         <ul>
-          <li class='mt-2'>画像 : 
-            <label for="image">
-              <span class="button">画像を選択</span><%= f.file_field :image1,accept: "image/*", id: "image" %>
-            </label>
-            <span id="kakomon-file-name"></span>
+          <li class='image1'>画像<span></span> : 
+              <%= f.file_field :image1,accept: "image/*" %>
           </li>
+          <li class='image2'>画像2 : 
+              <%= f.file_field :image2,accept: "image/*" %>
+          </li>
+          <li class='image3'>画像3 : 
+              <%= f.file_field :image3,accept: "image/*" %>
+          </li>
+          <li class='add-image2'>画像を追加する</li>
+          <li class='add-image3'>画像を追加する</li>
           <li class='mt-2'>
             年度  :
               <%= f.select :year, [["2010", "2010"],["2011", "2011"],["2012", "2012"],["2013", "2013"],
