@@ -17,10 +17,15 @@ class RoomsController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
+
+    if Read.create(room_id:@room.id,user_id:current_user.id)
+      @read = Read.update(checked:true)
+    end
   end
   
   def index
     @rooms = current_user.rooms.joins(:messages).includes(:messages).order("messages.created_at DESC")
+    @checked = @read
   end
   private
 

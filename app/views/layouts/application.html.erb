@@ -9,7 +9,6 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  
   <body>
     <div id='header'>
       <% if user_signed_in? %>
@@ -30,10 +29,10 @@
               <span>＋</span>
             <% end %>
           </li>
-          <li>
+          <li class='notifications'>
             <%= link_to rooms_path do %>
               <i class="fa-solid fa-comment"></i>
-            <% end %>
+            <% end %> 
           </li>
           <li>
             <%= link_to user_path(current_user) do %>

@@ -13,9 +13,15 @@
 
                 <div class='slideshow'>
                     <div class='slideshow-slides'>
-                        <span class='slide'><%= image_tag @kakomon.image1,class:'kakomons-show-image-size' %></span>
-                        <span class='slide'><%= image_tag @kakomon.image2,class:'kakomons-show-image-size' %></span>
-                        <span class='slide'><%= image_tag @kakomon.image3,class:'kakomons-show-image-size' %></span>
+                        <% if @kakomon.image1.attached? %>
+                            <span class='slide'><%= image_tag @kakomon.image1,class:'kakomons-show-image-size' %></span>
+                        <% end %>
+                        <% if @kakomon.image2.attached? %>
+                            <span class='slide'><%= image_tag @kakomon.image2,class:'kakomons-show-image-size' %></span>
+                        <% end %>
+                        <% if @kakomon.image3.attached? %>
+                            <span class='slide'><%= image_tag @kakomon.image3,class:'kakomons-show-image-size' %></span>
+                        <% end %>
                     </div>
                 </div>
                 <div class='slideshow-nav'>

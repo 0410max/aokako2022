@@ -3,6 +3,7 @@ class Room < ApplicationRecord
     has_many :users, through: :room_users
     has_many :messages
     has_many :nofifications, dependent: :destroy
+    has_many :reads,dependent: :destroy
     def get_profile_image
       unless profile_image.attached?
         file_path = Rails.root.join('app/assets/images/no-image.png')

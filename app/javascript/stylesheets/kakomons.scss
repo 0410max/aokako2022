@@ -6,9 +6,13 @@
 
 .kakomon-new-content {
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top: 70px;
   padding-left: 50px;
 }                    
+
+.kakomon-new-content h3 {
+  margin-left: 100px;
+}
 
 .image-count {
   font-size: 14px;
@@ -64,7 +68,7 @@
 }
 
 .new-container {
-  width: 500px; // スマホではここを400pxにする
+  width: 500px;
   margin: 0 auto;
 }
 
@@ -74,7 +78,7 @@
 
 
 .kakomon-new {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .new-container ul {
@@ -155,7 +159,7 @@
 
 .depSelector {
   width: 350px;
-  padding-top: 20px;
+  padding-top: 70px;
   margin: 0 auto;
 }
 
@@ -300,7 +304,7 @@
 
 .kakomons-show {
   margin-left: 270px;
-  padding-top: 30px;
+  padding-top: 80px;
 }                                
 
 .kakomons-show-content {
@@ -655,33 +659,24 @@
 }
 
 
-
 @media (max-width:1200px) {
   .index-kakomon-content {
-    width: 90%;
-    margin: 0 auto;
     flex-direction: column;
-    margin-top: 10px;
-  }
-}
-
-@media (max-width:1002px) {
-  .index-kakomon-content {
-    margin-left: 155px;
-  }
-}
-
-@media (max-width:802px) {
-  .index-kakomon-content {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
-    flex-direction: column;
     margin-top: 10px;
+    display: block;
   }
 }
 
-@media (max-width:576px) {
-
+@media (max-width:520px) {
+  .new-container {
+    width: 400px;
+    margin: 0 auto;
+  }
+  .kakomon-new-content {
+    padding-left: 20px;
+  }             
 }
 
 @media (max-width:450px) {
@@ -693,8 +688,18 @@
 }
 
 @media (max-width:430px) {
-  
+  .new-container {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .kakomon-new-content {
+    padding-left: 0;
+  }             
+  .comment-new {
+    width: 300px;
+  }
 }
+
 
 @media (max-width:420px) {
   

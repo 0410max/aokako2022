@@ -6,11 +6,15 @@
 
 .user-index {
     margin: 0 auto;
-    padding-top: 20px;
+    padding-top: 70px;
 }
 
 #depSelector {
     margin-left: 155px;
+}
+
+.dep-select {
+    margin-left: 200px;
 }
 
 .no-user {
@@ -137,7 +141,7 @@
 }
 
 .users-show-top {
-    padding-top: 30px;
+    padding-top: 70px;
 }
 
 
@@ -402,4 +406,40 @@
 .edit-user-submit:hover {
     background-color: #a9a9a9;
     color: white;
+}
+
+@media (max-width: 1000px){
+    .dep-select {
+        margin-left: 70px;
+    }
+}
+
+@media (max-width: 500px){
+    .dep-select {
+        margin-left: 40px;
+    }
+}
+
+@media (max-width: 400px){
+    .dep-select {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 340px){
+    .td-profile-image {
+        width: 70px;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 315px){
+    .td-profile-image {
+        width: 30px;
+        padding-right: 0;
+    }
+
+    .td-user-name {
+        width:50px;
+    }
 }

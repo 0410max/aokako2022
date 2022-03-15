@@ -3,7 +3,7 @@
 
 
 .registrations {
-  padding-top: 20px;
+  padding-top: 70px;
   padding-left: 50px;
   margin: 0 auto;
   min-height: 837px;
@@ -23,7 +23,7 @@
 }
 
 .sessions {
-  padding-top: 20px;
+  padding-top: 70px;
   padding-left: 50px;
   margin: 0 auto;
   min-height: 837px;
@@ -69,9 +69,13 @@ ul {
 }                  
                       
 #header {
-  height: 45px;
   width: 100%;
   border-bottom: 1px solid #dbdbdb;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  position: fixed;
+  z-index: 1;
+  background-color: #fafafa;
 }
 
 #header li {
@@ -154,7 +158,31 @@ ul {
   color: black;
   margin-left: 30px;
   font-size: 20px;
-  
+}
+
+.notifications {
+  position: relative;
+}
+
+.notifications-count {
+  color: white;
+  position: absolute;
+  z-index:2;
+  top: -9px;
+  right: -5px;
+  font-size: 10px;
+  padding: 0 5px;
+}
+
+.notifications-bg {
+  background-color: #ff4500;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 1;
+  top: -3px;
+  right: -8px;
+  padding: 0 8px;
+  height: 15px;
 }
 
 .nav-profile-image {
@@ -167,7 +195,7 @@ ul {
 
 #body {
   background-color: #fafafa;
-  min-height: 725px;
+  min-height: 900px;
 }
 @media (max-width:1200px) {
   .aokako-font{
@@ -306,6 +334,18 @@ ul {
   .signin-font {
     margin-left: 20px;
   }
+  .fa-user-plus{
+    margin-left: 20px;
+  }
+  .plus {
+    margin-left: 20px;
+  }
+  .fa-comment{
+    margin-left: 20px;
+  }
+  .nav-profile-image {
+    margin-left: 20px;
+  }
 }
 
 @media (max-width:410px) {
@@ -355,7 +395,7 @@ ul {
 
 @media (max-width:380px) {
   .fa-house {
-    margin-left: 50px;
+    margin-left: 30px;
   }
   .login-font{
     margin-left: 70px;
@@ -365,6 +405,87 @@ ul {
   }
   .signin-font {
     margin-left: 20px;
+  }
+}
+
+@media (max-width:340px) {
+  .aokako-font {
+    margin-left: 30px;
+  }
+  .fa-house {
+    margin-left: 40px;
+  }
+  .login-font{
+    margin-left: 100px;
+  }
+  .signin-font {
+    margin-left: 10px;
+  }
+  .fa-user-plus{
+    margin-left: 10px;
+  }
+  .plus {
+    margin-left: 10px;
+  }
+  .fa-comment{
+    margin-left: 10px;
+  }
+  .nav-profile-image {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width:320px) {
+  .aokako-font {
+    margin-left: 20px;
+  }
+  .fa-house {
+    margin-left: 40px;
+  }
+  .login-font{
+    margin-left: 100px;
+  }
+  .signin-font {
+    margin-left: 10px;
+  }
+  .fa-user-plus{
+    margin-left: 10px;
+  }
+  .plus {
+    margin-left: 10px;
+  }
+  .fa-comment{
+    margin-left: 10px;
+  }
+  .nav-profile-image {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width:300px) {
+  .aokako-font {
+    margin-left: 20px;
+  }
+  .fa-house {
+    margin-left: 20px;
+  }
+  .login-font{
+    margin-left: 100px;
+  }
+  .signin-font {
+    margin-left: 10px;
+  }
+  .fa-user-plus{
+    margin-left: 10px;
+  }
+  .plus {
+    margin-left: 10px;
+  }
+  .fa-comment{
+    margin-left: 10px;
+  }
+  .nav-profile-image {
+    margin-left: 10px;
   }
 }
 

@@ -12,6 +12,7 @@ require('kakomon/showImage');
 require('kakomon/index');
 require('kakomon/edit');
 require('user/edit');
+require('room/show');
 require("jquery");
 
 import "jquery";
