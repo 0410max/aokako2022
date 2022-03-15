@@ -163,6 +163,10 @@
   margin: 0 auto;
 }
 
+.depSelector h3 {
+  margin-left: 5px;
+}
+
 .article-top {
   padding:10px;
   border-bottom: 1px solid #dbdbdb;
@@ -246,11 +250,13 @@
 }
 
 .search {
-  width: 240px;
+  width: 198px;
   height: 30px;
   border: 1px solid gray;
   border-radius: 3px;
   outline: none;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .no-kakomon-search-submit {
@@ -262,12 +268,17 @@
   border-radius: 4px;
 }
 
+.no-kakomon-search-submit {
+  cursor:pointer;
+}
+
 .no-kakomon-message {
   font-size: 14px;
   color: red;
 }
 
 .search-submit {
+  display: none;
   padding: 0;
   color: white;
   background-color: #a9a9a9;
@@ -276,13 +287,21 @@
   border-radius: 4px;
 }
 
-.search-submit:hover {
-  filter: brightness(110%);
+.no-change-search {
+    color: white;
+    background-color: #a9a9a9;
+    padding: 5.5px 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.no-change-search:hover {
+  cursor: pointer;
 }
 
 .no-kakomon {
   margin-top: 30px;
-  margin-left: 30px;
+  margin-left: 300px;
   color:gray;
 }
 
@@ -345,7 +364,6 @@
 
 .kakomon-delete {
   padding: 10px;
-  border-bottom: 1px solid #dbdbdb;
   font-weight: bold;
 }
 
@@ -362,7 +380,8 @@
   padding: 10px;
   font-weight: bold;
   color:#ed4956;
-  border-bottom: 1px solid #dbdbdb;
+  background-color: white;
+  border: none;
 }
 
 .kakomon-report:hover {
@@ -372,6 +391,7 @@
 
 .index-modal-close-button {
   padding: 10px;
+  border-top: 1px solid #dbdbdb;
 }
 
 // イメージ
@@ -565,6 +585,10 @@
   position: absolute;
   right: 20px;
   top: 12px;
+}
+
+.kakomons-show-top-button:hover {
+  cursor: pointer;
 }
 
 .comment-scroll {

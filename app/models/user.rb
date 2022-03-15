@@ -21,8 +21,21 @@ class User < ApplicationRecord
   has_one_attached :profile_image
 
   validates :name,presence:true,length: {maximum: 10},uniqueness: true,format:{with:/\A[a-zA-Z0-9]+\z/}
-  validates :number,presence:true,uniqueness: true
+  validates :number,presence:true,uniqueness: true,format:{with:/\A[a-zA-Z0-9]+\z/}
   validate :number_format
+  validates :dep,presence:true
+  validates :cor,presence:true
+  validate :dep1
+  validate :dep2
+  validate :dep3
+  validate :dep4
+  validate :dep5
+  validate :dep6
+  validate :dep7
+  validate :dep8
+  validate :dep9
+  validate :depA
+  validate :depB
   validates :introduction,length: {maximum: 100}
 
   def favorited_by?(user)
@@ -63,6 +76,94 @@ class User < ApplicationRecord
         action: 'follow'
       )
       notification.save if notification.valid?
+    end
+  end
+
+  def dep1
+    if dep === '文学部'
+      unless number.slice(1) === '1'
+        errors.add(:dep, "が不正です")
+      end
+    end
+  end
+
+  def dep2
+    if dep === '経済学部'
+      unless number.slice(1) === '2'
+        errors.add(:dep, "が不正です")
+      end
+    end
+  end
+
+  def dep3
+    if dep === '法学部'
+      unless number.slice(1) === '3'
+        errors.add(:dep, "が不正です")
+      end
+    end
+  end
+
+  def dep4
+    if dep === '経営学部'
+      unless number.slice(1) === '4'
+        errors.add(:dep, "が不正です")
+      end
+    end
+  end
+
+  def dep5
+    if dep === '理工学部'
+      unless number.slice(1) === '5'
+        errors.add(:dep, "が不正です")
+      end
+    end
+  end
+
+  def dep6
+    if dep === '国際政治経済学部'
+      unless number.slice(1) === '6'
+        errors.add(:dep, "が不正です")
+      end
+    end
+  end
+
+  def dep7
+    if dep === '総合文化政策学部'
+      unless number.slice(1) === '7'
+        errors.add(:dep, "が不正です")
+      end
+    end
+  end
+
+  def dep8
+    if dep === '社会情報学部'
+      unless number.slice(1) === '8'
+        errors.add(:dep, "が不正です")
+      end
+    end
+  end
+
+  def dep9
+    if dep === '教育学部'
+      unless number.slice(1) === '9'
+        errors.add(:dep, "が不正です")
+      end
+    end
+  end
+
+  def depA
+    if dep === '地球社会共生学部'
+      unless number.slice(1) === 'A' || number.slice(1) === 'a'
+        errors.add(:dep, "が不正です")
+      end
+    end
+  end
+
+  def depB
+    if dep === 'コミュニティ人間科学部'
+      unless number.slice(1) === 'B' || number.slice(1) === 'b'
+        errors.add(:dep, "が不正です")
+      end
     end
   end
 

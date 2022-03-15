@@ -16,12 +16,13 @@
               <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
             <% end %>
             <span class='kakomon-user-name-top'><%= kakomon.user.name %></span>
-            <% #モーダル %>
           </div>
           <% # 画像 %>
           <div class='article-body'> 
-            <%= link_to kakomon_path(kakomon),class:'image-link' do %>
-              <%= image_tag kakomon.image,class:'kakomons-index-image-size' %>
+            <% if kakomon.image1.attached? %>
+              <%= link_to kakomon_path(kakomon),class:'image-link' do %>
+                <%= image_tag kakomon.image1,class:'kakomons-index-image-size' %>
+              <% end %>
             <% end %>
           </div>
           <% #投稿の下部分 %>

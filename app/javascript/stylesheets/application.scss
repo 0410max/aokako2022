@@ -14,12 +14,7 @@
   color: gray;
   padding-top: 20px;
   padding-bottom: 10px;
-  margin-left: -43px;
-}
-
-.cor_first {
-  height: 30px;
-  width: 230px;
+  margin-left: -20px;
 }
 
 .sessions {
@@ -60,6 +55,11 @@ ul {
 
 #error_explanation li {
   color: red;
+}
+
+.text-field_width {
+  width: 230px;
+  height: 30px;
 }
 
                                         // application.html.erb

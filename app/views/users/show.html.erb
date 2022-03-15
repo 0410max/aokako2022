@@ -7,69 +7,7 @@
 <div class='container'>
     <div class='col-md-10 users-show'>
         <div class='users-show-top'>
-            <table>
-                <tr>
-                    <td rowspan='5'><%= image_tag @user.get_profile_image,size:'150x150',class:'show-profile-image' %></td>
-                </tr>
-                <tr>
-                    <td class='td-user-name'><span class='show-user-name'><%= @user.name %></span></td>
-                    <td>
-                        <% if @user === current_user %>
-                            <%= link_to 'プロフィールを編集',edit_user_path(@user),class:'user-setting' %>
-                        <% else %>
-                            <% unless @user.id == current_user.id %>    
-                                <% if @haveRoom == true %>    
-                                    <%= link_to "メッセージを送信",room_path(@roomId),class:'make-room' %>
-                                    <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                                        <%= link_to 'BAN',edit_user_path(@user),class:'ban' %>
-                                    <% end %>
-                                <% else %>
-                                    <%= form_with model: @room,local: true do |f|%>   
-                                        <%= fields_for @RoomUser do |r| %>  
-                                            <%= r.hidden_field :user_id, value: @user.id %>  
-                                        <% end %>
-                                        <%= f.submit "メッセージを送信",class:'make-room' %>
-                                        <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                                            <%= link_to 'BAN',edit_user_path(@user),class:'ban' %>
-                                        <% end %>
-                                    <% end %>
-                                    <% end %>
-                            <% end %>
-                        <% end %>
-                    </td>
-                </tr>
-                <tr>
-                    <td class='dep-width' height='40'>
-                        <%= render 'depCor',user:@user,number2:@number2,number3:@number3,number4:@number4,number5:@number5,number6:@number6,number7:@number7,number8:@number8 %>
-                        <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
-                        <%= @user.year %><br /><%= @user.dep %><br /><%= @user.cor %>
-
-                    </td>
-                    <td>
-                        <% if @user === current_user %>
-                            <%= link_to 'ログアウト',destroy_user_session_path,class:'user-setting',method: :delete %>
-                            <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                                <%= link_to '報告',kakomon_reports_path(1),class:'reports' %>
-                            <% end %>
-                        <% end %>
-                    </td>
-                </tr>
-                <% unless @number2 == 'C' && @number3 == 'C' && @number4 == 'C' && @number5 == 'C' && @number6 == 'C' && @number7 == 'C' && @number8 == 'C' %>
-                    <tr>
-                        <td>
-                            <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                                <strong><%= @user.number %></strong>
-                                <%= @user.cor_first %>
-                            <% end %>
-                        </td>
-                    </tr>
-                <% end %>
-                <tr>
-                    <td colspan='2' class='td-introduction' height='40'>
-                        <%= simple_format(@user.introduction) %>
-                    </td>
-                </tr>
-            </table>
+            <%= render 'userInfo' %>
         </div>
             
         <div class='count-follower-following'>
@@ -83,7 +21,7 @@
         </div>
 
         <% if @user.kakomons.count === 0 %>
-            <span class='no-kakomon'>投稿はありません</span>
+            <span class='no-follower'>投稿はありません</span>
         <% else %>
             <div class='users-show-content mt-2'>
                 <% @kakomons.each do |kakomon| %>
@@ -105,4 +43,5 @@
         <% end %>
     </div>
 </div>
+
 

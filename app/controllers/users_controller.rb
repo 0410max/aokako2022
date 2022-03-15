@@ -123,8 +123,8 @@ class UsersController < ApplicationController
 
   def search
     if params[:dep].present?
-      @users = User.where('dep LIKE ?', "%#{params[:dep]}%")
-      @users = @users.page(params[:page]).per(30).order(created_at: :desc)
+      @users = User.where('dep LIKE ?', "#{params[:dep]}")
+      @users = @users.page(params[:page]).per(30)
     else
       @users = User.none
     end
@@ -134,7 +134,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:profile_image,:year,:introduction,:number)
+    params.require(:user).permit(:name,:profile_image,:year,:introduction,:number,:dep,:cor)
    end
 
   def correct_user

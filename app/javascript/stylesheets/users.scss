@@ -14,13 +14,64 @@
 }
 
 .dep-select {
-    margin-left: 200px;
+    margin-left: 180px;
+}
+
+.select {
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.no-kakomon-button{
+    color: white;
+    background-color: #a9a9a9;
+    padding: 5.5px 10px;
+    border: none;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.no-kakomon-button:hover{
+    cursor: pointer;
+}
+
+.dep-submit {
+    display: none;
+    padding: 0;
+    color: white;
+    background-color: #a9a9a9;
+    padding: 3px 10px;
+    border: none;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.show {
+    display: inline;
+}
+
+.dep-submit-first {
+    padding: 0;
+    color: white;
+    background-color: #a9a9a9;
+    padding: 5.5px 10px;
+    border: none;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.dep-submit-first:hover {
+    cursor: pointer;
+}
+
+.none{
+    display: none;
 }
 
 .no-user {
     color: gray;
     margin-top: 30px;
-    margin-left: 30px;
+    margin-left: 200px;
 }
 
 .user-index-table {
@@ -133,7 +184,7 @@
 }
 
 .dep-width {
-    width: 200px;
+    width: 210px;
 }
 
 .cor-width {
@@ -274,8 +325,12 @@
 }
 
 .user-introduction {
-    margin-top: 20px;
     padding-left: 20px;
+}
+
+.no-follower{
+    color: gray;
+    margin-left: 10px;
 }
 
 .users-show-content {

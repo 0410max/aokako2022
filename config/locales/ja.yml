@@ -9,7 +9,8 @@ ja:
         email: Eメール
         remember_me: 次回から自動でログイン
         introduction: 自己紹介
-        cor_first: 学科
+        dep: 学部
+        cor: 学科
       kakomon:
         image: 画像
         year: 年度
