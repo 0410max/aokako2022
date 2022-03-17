@@ -1,8 +1,10 @@
-<% if flash[:notice] %>
-    <div class='alert alert-secondary'>
-        <%= flash[:notice] %>
-    </div>
-<% end %>
+<div class='flash-message'>
+    <% if flash[:notice] %>
+        <div class='alert alert-secondary'>
+            <%= flash[:notice] %>
+        </div>
+    <% end %>
+</div>
 
 <div class='container'>
     <div class='col-md-10 users-show'>
@@ -23,12 +25,14 @@
         <% if @user.kakomons.count === 0 %>
             <span class='no-follower'>投稿はありません</span>
         <% else %>
-            <div class='users-show-content mt-2'>
+            <div class='users-show-content'>
                 <% @kakomons.each do |kakomon| %>
                     <div class='show-kakomon-content'>
                         <div class='article-body'>
-                            <%= link_to kakomon_path(kakomon) do %>
-                                <%= image_tag kakomon.image1,size:'401x400',class:'kakomon-show-link' %>
+                            <% if kakomon.image1.attached? %>
+                                <%= link_to kakomon_path(kakomon) do %>
+                                    <%= image_tag kakomon.image1,class:'kakomon-show-link' %>
+                                <% end %>
                             <% end %>
                         </div>
                         <div class='user-article-bottom'>

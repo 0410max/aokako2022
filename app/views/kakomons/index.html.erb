@@ -25,11 +25,6 @@
           科目 : <%= kakomon.sub %><br>
           年度 : <%= kakomon.year %><br>
           教授 : <%= kakomon.prof %><br>
-          <% unless kakomon.comments.count === 0 %>
-            <%= link_to kakomon_path(kakomon),class:'kakomon-show-link' do %>
-              <span class='comment-count'>コメント<%= kakomon.comments.count %>件をみる</span><br>
-            <% end %>
-          <% end %>
           <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
         </div>
         

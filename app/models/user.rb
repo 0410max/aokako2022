@@ -58,10 +58,6 @@ class User < ApplicationRecord
     false
   end
 
-  def password_required?
-    false
-  end
-
   def number_format
     if number.slice(0) != 'a' ||number.length != 8 || number.slice(5) == '5' || number.slice(5) == '6' || number.slice(5) == '7' || number.slice(5) == '8' || number.slice(5) == '9'
       errors.add(:number, "が不正です")
@@ -84,6 +80,9 @@ class User < ApplicationRecord
       unless number.slice(1) === '1'
         errors.add(:dep, "が不正です")
       end
+      unless cor === '英米文学科' || cor === 'フランス文学科' || cor === '日本文学科' || cor === '史学科' || cor === '比較芸術学科'
+        errors.add(:cor,"が不正です")
+      end
     end
   end
 
@@ -91,6 +90,9 @@ class User < ApplicationRecord
     if dep === '経済学部'
       unless number.slice(1) === '2'
         errors.add(:dep, "が不正です")
+      end
+      unless cor === '経済学科' || cor === '現代経済デザイン学科'
+        errors.add(:cor,"が不正です")
       end
     end
   end
@@ -100,6 +102,9 @@ class User < ApplicationRecord
       unless number.slice(1) === '3'
         errors.add(:dep, "が不正です")
       end
+      unless cor === '法学科' || cor === 'ヒューマンライツ学科'
+        errors.add(:cor,"が不正です")
+      end
     end
   end
 
@@ -107,6 +112,9 @@ class User < ApplicationRecord
     if dep === '経営学部'
       unless number.slice(1) === '4'
         errors.add(:dep, "が不正です")
+      end
+      unless cor === '経営学科' || cor === 'マーケティング学科'
+        errors.add(:cor,"が不正です")
       end
     end
   end
@@ -116,6 +124,9 @@ class User < ApplicationRecord
       unless number.slice(1) === '5'
         errors.add(:dep, "が不正です")
       end
+      unless cor === '物理科学科' || cor === '数理サイエンス学科' || cor === '化学・生命科学科' || cor === '電気電子工学科' || cor === '機械創造工学科' || cor === '経営システム工学科' || cor === '情報テクノロジー学科' 
+        errors.add(:cor,"が不正です")
+      end
     end
   end
 
@@ -123,6 +134,9 @@ class User < ApplicationRecord
     if dep === '国際政治経済学部'
       unless number.slice(1) === '6'
         errors.add(:dep, "が不正です")
+      end
+      unless cor === '国際政治学科' || cor === '国際経済学科' || cor === '国際コミュニケーション学科' 
+        errors.add(:cor,"が不正です")
       end
     end
   end
@@ -132,6 +146,9 @@ class User < ApplicationRecord
       unless number.slice(1) === '7'
         errors.add(:dep, "が不正です")
       end
+      unless cor === '総合文化政策学科'
+        errors.add(:cor,"が不正です")
+      end
     end
   end
 
@@ -140,13 +157,19 @@ class User < ApplicationRecord
       unless number.slice(1) === '8'
         errors.add(:dep, "が不正です")
       end
+      unless cor === '社会情報学科'
+        errors.add(:cor,"が不正です")
+      end
     end
   end
 
   def dep9
-    if dep === '教育学部'
+    if dep === '教育人間科学部'
       unless number.slice(1) === '9'
         errors.add(:dep, "が不正です")
+      end
+      unless cor === '教育学科' || cor === '心理学科'
+        errors.add(:cor,"が不正です")
       end
     end
   end
@@ -156,6 +179,9 @@ class User < ApplicationRecord
       unless number.slice(1) === 'A' || number.slice(1) === 'a'
         errors.add(:dep, "が不正です")
       end
+      unless cor === '地球社会共生学科'
+        errors.add(:cor,"が不正です")
+      end
     end
   end
 
@@ -163,6 +189,9 @@ class User < ApplicationRecord
     if dep === 'コミュニティ人間科学部'
       unless number.slice(1) === 'B' || number.slice(1) === 'b'
         errors.add(:dep, "が不正です")
+      end
+      unless cor === 'コミュニティ人間科学科'
+        errors.add(:cor,"が不正です")
       end
     end
   end

@@ -1,62 +1,127 @@
-<table>
-    <tr>
-        <td rowspan='5'><%= image_tag @user.get_profile_image,size:'150x150',class:'show-profile-image' %></td>
-    </tr>
-    <tr>
-        <td class='td-user-name'><span class='show-user-name'><%= @user.name %></span></td>
-        <td>
-            <% if @user === current_user %>
-                <%= link_to 'プロフィールを編集',edit_user_path(@user),class:'user-setting' %>
-            <% else %>
-                <% unless @user.id == current_user.id %>    
-                    <% if @haveRoom == true %>    
-                        <%= link_to "メッセージを送信",room_path(@roomId),class:'make-room' %>
-                        <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                            <%= link_to 'BAN',edit_user_path(@user),class:'ban' %>
-                        <% end %>
-                    <% else %>
-                        <%= form_with model: @room,local: true do |f|%>   
-                            <%= fields_for @RoomUser do |r| %>  
-                                <%= r.hidden_field :user_id, value: @user.id %>  
-                            <% end %>
-                            <%= f.submit "メッセージを送信",class:'make-room' %>
+<div class='max-width-1200'>
+    <table>
+        <tr>
+            <td rowspan='3' class='td-users-show-profile-image'><%= image_tag @user.get_profile_image,class:'show-profile-image' %></td>
+        </tr>
+        <tr>
+            <td class='td-user-name'><span class='show-user-name'><%= @user.name %></span></td>
+        </tr>
+            <td class='td-user-setting'>
+                <% if @user === current_user %>
+                    <%= link_to 'プロフィールを編集',edit_user_path(@user),class:'user-setting' %>
+                <% else %>
+                    <% unless @user.id == current_user.id %>    
+                        <% if @haveRoom == true %>    
+                            <%= link_to "メッセージを送信",room_path(@roomId),class:'make-room' %>
                             <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
                                 <%= link_to 'BAN',edit_user_path(@user),class:'ban' %>
                             <% end %>
-                        <% end %>
-                        <% end %>
+                        <% else %>
+                            <%= form_with model: @room,local: true do |f|%>   
+                                <%= fields_for @RoomUser do |r| %>  
+                                    <%= r.hidden_field :user_id, value: @user.id %>  
+                                <% end %>
+                                <%= f.submit "メッセージを送信",class:'make-room' %>
+                                <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
+                                    <%= link_to 'BAN',edit_user_path(@user),class:'ban' %>
+                                <% end %>
+                            <% end %>
+                            <% end %>
+                    <% end %>
                 <% end %>
-            <% end %>
-        </td>
-    </tr>
-    <tr>
-        <td class='dep-width' height='40'>
-            <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
-            <%= @user.year %><br /><%= @user.dep %><br /><%= @user.cor %>
-
-        </td>
-        <td>
-            <% if @user === current_user %>
-                <%= link_to 'ログアウト',destroy_user_session_path,class:'user-setting',method: :delete %>
-                <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                    <%= link_to '報告',kakomon_reports_path(1),class:'reports' %>
-                <% end %>
-            <% end %>
-        </td>
-    </tr>
-    <% unless @number2 == 'C' && @number3 == 'C' && @number4 == 'C' && @number5 == 'C' && @number6 == 'C' && @number7 == 'C' && @number8 == 'C' %>
-        <tr>
-            <td>
-                <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                    <strong><%= @user.number %></strong>
-                    <%= @user.cor_first %>
+                &nbsp;
+            </td>
+            <td class='td-logout'>
+                <% if @user === current_user %>
+                    <span class='logout-wrapper'><%= link_to 'ログアウト',destroy_user_session_path,class:'logout',method: :delete %></span>
+                    <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
+                        <%= link_to '報告',kakomon_reports_path(1),class:'reports' %>
+                    <% end %>
                 <% end %>
             </td>
         </tr>
-    <% end %>
-    <tr>
-        <td colspan='2' class='td-introduction' height='40'>
-            <%= simple_format(@user.introduction) %>
-        </td>
-    </tr>
-</table>
+    </table>
+    <div class='users-info-wrapper'>
+        <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
+        <ul class='users-info'>
+            <% unless @user.year === '' %>
+                <li class='li-user-year'><%= @user.year %></li>
+            <% end %>
+            <li class='li-user-dep'><%= @user.dep %></li>
+            <li class='li-user-cor'><%= @user.cor %></li>
+        </ul>
+        <span class='user-introduction'><%= simple_format(@user.introduction) %></span>
+    </div>
+            
+</div>
+
+
+<div class='max-width-1000'>
+    <table>
+        <tr>
+            <td rowspan='4' class='td-users-show-profile-image'><%= image_tag @user.get_profile_image,class:'show-profile-image' %></td>
+        </tr>
+        <tr>
+            <td class='td-user-name-1000'><span class='show-user-name-1000'><%= @user.name %></span></td>
+        </tr>
+            <td class='td-user-setting-1000'>
+                <% if @user === current_user %>
+                    <%= link_to 'プロフィールを編集',edit_user_path(@user),class:'user-setting' %>
+                <% else %>
+                    <% unless @user.id == current_user.id %>    
+                        <% if @haveRoom == true %>    
+                            <%= link_to "メッセージを送信",room_path(@roomId),class:'make-room' %>
+                            <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
+                                <%= link_to 'BAN',edit_user_path(@user),class:'ban' %>
+                            <% end %>
+                        <% else %>
+                            <%= form_with model: @room,local: true do |f|%>   
+                                <%= fields_for @RoomUser do |r| %>  
+                                    <%= r.hidden_field :user_id, value: @user.id %>  
+                                <% end %>
+                                <%= f.submit "メッセージを送信",class:'make-room' %>
+                                <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
+                                    <%= link_to 'BAN',edit_user_path(@user),class:'ban' %>
+                                <% end %>
+                            <% end %>
+                            <% end %>
+                    <% end %>
+                <% end %>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td class='td-logout'>
+                <% if @user === current_user %>
+                    <%= link_to 'ログアウト',destroy_user_session_path,class:'logout',method: :delete %>
+                    <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
+                        <%= link_to '報告',kakomon_reports_path(1),class:'reports' %>
+                    <% end %>
+                <% end %>
+            </td>
+        </tr>
+    </table>
+    <div class='users-info-wrapper'>
+        <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
+        <div class='users-info-1000'>
+            <ul>
+                <li><%= @user.year %></li>
+                <li><%= @user.dep %></li>
+                <li><%= @user.cor %></li>
+            </ul>
+        </div>
+        <%= simple_format(@user.introduction) %>
+    </div>
+            
+</div>
+
+
+
+
+
+
+
+
+
+
+

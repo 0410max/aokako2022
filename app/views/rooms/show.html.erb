@@ -1,6 +1,6 @@
 <div class='container'>
     <div class='row'>
-        <div class='col-md-6 rooms-show'>
+        <div class='col-md-10 rooms-show'>
             <% @RoomUsers.each do |r| %> 
                 <% unless r.user.name === current_user.name %>
                     <%= link_to rooms_path,class:'back-rooms-index-link' do %>
