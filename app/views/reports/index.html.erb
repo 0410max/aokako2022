@@ -1,7 +1,7 @@
 <% if @number2 == 'C' && @number3 == 'C' && @number4 == 'C' && @number5 == 'C' && @number6 == 'C' && @number7 == 'C' && @number8 == 'C' %>
     <div class='col-md-10 report-index'>
         <% @reports.each do |report| %>
-            <div class='index-kakomon-content'>
+            <div class='index-report-content'>
                 <div class='article-top'>
                     <% #アイコン、名前 %>
                     <%= link_to user_path(report.kakomon.user),class:'index-profile-image-link' do %>

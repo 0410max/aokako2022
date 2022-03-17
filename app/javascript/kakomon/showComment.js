@@ -14,7 +14,13 @@ $(function(){
 
     $('.kakomons-show-text-area')
         .on('input',function(){
-            $('.kakomons-show-comment-submit').css('opacity',1)
+            $('.kakomons-show-comment-submit,.kakomons-show-comment-submit-1000').css('opacity',1)
         });
+
+    $('.kakomons-show-comment-submit-1000')
+        .on('click',function(){
+            $(document).scrollTop('99999999');
+        });
+    
 });    
 });

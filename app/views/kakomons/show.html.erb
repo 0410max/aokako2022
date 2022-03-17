@@ -4,94 +4,209 @@
     </div>
 <% end %>
 
-<div class='conainer'>
-    <div class='row'>
-        <div class='col-md-9 kakomons-show'>
-            <div class='kakomons-show-content'>
-                <% #モーダル %>
-                <%= render 'modal'%>
+<div class='kakomons-show-wrapper'>
+    <div class='conainer'>
+        <div class='row'>
+            <div class='col-md-9 kakomons-show'>
+                <div class='kakomons-show-content'>
+                    <% #モーダル %>
+                    <%= render 'modal'%>
 
-                <div class='slideshow'>
-                    <div class='slideshow-slides'>
-                        <% if @kakomon.image1.attached? %>
-                            <span class='slide'><%= image_tag @kakomon.image1,class:'kakomons-show-image-size' %></span>
-                        <% end %>
-                        <% if @kakomon.image2.attached? %>
-                            <span class='slide'><%= image_tag @kakomon.image2,class:'kakomons-show-image-size' %></span>
-                        <% end %>
-                        <% if @kakomon.image3.attached? %>
-                            <span class='slide'><%= image_tag @kakomon.image3,class:'kakomons-show-image-size' %></span>
-                        <% end %>
-                    </div>
-                </div>
-                <div class='slideshow-nav'>
-                    <span class='prev'><</span>
-                    <span class='next'>></span>
-                </div>
-                <div class='comment-wrapper'>
-                    <% #アイコン、名前 %>   
-                    <div class='kakomons-show-user-info'>
-                        <%= link_to user_path(@kakomon.user),class:'index-profile-image-link' do %>
-                            <%= image_tag @kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-                        <% end %>
-                        <span class='kakomons-show-user-name'><%= @kakomon.user.name %></span>
-                        <% if @kakomon.user.followed_by?(current_user) %>
-                            <%= link_to'フォロー中',user_relationships_path(@kakomon.user),method: :delete,class:'kakomons-show-user-following' %>
-                        <% else %>
-                            <% unless @kakomon.user == current_user %>
-                                <%= link_to 'フォローする',user_relationships_path(@kakomon.user),method: :post,class:'kakomons-show-user-followed' %>
+                    <div class='slideshow'>
+                        <div class='slideshow-slides'>
+                            <% if @kakomon.image1.attached? %>
+                                <span class='slide'><%= image_tag @kakomon.image1,class:'kakomons-show-image-size' %></span>
                             <% end %>
-                        <% end %>
-                        <span class='kakomons-show-top-button'><i class="fa-solid fa-bars"></i></span>
+                            <% if @kakomon.image2.attached? %>
+                                <span class='slide'><%= image_tag @kakomon.image2,class:'kakomons-show-image-size' %></span>
+                            <% end %>
+                            <% if @kakomon.image3.attached? %>
+                                <span class='slide'><%= image_tag @kakomon.image3,class:'kakomons-show-image-size' %></span>
+                            <% end %>
+                        </div>
                     </div>
-                    <% #コメント %>
-                    <div class='comment-scroll'>
-                        <% if @kakomon.comment === '' && @comments.count === 0 %>
-                            <div class='kakomon-exp'>
-                                科目 : <%= @kakomon.sub %><br>
-                                年度 : <%= @kakomon.year %><br>
-                                教授 : <%= @kakomon.prof %><br>
-                                <span class='kakomon-show-date'><%= @kakomon.created_at.strftime('%Y/%m/%d') %></span>
+                    <div class='slideshow-nav'>
+                        <span class='prev'><</span>
+                        <span class='next'>></span>
+                    </div>
+
+                    <div class='comment-wrapper'>
+                        <% #アイコン、名前 %>   
+                        <div class='kakomons-show-user-info'>
+                            <%= link_to user_path(@kakomon.user),class:'index-profile-image-link' do %>
+                                <%= image_tag @kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                            <% end %>
+                            <span class='kakomons-show-user-name'><%= @kakomon.user.name %></span>
+                            <% if @kakomon.user.followed_by?(current_user) %>
+                                <%= link_to'フォロー中',user_relationships_path(@kakomon.user),method: :delete,class:'kakomons-show-user-following' %>
+                            <% else %>
+                                <% unless @kakomon.user == current_user %>
+                                    <%= link_to 'フォローする',user_relationships_path(@kakomon.user),method: :post,class:'kakomons-show-user-followed' %>
+                                <% end %>
+                            <% end %>
+                            <span class='kakomons-show-top-button'><i class="fa-solid fa-bars"></i></span>
+                        </div>
+                        <% #コメント %>
+                        <div class='comment-scroll'>
+                            <% if @kakomon.comment === '' && @comments.count === 0 %>
+                                <div class='kakomon-exp'>
+                                    科目 : <%= @kakomon.sub %><br>
+                                    年度 : <%= @kakomon.year %><br>
+                                    教授 : <%= @kakomon.prof %><br>
+                                    <span class='kakomon-show-date'><%= @kakomon.created_at.strftime('%Y/%m/%d') %></span>
+                                </div>
+                                <div class='no-comment'>コメントはありません</div>
+                            <% else %>
+                                <div class='comment-index'>
+                                    <div class='kakomon-comment-content-top'>   
+                                        <div class='kakomon-comment-content'>
+                                            科目 : <%= @kakomon.sub %><br>
+                                            教授 : <%= @kakomon.prof %><br>
+                                            年度 : <%= @kakomon.year %><br>
+                                            <%= simple_format(@kakomon.comment) %>
+                                            <span class='kakomon-show-date'><%= @kakomon.created_at.strftime('%Y/%m/%d') %></span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <% @comments.each do |comment| %>
+                                        <div class='other-user-comment'>
+                                            <%= link_to user_path(comment.user),class:'index-profile-image-link' do %>
+                                                <%= image_tag comment.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                                            <% end %>
+                                            <span class='comment-user-name'><%= comment.user.name %></span>
+                                            <div class='other-user-comment-content'>
+                                                <%= simple_format(comment.comment) %>
+                                                <span class='kakomon-date'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+                                                <% if comment.user === current_user %>
+                                                    <span class='delete-comment'><%= link_to '削除',kakomon_comment_path(comment.kakomon,comment),class:'delete-comment-link',method: :delete %></span>
+                                                <% end %>
+                                            </div>
+                                        </div>
+                                        <br />
+                                    <% end %>
+                                </div>
+                            <% end %>
+                        </div>
+
+                        <div class='kakomons-show-comment-new'>
+                            <%= form_with(model:[@kakomon,@comment], local: true) do |f| %>
+                                <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
+                                <%= f.submit "投稿する",class:'kakomons-show-comment-submit' %>
+                            <% end %>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class='max-width-1000'>
+    <div class='conainer'>
+        <div class='row'>
+            <div class='col-md-9 kakomons-show'>
+                <div class='kakomons-show-content-1000'>
+                    <% #モーダル %>
+                    <%= render 'modal'%>
+
+    
+                    <div class='comment-wrapper-1000'>
+                        <% #アイコン、名前 %> 
+                        <div class='kakomons-show-user-info-1000'>
+                            <%= link_to user_path(@kakomon.user),class:'index-profile-image-link' do %>
+                                <%= image_tag @kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                            <% end %>
+                            <span class='kakomons-show-user-name'><%= @kakomon.user.name %></span>
+                            <% if @kakomon.user.followed_by?(current_user) %>
+                                <%= link_to'フォロー中',user_relationships_path(@kakomon.user),method: :delete,class:'kakomons-show-user-following' %>
+                            <% else %>
+                                <% unless @kakomon.user == current_user %>
+                                    <%= link_to 'フォローする',user_relationships_path(@kakomon.user),method: :post,class:'kakomons-show-user-followed' %>
+                                <% end %>
+                            <% end %>
+                            <span class='kakomons-show-top-button'><i class="fa-solid fa-bars"></i></span>
+                        </div>
+
+                        <% #画像　%>
+                        <div class='slideshow-1000'>
+                            <div class='slideshow-slides'>
+                                <% if @kakomon.image1.attached? %>
+                                    <span class='slide'><%= image_tag @kakomon.image1,class:'kakomons-show-image-size-1000' %></span>
+                                <% end %>
+                                <% if @kakomon.image2.attached? %>
+                                    <span class='slide'><%= image_tag @kakomon.image2,class:'kakomons-show-image-size-1000' %></span>
+                                <% end %>
+                                <% if @kakomon.image3.attached? %>
+                                    <span class='slide'><%= image_tag @kakomon.image3,class:'kakomons-show-image-size-1000' %></span>
+                                <% end %>
                             </div>
-                            <div class='no-comment'>コメントはありません</div>
-                        <% else %>
-                            <div class='comment-index'>
+                        </div>
+                        <div class='slideshow-nav'>
+                            <span class='prev'><</span>
+                            <span class='next'>></span>
+                        </div>
+
+
+                        <% #コメント %>
+                        <% if @comments.count === 0 %>
+                            <div class='comment-scroll-1000'>
                                 <div class='kakomon-comment-content-top'>   
                                     <div class='kakomon-comment-content'>
                                         科目 : <%= @kakomon.sub %><br>
-                                        年度 : <%= @kakomon.year %><br>
                                         教授 : <%= @kakomon.prof %><br>
+                                        年度 : <%= @kakomon.year %><br>
                                         <%= simple_format(@kakomon.comment) %>
                                         <span class='kakomon-show-date'><%= @kakomon.created_at.strftime('%Y/%m/%d') %></span>
                                     </div>
                                 </div>
-                                <hr>
-                                <% @comments.each do |comment| %>
-                                    <div class='other-user-comment'>
-                                        <%= link_to user_path(comment.user),class:'index-profile-image-link' do %>
-                                            <%= image_tag comment.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-                                        <% end %>
-                                        <span class='comment-user-name'><%= comment.user.name %></span>
-                                        <div class='other-user-comment-content'>
-                                            <%= simple_format(comment.comment) %>
-                                            <span class='kakomon-date'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
-                                            <% if comment.user === current_user %>
-                                                <span class='delete-comment'><%= link_to '削除',kakomon_comment_path(comment.kakomon,comment),class:'delete-comment-link',method: :delete %></span>
-                                            <% end %>
-                                        </div>
+                                <div class='no-comment'>コメントはありません</div>
+                            </div>
+                        <% else %>
+                            <div class='comment-scroll-1000-no-comment'>
+                                <div class='kakomon-comment-content-top'>   
+                                    <div class='kakomon-comment-content'>
+                                        科目 : <%= @kakomon.sub %><br>
+                                        教授 : <%= @kakomon.prof %><br>
+                                        年度 : <%= @kakomon.year %><br>
+                                        <%= simple_format(@kakomon.comment) %>
+                                        <span class='kakomon-show-date'><%= @kakomon.created_at.strftime('%Y/%m/%d') %></span>
                                     </div>
-                                    <br />
-                                <% end %>
+                                </div>
+                                <div class='comment-index'>
+                                    <hr>
+                                    <% @comments.each do |comment| %>
+                                        <div class='other-user-comment'>
+                                            <%= link_to user_path(comment.user),class:'index-profile-image-link' do %>
+                                                <%= image_tag comment.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                                            <% end %>
+                                            <span class='comment-user-name'><%= comment.user.name %></span>
+                                            <div class='other-user-comment-content'>
+                                                <%= simple_format(comment.comment) %>
+                                                <span class='kakomon-date'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+                                                <% if comment.user === current_user %>
+                                                    <span class='delete-comment'><%= link_to '削除',kakomon_comment_path(comment.kakomon,comment),class:'delete-comment-link',method: :delete %></span>
+                                                <% end %>
+                                            </div>
+                                        </div>
+                                        <br />
+                                    <% end %>
+                                </div>
                             </div>
                         <% end %>
-                    </div>
 
-                    <div class='kakomons-show-comment-new'>
-                        <%= form_with(model:[@kakomon,@comment], local: true) do |f| %>
-                            <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
-                            <%= f.submit "投稿する",class:'kakomons-show-comment-submit' %>
-                        <% end %>
-                    </div> 
+                        <div class='kakomons-show-comment-new-1000'>
+                            <%= form_with(model:[@kakomon,@comment], local: true) do |f| %>
+                                <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
+                                <%= f.submit "投稿する",class:'kakomons-show-comment-submit-1000' %>
+                            <% end %>
+                        </div> 
+                    </div>
                 </div>
             </div>
         </div>
