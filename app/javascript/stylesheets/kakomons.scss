@@ -138,22 +138,20 @@
                           // index.html.erb
 
 .kakomon-index {
-  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
 }
 
 .index-kakomon-content {
-  flex:auto;
   width: 45%;
   border: 1px solid #dbdbdb;
   background-color: white;
   border-radius: 2px;
   margin-bottom: 20px;
-  max-width: 436px;
   position: relative;
   margin-right: 20px;
+  margin-top: 20px;
 }
 
 
@@ -535,7 +533,6 @@
 
 
 
-
 // コメント
 .comment-wrapper {
   border: 1px solid #dbdbdb;
@@ -684,12 +681,36 @@
 
 
 @media (max-width:1200px) {
-  .index-kakomon-content {
+  .kakomons-index-image-size {
+    height: 513px;
+  }
+}
+
+@media (max-width:1000px) {
+  .kakomons-index-image-size {
+    height: 352px;
+  }
+  .article-bottom {
+    padding: 3px 10px;
+  }
+  .article-top {
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width:770px) {
+  .kakomons-index-image-size {
+    height: 310px;
+  }
+}
+
+@media (max-width: 600px) {
+  .kakomon-index{
     flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
-    margin-top: 10px;
-    display: block;
+  }
+  .index-kakomon-content {
+    width: 90%;
+    margin: 10px auto;
   }
 }
 

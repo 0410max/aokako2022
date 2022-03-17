@@ -4,7 +4,7 @@
     <%= render 'search' %>
   </div>
 
-  <div class='col-md-10 pt-3 kakomon-index'>
+  <div class='col-md-10 kakomon-index'>
     <% @kakomons.each do |kakomon| %>
       <div class='index-kakomon-content'>
         <div class='article-top'>
@@ -14,7 +14,7 @@
           <% end %>
           <span class='kakomon-user-name-top'><%= kakomon.user.name %></span>
         </div>
-        <% # 画像 %>
+        <% #画像 %>
         <div class='article-body'> 
           <%= link_to kakomon_path(kakomon),class:'image-link' do %>
             <%= image_tag kakomon.image1,class:'kakomons-index-image-size' %>
