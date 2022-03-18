@@ -121,7 +121,7 @@ class User < ApplicationRecord
 
   def dep5
     if dep === '理工学部'
-      unless number.slice(1) === '5'
+      unless number.slice(1) === '5' || number.slice(1) === 'C'
         errors.add(:dep, "が不正です")
       end
       unless cor === '物理科学科' || cor === '数理サイエンス学科' || cor === '化学・生命科学科' || cor === '電気電子工学科' || cor === '機械創造工学科' || cor === '経営システム工学科' || cor === '情報テクノロジー学科' 

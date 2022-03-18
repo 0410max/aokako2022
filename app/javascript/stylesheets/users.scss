@@ -179,6 +179,10 @@
     margin: 0 auto;
 }
 
+.td-users-show-name {
+    width: 200px;
+}
+
 .td-introduction {
     height: 20px;
     margin: 0;
@@ -193,7 +197,7 @@
 }
 
 .td-logout {
-    width: 700px;
+    width: 150px;
 }
 
 .logout-wrapper {
@@ -361,7 +365,7 @@
 }
 
 .td-users-show-profile-image {
-    width: 600px;
+    width: 500px;
 }
 
 .show-profile-image {
@@ -408,8 +412,6 @@
     font-weight: 300;
     font-size: 40px;
     margin-right: 30px;
-    position: relative;
-    top: 10px;
 }
 
 .td-users-name {
@@ -420,10 +422,6 @@
 
 .user-article-bottom {
     padding: 10px;
-}
-
-.td-user-setting{
-    width: 200px;
 }
 
 .user-setting {
@@ -530,20 +528,51 @@
 }
 
 .td-user-name-1000 {
-    width: 300px;
+    width: 200px;
 }
 
 .td-user-setting-1000 {
     width: 300px;
+    height: 40px;
 }
 
 .td-logout {
-    width: 300px;
+    width: 110px;
+    position: relative;
+    bottom: 10px;
+}
+
+.td-logout-1000 {
+    width: 105px;
+    position: relative;
+    bottom: 10px;
+    height: 50px;
 }
 
 .users-info-1000 {
     display: flex;
 }
+
+.td-user-setting{
+    width: 175px;
+    position: relative;
+    bottom: 10px;
+}
+
+.td-manager {
+    position: relative;
+    bottom: 10px;
+    height: 50px;
+}
+
+.reports-1000 {
+    padding: 5px 10px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    color: black;
+    margin-left: 3px;
+}
+
 
 
 
@@ -608,12 +637,6 @@
     .show-user-name-1000 {
         font-weight: 300;
         font-size: 30px;
-    }
-    .user-setting {
-        padding: 3px 10px;
-    }
-    .logout {
-        padding: 3px 10px;
     }
     .users-info-wrapper {
         margin-left: 80px;  

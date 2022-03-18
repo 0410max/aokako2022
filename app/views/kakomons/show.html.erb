@@ -24,10 +24,10 @@
                                 <span class='slide'><%= image_tag @kakomon.image3,class:'kakomons-show-image-size' %></span>
                             <% end %>
                         </div>
-                    </div>
-                    <div class='slideshow-nav'>
-                        <span class='prev'><</span>
-                        <span class='next'>></span>
+                        <div class='slideshow-nav'>
+                            <span class='prev'><</span>
+                            <span class='next'>></span>
+                        </div>
                     </div>
 
                     <div class='comment-wrapper'>
@@ -110,7 +110,7 @@
 <div class='max-width-1000'>
     <div class='conainer'>
         <div class='row'>
-            <div class='col-md-9 kakomons-show'>
+            <div class='col-md-9 kakomons-show-1000'>
                 <div class='kakomons-show-content-1000'>
                     <% #モーダル %>
                     <%= render 'modal'%>
@@ -137,19 +137,37 @@
                         <div class='slideshow-1000'>
                             <div class='slideshow-slides'>
                                 <% if @kakomon.image1.attached? %>
-                                    <span class='slide'><%= image_tag @kakomon.image1,class:'kakomons-show-image-size-1000' %></span>
+                                    <span class='slide'><%= image_tag @kakomon.image1,class:'kakomons-show-image-size-1000'%></span>
                                 <% end %>
                                 <% if @kakomon.image2.attached? %>
-                                    <span class='slide'><%= image_tag @kakomon.image2,class:'kakomons-show-image-size-1000' %></span>
+                                    <span class='slide'><%= image_tag @kakomon.image2,class:'kakomons-show-image-size-1000'%></span>
                                 <% end %>
                                 <% if @kakomon.image3.attached? %>
-                                    <span class='slide'><%= image_tag @kakomon.image3,class:'kakomons-show-image-size-1000' %></span>
+                                    <span class='slide'><%= image_tag @kakomon.image3,class:'kakomons-show-image-size-1000'%></span>
                                 <% end %>
                             </div>
+                            <div class='slideshow-nav'>
+                                <span class='prev'><</span>
+                                <span class='next'>></span>
+                            </div>
                         </div>
-                        <div class='slideshow-nav'>
-                            <span class='prev'><</span>
-                            <span class='next'>></span>
+
+                        <div class='slideshow-420'>
+                            <div class='slideshow-slides'>
+                                <% if @kakomon.image1.attached? %>
+                                    <span class='slide'><%= image_tag @kakomon.image1,class:'kakomons-show-image-size-420'%></span>
+                                <% end %>
+                                <% if @kakomon.image2.attached? %>
+                                    <span class='slide'><%= image_tag @kakomon.image2,class:'kakomons-show-image-size-420'%></span>
+                                <% end %>
+                                <% if @kakomon.image3.attached? %>
+                                    <span class='slide'><%= image_tag @kakomon.image3,class:'kakomons-show-image-size-420'%></span>
+                                <% end %>
+                            </div>
+                            <div class='slideshow-nav'>
+                                <span class='prev-420'><</span>
+                                <span class='next-420'>></span>
+                            </div>
                         </div>
 
 

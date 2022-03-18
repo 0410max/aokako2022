@@ -31,7 +31,12 @@
                         <div class='article-body'>
                             <% if kakomon.image1.attached? %>
                                 <%= link_to kakomon_path(kakomon) do %>
-                                    <%= image_tag kakomon.image1,class:'kakomon-show-link' %>
+                                    <% if kakomon.image2.attached? || kakomon.image3.attached? %>
+                                        <i class="fa-solid fa-clone"></i>
+                                    <% end %>
+                                    <% if kakomon.image1.attached? %>
+                                        <%= image_tag kakomon.image1,class:'kakomon-show-link' %>
+                                    <% end %>
                                 <% end %>
                             <% end %>
                         </div>

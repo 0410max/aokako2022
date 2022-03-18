@@ -2,6 +2,7 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
+//= require jquery.ui.all
 
 require("@rails/ujs").start();
 require("turbolinks").start();
@@ -15,7 +16,9 @@ require('user/edit');
 require('user/index');
 require('user/show');
 require('room/show');
+require('home/top');
 require("jquery");
+require("jquery-ui/ui/widgets/datepicker");
 
 import "jquery";
 import "popper.js";

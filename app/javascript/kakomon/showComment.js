@@ -19,8 +19,7 @@ $(function(){
 
     $('.kakomons-show-comment-submit-1000')
         .on('click',function(){
-            $(document).scrollTop('99999999');
+            jQuery('body').scrollTop('99999999');
         });
-    
 });    
 });

@@ -4,7 +4,7 @@
             <td rowspan='3' class='td-users-show-profile-image'><%= image_tag @user.get_profile_image,class:'show-profile-image' %></td>
         </tr>
         <tr>
-            <td class='td-user-name'><span class='show-user-name'><%= @user.name %></span></td>
+            <td class='td-users-show-name' colspan='3'><span class='show-user-name'><%= @user.name %></span></td>
         </tr>
             <td class='td-user-setting'>
                 <% if @user === current_user %>
@@ -22,38 +22,44 @@
                                     <%= r.hidden_field :user_id, value: @user.id %>  
                                 <% end %>
                                 <%= f.submit "メッセージを送信",class:'make-room' %>
-                                <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                                    <%= link_to 'BAN',edit_user_path(@user),class:'ban' %>
-                                <% end %>
                             <% end %>
                             <% end %>
                     <% end %>
                 <% end %>
                 &nbsp;
             </td>
-            <td class='td-logout'>
-                <% if @user === current_user %>
+            <% if @user === current_user %>
+                <td class='td-logout'>
                     <span class='logout-wrapper'><%= link_to 'ログアウト',destroy_user_session_path,class:'logout',method: :delete %></span>
-                    <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                        <%= link_to '報告',kakomon_reports_path(1),class:'reports' %>
-                    <% end %>
+                </td>
+            <% end %>
+            <% if @user.number.slice(1) == 'C' && @user.number.slice(2) == 'C' && @user.number.slice(3) == 'C' && @user.number.slice(4) == 'C' && @user.number.slice(5) == 'C' && @user.number.slice(6) == 'C' && @user.number.slice(7) == 'C' %>
+                <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
+                    <td class='td-manager'>
+                        <%= link_to '報告',kakomon_reports_path(1),class:'reports-1000' %>
+                    </td>
                 <% end %>
-            </td>
+            <% end %>
         </tr>
     </table>
-    <div class='users-info-wrapper'>
-        <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
-        <ul class='users-info'>
-            <% unless @user.year === '' %>
-                <li class='li-user-year'><%= @user.year %></li>
-            <% end %>
-            <li class='li-user-dep'><%= @user.dep %></li>
-            <li class='li-user-cor'><%= @user.cor %></li>
-        </ul>
-        <span class='user-introduction'><%= simple_format(@user.introduction) %></span>
-    </div>
+    <% unless @user.number.slice(1) == 'C' && @user.number.slice(2) == 'C' && @user.number.slice(3) == 'C' && @user.number.slice(4) == 'C' && @user.number.slice(5) == 'C' && @user.number.slice(6) == 'C' && @user.number.slice(7) == 'C' %>
+        <div class='users-info-wrapper'>
+            <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
+            <ul class='users-info'>
+                <% unless @user.year === '' %>
+                    <li class='li-user-year'><%= @user.year %></li>
+                <% end %>
+                <li class='li-user-dep'><%= @user.dep %></li>
+                <li class='li-user-cor'><%= @user.cor %></li>
+            </ul>
+            <span class='user-introduction'><%= simple_format(@user.introduction) %></span>
+        </div>
+    <% end %>
             
 </div>
+
+
+
 
 
 <div class='max-width-1000'>
@@ -62,9 +68,9 @@
             <td rowspan='4' class='td-users-show-profile-image'><%= image_tag @user.get_profile_image,class:'show-profile-image' %></td>
         </tr>
         <tr>
-            <td class='td-user-name-1000'><span class='show-user-name-1000'><%= @user.name %></span></td>
+            <td class='td-user-name-1000' colspan='2'><span class='show-user-name-1000'><%= @user.name %></span></td>
         </tr>
-            <td class='td-user-setting-1000'>
+            <td class='td-user-setting-1000' colspan='2'>
                 <% if @user === current_user %>
                     <%= link_to 'プロフィールを編集',edit_user_path(@user),class:'user-setting' %>
                 <% else %>
@@ -80,9 +86,6 @@
                                     <%= r.hidden_field :user_id, value: @user.id %>  
                                 <% end %>
                                 <%= f.submit "メッセージを送信",class:'make-room' %>
-                                <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                                    <%= link_to 'BAN',edit_user_path(@user),class:'ban' %>
-                                <% end %>
                             <% end %>
                             <% end %>
                     <% end %>
@@ -90,28 +93,34 @@
                 &nbsp;
             </td>
         </tr>
-        <tr>
-            <td class='td-logout'>
-                <% if @user === current_user %>
+        <tr>    
+            <% if @user === current_user %>
+                <td class='td-logout-1000'>
                     <%= link_to 'ログアウト',destroy_user_session_path,class:'logout',method: :delete %>
-                    <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                        <%= link_to '報告',kakomon_reports_path(1),class:'reports' %>
-                    <% end %>
+                </td>
+            <% end %>
+            <% if @user.number.slice(1) == 'C' && @user.number.slice(2) == 'C' && @user.number.slice(3) == 'C' && @user.number.slice(4) == 'C' && @user.number.slice(5) == 'C' && @user.number.slice(6) == 'C' && @user.number.slice(7) == 'C' %>
+                <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
+                    <td class='td-manager'>
+                        <%= link_to '報告',kakomon_reports_path(1),class:'reports-1000' %>
+                    </td>
                 <% end %>
-            </td>
+            <% end %>
         </tr>
     </table>
-    <div class='users-info-wrapper'>
-        <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
-        <div class='users-info-1000'>
-            <ul>
-                <li><%= @user.year %></li>
-                <li><%= @user.dep %></li>
-                <li><%= @user.cor %></li>
-            </ul>
+    <% unless @user.number.slice(1) == 'C' && @user.number.slice(2) == 'C' && @user.number.slice(3) == 'C' && @user.number.slice(4) == 'C' && @user.number.slice(5) == 'C' && @user.number.slice(6) == 'C' && @user.number.slice(7) == 'C' %>
+        <div class='users-info-wrapper'>
+            <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
+            <div class='users-info-1000'>
+                <ul>
+                    <li><%= @user.year %></li>
+                    <li><%= @user.dep %></li>
+                    <li><%= @user.cor %></li>
+                </ul>
+            </div>
+            <%= simple_format(@user.introduction) %>
         </div>
-        <%= simple_format(@user.introduction) %>
-    </div>
+    <% end %>
             
 </div>
 
