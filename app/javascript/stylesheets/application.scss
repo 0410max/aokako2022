@@ -197,6 +197,11 @@ ul {
   background-color: #fafafa;
   min-height: 900px;
 }
+
+.fotter {
+  padding-top: 80px;
+}
+
 @media (max-width:1200px) {
   .aokako-font{
     margin-left: 200px;
@@ -288,6 +293,9 @@ ul {
   }
   .signin-font {
     margin-left: 20px;
+  }
+  .sessions {
+    padding-left:60px;
   }
 }
 
