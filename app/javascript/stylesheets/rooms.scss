@@ -127,6 +127,12 @@
     bottom: 5px;
 }
 
+.no-dm-message {
+    color: gray;    
+    text-align: center;
+    padding: 5px;
+}
+
 .rooms-show-form {
     position: relative;
     border-top:none;
@@ -244,7 +250,6 @@
     bottom: 1px;
     right: -75px;
 }
-
 
 @media(max-width:1200px){
     .back-rooms-index {
