@@ -1,15 +1,32 @@
-<% visitor = notification.visitor %>
-<% visited = notification.visited %>
-<div>
-    <% if notification.checked === true %>
-        <span>既読</span>
-    <% else %>
-        <span>未読</span>
-    <% end %>
-    <%= link_to user_path(visitor) do %>
-        <%= visitor.name %>
-    <% end %>
-    <% if notification.action=='dm' %> 
-        さんがあなたにdmをしました
-    <% end %>
-</div>
+<% @notifications.each do |notification| %>
+  <% visitor = notification.visitor %>
+  <% visited = notification.visited %>
+
+  <div class='container'>
+    <div class='col-md-6'>
+      <span>
+      <%= link_to user_path(visitor) do %>
+        <%= image_tag visitor.get_profile_image,size:'30x30',class:'notification-profile-image' %><%= visitor.name %>
+      <% end %>
+      が
+      <% case notification.action %>
+        <% when 'follow' then %>
+          あなたをフォローしました
+        <% when 'comment' then %>
+          <% if notification.kakomon.user == current_user %>
+            <%= link_to kakomon_path(notification.kakomon) do %>
+              あなたの投稿
+            <% end %>
+            にコメントしました
+          <% else %>
+          <%= link_to kakomon_path(notification.kakomon) do %>
+            <%= image_tag notification.kakomon.user.get_profile_image,size:'30x30',class:'notification-profile-image' %><%= notification.kakomon.user.name %>の投稿
+          <% end %>
+          にコメントしました
+          <% end %>
+      <% end %>
+      </span><br />
+      <%= time_ago_in_words(notification.created_at).upcase %>前
+    </div>
+  </div>
+<% end %>

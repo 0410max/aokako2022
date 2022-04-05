@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     comment.kakomon_id = @kakomon.id
     comment.user_id = current_user.id
     comment.save
+    @kakomon.create_notification_comment!(current_user, comment)
     redirect_to kakomon_path(@kakomon)
   end
 

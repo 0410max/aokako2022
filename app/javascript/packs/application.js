@@ -29,6 +29,7 @@ import "../stylesheets/kakomons";
 import "../stylesheets/users";
 import "../stylesheets/rooms"
 import "../stylesheets/reports";
+import "../stylesheets/notification";
 import '@fortawesome/fontawesome-free/js/all';
 Turbolinks.start()
 global.FontAwesome.config.mutateApproach = 'sync'
