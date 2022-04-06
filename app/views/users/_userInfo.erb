@@ -6,31 +6,40 @@
         <tr>
             <td class='td-users-show-name' colspan='3'><span class='show-user-name'><%= @user.name %></span></td>
         </tr>
-            <td class='td-user-setting'>
-                <% if @user === current_user %>
+            <% if @user === current_user %>
+                <td class='td-user-setting'>
                     <%= link_to 'プロフィールを編集',edit_user_path(@user),class:'user-setting' %>
-                <% else %>
-                    <% unless @user.id == current_user.id %>    
-                        <% if @haveRoom == true %>    
-                            <%= link_to "メッセージを送信",room_path(@roomId),class:'make-room' %>
-                            <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                                <%= link_to 'BAN',edit_user_path(@user),class:'ban' %>
-                            <% end %>
-                        <% else %>
-                            <%= form_with model: @room,local: true do |f|%>   
-                                <%= fields_for @RoomUser do |r| %>  
-                                    <%= r.hidden_field :user_id, value: @user.id %>  
-                                <% end %>
-                                <%= f.submit "メッセージを送信",class:'make-room' %>
-                            <% end %>
-                            <% end %>
+                </td>
+            <% else %>
+                <td>
+                    <% if @user.followed_by?(current_user) %>
+                        <%= link_to'フォロー中',user_relationships_path(@user),method: :delete,class:'user-followed-show' %>
+                    <% else %>
+                        <% unless @user == current_user %>
+                            <%= link_to 'フォローする',user_relationships_path(@user),method: :post,class:'user-following-show' %>
+                        <% end %>
                     <% end %>
-                <% end %>
-                &nbsp;
-            </td>
+                </td>
+            <% end %>
+            &nbsp;
             <% if @user === current_user %>
                 <td class='td-logout'>
                     <span class='logout-wrapper'><%= link_to 'ログアウト',destroy_user_session_path,class:'logout',method: :delete %></span>
+                </td>
+            <% else %>
+                <td>
+                    <% unless @user.id == current_user.id %>    
+                    <% if @haveRoom == true %>    
+                        <%= link_to "メッセージ",room_path(@roomId),class:'make-room' %>
+                    <% else %>
+                        <%= form_with model: @room,local: true do |f|%>   
+                            <%= fields_for @RoomUser do |r| %>  
+                                <%= r.hidden_field :user_id, value: @user.id %>  
+                            <% end %>
+                            <%= f.submit "メッセージ",class:'make-room' %>
+                        <% end %>
+                        <% end %>
+                    <% end %>
                 </td>
             <% end %>
             <% if @user.number.slice(1) == 'C' && @user.number.slice(2) == 'C' && @user.number.slice(3) == 'C' && @user.number.slice(4) == 'C' && @user.number.slice(5) == 'C' && @user.number.slice(6) == 'C' && @user.number.slice(7) == 'C' %>
@@ -65,38 +74,54 @@
 <div class='max-width-1000'>
     <table>
         <tr>
-            <td rowspan='4' class='td-users-show-profile-image'><%= image_tag @user.get_profile_image,class:'show-profile-image' %></td>
+            <% if @user == current_user %>
+                <td rowspan='4' class='td-users-show-profile-image'><%= image_tag @user.get_profile_image,class:'show-profile-image' %></td>
+            <% else %>
+            <td rowspan='4' class='td-other-users-show-profile-image'><%= image_tag @user.get_profile_image,class:'show-profile-image' %></td>
+            <% end %>
         </tr>
         <tr>
-            <td class='td-user-name-1000' colspan='2'><span class='show-user-name-1000'><%= @user.name %></span></td>
+            <td><span class='show-user-name-1000'><%= @user.name %></span></td>
         </tr>
-            <td class='td-user-setting-1000' colspan='2'>
-                <% if @user === current_user %>
+            <% if @user === current_user %>
+                <td class='td-user-setting-1000' colspan='2'>
                     <%= link_to 'プロフィールを編集',edit_user_path(@user),class:'user-setting' %>
-                <% else %>
-                    <% unless @user.id == current_user.id %>    
-                        <% if @haveRoom == true %>    
-                            <%= link_to "メッセージを送信",room_path(@roomId),class:'make-room' %>
-                            <% if current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                                <%= link_to 'BAN',edit_user_path(@user),class:'ban' %>
-                            <% end %>
+                </td>
+            <% else %>
+                <td>
+                    <span class='users-show-follow-1000'>
+                        <% if @user.followed_by?(current_user) %>
+                            <%= link_to'フォロー中',user_relationships_path(@user),method: :delete,class:'user-followed-show' %>
                         <% else %>
-                            <%= form_with model: @room,local: true do |f|%>   
-                                <%= fields_for @RoomUser do |r| %>  
-                                    <%= r.hidden_field :user_id, value: @user.id %>  
-                                <% end %>
-                                <%= f.submit "メッセージを送信",class:'make-room' %>
+                            <% unless @user == current_user %>
+                                <%= link_to 'フォローする',user_relationships_path(@user),method: :post,class:'user-following-show' %>
                             <% end %>
-                            <% end %>
-                    <% end %>
-                <% end %>
-                &nbsp;
+                        <% end %>
+                    </span>
+                </td>
+            <% end %>
+            &nbsp;
             </td>
         </tr>
         <tr>    
             <% if @user === current_user %>
                 <td class='td-logout-1000'>
                     <%= link_to 'ログアウト',destroy_user_session_path,class:'logout',method: :delete %>
+                </td>
+            <% else %>
+                <td>
+                    <% unless @user.id == current_user.id %>    
+                        <% if @haveRoom == true %>    
+                            <%= link_to "メッセージ",room_path(@roomId),class:'make-room' %>
+                        <% else %>
+                            <%= form_with model: @room,local: true do |f|%>   
+                                <%= fields_for @RoomUser do |r| %>  
+                                    <%= r.hidden_field :user_id, value: @user.id %>  
+                                <% end %>
+                                <%= f.submit "メッセージ",class:'make-room' %>
+                            <% end %>
+                            <% end %>
+                    <% end %>
                 </td>
             <% end %>
             <% if @user.number.slice(1) == 'C' && @user.number.slice(2) == 'C' && @user.number.slice(3) == 'C' && @user.number.slice(4) == 'C' && @user.number.slice(5) == 'C' && @user.number.slice(6) == 'C' && @user.number.slice(7) == 'C' %>

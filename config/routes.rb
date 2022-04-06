@@ -14,6 +14,6 @@ Rails.application.routes.draw do
     get :search, on: :collection
   end
   resources :messages, only: [:create,:destroy]
-  resources :rooms, only: [:create,:show,:index]
+  resources :rooms, only: [:create,:show]
   resources :notifications,only:[:index]
 end

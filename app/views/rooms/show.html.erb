@@ -1,17 +1,16 @@
 <div class='container'>
     <div class='row'>
         <div class='col-md-12 rooms-show'>
-            <% @RoomUsers.each do |r| %> 
-                <% unless r.user.name === current_user.name %>
-                    <%= link_to rooms_path,class:'back-rooms-index-link' do %>
-                        <span class='back-rooms-index'>＜</span>
+            <div class='message-top'>
+                <% @RoomUsers.each do |r| %> 
+                    <% unless r.user.name === current_user.name %>
+                        <%= link_to user_path(r.user),class:'rooms-show-profile-image-link' do %>
+                            <%= image_tag r.user.get_profile_image,size:'40x40',class:'rooms-show-profile-image' %>
+                        <% end %>
+                        <span class='rooms-show-top-name'><%= r.user.name %>とのメッセージ</span>
                     <% end %>
-                    <%= link_to user_path(r.user),class:'rooms-show-profile-image-link' do %>
-                        <%= image_tag r.user.get_profile_image,size:'40x40',class:'rooms-show-profile-image' %>
-                    <% end %>
-                    <span class='rooms-show-top-name'><%= r.user.name %>とのメッセージ</span>
                 <% end %>
-            <% end %>
+            </div>
 
             <div class='message-area'>
                 <% if @messages.present? %>

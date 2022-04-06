@@ -88,7 +88,21 @@
     line-height: 25px
 }
 
+.user-followed-show {
+    color: black;
+    border: 1px solid #dbdbdb;
+    padding: 5.5px 10px;
+    border-radius:3px;
+    line-height: 25px;
+    margin-right: 5px;
+}
+
 .user-followed:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.user-followed-show:hover{
     text-decoration: none;
     color: black;
 }
@@ -102,7 +116,21 @@
     line-height: 25px
 }
 
+.user-following-show {
+    background-color: #0095F6;
+    color: white;
+    padding: 5.5px 10px;
+    border-radius:3px;
+    line-height: 25px;
+    margin-right: 5px;
+}
+
 .user-following:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.user-following-show:hover {
     text-decoration: none;
     color: white;
 }
@@ -147,6 +175,15 @@
 .td-user-name {
     width: 300px;
     height: 40px;
+}
+
+.td-user-name-link {
+    color: black;
+}
+
+.td-user-name-link:hover {
+    color: black;
+    text-decoration: none;
 }
 
 .user-name-height {
@@ -527,6 +564,11 @@
     margin-right: 30px;
 }
 
+.users-show-follow-1000 {
+    position: relative;
+    bottom: 5px;
+}
+
 .td-user-name-1000 {
     width: 200px;
 }
@@ -576,6 +618,11 @@
 .reports-1000:hover {
     text-decoration: none;
     color: black;
+}
+
+.td-other-users-show-profile-image{
+    position: relative;
+    top: 10px;
 }
 
 

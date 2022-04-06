@@ -4,9 +4,74 @@
     margin-right: 5px;
 }
 
+.no-notification-wrapper {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.no-notification {
+    color: gray;
+}
+
 .n-circle {
     position: absolute;
     padding-left: 1rem;
     padding-top: 0rem;
     color: #efa04c;
   }
+
+.notification-wrapper {
+    margin: 0 auto;
+    padding-top: 80px;
+}
+
+.col-md-6 {
+    margin: 0 auto;
+}
+
+.notification-time-ago {
+    color:gray;
+    font-size: 14px;
+}
+
+.notification-contents {
+    display: flex;
+}
+
+.notification-content-image {
+    width: 20%;
+    line-height: 60px;
+    text-align: center;
+}
+
+.notification-content {
+    width: 45%;
+}
+
+.notification-content-follow {
+    width: 35%;
+    line-height: 60px;
+    position: relative;
+    top: 20px;
+}
+
+.notification-profile-image-visitor {
+    border: 1px solid #dbdbdb;
+    border-radius: 40px;
+}
+
+.visitor-name {
+    color: black;
+}
+
+.visitor-name:hover {
+    color: black;
+    text-decoration: none;
+}
+
+@media (max-width:1000px) {
+    .notification-content {
+        font-size: 13px;  
+    }
+}

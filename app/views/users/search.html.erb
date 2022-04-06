@@ -17,7 +17,13 @@
                   <%= image_tag user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                 <% end %>
               </td>
-              <td class='td-user-name'><span class='user-name-height'><%= user.name %></span></td>
+              <td class='td-user-name'>
+                <span class='user-name-height'>
+                  <%= link_to user_path(user), class:'td-user-name-link' do %>
+                    <%= user.name %>
+                  <% end %>
+                </span>
+              </td>
               <td class='td-follow'>
                 <% unless user === current_user %>
                   <% if user.followed_by?(current_user) %>

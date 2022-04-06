@@ -21,6 +21,9 @@
           <div class='article-body'> 
             <% if kakomon.image1.attached? %>
               <%= link_to kakomon_path(kakomon),class:'image-link' do %>
+                <% if kakomon.image2.attached? || kakomon.image3.attached? %>
+                  <i class="fa-solid fa-clone"></i>
+                <% end %>
                 <%= image_tag kakomon.image1,class:'kakomons-index-image-size' %>
               <% end %>
             <% end %>

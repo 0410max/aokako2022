@@ -11,7 +11,7 @@ require("channels");
 require('kakomon/showComment');
 require('kakomon/showImage');
 require('kakomon/index');
-require('kakomon/edit');
+require('kakomon/new');
 require('user/edit');
 require('user/index');
 require('user/show');
