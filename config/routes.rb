@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'boards/index'
+  get 'boards/show'
   devise_for :users
   root'homes#top'
   resources :kakomons, only:[:index,:new,:show,:create,:destroy,:about] do
@@ -16,4 +18,5 @@ Rails.application.routes.draw do
   resources :messages, only: [:create,:destroy]
   resources :rooms, only: [:create,:show]
   resources :notifications,only:[:index]
+  resources :boards,only:[:index,:show,:create,:destroy]
 end

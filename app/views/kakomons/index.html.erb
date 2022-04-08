@@ -7,6 +7,7 @@
   <div class='col-md-10 kakomon-index'>
     <% @kakomons.each do |kakomon| %>
       <div class='index-kakomon-content'>
+        <span class='kakomons-show-top-button'><i class="fa-solid fa-bars"></i></span>
         <div class='article-top'>
           <% #アイコン、名前 %>
           <%= link_to user_path(kakomon.user),class:'index-profile-image-link' do %>
@@ -32,7 +33,6 @@
           年度 : <%= kakomon.year %><br>
           <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
         </div>
-        
       </div>
     <% end %>
   </div>

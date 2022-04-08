@@ -118,9 +118,15 @@ ul {
   color: black;
 }
 
-.fa-house {
+.fa-file {
   color: black;
   margin-left: 580px;
+  font-size: 20px;
+}
+
+.fa-chalkboard-user {
+  color: black;
+  margin-left: 30px;
   font-size: 20px;
 }
 
@@ -224,7 +230,7 @@ ul {
 }
 
 @media (max-width:1000px) {
-  .fa-house {
+  .fa-file {
     margin-left: 400px;
   }
   .login-font{
@@ -233,7 +239,7 @@ ul {
 }
 
 @media (max-width:900px) {
-  .fa-house {
+  .fa-file {
     margin-left: 300px;
   }
   .login-font{
@@ -242,7 +248,7 @@ ul {
 }
 
 @media (max-width:800px) {
-  .fa-house {
+  .fa-file {
     margin-left: 200px;
   }
   .login-font{
@@ -252,7 +258,7 @@ ul {
 }
 
 @media (max-width:700px) {
-  .fa-house {
+  .fa-file {
     margin-left: 100px;
   }
   .login-font{
@@ -264,7 +270,7 @@ ul {
   .aokako-font{
     margin-left: 50px;
   }
-  .fa-house {
+  .fa-file {
     margin-left: 100px;
   }
   .login-font{
@@ -273,7 +279,7 @@ ul {
 }
 
 @media (max-width:500px) {
-  .fa-house {
+  .fa-file {
     margin-left: 80px;
   }
   .login-font{
@@ -288,7 +294,7 @@ ul {
 }
 
 @media (max-width:450px) {
-  .fa-house {
+  .fa-file {
     margin-left: 50px;
   }
   .login-font{
@@ -306,7 +312,7 @@ ul {
 }
 
 @media (max-width:440px) {
-  .fa-house {
+  .fa-file {
     margin-left: 50px;
   }
   .login-font{
@@ -321,7 +327,7 @@ ul {
 }
 
 @media (max-width:430px) {
-  .fa-house {
+  .fa-file {
     margin-left: 50px;
   }
   .login-font{
@@ -336,7 +342,7 @@ ul {
 }
 
 @media (max-width:420px) {
-  .fa-house {
+  .fa-file {
     margin-left: 50px;
   }
   .login-font{
@@ -363,7 +369,7 @@ ul {
 }
 
 @media (max-width:410px) {
-  .fa-house {
+  .fa-file {
     margin-left: 50px;
   }
   .login-font{
@@ -378,7 +384,7 @@ ul {
 }
 
 @media (max-width:400px) {
-  .fa-house {
+  .fa-file {
     margin-left: 50px;
   }
   .login-font{
@@ -393,7 +399,7 @@ ul {
 }
 
 @media (max-width:390px) {
-  .fa-house {
+  .fa-file {
     margin-left: 50px;
   }
   .login-font{
@@ -408,7 +414,7 @@ ul {
 }
 
 @media (max-width:380px) {
-  .fa-house {
+  .fa-file {
     margin-left: 30px;
   }
   .login-font{
@@ -426,7 +432,7 @@ ul {
   .aokako-font {
     margin-left: 30px;
   }
-  .fa-house {
+  .fa-file {
     margin-left: 40px;
   }
   .login-font{
@@ -453,7 +459,7 @@ ul {
   .aokako-font {
     margin-left: 20px;
   }
-  .fa-house {
+  .fa-file {
     margin-left: 40px;
   }
   .login-font{
@@ -480,7 +486,7 @@ ul {
   .aokako-font {
     margin-left: 20px;
   }
-  .fa-house {
+  .fa-file {
     margin-left: 20px;
   }
   .login-font{

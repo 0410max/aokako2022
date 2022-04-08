@@ -254,10 +254,6 @@
     color: black;
 }
 
-.users-show-top {
-    padding-top: 35px;
-}
-
 
 .count-follower-following {
     margin-top: 10px;
@@ -560,6 +556,7 @@
 
 .max-width-1000 {
     display: none;
+    padding-top: 35px;
 }
 
 .show-user-name-1000 {
@@ -627,6 +624,10 @@
 .td-other-users-show-profile-image{
     position: relative;
     top: 10px;
+}
+
+.max-width-1200 {
+    padding-top: 60px;
 }
 
 
