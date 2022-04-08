@@ -1,14 +1,42 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-8 homes-top'>
-      <div class='homes-top-content'>
-        <p>ようこそ <span class='homes-top-aokako-font'>Aokako</span> へ！</p>
-        <p><span class='homes-top-aokako-font'>Aokako</span> は青山学院大学の過去問共有サイトです！</p>
-        <p>受けた試験問題を後輩へシェアしましょう！</p>
-        <p class='aokako-alert'>※大学入試試験の過去問ではありません</p>
-        <p class='fotter'>お問合せ先  aokako2022@gmail.com<p>
-      </div>
+      <% if user_signed_in? %>
+        <div class='homes-top-content'>
+          <p>ようこそ <span class='homes-top-aokako-font'>Aokako</span> へ！</p>
+          <p><span class='homes-top-aokako-font'>Aokako</span>では<span class='share-kakomon'>過去問の共有</span>や<span class='share-class'>講義の評価</span>をすることができます！</p>
+          <p>試験問題や、履修した講義の評価を投稿しましょう！</p>
+          <p>また、他の学生の投稿を見て、試験対策や履修登録に役立ててください！</p>
+          <p class='fotter'>お問合せ先  aokako2022@gmail.com<p>
+        </div>
+        <div class='homes-top-content-450'>
+          <p>ようこそ <span class='homes-top-aokako-font'>Aokako</span> へ！</p>
+          <p><span class='homes-top-aokako-font'>Aokako</span>では<span class='share-kakomon'>過去問の共有</span>や<span class='share-class'>講義の評価</span>ができます！</p>
+          <p>試験問題や、履修した講義の評価を投稿しましょう！</p>
+          <p>また、他の学生の投稿を見て、</p>
+          <p>試験対策や履修登録に役立ててください！</p>
+          <p class='fotter'>お問合せ先  aokako2022@gmail.com<p>
+        </div>
+      <% else %>
+        <div class='homes-top-content'>
+          <p>ようこそ <span class='homes-top-aokako-font'>Aokako</span> へ！</p>
+          <p><span class='homes-top-aokako-font'>Aokako</span>では<span class='share-kakomon'>過去問の共有</span>や<span class='share-class'>講義の評価</span>をすることができます！</p>
+          <p>試験問題や、履修した講義の評価を投稿しましょう！</p>
+          <p>また、他の学生の投稿を見て、試験対策や履修登録に役立ててください！</p>
+          <p class='aokako-alert'>※青山学院大学の学生のみご利用になれます。</p>
+          <p class='fotter'>お問合せ先  aokako2022@gmail.com<p>
+        </div>
+        <div class='homes-top-content-450'>
+          <p>ようこそ <span class='homes-top-aokako-font'>Aokako</span> へ！</p>
+          <p><span class='homes-top-aokako-font'>Aokako</span>では<span class='share-kakomon'>過去問の共有</span>や<span class='share-class'>講義の評価</span>ができます！</p>
+          <p>試験問題や、履修した講義の評価を投稿しましょう！</p>
+          <p>また、他の学生の投稿を見て、</p>
+          <p>試験対策や履修登録に役立ててください！</p>
+          <p class='aokako-alert'>※青山学院大学の学生のみご利用になれます。</p>
+          <p class='fotter'>お問合せ先  aokako2022@gmail.com<p>
+        </div>
+      <% end %>
     </div>
-  </div
+  </div>
 </div>
 

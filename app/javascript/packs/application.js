@@ -16,7 +16,6 @@ require('user/edit');
 require('user/index');
 require('user/show');
 require('room/show');
-require('home/top');
 require("jquery");
 require("jquery-ui/ui/widgets/datepicker");
 

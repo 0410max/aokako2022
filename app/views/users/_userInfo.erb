@@ -134,17 +134,31 @@
         </tr>
     </table>
     <% unless @user.number.slice(1) == 'C' && @user.number.slice(2) == 'C' && @user.number.slice(3) == 'C' && @user.number.slice(4) == 'C' && @user.number.slice(5) == 'C' && @user.number.slice(6) == 'C' && @user.number.slice(7) == 'C' %>
-        <div class='users-info-wrapper'>
-            <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
-            <div class='users-info-1000'>
-                <ul>
-                    <li><%= @user.year %></li>
-                    <li><%= @user.dep %></li>
-                    <li><%= @user.cor %></li>
-                </ul>
+        <% if @user == current_user %>
+            <div class='users-info-wrapper-current-user'>
+                <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
+                <div class='users-info-1000'>
+                    <ul>
+                        <li><%= @user.year %></li>
+                        <li><%= @user.dep %></li>
+                        <li><%= @user.cor %></li>
+                    </ul>
+                </div>
+                <%= simple_format(@user.introduction,{},wrapper_tag: "div") %>
             </div>
-            <%= simple_format(@user.introduction) %>
-        </div>
+        <% else %>
+            <div class='users-info-wrapper'>
+                <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
+                <div class='users-info-1000'>
+                    <ul>
+                        <li><%= @user.year %></li>
+                        <li><%= @user.dep %></li>
+                        <li><%= @user.cor %></li>
+                    </ul>
+                </div>
+                <%= simple_format(@user.introduction,{},wrapper_tag: "div") %>
+            </div>
+        <% end %>
     <% end %>
             
 </div>

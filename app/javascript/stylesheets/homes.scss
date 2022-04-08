@@ -12,7 +12,6 @@
     text-align: center;
     font-size: 18px;
     z-index: 2;
-    display: none;
 }
 
 .homes-top-aokako-font {
@@ -20,6 +19,14 @@
     color: black;
     font-family: 'Apple Chancery';
     font-weight: bold;
+}
+
+.share-kakomon {
+    border-bottom: 5px solid #87cefa;
+}
+
+.share-class {
+    border-bottom: 5px solid #87cefa;
 }
 
 .aokako-alert {
@@ -38,10 +45,27 @@
     color: gray;
 }
 
+.homes-top-content-450 {
+    text-align: center;
+    font-size: 18px;
+    z-index: 2;
+    font-size: 13px;
+    display: none;
+}
+
 
 
 @media (max-width:450px) {
     .homes-top-content {
-        font-size: 13px;
+        display: none;
+    }
+    .homes-top-content-450 {
+        display: block;
+    }
+    .homes-top-aokako-font {
+        font-size: 16px;
+    }
+    .aokako-alert {
+        font-size: 12px;
     }
 }
