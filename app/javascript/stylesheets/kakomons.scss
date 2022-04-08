@@ -659,8 +659,8 @@
 
 .no-comment {
   color: gray;
-  padding-top: 10px;
   padding-left: 10px;
+  padding-bottom: 16px;
 }
 
 .kakomon-comment-content {
@@ -907,6 +907,9 @@
   }
   .slideshow-420 {
     display: block;
+  }
+  .kakomons-show-text-area {
+    width: 270px;
   }
 }
 

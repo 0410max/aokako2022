@@ -7,7 +7,10 @@
                         <%= link_to user_path(r.user),class:'rooms-show-profile-image-link' do %>
                             <%= image_tag r.user.get_profile_image,size:'40x40',class:'rooms-show-profile-image' %>
                         <% end %>
-                        <span class='rooms-show-top-name'><%= r.user.name %>とのメッセージ</span>
+                        <span class='rooms-show-top-name'>
+                            <%= link_to r.user.name,user_path(r.user),class:'rooms-show-top-name-link' %>
+                        とのメッセージ
+                        </span>
                     <% end %>
                 <% end %>
             </div>
