@@ -1,0 +1,85 @@
+
+                                // new.html.erb
+
+.past-paper-boards {
+    border: 1px solid gray;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-right: 5px;
+  }
+  
+.past-class-boards {
+  border: 1px solid gray;
+  background-color: #dbdbdb;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.past-class-boards:hover {
+    cursor: pointer;
+}
+
+.past-paper-boards-link {
+  color: black;
+}
+
+.past-paper-boards-link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.form1 {
+  letter-spacing: 6.5px;
+  margin-right: 10.5px;
+  position: relative;
+  top: 2px;
+}
+
+.form2 {
+  letter-spacing: 12px;
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+
+.form3 {
+  margin-right: 16.8px;
+  position: relative;
+  top: 2px;
+}
+
+
+                                  // index.html.erb
+
+.board-top {
+  text-align: center;
+  padding-top: 70px;
+  margin-right: 80px;
+}                                  
+
+.board-comment {
+  position: relative;
+  top: 4px;
+  padding-bottom: 20px;
+  font-size: 15px;
+}
+
+.board-date {
+  color: #8e8e8e;
+  font-size: 12px;
+  position: relative;
+  top: 5px;
+}
+
+.continue-comment {
+  color: gray;
+  font-size: 12px;
+  position: relative;
+  top: 4px;
+  left: 3px;
+}
+
+.plus-comment {
+  color: gray;
+  font-size: 12px;
+}

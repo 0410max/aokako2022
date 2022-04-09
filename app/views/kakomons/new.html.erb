@@ -4,6 +4,14 @@
 
       <h3>新規投稿</h3>
 
+      <div class='select-past'>
+        投稿内容 :
+        <span class='past-paper'>過去問</span>
+        <%= link_to new_board_path,class:'past-class-link' do %>
+          <span class='past-class'>講義評価</span>
+        <% end %> 
+      </div>
+
       <%= form_with model:@kakomon,class:'kakomon-new',local: true do |f| %>
         <span class='image-count'>画像は1度に3枚まで投稿できます</span>
         <ul>
@@ -24,9 +32,9 @@
               ["2014", "2014"],["2015", "2015"],["2016", "2016"],["2017", "2017"],["2018", "2018"],
               ["2019", "2019"],["2020", "2020"],["2021", "2021"],["2022", "2022"]], {include_blank: "選択して下さい"},{class:'year'} %>
           </li>
-          <li class='mt-2'>科目名 :  <%= f.text_field :sub,class:'prof-new' %></li>
+          <li class='mt-2'>講義名 :  <%= f.text_field :sub,class:'prof-new' %></li>
           <li class='mt-2'>教授名 :  <%= f.text_field :prof,class:'prof-new' %></li>
-          <li class='mt-2'>コメント(任意)<br><%= f.text_area :comment,class:'comment-new' %></li>
+          <li class='mt-2'>コメント(任意)<br><%= f.text_area :comment,class:'comment-new',placeholder:'試験対策方法など' %></li>
         </ul>
 
         <% if @kakomon.errors.any? %>

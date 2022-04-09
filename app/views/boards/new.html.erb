@@ -1,0 +1,61 @@
+<div class='container'>
+  <div class='col-mg-3 new-container'>
+    <div class='kakomon-new-content'>
+
+        <h3>新規投稿</h3>
+        
+        <div class='select-past'>
+            投稿内容 :
+            <%= link_to new_kakomon_path,class:'past-paper-boards-link' do %>
+                <span class='past-paper-boards'>過去問</span>
+            <% end %>
+            <span class='past-class-boards'>講義評価</span>
+        </div>
+
+        <%= form_with model:@board,local: true do |f| %>
+            <ul>
+            <li class='mt-2'>講義名 :  <%= f.text_field :sub,class:'prof-new' %></li>
+            <li class='mt-2'>教授名 :  <%= f.text_field :prof,class:'prof-new' %></li>
+            <li class='mt-2' id="rating-form1"><span class='form1'>講義の面白さ</span><%= f.hidden_field :rate1, :value => 'score' %></li>
+            <li class='mt-2' id="rating-form2"><span class='form2'>教授の人柄</span><%= f.hidden_field :rate2, :value => 'score' %></li>
+            <li class='mt-2' id="rating-form3"><span class='form3'>単位の取りやすさ</span><%= f.hidden_field :rate3, :value => 'score' %></li>
+            <li class='mt-2'>コメント(20字以上)<br><%= f.text_area :comment,class:'comment-new',placeholder:'講義内容、単位の取り方など' %></li>
+            </ul>
+
+            <% if @board.errors.any? %>
+            <div class="error">
+                <% @board.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </div>
+            <% end %>
+
+            <%= f.submit '投稿',class:'btn btn-light kakomon-submit' %>
+        <% end %>
+
+        <script>
+            $('#rating-form1').raty({
+                starOn: "<%= asset_path('star-on.png') %>",
+                starOff: "<%= asset_path('star-off.png') %>",
+                scoreName: 'board[rate1]'
+            });
+        </script>
+        <script>
+            $('#rating-form2').raty({
+                starOn: "<%= asset_path('star-on.png') %>",
+                starOff: "<%= asset_path('star-off.png') %>",
+                scoreName: 'board[rate2]'
+            });
+        </script>
+        <script>
+            $('#rating-form3').raty({
+                starOn: "<%= asset_path('star-on.png') %>",
+                starOff: "<%= asset_path('star-off.png') %>",
+                scoreName: 'board[rate3]'
+            });
+        </script>
+
+    </div>
+  </div>
+</div>
+

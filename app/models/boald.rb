@@ -1,2 +1,0 @@
-class Boald < ApplicationRecord
-end

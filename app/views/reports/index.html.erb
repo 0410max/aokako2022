@@ -23,7 +23,7 @@
                 <% #投稿の下部分 %>
                 <div class='article-bottom'>
                     報告者 : <%= link_to report.user.name, user_path(report.user),class:'report-user' %><br>
-                    科目 : <%= report.kakomon.sub %><br>
+                    講義 : <%= report.kakomon.sub %><br>
                     教授 : <%= report.kakomon.prof %><br>
                     年度 : <%= report.kakomon.year %><br>
                     <span class='kakomon-date'><%= report.kakomon.created_at.strftime('%Y/%m/%d') %></span>

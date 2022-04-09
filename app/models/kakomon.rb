@@ -1,7 +1,6 @@
 class Kakomon < ApplicationRecord
   belongs_to :user
   has_many :comments,dependent: :destroy
-  has_many :favorites,dependent: :destroy
   has_many :reports,dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_one_attached :image1
@@ -11,7 +10,6 @@ class Kakomon < ApplicationRecord
   validates :year,presence:true
   validates :sub, presence:true
   validates :prof, presence:true
-  validates :comment,length:{maximum: 200}
 
   def create_notification_comment!(current_user, comment_id)
     temp_ids = Comment.select(:user_id).where(kakomon_id: id).where.not(user_id: current_user.id).distinct

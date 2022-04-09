@@ -50,7 +50,7 @@
                         <div class='comment-scroll'>
                             <% if @kakomon.comment === '' && @comments.count === 0 %>
                                 <div class='kakomon-exp'>
-                                    科目 : <%= @kakomon.sub %><br>
+                                    講義 : <%= @kakomon.sub %><br>
                                     年度 : <%= @kakomon.year %><br>
                                     教授 : <%= @kakomon.prof %><br>
                                     <span class='kakomon-show-date'><%= @kakomon.created_at.strftime('%Y/%m/%d') %></span>
@@ -60,7 +60,7 @@
                                 <div class='comment-index'>
                                     <div class='kakomon-comment-content-top'>   
                                         <div class='kakomon-comment-content'>
-                                            科目 : <%= @kakomon.sub %><br>
+                                            講義 : <%= @kakomon.sub %><br>
                                             教授 : <%= @kakomon.prof %><br>
                                             年度 : <%= @kakomon.year %><br>
                                             <%= simple_format(@kakomon.comment) %>
@@ -176,7 +176,7 @@
                             <div class='comment-scroll-1000'>
                                 <div class='kakomon-comment-content-top'>   
                                     <div class='kakomon-comment-content'>
-                                        科目 : <%= @kakomon.sub %><br>
+                                        講義 : <%= @kakomon.sub %><br>
                                         教授 : <%= @kakomon.prof %><br>
                                         年度 : <%= @kakomon.year %><br>
                                         <%= simple_format(@kakomon.comment) %>
@@ -190,7 +190,7 @@
                             <div class='comment-scroll-1000-no-comment'>
                                 <div class='kakomon-comment-content-top'>   
                                     <div class='kakomon-comment-content'>
-                                        科目 : <%= @kakomon.sub %><br>
+                                        講義 : <%= @kakomon.sub %><br>
                                         教授 : <%= @kakomon.prof %><br>
                                         年度 : <%= @kakomon.year %><br>
                                         <%= simple_format(@kakomon.comment) %>

@@ -17,6 +17,7 @@ require('user/index');
 require('user/show');
 require('room/show');
 require("jquery");
+require('rate/jquery.raty.js');
 require("jquery-ui/ui/widgets/datepicker");
 
 import "jquery";
@@ -29,6 +30,7 @@ import "../stylesheets/users";
 import "../stylesheets/rooms"
 import "../stylesheets/reports";
 import "../stylesheets/notification";
+import "../stylesheets/boards";
 import '@fortawesome/fontawesome-free/js/all';
 Turbolinks.start()
 global.FontAwesome.config.mutateApproach = 'sync'

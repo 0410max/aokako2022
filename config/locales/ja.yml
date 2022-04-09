@@ -16,7 +16,14 @@ ja:
         year: 年度
         prof: 教授名
         comment: コメント
-        sub: 科目名
+        sub: 講義名
+      board:
+        sub: 画像
+        prof: 教授名
+        comment: コメント
+        rate1: 講義の面白さ
+        rate2: 教授の人柄
+        rate3: 単位の取りやすさ
   views:
       pagination:
         first: '最初'

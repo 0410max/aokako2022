@@ -1,5 +1,5 @@
 <%= form_with url: search_kakomons_path,method: :get, local: true do |f| %>
-    <%= f.text_field :sub,class:'search',placeholder:'科目名' %>
+    <%= f.text_field :sub,class:'search',placeholder:'講義名' %>
     <% if current_user.number.slice(3)==='2' && current_user.number.slice(4) === '2' %>
       <span class='no-change-search'>検索する</span>
       <%= f.submit '検索する',class:'search-submit' %>
