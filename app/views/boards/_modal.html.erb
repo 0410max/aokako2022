@@ -1,0 +1,22 @@
+<div class='index-modal-bg'></div>
+<div>
+    <div class='index-modal'>
+        <div class='modal-content'>
+            <% if @board.user === current_user %>
+                <div class='kakomon-delete'>
+                    <%= link_to'削除する',kakomon_path(@board),class:'kakomon-delete-link',method: :delete %>
+                </div>
+            <% elsif current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
+                <div class='kakomon-delete'>
+                    <%= link_to'削除する',kakomon_path(@board),class:'kakomon-delete-link',method: :delete %>
+                </div>
+            <% else %>
+                <%= form_with(model:[@board,@report],local:true) do |f| %>
+                    <%= f.hidden_field :id, :value => @board.id %>
+                    <%= f.submit '報告する',class:'kakomon-report' %>
+                <% end %>
+            <% end %>
+            <div class='index-modal-close-button'>キャンセル</div>
+        </div>
+    </div>
+</div>

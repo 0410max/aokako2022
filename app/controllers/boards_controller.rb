@@ -1,10 +1,14 @@
 class BoardsController < ApplicationController
   def index
     @boards = Board.page(params[:page]).per(20).order(created_at: :desc)
-    @comment = Comment.new
+    @comment = BoardComment.new
   end
 
   def show
+    @board = Board.find(params[:id])
+    @comments = @board.board_comments.order(created_at: :desc)
+    @comment = BoardComment.new
+    @report = Report.new
   end
 
   def new

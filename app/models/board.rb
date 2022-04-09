@@ -1,6 +1,6 @@
 class Board < ApplicationRecord
     belongs_to :user
-    has_many :comments,dependent: :destroy
+    has_many :board_comments,dependent: :destroy
 
     validates :sub,presence: true
     validates :prof,presence: true

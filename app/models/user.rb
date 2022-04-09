@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :kakomons,dependent: :destroy
   has_many :boards,dependent: :destroy
   has_many :comments,dependent: :destroy
+  has_many :board_comments,dependent: :destroy
   has_many :favorites,dependent: :destroy
   has_many :relationships,foreign_key: :following_id
   has_many :followings,through: :relationships,source: :follower

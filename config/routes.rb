@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:create,:destroy]
   resources :rooms, only: [:create,:show]
   resources :notifications,only:[:index]
-  resources :boards,only:[:index,:show,:new,:create,:destroy]
+  resources :boards,only:[:index,:show,:new,:create,:destroy] do 
+    resources :comment2s,only: [:create,:destroy]
+  end
 end
