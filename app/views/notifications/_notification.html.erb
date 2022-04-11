@@ -21,19 +21,36 @@
         <% when 'comment' then %>
           <% if visitor == current_user %>
             <%= link_to kakomon_path(notification.kakomon),class:'visitor-name' do %>
-              <strong>自分の投稿</strong>
+              <strong>自分の過去問</strong>
             <% end %>
             <%= link_to 'にコメントしました',kakomon_path(notification.kakomon),class:'visitor-name' %>        
           <% elsif notification.kakomon.user == current_user %>
             <%= link_to kakomon_path(notification.kakomon),class:'visitor-name' do %>
-              <strong>あなたの投稿</strong>
+              <strong>あなたの過去問</strong>
             <% end %>
             <%= link_to 'にコメントしました',kakomon_path(notification.kakomon),class:'visitor-name' %>  
           <% else %>
             <%= link_to kakomon_path(notification.kakomon),class:'visitor-name' do %>
-              <strong><%= notification.kakomon.user.name %>の投稿</strong>
+              <strong><%= notification.kakomon.user.name %>の過去問</strong>
             <% end %>
             <%= link_to 'にコメントしました',kakomon_path(notification.kakomon),class:'visitor-name' %>
+          <% end %>
+        <% when 'board_comment' then %>
+          <% if visitor == current_user %>
+            <%= link_to board_path(notification.board),class:'visitor-name' do %>
+              <strong>自分の講義評価</strong>
+            <% end %>
+            <%= link_to 'にコメントしました',board_path(notification.board),class:'visitor-name' %>        
+          <% elsif notification.board.user == current_user %>
+            <%= link_to board_path(notification.board),class:'visitor-name' do %>
+              <strong>あなたの講義評価</strong>
+            <% end %>
+            <%= link_to 'にコメントしました',board_path(notification.board),class:'visitor-name' %>  
+          <% else %>
+            <%= link_to board_path(notification.board),class:'visitor-name' do %>
+              <strong><%= notification.board.user.name %>の講義評価</strong>
+            <% end %>
+            <%= link_to 'にコメントしました',board_path(notification.board),class:'visitor-name' %>
           <% end %>
       <% end %><br />
       <span class='notification-time-ago'><%= time_ago_in_words(notification.created_at).upcase %>前</span>

@@ -18,7 +18,7 @@ ja:
         comment: コメント
         sub: 講義名
       board:
-        sub: 画像
+        sub: 講義名
         prof: 教授名
         comment: コメント
         rate1: 講義の面白さ

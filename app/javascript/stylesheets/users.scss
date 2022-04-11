@@ -365,6 +365,15 @@
     border-bottom: 1px solid #dbdbdb;
 }
 
+.class-count {
+    color: gray;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.follower-page-class-count {
+    color: black;
+    border-bottom: 1px solid black;
+}
 .user-show-top {
     color: black;
 }
@@ -630,6 +639,18 @@
     padding-top: 60px;
 }
 
+
+                                    // board.html.erb
+
+.index-board-content {
+    width: 45%;
+    border: 1px solid #dbdbdb;
+    background-color: white;
+    border-radius: 2px;
+    position: relative;
+    margin-right: 20px;
+    margin-top: 20px;
+}                                    
 
 
 

@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'boards/index'
-  get 'boards/show'
   devise_for :users
   root'homes#top'
+  get 'users/:id/boards'=>'users#board'
   resources :kakomons, only:[:index,:new,:show,:create,:destroy,:about] do
     resources :comments,only: [:create,:destroy]
     resource :favorites, only: [:create, :destroy]
@@ -19,6 +18,7 @@ Rails.application.routes.draw do
   resources :rooms, only: [:create,:show]
   resources :notifications,only:[:index]
   resources :boards,only:[:index,:show,:new,:create,:destroy] do 
-    resources :comment2s,only: [:create,:destroy]
+    resources :board_comments,only: [:create,:destroy]
+    get :search, on: :collection
   end
 end

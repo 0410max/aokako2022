@@ -7,7 +7,12 @@
         <div class='count-follower-following'>
             <span class='follower-page-kakomon-count'>
                 <%= link_to user_path(@user),class:'user-show-top-follower' do %>
-                    投稿<%= @user.kakomons.count %>件
+                    過去問<%= @user.kakomons.count %>件
+                <% end %>
+            </span>
+            <span class='class-count'>
+                <%= link_to "/users/#{@user.id}/boards",class:'user-show-top-show' do %>
+                    講義評価<%= @user.boards.count %>件
                 <% end %>
             </span>
             <span class='follower-page-followings'><%= link_to 'フォロー中',followings_user_path,class:'user-show-top-follower' %></span>

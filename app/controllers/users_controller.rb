@@ -130,6 +130,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def board 
+    @user = User.find(params[:id])
+    @boards = @user.boards
+  end
+
 
   private
 
