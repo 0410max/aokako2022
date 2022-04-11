@@ -32,14 +32,20 @@
         <% else %>
             <div class='col-md-10 kakomon-index'>
                 <% @boards.each do |board| %>
-                <div class='index-board-content'>
+                <div class='show-board-content'>
                     <div class='article-bottom'>
                         講義 : <%= board.sub %><br>
                         教授 : <%= board.prof %><br>
                         <span class='form1'>講義の面白さ</span><span id="star-rate1-<%= board.id %>"></span><br />
                         <span class='form2'>教授の人柄</span><span id="star-rate2-<%= board.id %>"></span><br />
                         <span class='form3'>単位の取りやすさ</span><span id="star-rate3-<%= board.id %>"></span><br />
-                        <span class='board-comment'><%= board.comment[0..14] %>...</span><span class='continue-comment'><%= link_to '続きを読む',board_path(board),class:'continue-comment-link' %></span><br />
+                        <span class='board-comment'>
+                            <% if board.comment.length >28 %>
+                                <%= board.comment[0..30] %>...</span><span class='continue-comment'><%= link_to '続きを読む',board_path(board),class:'continue-comment-link' %>
+                            <% else %>
+                                <%= board.comment %>
+                            <% end %>
+                        </span><br />
                         <span class='board-date'><%= board.created_at.strftime('%Y/%m/%d') %></span>
                     </div>
                 </div>

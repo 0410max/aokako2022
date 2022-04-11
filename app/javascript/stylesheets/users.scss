@@ -374,6 +374,7 @@
     color: black;
     border-bottom: 1px solid black;
 }
+
 .user-show-top {
     color: black;
 }
@@ -642,15 +643,18 @@
 
                                     // board.html.erb
 
-.index-board-content {
-    width: 45%;
+.show-board-content {
+    width: 80%;
     border: 1px solid #dbdbdb;
     background-color: white;
     border-radius: 2px;
     position: relative;
-    margin-right: 20px;
-    margin-top: 20px;
-}                                    
+    margin: 10px auto;
+}    
+
+.show-board-content:first-child {
+    margin-top: 15px;
+}     
 
 
 
@@ -747,10 +751,10 @@
 
 @media (max-width: 500px){
     .td-users-show-profile-image {
-        width: 190px;
+        width: 150px;
     }
     .show-profile-image {
-        margin: 10px 45px;
+        margin: 10px 30px;
     }
     .users-info-wrapper {
         margin-left: 20px;  
@@ -782,6 +786,39 @@
     .edit-user-introduction {
         width: 300px;
     }
+    .kakomon-count {
+        font-size: 14px;
+    }
+    .span-following {
+        font-size: 14px;
+    }
+    .span-follower {
+        font-size: 14px;
+    }
+    .follower-page-kakomon-count {
+        font-size: 14px;
+    }
+    .follower-page-followings {
+        font-size: 14px;
+    }
+    .follower-page-followers {
+        font-size: 14px;
+    }
+    .following-page-kakomon-count {
+        font-size: 14px;
+    }
+    .following-page-followings {
+        font-size: 14px;
+    }
+    .following-page-followers {
+        font-size: 14px;
+    }
+    .class-count {
+        font-size: 14px;
+    }
+    .follower-page-class-count {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 450px){
@@ -795,10 +832,10 @@
 
 @media (max-width: 400px){
     .td-users-show-profile-image {
-        width: 190px;
+        width: 130px;
     }
     .show-profile-image {
-        margin: 10px 45px;
+        margin: 10px 20px;
     }
     .dep-select {
         margin-left: 20px;
@@ -806,22 +843,38 @@
     .user-setting{
         padding: 5px 5px;
     }
-}
-
-@media (max-width: 500px){
-    .td-users-show-profile-image {
-        width: 150px;
+    .kakomon-count {
+        font-size: 13px;
     }
-    .show-profile-image {
-        margin: 10px 30px;
+    .span-following {
+        font-size: 13px;
     }
-}
-@media (max-width: 400px){
-    .td-users-show-profile-image {
-        width: 130px;
+    .span-follower {
+        font-size: 13px;
     }
-    .show-profile-image {
-        margin: 10px 20px;
+    .follower-page-kakomon-count {
+        font-size: 13px;
+    }
+    .follower-page-followings {
+        font-size: 13px;
+    }
+    .follower-page-followers {
+        font-size: 13px;
+    }
+    .following-page-kakomon-count {
+        font-size: 13px;
+    }
+    .following-page-followings {
+        font-size: 13px;
+    }
+    .following-page-followers {
+        font-size: 13px;
+    }
+    .class-count {
+        font-size: 13px;
+    }
+    .follower-page-class-count {
+        font-size: 13px;
     }
 }
 
@@ -829,12 +882,4 @@
     .dep-select {
         margin-left: 0;
     }
-}
-
-@media (max-width: 340px){
-     
-}
-
-@media (max-width: 315px){
-   
 }
