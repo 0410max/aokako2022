@@ -1,6 +1,6 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-md-5 offset-md-2'>
+    <div class='col-md-10 board-index'>
       <div class="board-top">
         <h3>講義一覧</h3>
         <%= render 'search' %>
@@ -16,22 +16,23 @@
               <% end %>
               <span class='kakomon-user-name-top'><%= board.user.name %></span>
             </div>
-            <div class='article-bottom'>
+            <div class='article-bottom-board'>
               講義 : <%= board.sub %><br>
               教授 : <%= board.prof %><br>
               <span class='form1'>講義の面白さ</span><span id="star-rate1-<%= board.id %>"></span><br />
               <span class='form2'>教授の人柄</span><span id="star-rate2-<%= board.id %>"></span><br />
               <span class='form3'>単位の取りやすさ</span><span id="star-rate3-<%= board.id %>"></span><br />
-              <span class='board-comment'><%= board.comment[0..19] %></span>...<span class='continue-comment-link'>続きを読む</span><br />
-              <span class='board-comment-all'><%= board.comment %></span>
-              <span class='board-date'><%= board.created_at.strftime('%Y/%m/%d') %></span>
+              <span class='board-comment'><%= board.comment[0..19] %>...</span><span class='continue-comment-link'>続きを読む<br /><span class='board-date'><%= board.created_at.strftime('%Y/%m/%d') %></span></span>
+              <span class='board-comment-1200'><%= board.comment[0..15] %>...</span><span class='continue-comment-link-1200'>続きを読む<br /><span class='board-date'><%= board.created_at.strftime('%Y/%m/%d') %></span></span>
+              <span class='board-comment-1000'><%= board.comment[0..15] %>...</span><span class='continue-comment-link-1000'>続きを読む<br /><span class='board-date'><%= board.created_at.strftime('%Y/%m/%d') %></span></span>
+              <span class='board-comment-1000-all'><%= board.comment %></span>
+              <span class='board-comment-460'><%= board.comment[0..17] %>...</span><span class='continue-comment-link-460'>続きを読む<br /><span class='board-date'><%= board.created_at.strftime('%Y/%m/%d') %></span></span>
             </div>
           </div>
 
 
           <script>
             $('#star-rate1-<%= board.id %>').raty({
-              size: 36,
               starOff:  '<%= asset_path('star-off.png') %>',
               starOn : '<%= asset_path('star-on.png') %>',
               readOnly: true,
@@ -40,7 +41,6 @@
           </script>
           <script>
             $('#star-rate2-<%= board.id %>').raty({
-              size: 36,
               starOff:  '<%= asset_path('star-off.png') %>',
               starOn : '<%= asset_path('star-on.png') %>',
               readOnly: true,
@@ -49,7 +49,6 @@
           </script>
           <script>
             $('#star-rate3-<%= board.id %>').raty({
-              size: 36,
               starOff:  '<%= asset_path('star-off.png') %>',
               starOn : '<%= asset_path('star-on.png') %>',
               readOnly: true,
@@ -63,11 +62,6 @@
       <div class='pagenate'>
         <%= paginate @boards %>
       </div>
-    </div>
-
-    <div class='col-md-5'>
-      <br /><br /><br />
-      <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
     </div>
   </div>
 </div>

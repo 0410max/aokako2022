@@ -1,7 +1,8 @@
 document.addEventListener("turbolinks:load", function () {
-    $('.board-comment')
+    $('.continue-comment-link-1000')
         .on('click',function(){
-            $(this).css('display',none);
+            $('.board-comment-1000-all').css('display',inline);
+            $('.board-comment-1000').css('display',none);
             alert('ok')
         });
 });

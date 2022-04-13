@@ -70,8 +70,8 @@
 
 .no-user {
     color: gray;
-    margin-top: 30px;
-    margin-left: 200px;
+    width: 200px;
+    margin: 20px auto;
 }
 
 .user-index-table {
@@ -276,19 +276,6 @@
     background-color: #fafafa;
 }
 
-.ban {
-    border: 1px solid #dbdbdb;
-    padding: 7px 10px;
-    border-radius: 3px;
-    color: black;
-    background-color: #fafafa;
-}
-
-.ban:hover {
-    text-decoration: none;
-    color: black;
-}
-
 .make-room:hover {
     text-decoration: none;
     color: black;
@@ -468,7 +455,7 @@
 }
 
 .user-article-bottom {
-    padding: 10px;
+    padding: 5px 10px;
 }
 
 .user-setting {
@@ -644,17 +631,14 @@
                                     // board.html.erb
 
 .show-board-content {
-    width: 80%;
+    width: 47%;
     border: 1px solid #dbdbdb;
     background-color: white;
     border-radius: 2px;
     position: relative;
-    margin: 10px auto;
+    margin: 10px;
 }    
 
-.show-board-content:first-child {
-    margin-top: 15px;
-}     
 
 
 
@@ -675,6 +659,9 @@
     .dep-select {
         margin-left: 120px;
     }
+    .show-board-content {
+        width: 46%;
+    }    
 }
 
 @media (max-width: 1000px){
@@ -747,6 +734,15 @@
     .kakomon-show-link {
         height: 398px;
     }
+    .li-user-year {
+        font-size: 13px;
+    }
+    .li-user-dep {
+        font-size: 13px;
+    }
+    .li-user-cor {
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 500px){
@@ -764,10 +760,7 @@
     }
     .kakomon-show-link {
         height: 298px;
-    }
-    .user-article-bottom {
-        padding: 5px 10px;
-    }
+    }.alert-secondary
     .dep-select {
         margin-left: 50px;
     }

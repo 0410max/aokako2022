@@ -345,9 +345,9 @@
 }
 
 .no-kakomon {
-  margin-top: 30px;
-  margin-left: 300px;
   color:gray;
+  width: 200px;
+  margin: 20px auto;
 }
 
 
@@ -377,7 +377,7 @@
 }
 
 .kakomons-show-1000 {
-  padding-top: 80px;
+  padding-top: 50px;
   margin: 0 auto;
   width: 100%;
 }                                
@@ -541,85 +541,6 @@
   display: flex;
   position: relative;
 }
-
-// .slideshow-slides .slide img {
-//   left: 50%;
-//   margin-left: -800px;
-//   position: absolute;
-// }
-
-// .slideshow-nav a,
-// .slideshow-indicator a {
-//     background-color: rgba(0, 0, 0, 0); /* for IE9 */
-//     overflow: hidden;
-// }
-
-// .slideshow-nav a:before,
-// .slideshow-indicator a:before {
-//     display: inline-block;
-//     font-size: 0;
-//     line-height: 0;
-// }
-
-// .slideshow-nav a {
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     width: 72px;
-//     height: 72px;
-//     margin-top: -36px;
-// }
-
-// .slideshow-nav a.prev {
-//     margin-left: -480px;
-// }
-
-// .slideshow-nav a.prev:before {
-//     margin-top: -20px;    
-// }
-
-// .slideshow-nav a.next {
-//     margin-left: 408px;
-// }
-
-// .slideshow-nav a.next:before {
-//     margin-left: -80px;
-//     margin-top: -20px;
-// }
-
-// .slideshow-nav a.disabled {
-//     display: none;
-// }
-
-// .slideshow-indicator {
-//     bottom: 30px;
-//     height: 16px;
-//     left: 0;
-//     position: absolute;
-//     right: 0;
-//     text-align: center;
-// }
-
-// .slideshow-indicator a {
-//     display: inline-block;
-//     width: 16px;
-//     height: 16px;
-//     margin-left: 3px;
-//     margin-right: 3px;
-// }
-
-// .slideshow-indicator a.active {
-//     cursor: default;
-// }
-
-// .slideshow-indicator a:before {
-//     margin-left: -110px;
-// }
-
-// .slideshow-indicator a.active:before {
-//     margin-left: -130px;
-// }
-
 
 
 // コメント
@@ -813,7 +734,7 @@
 }
 
 .comment-scroll-1000 {
-  height: 205px;
+  height: 180px;
   overflow: scroll;
   margin: 0 auto;
   border-top: 1px solid #dbdbdb;
@@ -886,11 +807,14 @@
     flex-direction: column;
   }
   .index-kakomon-content {
-    width: 90%;
+    width: 100%;
     margin: 10px auto;
   }
   .kakomons-index-image-size{
     height: 430px;
+  }
+  .article-bottom {
+    font-size: 13px;
   }
 }
 
@@ -908,6 +832,9 @@
   .depSelector{
     margin-left: 40px;
     width: 300px;
+  }
+  .prof-new {
+    width: 230px;
   }
 }
 
