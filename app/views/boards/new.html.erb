@@ -11,10 +11,6 @@
             <% end %>
             <span class='past-class-boards'>講義評価</span>
         </div>
-        <span class='fa-stack'>
-            <i class='fa-solid fa-bell fa-stack-2x' style='font-size: 1.5em;' ></i>
-            <i class='fa-solid fa-circle n-circle fa-stack-1x' style="font-size: 1.5em;" ></i>
-        </span>
 
         <%= form_with model:@board,local: true do |f| %>
             <ul>
@@ -25,7 +21,7 @@
             <li class='mt-2' id="rating-form3"><span class='form3-new'>単位の取りやすさ</span><%= f.hidden_field :rate3, :value => 'score' %></li>
             <li class='mt-2'>コメント(20字以上)<br><%= f.text_area :comment,class:'comment-new',placeholder:'講義内容、単位の取り方など' %></li>
             </ul>
-
+            
             <% if @board.errors.any? %>
             <div class="error">
                 <% @board.errors.full_messages.each do |message| %>

@@ -639,6 +639,13 @@
     margin: 10px;
 }    
 
+.user-board-date {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+
 
 
 
@@ -662,6 +669,15 @@
     .show-board-content {
         width: 46%;
     }    
+    .star-rate1 img {
+        width: 17px;
+    }
+    .star-rate2 img {
+        width: 17px;
+    }
+    .star-rate3 img {
+        width: 17px;
+    }
 }
 
 @media (max-width: 1000px){
