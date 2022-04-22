@@ -14,6 +14,7 @@ document.addEventListener("turbolinks:load", function () {
             updateNav();
         }
 
+
         function updateNav(){
             var $navPrev = $nav.find('.prev'),
                 $navNext = $nav.find('.next');
@@ -90,6 +91,5 @@ document.addEventListener("turbolinks:load", function () {
 
         goToSlide(currentIndex);
     })
-
 
 });
