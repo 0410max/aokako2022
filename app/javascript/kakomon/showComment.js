@@ -1,12 +1,14 @@
 document.addEventListener("turbolinks:load", function () {
 $(function(){
-    $('.kakomons-show-top-button')
+
+    $('.kakomons-index-top-button')
         .on('click',function(){
+            var btnIndex = $(this).index();
+            $('.index-modal,.index-modal-bg').eq(btnIndex).fadeIn();
             $("body").addClass("no_scroll"); 
-            $('.index-modal,.index-modal-bg').fadeIn();
         });
 
-    $('.index-modal-bg,.index-modal-close-button')
+        $('.index-modal-bg,.index-modal-close-button')
         .on('click',function(){
             $("body").removeClass("no_scroll");
             $('.index-modal,.index-modal-bg').fadeOut();

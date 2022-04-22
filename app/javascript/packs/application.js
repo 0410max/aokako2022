@@ -16,6 +16,7 @@ require('user/edit');
 require('user/index');
 require('user/show');
 require('room/show');
+require('board/comment')
 require("jquery");
 require('rate/jquery.raty.js');
 require("jquery-ui/ui/widgets/datepicker");

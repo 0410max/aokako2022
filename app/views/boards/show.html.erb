@@ -15,9 +15,9 @@
                     <div class='board-show'>
                         講義 : <%= @board.sub %><br>
                         教授 : <%= @board.prof %><br>
-                        <span class='form1'>講義の面白さ</span><span id="star-rate1-<%= @board.id %>"></span><br />
-                        <span class='form2'>教授の人柄</span><span id="star-rate2-<%= @board.id %>"></span><br />
-                        <span class='form3'>単位の取りやすさ</span><span id="star-rate3-<%= @board.id %>"></span><br />
+                        <span class='form1'>講義の面白さ</span><span class='star-rate1' id="star-rate1-<%= @board.id %>"></span><br />
+                        <span class='form2'>教授の人柄</span><span class='star-rate2' id="star-rate2-<%= @board.id %>"></span><br />
+                        <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="star-rate3-<%= @board.id %>"></span><br />
                         <div class='board-show-comment'><%= simple_format(@board.comment) %></div><br />
                         <span class='board-show-date'><%= @board.created_at.strftime('%Y/%m/%d') %></span>
                     </div>
@@ -141,9 +141,9 @@
                                     <div class='kakomon-comment-content'>
                                         講義 : <%= @board.sub %><br>
                                         教授 : <%= @board.prof %><br>
-                                        <span class='form1'>講義の面白さ</span><span id="star-rate1-<%= @board.id %>"></span><br />
-                                        <span class='form2'>教授の人柄</span><span id="star-rate2-<%= @board.id %>"></span><br />
-                                        <span class='form3'>単位の取りやすさ</span><span id="star-rate3-<%= @board.id %>"></span><br />
+                                        <span class='form1'>講義の面白さ</span><span class='star-rate1' id="1000-star-rate1-<%= @board.id %>"></span><br />
+                                        <span class='form2'>教授の人柄</span><span class='star-rate2' id="1000-star-rate2-<%= @board.id %>"></span><br />
+                                        <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="1000-star-rate3-<%= @board.id %>"></span><br />
                                         <span class='board-show-comment'><%= safe_join(@board.comment.split("\n"), tag(:br)) %></span><br />
                                         <span class='board-date'><%= @board.created_at.strftime('%Y/%m/%d') %></span>
                                     </div>
@@ -154,12 +154,12 @@
                         <% else %>
                             <div class='board-comment-scroll-1000-no-comment'>
                                 <div class='kakomon-comment-content-top'>   
-                                    <div class='kakomon-comment-content'>
+                                    <div class='board-comment-content'>
                                         講義 : <%= @board.sub %><br>
                                         教授 : <%= @board.prof %><br>
-                                        <span class='form1'>講義の面白さ</span><span id="star-rate1-<%= @board.id %>"></span><br />
-                                        <span class='form2'>教授の人柄</span><span id="star-rate2-<%= @board.id %>"></span><br />
-                                        <span class='form3'>単位の取りやすさ</span><span id="star-rate3-<%= @board.id %>"></span><br />
+                                        <span class='form1'>講義の面白さ</span><span class='star-rate1' id="1000-star-rate1-<%= @board.id %>"></span><br />
+                                        <span class='form2'>教授の人柄</span><span class='star-rate2' id="1000-star-rate2-<%= @board.id %>"></span><br />
+                                        <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="1000-star-rate3-<%= @board.id %>"></span><br />
                                         <span class='board-show-comment'><%= safe_join(@board.comment.split("\n"), tag(:br)) %></span><br />
                                         <span class='board-date'><%= @board.created_at.strftime('%Y/%m/%d') %></span>
                                     </div>
@@ -198,7 +198,7 @@
         </div>
     </div>
     <script>
-        $('#star-rate1-<%= @board.id %>').raty({
+        $('#1000-star-rate1-<%= @board.id %>').raty({
         starOff:  '<%= asset_path('star-off.png') %>',
         starOn : '<%= asset_path('star-on.png') %>',
         readOnly: true,
@@ -206,7 +206,7 @@
         });
     </script>
     <script>
-        $('#star-rate2-<%= @board.id %>').raty({
+        $('#1000-star-rate2-<%= @board.id %>').raty({
         starOff:  '<%= asset_path('star-off.png') %>',
         starOn : '<%= asset_path('star-on.png') %>',
         readOnly: true,
@@ -214,7 +214,7 @@
         });
     </script>
     <script>
-        $('#star-rate3-<%= @board.id %>').raty({
+        $('#1000-star-rate3-<%= @board.id %>').raty({
         starOff:  '<%= asset_path('star-off.png') %>',
         starOn : '<%= asset_path('star-on.png') %>',
         readOnly: true,

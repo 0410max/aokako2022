@@ -5,6 +5,7 @@ class KakomonsController < ApplicationController
     @kakomons = Kakomon.page(params[:page]).per(10).order(created_at: :desc)
     @comment = Comment.new
     @kakomonsCount = current_user.kakomons.count
+    @report = Report.new
   end
 
   def search

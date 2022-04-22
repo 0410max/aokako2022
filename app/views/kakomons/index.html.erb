@@ -15,26 +15,27 @@
             <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
           <% end %>
           <span class='kakomon-user-name-top'><%= kakomon.user.name %></span>
-          <span class='kakomons-show-top-button'><i class="fa-solid fa-bars"></i></span>
-          <div>
+          <span class='kakomons-index-top-button'><i class="fa-solid fa-bars"></i></span>
+            <% #モーダル　%>
             <div class='index-modal'>
               <div class='modal-content'>
-                  <% if kakomon.user === current_user %>
-                      <div class='kakomon-delete'>
-                          <%= link_to'削除する',kakomon_path(kakomon),class:'kakomon-delete-link',method: :delete %>
-                      </div>
-                  <% elsif current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                      <div class='kakomon-delete'>
-                          <%= link_to'削除する',kakomon_path(kakomon),class:'kakomon-delete-link',method: :delete %>
-                      </div>
-                  <% else %>
-                      <%= form_with(model:[kakomon,@report],local:true) do |f| %>
-                          <%= f.hidden_field :id, :value => kakomon.id %>
-                          <%= f.submit '報告する',class:'kakomon-report' %>
-                      <% end %>
+                <% if kakomon.user === current_user %>
+                  <%= kakomon.user.name %>
+                  <div class='kakomon-delete'>
+                    <%= link_to'削除する',kakomon_path(kakomon),class:'kakomon-delete-link',method: :delete %>
+                  </div>
+                <% elsif current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
+                  <div class='kakomon-delete'>
+                    <%= link_to'削除する',kakomon_path(kakomon),class:'kakomon-delete-link',method: :delete %>
+                  </div>
+                <% else %>
+                  <%= form_with(model:[kakomon,@report],local:true) do |f| %>
+                    <%= f.hidden_field :id, :value => kakomon.id %>
+                    <%= f.submit '報告する',class:'kakomon-report' %>
                   <% end %>
-                  <div class='index-modal-close-button'>キャンセル</div>
-              </div>
+                <% end %>
+                <div class='index-modal-close-button'>キャンセル</div>
+
             </div>
           </div>
         </div>
