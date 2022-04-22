@@ -627,6 +627,26 @@
     padding-top: 60px;
 }
 
+.user-form1 {
+    letter-spacing: 6.5px;
+    margin-right: 10.5px;
+    position: relative;
+    top: 2px;
+}
+  
+  .user-form2 {
+    letter-spacing: 12px;
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+  }
+  
+  .user-form3 {
+    margin-right: 16.8px;
+    position: relative;
+    top: 2px;
+  }
+
 
                                     // board.html.erb
 
@@ -639,11 +659,7 @@
     margin: 10px;
 }    
 
-.user-board-date {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-}
+
 
 
 
@@ -703,6 +719,9 @@
         flex-direction: column;
         list-style: none;
     }
+    .show-board-content {
+        width: 90%;
+    } 
 }
 
 
@@ -757,6 +776,9 @@
         font-size: 13px;
     }
     .li-user-cor {
+        font-size: 13px;
+    }
+    .user-article-bottom {
         font-size: 13px;
     }
 }
@@ -884,6 +906,21 @@
     }
     .follower-page-class-count {
         font-size: 13px;
+    }
+    .star-rate1 img {
+        width: 16px;
+    }
+    .star-rate2 img {
+        width: 16px;
+    }
+    .star-rate3 img {
+        width: 16px;
+    }
+    .user-form1 {
+        margin-right: 13px;
+    }
+    .user-form3 {
+        margin-right: 26.2px;
     }
 }
 

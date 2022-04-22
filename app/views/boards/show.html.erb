@@ -103,3 +103,122 @@
         </div>
     </div>
 </div>
+
+
+
+
+<div class='max-width-1000'>
+    <div class='conainer'>
+        <div class='row'>
+            <div class='col-md-9 kakomons-show-1000'>
+                <div class='kakomons-show-content-1000'>
+                    <% #モーダル %>
+                    <%= render 'modal'%>
+
+    
+                    <div class='comment-wrapper-1000'>
+                        <% #アイコン、名前 %> 
+                        <div class='kakomons-show-user-info-1000'>
+                            <%= link_to user_path(@board.user),class:'index-profile-image-link' do %>
+                                <%= image_tag @board.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                            <% end %>
+                            <span class='kakomons-show-user-name'><%= @board.user.name %></span>
+                            <% if @board.user.followed_by?(current_user) %>
+                                <%= link_to'フォロー中',user_relationships_path(@board.user),method: :delete,class:'kakomons-show-user-following' %>
+                            <% else %>
+                                <% unless @board.user == current_user %>
+                                    <%= link_to 'フォローする',user_relationships_path(@board.user),method: :post,class:'kakomons-show-user-followed' %>
+                                <% end %>
+                            <% end %>
+                            <span class='kakomons-show-top-button'><i class="fa-solid fa-bars"></i></span>
+                        </div>
+
+
+                        <% #コメント %>
+                        <% if @comments.count === 0 %>
+                            <div class='board-comment-scroll-1000'>
+                                <div class='kakomon-comment-content-top'>   
+                                    <div class='kakomon-comment-content'>
+                                        講義 : <%= @board.sub %><br>
+                                        教授 : <%= @board.prof %><br>
+                                        <span class='form1'>講義の面白さ</span><span id="star-rate1-<%= @board.id %>"></span><br />
+                                        <span class='form2'>教授の人柄</span><span id="star-rate2-<%= @board.id %>"></span><br />
+                                        <span class='form3'>単位の取りやすさ</span><span id="star-rate3-<%= @board.id %>"></span><br />
+                                        <span class='board-show-comment'><%= safe_join(@board.comment.split("\n"), tag(:br)) %></span><br />
+                                        <span class='board-date'><%= @board.created_at.strftime('%Y/%m/%d') %></span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class='no-comment'>コメントはありません</div>
+                            </div>
+                        <% else %>
+                            <div class='board-comment-scroll-1000-no-comment'>
+                                <div class='kakomon-comment-content-top'>   
+                                    <div class='kakomon-comment-content'>
+                                        講義 : <%= @board.sub %><br>
+                                        教授 : <%= @board.prof %><br>
+                                        <span class='form1'>講義の面白さ</span><span id="star-rate1-<%= @board.id %>"></span><br />
+                                        <span class='form2'>教授の人柄</span><span id="star-rate2-<%= @board.id %>"></span><br />
+                                        <span class='form3'>単位の取りやすさ</span><span id="star-rate3-<%= @board.id %>"></span><br />
+                                        <span class='board-show-comment'><%= safe_join(@board.comment.split("\n"), tag(:br)) %></span><br />
+                                        <span class='board-date'><%= @board.created_at.strftime('%Y/%m/%d') %></span>
+                                    </div>
+                                </div>
+                                <div class='comment-index'>
+                                    <hr>
+                                    <% @comments.each do |comment| %>
+                                        <div class='other-user-comment'>
+                                            <%= link_to user_path(comment.user),class:'index-profile-image-link' do %>
+                                                <%= image_tag comment.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                                            <% end %>
+                                            <span class='comment-user-name'><%= comment.user.name %></span>
+                                            <div class='other-user-comment-content'>
+                                                <%= simple_format(comment.comment) %>
+                                                <span class='kakomon-date'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+                                                <% if comment.user === current_user %>
+                                                    <span class='delete-comment'><%= link_to '削除',board_board_comment_path(comment.board,comment),class:'delete-comment-link',method: :delete %></span>
+                                                <% end %>
+                                            </div>
+                                        </div>
+                                        <br />
+                                    <% end %>
+                                </div>
+                            </div>
+                        <% end %>
+
+                        <div class='kakomons-show-comment-new-1000'>
+                            <%= form_with(model:[@board,@comment], local: true) do |f| %>
+                                <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
+                                <%= f.submit "投稿する",class:'kakomons-show-comment-submit-1000' %>
+                            <% end %>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#star-rate1-<%= @board.id %>').raty({
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        readOnly: true,
+        score: <%= @board.rate1 %>
+        });
+    </script>
+    <script>
+        $('#star-rate2-<%= @board.id %>').raty({
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        readOnly: true,
+        score: <%= @board.rate2 %>
+        });
+    </script>
+    <script>
+        $('#star-rate3-<%= @board.id %>').raty({
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        readOnly: true,
+        score: <%= @board.rate3 %>
+        });
+    </script>
+</div>

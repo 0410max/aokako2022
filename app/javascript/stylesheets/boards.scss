@@ -223,6 +223,18 @@
   left: 3px;
 }
 
+.board-comment-scroll-1000 {
+  height: 600px;
+  overflow: scroll;
+  margin: 0 auto;
+}
+
+.board-comment-scroll-1000-no-comment{
+  height: 600px;
+  overflow: scroll;
+  margin: 0 auto;
+}
+
 @media (max-width: 1200px) {
   .board-comment {
     display: none;
