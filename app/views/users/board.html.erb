@@ -46,7 +46,7 @@
                             <span class='board-comment'><%= board.comment[0..19] %>...</span><span class='continue-comment-link'><%= link_to '続きを読む',board_path(board),class:'continue-comment-link' %><br /></span></span>
                             <span class='board-comment-1200'><%= board.comment[0..15] %>...</span><span class='continue-comment-link-1200'><%= link_to '続きを読む',board_path(board),class:'continue-comment-link-1200' %><br /></span></span>
                             <span class='board-comment-1000'><%= board.comment[0..15] %>...</span><span id='<%= i %>-1000' class='continue-comment-link-1000'>続きを読む<br /></span></span>
-                            <span class='board-comment-460'><%= board.comment[0..17] %>...</span><span id='<%= i %>-460' class='continue-comment-link-460'>続きを読む<br /></span></span>
+                            <span class='board-comment-460'><%= board.comment[0..12] %>...</span><span id='<%= i %>-460' class='continue-comment-link-460'>続きを読む<br /></span></span>
                             <span class='board-comment-all'><%= board.comment %><br /></span>
                             <span class='board-date'><%= board.created_at.strftime('%Y/%m/%d') %>
                         </div>
