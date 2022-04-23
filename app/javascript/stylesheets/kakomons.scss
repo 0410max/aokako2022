@@ -230,7 +230,7 @@
   top: 10px;
   right: 10px;
   color: white;
-  z-index:2;
+  z-index:1.5;
 }
 
 .image-link:hover{
@@ -410,7 +410,7 @@
 
 .index-modal {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -70%);
@@ -439,6 +439,23 @@
 .kakomon-delete-link:hover {
   color:#ed4956;
   text-decoration: none;
+}
+
+.index-kakomons-show-link {
+  color: black;
+  font-weight: normal;
+  text-align: center;
+}
+
+.index-kakomons-show-link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.kakomons-show-link-hr {
+  border-top: 1px solid #dbdbdb;
+  padding: 10px;
+  height: 44px;
 }
 
 .kakomon-report {
@@ -757,7 +774,7 @@
 
 .kakomons-show-comment-submit-1000 {
   position: absolute;
-  bottom: 16px;
+  bottom: 16.5px;
   right: 5px;
   background-color: white;
   border: none;
@@ -805,6 +822,9 @@
   .kakomons-index-top-button {
     top: 8px;
   }
+  .kakomons-show-top-button {
+    top: 14px;
+  }
 }
 
 @media (max-width:770px) {
@@ -828,7 +848,11 @@
     font-size: 13px;
   }
   .kakomons-show-comment-submit-1000 {
-    bottom: 18px;
+      bottom: 17px;
+  }
+  .kakomons-index-top-button {
+    font-size: 14px;
+    top: 9px;
   }
 }
 

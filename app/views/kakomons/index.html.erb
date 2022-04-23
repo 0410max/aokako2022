@@ -6,58 +6,87 @@
 
   <div class='index-modal-bg'></div>
 
-  <div class='col-md-10 kakomon-index'>
-    <% @kakomons.each do |kakomon| %>
-      <div class='index-kakomon-content'>
-        <div class='article-top'>
-          <% #アイコン、名前 %>
-          <%= link_to user_path(kakomon.user),class:'index-profile-image-link' do %>
-            <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-          <% end %>
-          <span class='kakomon-user-name-top'><%= kakomon.user.name %></span>
-          <span class='kakomons-index-top-button'><i class="fa-solid fa-bars"></i></span>
-            <% #モーダル　%>
-            <div class='index-modal'>
-              <div class='modal-content'>
-                <% if kakomon.user === current_user %>
-                  <%= kakomon.user.name %>
-                  <div class='kakomon-delete'>
-                    <%= link_to'削除する',kakomon_path(kakomon),class:'kakomon-delete-link',method: :delete %>
-                  </div>
-                <% elsif current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
-                  <div class='kakomon-delete'>
-                    <%= link_to'削除する',kakomon_path(kakomon),class:'kakomon-delete-link',method: :delete %>
-                  </div>
-                <% else %>
-                  <%= form_with(model:[kakomon,@report],local:true) do |f| %>
-                    <%= f.hidden_field :id, :value => kakomon.id %>
-                    <%= f.submit '報告する',class:'kakomon-report' %>
-                  <% end %>
-                <% end %>
-                <div class='index-modal-close-button'>キャンセル</div>
+  <% len = @kakomons.length %>
+  <% i = 0 %>
 
+  <div class='col-md-10 kakomon-index'>
+    <% while i < len do %>
+      <% @kakomons.each do |kakomon| %>
+        <div class='index-kakomon-content'>
+          <div class='article-top'>
+            <% #アイコン、名前 %>
+            <%= link_to user_path(kakomon.user),class:'index-profile-image-link' do %>
+              <%= image_tag kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+            <% end %>
+            <span class='kakomon-user-name-top'><%= kakomon.user.name %></span>
+            <span id='<%= i %>' class='kakomons-index-top-button'><i class="fa-solid fa-bars"></i></span>
+            
+              <% #モーダル %>
+              <div class='index-modal'>
+                <div class='modal-content'>
+                  <% if kakomon.user === current_user %>
+                    <div class='kakomon-delete'>
+                      <%= link_to'削除する',kakomon_path(kakomon),class:'kakomon-delete-link',method: :delete %><br />
+                    </div>
+                    <div class='kakomons-show-link-hr'>
+                      <%= link_to'詳細を表示',kakomon_path(kakomon),class:'index-kakomons-show-link' %>
+                    </div>
+                  <% elsif current_user.number.slice(1) == 'C' && current_user.number.slice(2) == 'C' && current_user.number.slice(3) == 'C' && current_user.number.slice(4) == 'C' && current_user.number.slice(5) == 'C' && current_user.number.slice(6) == 'C' && current_user.number.slice(7) == 'C' %>
+                    <div class='kakomon-delete'>
+                      <%= link_to'削除する',kakomon_path(kakomon),class:'kakomon-delete-link',method: :delete %>
+                    </div>
+                  <% else %>
+                    <%= form_with(model:[kakomon,@report],local:true) do |f| %>
+                      <%= f.hidden_field :id, :value => kakomon.id %>
+                      <%= f.submit '報告する',class:'kakomon-report' %>
+                    <% end %>
+                    <div class='kakomons-show-link-hr'>
+                      <%= link_to'詳細を表示',kakomon_path(kakomon),class:'index-kakomons-show-link' %>
+                    </div>
+                  <% end %>
+                  <div class='index-modal-close-button'>キャンセル</div>
+
+                  <script>
+                  $('#<%= i %>')
+                    .on('click',function(){
+                      var numberstr = '<%= i %>';
+                      var numberInd = Number(numberstr)
+                      $('.index-modal').eq(numberInd).fadeIn();
+                      $('.index-modal-bg').fadeIn();
+                      $("body").addClass("no_scroll");
+                    });
+
+                    $('.index-modal-bg,.index-modal-close-button')
+                    .on('click',function(){
+                      $("body").removeClass("no_scroll");
+                      $('.index-modal,.index-modal-bg').fadeOut();
+                    });
+                  </script>
+              </div>
             </div>
           </div>
-        </div>
-        <% #画像 %>
-        <div class='article-body'> 
-          <%= link_to kakomon_path(kakomon),class:'image-link' do %>
-            <% if kakomon.image2.attached? || kakomon.image3.attached? %>
-              <i class="fa-solid fa-clone"></i>
+
+          <% #画像 %>
+          <div class='article-body'> 
+            <%= link_to kakomon_path(kakomon),class:'image-link' do %>
+              <% if kakomon.image2.attached? || kakomon.image3.attached? %>
+                <i class="fa-solid fa-clone"></i>
+              <% end %>
+              <% if kakomon.image1.attached? %>
+                <%= image_tag kakomon.image1,class:'kakomons-index-image-size' %>
+              <% end %>
             <% end %>
-            <% if kakomon.image1.attached? %>
-              <%= image_tag kakomon.image1,class:'kakomons-index-image-size' %>
-            <% end %>
-          <% end %>
+          </div>
+          <% #投稿の下部分 %>
+          <div class='article-bottom'>
+            講義 : <%= kakomon.sub %><br>
+            教授 : <%= kakomon.prof %><br>
+            年度 : <%= kakomon.year %><br>
+            <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
+          </div>
         </div>
-        <% #投稿の下部分 %>
-        <div class='article-bottom'>
-          講義 : <%= kakomon.sub %><br>
-          教授 : <%= kakomon.prof %><br>
-          年度 : <%= kakomon.year %><br>
-          <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
-        </div>
-      </div>
+        <% i += 1 %>
+      <% end %>
     <% end %>
   </div>
   <div class='pagenate'>

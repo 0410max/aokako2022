@@ -1,10 +1,9 @@
 document.addEventListener("turbolinks:load", function () {
 $(function(){
 
-    $('.kakomons-index-top-button')
+    $('.kakomons-show-top-button')
         .on('click',function(){
-            var btnIndex = $(this).index();
-            $('.index-modal,.index-modal-bg').eq(btnIndex).fadeIn();
+            $('.index-modal,.index-modal-bg').fadeIn();
             $("body").addClass("no_scroll"); 
         });
 
