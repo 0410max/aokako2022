@@ -1,5 +1,5 @@
 class Kakomon < ApplicationRecord
-  belongs_to :user
+  belongs_to :end_user
   has_many :comments,dependent: :destroy
   has_many :reports,dependent: :destroy
   has_many :notifications, dependent: :destroy
@@ -11,16 +11,16 @@ class Kakomon < ApplicationRecord
   validates :sub, presence:true
   validates :prof, presence:true
 
-  def create_notification_comment!(current_user, comment_id)
-    temp_ids = Comment.select(:user_id).where(kakomon_id: id).where.not(user_id: current_user.id).distinct
+  def create_notification_comment!(current_end_user, comment_id)
+    temp_ids = Comment.select(:end_user_id).where(kakomon_id: id).where.not(end_user_id: current_end_user.id).distinct
     temp_ids.each do |temp_id|
-      save_notification_comment!(current_user, comment_id, temp_id['user_id'])
+      save_notification_comment!(current_end_user, comment_id, temp_id['end_user_id'])
     end
-    save_notification_comment!(current_user, comment_id, user_id) if temp_ids.blank?
+    save_notification_comment!(current_end_user, comment_id, end_user_id) if temp_ids.blank?
   end
 
-  def save_notification_comment!(current_user, comment_id, visited_id)
-    notification = current_user.active_notifications.new(
+  def save_notification_comment!(current_end_user, comment_id, visited_id)
+    notification = current_end_user.active_notifications.new(
       kakomon_id: id,
       comment_id: comment_id,
       visited_id: visited_id,

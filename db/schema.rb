@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_11_011043) do
+ActiveRecord::Schema.define(version: 2022_05_08_232024) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,18 @@ ActiveRecord::Schema.define(version: 2022_04_11_011043) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
   create_table "boalds", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -65,6 +77,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_011043) do
     t.integer "rate3"
     t.text "comment"
     t.integer "user_id"
+    t.integer "end_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -80,6 +93,24 @@ ActiveRecord::Schema.define(version: 2022_04_11_011043) do
     t.string "cor_first"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "end_users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.text "introduction"
+    t.string "number"
+    t.string "dep"
+    t.string "cor"
+    t.string "year"
+    t.index ["email"], name: "index_end_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -101,6 +132,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_011043) do
     t.text "image_id"
     t.string "image4"
     t.string "image5"
+    t.integer "end_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -124,6 +156,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_011043) do
     t.integer "comment_id"
     t.integer "board_comment_id"
     t.integer "board_id"
+    t.integer "end_user_id"
   end
 
   create_table "reads", force: :cascade do |t|

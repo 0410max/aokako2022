@@ -71,17 +71,14 @@ ul {
 #header {
   width: 100%;
   border-bottom: 1px solid #dbdbdb;
-  padding-top: 12px;
-  padding-bottom: 12px;
   position: fixed;
   z-index: 1;
   background-color: #fafafa;
 }
 
 #header li {
-  float: left;
   list-style: none;
-  line-height: 28px;
+  line-height: 20px;
 }
 
 .aokako-font {
@@ -90,6 +87,8 @@ ul {
   font-family: 'Apple Chancery';
   margin-left: 250px;
   font-weight: bold;
+  position: relative;
+  top: 20px;
 }
 
 .aokako-font:hover {
@@ -97,10 +96,21 @@ ul {
   color: black;
 }
 
+.header-right li{
+  float: right;
+  position: relative;
+  bottom: 19px;
+}
+
+.login-header-right li {
+  float: right;
+  position: relative;
+  bottom: 19px;
+}
+
 .login-font {
   color: black;
-  margin-left: 660px;
-
+  margin-right: 30px;
 }
 
 .login-font:hover {
@@ -110,7 +120,7 @@ ul {
 
 .signin-font {
   color: black;
-  margin-left: 50px;
+  margin-right: 250px;
 }
 
 .signin-font:hover {
@@ -118,21 +128,63 @@ ul {
   color: black;
 }
 
-.fa-file {
+.no-login-fa-file {
   color: black;
-  margin-left: 540px;
   font-size: 20px;
+  margin-right: 50px;
+}
+
+.no-login-fa-chalkboard-user {
+  color: black;
+  font-size: 20px;
+  margin-right: 50px;
+}
+
+#end-user-fa-file {
+  margin-right: 40px;
+}
+
+#end-user-fa-chalkboard-user {
+  margin-right: 40px;
+}
+
+.fa-file {
+  font-size: 20px;
+  color: black;
+}
+
+.fa-file:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.file-1200 {
+  margin-right: 40px;
+}
+
+.chalkboard-user-1200 {
+  margin-right: 40px;
 }
 
 .fa-chalkboard-user {
   color: black;
-  margin-left: 30px;
+  font-size: 20px;
+}
+
+.fa-chalkboard-user:hover {
+  color: black;
+  font-size: 20px;
+}
+
+.fa-comment {
+  color: black;
+  margin-right: 40px;
   font-size: 20px;
 }
 
 .fa-user-plus {
   color: black;
-  margin-left: 30px;
+  margin-right: 40px;
   font-size: 20px;
 }
 
@@ -140,7 +192,7 @@ ul {
   color: white;
   background-color: black;
   border-radius: 3px;
-  margin-left: 30px;
+  margin-right: 40px;
   padding: 1px 2px 1px 2px;
 }
 
@@ -153,22 +205,16 @@ ul {
   border: 2px solid black;
   border-radius: 5px;
   color: black;
-  margin-left: 30px;
+  margin-right: 40px;
   font-size: 15px;
   padding: 1px 2px;
   position: relative;
   top: 1px;
 }
 
-.fa-comment {
+.fa-heart {
   color: black;
-  margin-left: 30px;
-  font-size: 20px;
-}
-
-.fa-bell {
-  color: black;
-  margin-left: 30px;
+  margin-right: 40px;
   font-size: 20px;
 }
 
@@ -197,12 +243,13 @@ ul {
   height: 15px;
 }
 
-.nav-profile-image {
-  margin-left: 30px;
+.nav-profile-image-1200 {
+  margin-right: 250px;
   border-radius: 20px;
   border: 1px solid #dbdbdb;
   position: relative;
   bottom: 3px;
+
 }
 
 #body {
@@ -214,12 +261,77 @@ ul {
   padding-top: 80px;
 }
 
+.header-max-width-550 {
+  display: none;
+}
+
+.header-max-width-550-content {
+  display: flex;
+  text-align: center;
+  flex:auto;
+}
+
+.header-max-width-550-content li {
+  line-height: 28px;
+  width: 16.6%;
+  padding-top: 17px;
+}
+
+#end_user-fa-file-550 {
+  color: black;
+  font-size: 20px;
+}
+
+#end-user-fa-chalkboard-user-550 {
+  color: black;
+  font-size: 20px;
+}
+
+.file-550 {
+  position: relative;
+  left: 20px;
+}
+
+.chalkboard-user-550 {
+  position: relative;
+  left: 20px;
+}
+
+.plus-550 {
+  position: relative;
+  left: 20px;
+}
+
+.heart-550 {
+  color: black;
+  font-size: 20px;
+  position: relative;
+  left: 20px;
+}
+
+.comment-550 {
+  color: black;
+  font-size: 20px;
+  position: relative;
+  left: 20px;
+}
+
+.header-max-width-1200 {
+  width: 100%;
+}
+
+
+
+
 @media (max-width:1200px) {
   .aokako-font{
     margin-left: 200px;
   }
-  .login-font{
-    margin-left: 500px;
+  .signin-font {
+    margin-right: 200px;
+  }
+  .nav-profile-image-1200 {
+    margin-right: 200px;
   }
 }
 
@@ -227,272 +339,134 @@ ul {
   .aokako-font{
     margin-left: 100px;
   }
+  .signin-font {
+    margin-right: 100px;
+  }
+  .nav-profile-image-1200 {
+    margin-right: 100px;
+  }
 }
 
 @media (max-width:1000px) {
-  .fa-file {
-    margin-left: 400px;
-  }
-  .login-font{
-    margin-left: 400px;
-  }
+
 }
 
 @media (max-width:900px) {
-  .fa-file {
-    margin-left: 300px;
-  }
-  .login-font{
-    margin-left: 400px;
-  }
+
 }
 
 @media (max-width:800px) {
-  .fa-file {
-    margin-left: 200px;
-  }
-  .login-font{
-    margin-left: 300px;
-  }
 
 }
 
-@media (max-width:700px) {
-  .fa-file {
-    margin-left: 100px;
+@media (max-width:750px) {
+  .login-font {
+    margin-right: 20px;
   }
-  .login-font{
-    margin-left: 200px;
+  .fa-file {
+    margin-right: 40px;
+  }
+  .fa-chalkboard-user {
+    margin-right: 40px;
+  }
+}
+
+@media (max-width:700px) {
+  .aokako-font {
+    margin-left:50px;
+  }
+  .nav-profile-image-1200 {
+    margin-right: 50px;
   }
 }
 
 @media (max-width:600px) {
-  .aokako-font{
-    margin-left: 50px;
+  .signin-font {
+    margin-right: 50px;
   }
-  .fa-file {
-    margin-left: 90px;
+}
+
+@media (max-width:550px) {
+  .header-max-width-1200 {
+    display: none;
   }
-  .login-font{
-    margin-left: 150px;
+  .header-max-width-550 {
+    display: inline;
+    display: flex;
   }
 }
 
 @media (max-width:500px) {
-  .fa-file {
-    margin-left: 80px;
-  }
-  .fa-chalkboard-user {
-    margin-left: 20px;
-  }
-  .fa-user-plus {
-    margin-left: 20px;
-  }
-  .plus {
-    margin-left: 20px;
-  }
-  .fa-bell {
-    margin-left: 20px;
-  }
-  .nav-profile-image {
-    margin-left: 20px;
-  }
-  .login-font{
-    margin-left: 150px;
+  .aokako-font{
+    margin-left: 30px;
   }
   .signin-font {
-    margin-left: 20px;
+    margin-right: 30px;
+  }
+  .login-font {
+    margin-right: 10px;
   }
 }
 
 @media (max-width:450px) {
-  .login-font{
-    margin-left: 120px;
-  }
-  .signin-font {
-    margin-left: 20px;
-  }
   .sessions {
     padding-left:60px;
   }
 }
 
 @media (max-width:440px) {
-  .fa-file {
-    margin-left: 70px;
-  }
-  .login-font{
-    margin-left: 120px;
-  }
-  .signin-font {
-    margin-left: 20px;
-  }
+
 }
 
 @media (max-width:430px) {
-  .fa-file {
-    margin-left: 50px;
-  }
-  .login-font{
-    margin-left: 110px;
-  }
-  .signin-font {
-    margin-left: 20px;
-  }
+
 }
 
 @media (max-width:420px) {
-  .fa-file {
-    margin-left: 40px;
-  }
-  .login-font{
-    margin-left: 100px;
-  }
-  .signin-font {
-    margin-left: 20px;
-  }
-  .fa-user-plus{
-    margin-left: 20px;
-  }
-  .plus {
-    margin-left: 20px;
-  }
-  .fa-comment{
-    margin-left: 20px;
-  }
-  .nav-profile-image {
+  .nav-profile-image-1200 {
     margin-left: 20px;
   }
 }
 
 @media (max-width:410px) {
-  .fa-file {
-    margin-left: 30px;
-  }
-  .login-font{
-    margin-left: 90px;
-  }
-  .signin-font {
-    margin-left: 20px;
-  }
+ 
 }
 
 @media (max-width:400px) {
-  .login-font{
-    margin-left: 90px;
-  }
-  .aokako-font{
-    margin-left: 40px;
-  }
-  .signin-font {
-    margin-left: 20px;
-  }
+  
+
 }
 
 @media (max-width:390px) {
-  .aokako-font{
-    margin-left: 30px;
-  }
-  .login-font{
-    margin-left: 80px;
-  }
-  .signin-font {
-    margin-left: 20px;
-  }
+
 }
 
 @media (max-width:380px) {
   .aokako-font{
     margin-left: 20px;
   }
-  .fa-file {
-    margin-left: 20px;
-  }
-  .login-font{
-    margin-left: 70px;
-  }
   .signin-font {
-    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .nav-profile-image-1200 {
+    margin-right: 20px;
   }
 }
 
 @media (max-width:340px) {
-  .aokako-font {
-    margin-left: 30px;
-  }
-  .fa-file {
-    margin-left: 40px;
-  }
-  .login-font{
-    margin-left: 100px;
-  }
-  .signin-font {
-    margin-left: 10px;
-  }
-  .fa-user-plus{
-    margin-left: 10px;
-  }
-  .plus {
-    margin-left: 10px;
-  }
-  .fa-comment{
-    margin-left: 10px;
-  }
-  .nav-profile-image {
+  .nav-profile-image-1200 {
     margin-left: 10px;
   }
 }
 
 @media (max-width:320px) {
-  .aokako-font {
-    margin-left: 20px;
-  }
-  .fa-file {
-    margin-left: 40px;
-  }
-  .login-font{
-    margin-left: 100px;
-  }
-  .signin-font {
-    margin-left: 10px;
-  }
-  .fa-user-plus{
-    margin-left: 10px;
-  }
-  .plus {
-    margin-left: 10px;
-  }
-  .fa-comment{
-    margin-left: 10px;
-  }
-  .nav-profile-image {
+  .nav-profile-image-1200 {
     margin-left: 10px;
   }
 }
 
 @media (max-width:300px) {
-  .aokako-font {
-    margin-left: 20px;
-  }
-  .fa-file {
-    margin-left: 20px;
-  }
-  .login-font{
-    margin-left: 100px;
-  }
-  .signin-font {
-    margin-left: 10px;
-  }
-  .fa-user-plus{
-    margin-left: 10px;
-  }
-  .plus {
-    margin-left: 10px;
-  }
-  .fa-comment{
-    margin-left: 10px;
-  }
-  .nav-profile-image {
+  .nav-profile-image-1200 {
     margin-left: 10px;
   }
 }

@@ -1,0 +1,60 @@
+<div class='container'>
+  <div class='col-md-10 registrations'>
+    <h3>新規登録</h3>
+    <%= form_with model: @end_user, url: end_user_registration_path,local: true, id: 'new_user', class: 'new_user' do |f| %>
+
+      <div class="field">
+        <label>ユーザーネーム(英数)</label><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name",class:'text-field_width' %>
+      </div>
+
+      <div class="field">
+        <label>学部</label><br />
+        <%= f.select :dep, options_for_select([["文学部","文学部"], ["教育人間科学部","教育人間科学部"],  ["経済学部","経済学部"], 
+          ["法学部","法学部"], ["経営学部","経営学部"], ["国際政治経済学部","国際政治経済学部"], ["総合文化政策学部","総合文化政策学部"], 
+          ["理工学部","理工学部"], ["社会情報学部","社会情報学部"], ["地球社会共生学部","地球社会共生学部"], ["コミュニティ人間科学部","コミュニティ人間科学部"]]),{prompt:'選択してください'},{class:'text-field_width'} %>
+      </div>
+
+      <div class="field">
+        <label>学科</label><br />
+        <%= f.select :cor,options_for_select([
+          ["英米文学科","英米文学科"],["フランス文学科","フランス文学科"],["日本文学科","日本文学科"],["史学科","史学科"],["比較芸術学科","比較芸術学科"],
+          ["教育学科","教育学科"],["心理学科","心理学科"],
+          ["経済学科","経済学科"],["現代経済デザイン学科","現代経済デザイン学科"],
+          ["法学科","法学科"],["ヒューマンライツ学科","ヒューマンライツ学科"],
+          ["経営学科","経営学科"],["マーケティング学科","マーケティング学科"],
+          ["国際政治学科","国際政治学科"],["国際経済学科","国際経済学科"],["国際コミュニケーション学科","国際コミュニケーション学科"],
+          ["総合文化政策学科","総合文化政策学科"],
+          ["物理科学科","物理科学科"],["数理サイエンス学科","数理サイエンス学科"],["化学・生命科学科","化学・生命科学科"],["電気電子工学科","電気電子工学科"],["機械創造工学科","機械創造工学科"],["経営システム工学科","経営システム工学科"],["情報テクノロジー学科","情報テクノロジー学科"],
+          ["社会情報学科","社会情報学科"],
+          ["地球社会共生学科","地球社会共生学科"],
+          ["コミュニティ人間科学科","コミュニティ人間科学科"]]),{prompt:'選択してください'},{class:'text-field_width'} %>
+      </div>
+
+      <div class='registrations-alert'>
+        ---以下はcourse powerと同じです---
+      </div>
+
+      <div class="field">
+        <%= f.label :number %><br />
+        <%= f.text_field :number, autofocus: true, autocomplete: "number",class:'text-field_width' %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "new-password",class:'text-field_width' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password",class:'text-field_width' %>
+      </div>
+
+      <div class="actions">
+        <%= render "public/shared/error_messages", resource: resource %> 
+        <%= f.submit "新規登録" %>
+      </div>
+    <% end %>
+  </div>
+</div>

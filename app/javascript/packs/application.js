@@ -23,13 +23,13 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
-import "../stylesheets/homes";
-import "../stylesheets/kakomons";
-import "../stylesheets/users";
-import "../stylesheets/rooms"
-import "../stylesheets/reports";
-import "../stylesheets/notification";
-import "../stylesheets/boards";
+import "../stylesheets/end_user/homes";
+import "../stylesheets/end_user/kakomons";
+import "../stylesheets/end_user/users";
+import "../stylesheets/end_user/rooms"
+import "../stylesheets/end_user/reports";
+import "../stylesheets/end_user/notification";
+import "../stylesheets/end_user/boards";
 import '@fortawesome/fontawesome-free/js/all';
 Turbolinks.start()
 global.FontAwesome.config.mutateApproach = 'sync'

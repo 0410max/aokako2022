@@ -1,7 +1,7 @@
 ja:
   activerecord:
     attributes:
-      user:
+      end_user:
         name: ユーザーネーム
         number: 学生番号
         password: パスワード

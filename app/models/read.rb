@@ -1,4 +1,4 @@
 class Read < ApplicationRecord
-    belongs_to :user
+    belongs_to :end_user
     belongs_to :room
 end

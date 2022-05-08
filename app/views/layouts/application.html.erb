@@ -11,43 +11,98 @@
 
   <body>
     <div id='header'>
-      <% if user_signed_in? %>
-        <ul>
-          <li><%= link_to 'Aokako' ,root_path,class:'aokako-font' %></li>
-          <li>
-            <%= link_to kakomons_path do %>
-              <i class="fa-solid fa-file"></i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to boards_path do %>
-              <i class="fa-solid fa-chalkboard-user"></i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to users_path do %>
-              <i class="fa-solid fa-user-plus"></i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_kakomon_path,class:'plus' do %>
-              <span>＋</span>
-            <% end %>
-          </li>
-          <li>
-            <%= render 'notifications/circle' %>
-          </li>
-          <li>
-            <%= link_to user_path(current_user) do %>
-              <%= image_tag current_user.get_profile_image,size:'25x25',class:'nav-profile-image' %>
-            <% end %>
-          </li>
-        </ul>
+      <% if end_user_signed_in? %>
+        <span class='header-max-width-1200'>
+          <ul>
+            <li><%= link_to 'Aokako' ,root_path,class:'aokako-font' %></li>
+          </ul>
+          <ul class='login-header-right'>
+            <li>
+              <%= link_to end_user_path(current_end_user) do %>
+                <%= image_tag current_end_user.get_profile_image,size:'25x25',class:'nav-profile-image-1200' %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to notifications_path do %>
+                <i class="fa-solid fa-comment comment-1200"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to notifications_path do %>
+                <i class="fa-solid fa-heart heart-1200"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_kakomon_path,class:'plus plus-1200' do %>
+                <span>＋</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to boards_path do %>
+                <i class="fa-solid fa-chalkboard-user chalkboard-user-1200"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to kakomons_path do %>
+                <i class="fa-solid fa-file file-1200"></i>
+              <% end %>
+            </li>
+          </ul>
+        </span>
+        <span class='header-max-width-550'>
+          <ul class='header-max-width-550-content'>
+            <li>
+              <%= link_to kakomons_path do %>
+                <i class="fa-solid fa-file file-550"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to boards_path do %>
+                <i class="fa-solid fa-chalkboard-user chalkboard-user-550"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_kakomon_path,class:'plus plus-550' do %>
+                <span>＋</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to notifications_path do %>
+                <i class="fa-solid fa-heart heart-550"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to notifications_path do %>
+                <i class="fa-solid fa-comment comment-550"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to end_user_path(current_end_user) do %>
+                <%= image_tag current_end_user.get_profile_image,size:'25x25',class:'nav-profile-image' %>
+              <% end %>
+            </li>
+          </ul>
+        </span>
+      <% elsif admin_signed_in? %>
+        
       <% else %>
         <ul>
-          <li><%= link_to 'Aokako' ,root_path,class:'aokako-font' %></li>
-          <li class='top'><%= link_to 'ログイン' ,new_user_session_path,class:'login-font' %></li>
-          <li><%= link_to '新規登録',new_user_registration_path,class:'signin-font' %></li>
+          <li><%= link_to 'Aokako',root_path,class:'aokako-font' %></li>
+        </ul>
+        <span>
+        <ul class='header-right'>
+          <li><%= link_to '新規登録',new_end_user_registration_path,class:'signin-font' %></li>
+          <li class='top'><%= link_to 'ログイン' ,new_end_user_session_path,class:'login-font' %></li>
+          <li>
+            <%= link_to boards_path do %>
+              <i class="fa-solid fa-chalkboard-user no-login-fa-chalkboard-user"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to kakomons_path do %>
+              <i class="fa-solid fa-file no-login-fa-file"></i>
+            <% end %>
+          </li>
         </ul>
       <% end %>
     </div>
