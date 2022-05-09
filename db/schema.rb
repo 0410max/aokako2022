@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_08_232024) do
+ActiveRecord::Schema.define(version: 2022_05_09_030107) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_232024) do
     t.boolean "read"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "end_user_id"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_232024) do
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "end_user_id"
   end
 
   create_table "boards", force: :cascade do |t|
@@ -87,6 +89,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_232024) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "board_id"
+    t.integer "end_user_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -118,6 +121,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_232024) do
     t.integer "kakomon_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "end_user_id"
   end
 
   create_table "kakomons", force: :cascade do |t|
@@ -141,6 +145,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_232024) do
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "end_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -165,6 +170,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_232024) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "checked", default: false, null: false
+    t.integer "end_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -180,6 +186,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_232024) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "kakomon_id"
     t.integer "user_id"
+    t.integer "end_user_id"
   end
 
   create_table "room_users", force: :cascade do |t|
@@ -187,6 +194,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_232024) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.integer "end_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -194,6 +202,7 @@ ActiveRecord::Schema.define(version: 2022_05_08_232024) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "visit_user_id"
+    t.integer "end_user_id"
   end
 
   create_table "users", force: :cascade do |t|

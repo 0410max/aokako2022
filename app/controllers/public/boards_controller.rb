@@ -19,7 +19,7 @@ class Public::BoardsController < ApplicationController
     @board = Board.new(board_params)
     @board.end_user_id = current_end_user.id
     if @board.save
-      redirect_to user_path(@board.end_user)
+      redirect_to end_user_path(@board.end_user)
       flash[:notice] = '投稿されました'
     else
       render :new
@@ -30,7 +30,7 @@ class Public::BoardsController < ApplicationController
     board = Board.find(params[:id])
     board.destroy
     flash[:notice] = "削除されました"
-    redirect_to user_path(current_end_user)
+    redirect_to end_user_path(current_end_user)
   end
 
   def search
