@@ -14,6 +14,12 @@
     z-index: 2;
 }
 
+.homes-top-content-460 {
+    text-align: center;
+    font-size: 13px;
+    z-index: 2;
+}
+
 .homes-top-aokako-font {
     font-size: 20px;
     color: black;
@@ -45,27 +51,61 @@
     color: gray;
 }
 
-.homes-top-content-450 {
-    text-align: center;
-    font-size: 18px;
-    z-index: 2;
-    font-size: 13px;
-    display: none;
+@media (max-width:1000px) {
+    .homes-top-content {
+        font-size: 15px;
+    }
+    .aokako-alert {
+        font-size: 12px;
+    }
 }
 
+@media (max-width:530px) {
+    .homes-top-content {
+        font-size: 14px;
+    }
+    .aokako-alert {
+        color: red;
+        font-size: 11px;
+    }
+}
 
+@media (max-width:500px) {
+    .homes-top-content {
+        font-size: 13px;
+    }
+    .aokako-alert {
+        color: red;
+        font-size: 10px;
+    }
+}
 
-@media (max-width:450px) {
+@media (max-width:460px) {
     .homes-top-content {
         display: none;
     }
-    .homes-top-content-450 {
+    .homes-top-content-460 {
         display: block;
     }
+}
+
+@media (max-width:450px) {
     .homes-top-aokako-font {
         font-size: 16px;
     }
     .aokako-alert {
         font-size: 12px;
+    }
+}
+
+@media (max-width:405px) {
+    .homes-top-content-460 {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:380px) {
+    .homes-top-content-460 {
+        font-size: 11px;
     }
 }

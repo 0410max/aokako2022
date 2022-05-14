@@ -1,8 +1,8 @@
 class Public::KakomonsController < ApplicationController
+  before_action :authenticate_end_user!,except: [:index,:show]
   def index
     @kakomons = Kakomon.page(params[:page]).per(10).order(created_at: :desc)
     @comment = Comment.new
-    @kakomonsCount = current_end_user.kakomons.count
     @report = Report.new
   end
 

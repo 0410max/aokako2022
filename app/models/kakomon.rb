@@ -10,6 +10,7 @@ class Kakomon < ApplicationRecord
   validates :year,presence:true
   validates :sub, presence:true
   validates :prof, presence:true
+  validates :comment,presence:true
 
   def create_notification_comment!(current_end_user, comment_id)
     temp_ids = Comment.select(:end_user_id).where(kakomon_id: id).where.not(end_user_id: current_end_user.id).distinct

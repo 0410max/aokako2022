@@ -16,20 +16,20 @@ require('user/index');
 require('user/show');
 require('room/show');
 require("jquery");
-require('rate/jquery.raty.js');
+require('rate/jquery.raty');
 require("jquery-ui/ui/widgets/datepicker");
 
-import "jquery";
+window.$ = window.jQuery = require('jquery');
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
-import "../stylesheets/end_user/homes";
-import "../stylesheets/end_user/kakomons";
-import "../stylesheets/end_user/users";
-import "../stylesheets/end_user/rooms"
-import "../stylesheets/end_user/reports";
-import "../stylesheets/end_user/notification";
-import "../stylesheets/end_user/boards";
+import "../stylesheets/public/homes";
+import "../stylesheets/public/kakomons";
+import "../stylesheets/public/users";
+import "../stylesheets/public/rooms"
+import "../stylesheets/public/reports";
+import "../stylesheets/public/notification";
+import "../stylesheets/public/boards";
 import '@fortawesome/fontawesome-free/js/all';
 Turbolinks.start()
 global.FontAwesome.config.mutateApproach = 'sync'

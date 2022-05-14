@@ -181,8 +181,6 @@
 
 .kakomon-index {
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .index-kakomon-content {
@@ -320,7 +318,34 @@
   border-radius: 4px;
 }
 
-.no-kakomon-search-submit {
+.no-kakomon-search-submit-clear {
+  padding: 0;
+  color: white;
+  background-color: #a9a9a9;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.no-kakomon-search-submit-clear:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.no-kakomon-search-submit-no-login {
+  padding: 0;
+  color: white;
+  background-color: #a9a9a9;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.no-kakomon-search-submit:hover {
+  cursor:pointer;
+}
+
+.no-kakomon-search-submit-no-login:hover {
   cursor:pointer;
 }
 
@@ -409,6 +434,21 @@
 }
 
 .index-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  width: 200px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+  background-color: #fff;
+  border: none;
+  text-align: center;
+}
+
+.index-modal-1000 {
   display: none;
   position: fixed;
   top: 50%;
@@ -808,7 +848,7 @@
     height: 352px;
   }
   .article-bottom {
-    padding: 3px 10px;
+    padding: 5px 10px;
   }
   .article-top {
     padding: 5px 10px;

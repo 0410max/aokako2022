@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root'homes#top'
-    get 'end_users/:id/boards'=>'end_users#board'
     resources :kakomons, only:[:index,:new,:show,:create,:destroy,:about] do
       resources :comments,only: [:create,:destroy]
       resource :favorites, only: [:create, :destroy]
@@ -26,6 +25,7 @@ Rails.application.routes.draw do
       get :followers,on: :member
       get :search, on: :collection
     end
+    get 'end_users/:id/boards'=>'end_users#board'
     resources :messages, only: [:create,:destroy]
     resources :rooms, only: [:create,:show]
     resources :notifications,only:[:index]

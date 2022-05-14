@@ -415,12 +415,14 @@ ul {
 }
 
 @media (max-width:440px) {
-
+  .no-login-fa-chalkboard-user {
+    margin-right: 30px;
+  }
+  .no-login-fa-file {
+    margin-right: 30px;
+  }
 }
 
-@media (max-width:430px) {
-
-}
 
 @media (max-width:420px) {
   .nav-profile-image-1200 {
@@ -429,7 +431,12 @@ ul {
 }
 
 @media (max-width:410px) {
- 
+  .no-login-fa-chalkboard-user {
+    margin-right: 20px;
+  }
+  .no-login-fa-file {
+    margin-right: 20px;
+  }
 }
 
 @media (max-width:400px) {

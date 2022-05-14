@@ -1,0 +1,146 @@
+<div class='max-width-1200'>
+    <table>
+        <tr>
+            <td rowspan='3' class='td-users-show-profile-image'><%= image_tag @user.get_profile_image,class:'show-profile-image' %></td>
+        </tr>
+        <tr>
+            <td class='td-users-show-name' colspan='3'><span class='show-user-name'><%= @user.name %></span></td>
+        </tr>
+            <% if @user === current_end_user %>
+                <td class='td-user-setting'>
+                    <%= link_to 'プロフィールを編集',edit_end_user_path(@user),class:'user-setting' %>
+                </td>
+            <% else %>
+                <td>
+                    <% if @user.followed_by?(current_end_user) %>
+                        <%= link_to'フォロー中',end_user_relationships_path(@user),method: :delete,class:'user-followed-show' %>
+                    <% else %>
+                        <% unless @user == current_end_user %>
+                            <%= link_to 'フォローする',end_user_relationships_path(@user),method: :post,class:'user-following-show' %>
+                        <% end %>
+                    <% end %>
+                </td>
+            <% end %>
+            &nbsp;
+            <% if @user === current_end_user %>
+                <td class='td-logout'>
+                    <span class='logout-wrapper'><%= link_to 'ログアウト',destroy_end_user_session_path,class:'logout',method: :delete %></span>
+                </td>
+            <% else %>
+                <td>
+                    <% unless @user.id == current_end_user.id %>    
+                        <% if @haveRoom == true %>    
+                            <%= link_to "メッセージ",room_path(@roomId),class:'make-room' %>
+                        <% else %>
+                            <%= form_with model: @room,local: true do |f|%>   
+                                <%= fields_for @RoomUser do |r| %>  
+                                    <%= r.hidden_field :end_user_id, value: @user.id %>  
+                                <% end %>
+                                <%= f.submit "メッセージ",class:'make-room' %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                </td>
+            <% end %>
+        </tr>
+    </table>
+
+    <div class='users-info-wrapper'>
+        <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
+        <ul class='users-info'>
+            <% unless @user.year === '' %>
+                <li class='li-user-year'><%= @user.year %></li>
+            <% end %>
+            <li class='li-user-dep'><%= @user.dep %></li>
+            <li class='li-user-cor'><%= @user.cor %></li>
+        </ul>
+        <span class='user-introduction'><%= simple_format(@user.introduction) %></span>
+    </div>            
+</div>
+
+
+
+
+
+<div class='max-width-1000'>
+    <table>
+        <tr>
+            <% if @user == current_end_user %>
+                <td rowspan='4' class='td-users-show-profile-image'><%= image_tag @user.get_profile_image,class:'show-profile-image' %></td>
+            <% else %>
+            <td rowspan='4' class='td-other-users-show-profile-image'><%= image_tag @user.get_profile_image,class:'show-profile-image' %></td>
+            <% end %>
+        </tr>
+        <tr>
+            <td><span class='show-user-name-1000'><%= @user.name %></span></td>
+        </tr>
+            <% if @user === current_end_user %>
+                <td class='td-user-setting-1000' colspan='2'>
+                    <%= link_to 'プロフィールを編集',edit_end_user_path(@user),class:'user-setting' %>
+                </td>
+            <% else %>
+                <td>
+                    <span class='users-show-follow-1000'>
+                        <% if @user.followed_by?(current_end_user) %>
+                            <%= link_to'フォロー中',end_user_relationships_path(@user),method: :delete,class:'user-followed-show' %>
+                        <% else %>
+                            <% unless @user == current_end_user %>
+                                <%= link_to 'フォローする',end_user_relationships_path(@user),method: :post,class:'user-following-show' %>
+                            <% end %>
+                        <% end %>
+                    </span>
+                </td>
+            <% end %>
+            &nbsp;
+            </td>
+        </tr>
+        <tr>    
+            <% if @user === current_end_user %>
+                <td class='td-logout-1000'>
+                    <%= link_to 'ログアウト',destroy_end_user_session_path,class:'logout',method: :delete %>
+                </td>
+            <% else %>
+                <td>
+                    <% unless @user.id == current_end_user.id %>    
+                        <% if @haveRoom == true %>    
+                            <%= link_to "メッセージ",room_path(@roomId),class:'make-room' %>
+                        <% else %>
+                            <%= form_with model: @room,local: true do |f|%>   
+                                <%= fields_for @RoomUser do |r| %>  
+                                    <%= r.hidden_field :end_user_id, value: @user.id %>  
+                                <% end %>
+                                <%= f.submit "メッセージ",class:'make-room' %>
+                            <% end %>
+                            <% end %>
+                    <% end %>
+                </td>
+            <% end %>
+        </tr>
+    </table>
+    <% if @user == current_end_user %>
+        <div class='users-info-wrapper-current-user'>
+            <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
+            <div class='users-info-1000'>
+                <ul>
+                    <li><%= @user.year %></li>
+                    <li><%= @user.dep %></li>
+                    <li><%= @user.cor %></li>
+                </ul>
+            </div>
+            <%= simple_format(@user.introduction,{},wrapper_tag: "div") %>
+        </div>
+    <% else %>
+        <div class='users-info-wrapper'>
+            <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
+            <div class='users-info-1000'>
+                <ul>
+                    <li><%= @user.year %></li>
+                    <li><%= @user.dep %></li>
+                    <li><%= @user.cor %></li>
+                </ul>
+            </div>
+            <%= simple_format(@user.introduction,{},wrapper_tag: "div") %>
+        </div>
+    <% end %>
+            
+</div>

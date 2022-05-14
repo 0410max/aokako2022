@@ -1,7 +1,9 @@
 class Public::BoardsController < ApplicationController
+  before_action :authenticate_end_user!,except: [:index,:show]
   def index
     @boards = Board.page(params[:page]).per(20).order(created_at: :desc)
     @comment = BoardComment.new
+    @report = Report.new
   end
 
   def show
@@ -19,7 +21,7 @@ class Public::BoardsController < ApplicationController
     @board = Board.new(board_params)
     @board.end_user_id = current_end_user.id
     if @board.save
-      redirect_to end_user_path(@board.end_user)
+      redirect_to controller: :end_users, action: :board, id: current_end_user.id
       flash[:notice] = '投稿されました'
     else
       render :new
@@ -30,12 +32,12 @@ class Public::BoardsController < ApplicationController
     board = Board.find(params[:id])
     board.destroy
     flash[:notice] = "削除されました"
-    redirect_to end_user_path(current_end_user)
+    redirect_to controller: :end_users, action: :board, id: current_end_user.id
   end
 
   def search
     if params[:sub].present? || params[:prof].present?
-      @boards = Board.where('sub LIKE ? OR prof LIKE ?', "%#{params[:sub]}%","%#{params[:prof]}%")
+      @boards = Board.where('sub LIKE ?', "%#{params[:sub]}%")
       @boards = @boards.page(params[:page]).per(10).order(created_at: :desc)
     else
       @boards = Board.none

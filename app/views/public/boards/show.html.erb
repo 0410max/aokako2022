@@ -50,15 +50,15 @@
                     <div class='comment-wrapper'>
                         <% #アイコン、名前 %>   
                         <div class='kakomons-show-user-info'>
-                            <%= link_to user_path(@board.end_user),class:'index-profile-image-link' do %>
+                            <%= link_to end_user_path(@board.end_user),class:'index-profile-image-link' do %>
                                 <%= image_tag @board.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                             <% end %>
                             <span class='kakomons-show-user-name'><%= @board.end_user.name %></span>
                             <% if @board.end_user.followed_by?(current_end_user) %>
-                                <%= link_to'フォロー中',user_relationships_path(@board.user),method: :delete,class:'kakomons-show-user-following' %>
+                                <%= link_to'フォロー中',end_user_relationships_path(@board.user),method: :delete,class:'kakomons-show-user-following' %>
                             <% else %>
                                 <% unless @board.end_user == current_end_user %>
-                                    <%= link_to 'フォローする',user_relationships_path(@board.end_user),method: :post,class:'kakomons-show-user-followed' %>
+                                    <%= link_to 'フォローする',end_user_relationships_path(@board.end_user),method: :post,class:'kakomons-show-user-followed' %>
                                 <% end %>
                             <% end %>
                             <span class='kakomons-show-top-button'><i class="fa-solid fa-bars"></i></span>
@@ -70,7 +70,7 @@
                                     <span>コメントはありません</span>
                                 <% else %>
                                     <div class='other-user-comment'>
-                                        <%= link_to user_path(comment.end_user),class:'index-profile-image-link' do %>
+                                        <%= link_to end_user_path(comment.end_user),class:'index-profile-image-link' do %>
                                             <%= image_tag comment.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                                         <% end %>
                                         <span class='comment-user-name'><%= comment.end_user.name %></span>
@@ -86,18 +86,19 @@
                                 <br />
                             <% end %>
                         </div>
-                        <div class='kakomons-show-comment-new'>
-                            <%= form_with(model:[@board,@comment], local: true) do |f| %>
-                                <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
-                                <%= f.submit "投稿する",class:'kakomons-show-comment-submit' %>
-                            <% end %>
-                        </div> 
+                            <div class='kakomons-show-comment-new'>
+                                <%= form_with(model:[@board,@comment], local: false ) do |f| %>
+                                    <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
+                                    <%= f.submit "投稿する",class:'kakomons-show-comment-submit' %>
+                                <% end %>
+                            </div> 
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <div class='max-width-1000'>
     <div class='conainer'>
         <div class='row'>
@@ -109,15 +110,15 @@
                     <div class='comment-wrapper-1000'>
                         <% #アイコン、名前 %> 
                         <div class='kakomons-show-user-info-1000'>
-                            <%= link_to user_path(@board.end_user),class:'index-profile-image-link' do %>
-                                <%= image_tag @board.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                            <%= link_to end_user_path(@board.end_user),class:'index-profile-image-link' do %>
+                                <%= image_tag @board.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                             <% end %>
                             <span class='kakomons-show-user-name'><%= @board.end_user.name %></span>
                             <% if @board.end_user.followed_by?(current_end_user) %>
-                                <%= link_to'フォロー中',user_relationships_path(@board.end_user),method: :delete,class:'kakomons-show-user-following' %>
+                                <%= link_to'フォロー中',end_user_relationships_path(@board.end_user),method: :delete,class:'kakomons-show-user-following' %>
                             <% else %>
                                 <% unless @board.end_user == current_end_user %>
-                                    <%= link_to 'フォローする',user_relationships_path(@board.end_user),method: :post,class:'kakomons-show-user-followed' %>
+                                    <%= link_to 'フォローする',end_user_relationships_path(@board.end_user),method: :post,class:'kakomons-show-user-followed' %>
                                 <% end %>
                             <% end %>
                             <span class='kakomons-show-top-button'><i class="fa-solid fa-bars"></i></span>
@@ -156,7 +157,7 @@
                                     <hr>
                                     <% @comments.each do |comment| %>
                                         <div class='other-user-comment'>
-                                            <%= link_to user_path(comment.end_user),class:'index-profile-image-link' do %>
+                                            <%= link_to end_user_path(comment.end_user),class:'index-profile-image-link' do %>
                                                 <%= image_tag comment.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                                             <% end %>
                                             <span class='comment-user-name'><%= comment.end_user.name %></span>
@@ -174,7 +175,7 @@
                             </div>
                         <% end %>
                         <div class='kakomons-show-comment-new-1000'>
-                            <%= form_with(model:[@board,@comment], local: true) do |f| %>
+                            <%= form_with(model:[@board,@comment], local: false ) do |f| %>
                                 <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
                                 <%= f.submit "投稿する",class:'kakomons-show-comment-submit-1000' %>
                             <% end %>

@@ -1,0 +1,13 @@
+<% if number4 == '2' %>
+    <% if number5 == '2' %>
+        <% @user.year = '1年' %>
+    <% end %>
+    <% if number5 == '1'%>
+        <% @user.year = '2年' %>
+    <% end %>
+    <% if number5 == '0'%>
+        <% @user.year = '3年' %>
+    <% end %>
+<% else %>
+    <% @user.year = '' %>
+<% end %>
