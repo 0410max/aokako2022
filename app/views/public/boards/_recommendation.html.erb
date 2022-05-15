@@ -1,0 +1,23 @@
+<div class='recommendation-wrapper'>
+    <span class='recommendation'>おすすめ</span>
+    <span class='watch-all'><%= link_to 'すべて見る',end_users_path,class:'watch-all-link' %></span><br />
+    <% @users.each do |user| %>
+        <% unless user == current_end_user %>
+            <% unless user.followed_by?(current_end_user) %>
+                <table>
+                    <tr>    
+                        <td height='45' width='40'>
+                            <%= link_to end_user_path(user) do %>
+                                <%= image_tag user.get_profile_image ,class:'board-reccommendation-image-size'%>
+                            <% end %>
+                        </td>
+                        <td width='80'><%= link_to user.name,end_user_path(user),class:'boards-index-user-name' %></td>
+                        <td width='150' class='boards-index-td-dep'>
+                            <span class='boards-index-dep-font'><%= user.cor %></span>
+                        </td>
+                    </tr>
+                </table>
+            <% end %>
+        <% end %>
+    <% end %>
+</div>

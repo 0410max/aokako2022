@@ -4,6 +4,10 @@ class Public::BoardsController < ApplicationController
     @boards = Board.page(params[:page]).per(20).order(created_at: :desc)
     @comment = BoardComment.new
     @report = Report.new
+    dep = current_end_user.dep
+    cor = current_end_user.cor
+    @users = EndUser.where(dep: dep)
+    @userss = EndUser.all    
   end
 
   def show

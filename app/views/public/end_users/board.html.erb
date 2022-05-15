@@ -43,73 +43,104 @@
                             <span class='user-form2'>教授の人柄</span><span class='star-rate2' id="star-rate2-<%= board.id %>"></span><br />
                             <span class='user-form3'>単位の取りやすさ</span><span class='star-rate3' id="star-rate3-<%= board.id %>"></span><br />
 
-                            <span class='board-comment-show'><%= board.comment[0..19] %></span> 
-                            <% unless board.comment.length < 24 %>
+                             
+                            <% if board.comment.length < 24 %>
+                                <span class='board-comment-show'><%= board.comment %></span>
+                            <% else %>
+                                <span class='board-comment-show'><%= board.comment[0..19] %></span>
                                 <span class='continue-comment-show'>...</span><%= link_to '続きを読む',board_path(board),class:'continue-comment-link-show' %></span>
                             <% end %>
 
-                            <span class='board-comment-show-1200'><%= board.comment[0..16] %></span> 
-                            <% unless board.comment.length < 21 %>
+                             
+                            <% if board.comment.length < 21 %>
+                                <span class='board-comment-show-1200'><%= board.comment %></span>
+                            <% else %>
+                                <span class='board-comment-show-1200'><%= board.comment[0..16] %></span>
                                 <span class='continue-comment-show-1200'>...</span><%= link_to '続きを読む',board_path(board),class:'continue-comment-link-show-1200' %></span>
                             <% end %>
 
-                            <span class='board-comment-1000'><%= board.comment[0..24] %></span>
-                            <% unless board.comment.length < 30 %>
+                            
+                            <% if board.comment.length < 30 %>
+                                <span class='board-comment-1000'><%= board.comment %></span>
+                            <% else %>
+                                <span class='board-comment-1000'><%= board.comment[0..24] %></span>
                                 <span class='continue-comment-1000'>...</span><span id='<%= i %>-1000' class='continue-comment-link-1000'>続きを読む</span></span>
                             <% end %>
 
-                            <span class='board-comment-767'><%= board.comment[0..21] %></span>
-                            <% unless board.comment.length < 27 %>
+                            <% if board.comment.length < 27 %>
+                                <span class='board-comment-767'><%= board.comment %></span>
+                            <% else %>
+                                <span class='board-comment-767'><%= board.comment[0..21] %></span>
                                 <span class='continue-comment-767'>...</span><span id='<%= i %>-767' class='continue-comment-link-767'>続きを読む</span></span>
                             <% end %>
-
-                            <span class='board-comment-600'><%= board.comment[0..24] %></span>
-                            <% unless board.comment.length < 29 %>
+                            
+                            <% if board.comment.length < 29 %>
+                                <span class='board-comment-600'><%= board.comment %></span>
+                            <% else %>
+                                <span class='board-comment-600'><%= board.comment[0..24] %></span>
                                 <span class='continue-comment-600'>...</span><span id='<%= i %>-600' class='continue-comment-link-600'>続きを読む</span></span>
                             <% end %>
-
-                            <span class='board-comment-480'><%= board.comment[0..23] %></span>
-                            <% unless board.comment.length < 29 %>
+                            
+                            <% if board.comment.length < 29 %>
+                                <span class='board-comment-480'><%= board.comment %></span>
+                            <% else %>
+                                <span class='board-comment-480'><%= board.comment[0..23] %></span>
                                 <span class='continue-comment-480'>...</span><span id='<%= i %>-480' class='continue-comment-link-480'>続きを読む</span></span>
                             <% end %>
                             
-                            <span class='board-comment-470'><%= board.comment[0..22] %></span>
-                            <% unless board.comment.length < 28 %>
+                            <% if board.comment.length < 28 %>
+                                <span class='board-comment-470'><%= board.comment %></span>
+                            <% else %>
+                                <span class='board-comment-470'><%= board.comment[0..22] %></span>
                                 <span class='continue-comment-470'>...</span><span id='<%= i %>-470' class='continue-comment-link-470'>続きを読む</span></span>
                             <% end %>
 
-                            <span class='board-comment-454'><%= board.comment[0..21] %></span>
-                            <% unless board.comment.length < 27 %>
+                            <% if board.comment.length < 27 %>  
+                                <span class='board-comment-454'><%= board.comment %></span>
+                            <% else %>
+                                <span class='board-comment-454'><%= board.comment[0..21] %></span>
                                 <span class='continue-comment-454'>...</span><span id='<%= i %>-454' class='continue-comment-link-454'>続きを読む</span></span>
                             <% end %>
-
-                            <span class='board-comment-441'><%= board.comment[0..20] %></span>
-                            <% unless board.comment.length < 26 %>
+                            
+                            <% if board.comment.length < 26 %>
+                                <span class='board-comment-441'><%= board.comment %></span>
+                            <% else %>
+                                <span class='board-comment-441'><%= board.comment[0..20] %></span>
                                 <span class='continue-comment-441'>...</span><span id='<%= i %>-441' class='continue-comment-link-441'>続きを読む</span></span>
                             <% end %>
 
-                            <span class='board-comment-428'><%= board.comment[0..19] %></span>
-                            <% unless board.comment.length < 25 %>
+                            <% if board.comment.length < 25 %>
+                                <span class='board-comment-428'><%= board.comment %></span>
+                            <% else %>
+                                <span class='board-comment-428'><%= board.comment[0..19] %></span>
                                 <span class='continue-comment-428'>...</span><span id='<%= i %>-428' class='continue-comment-link-428'>続きを読む</span></span>
                             <% end %>
 
-                            <span class='board-comment-417'><%= board.comment[0..18] %></span>
-                            <% unless board.comment.length < 24 %>
+                            <% if board.comment.length < 24 %>
+                                <span class='board-comment-417'><%= board.comment %></span>
+                            <% else %>
+                                <span class='board-comment-417'><%= board.comment[0..18] %></span>
                                 <span class='continue-comment-417'>...</span><span id='<%= i %>-417' class='continue-comment-link-417'>続きを読む</span></span>
                             <% end %>
 
-                            <span class='board-comment-401'><%= board.comment[0..17] %></span>
-                            <% unless board.comment.length < 23 %>
+                            <% if board.comment.length < 23 %>
+                                <span class='board-comment-401'><%= board.comment %></span>
+                            <% else %>
+                                <span class='board-comment-401'><%= board.comment[0..17] %></span>
                                 <span class='continue-comment-401'>...</span><span id='<%= i %>-401' class='continue-comment-link-401'>続きを読む</span></span>
                             <% end %>
 
-                            <span class='board-comment-388'><%= board.comment[0..16] %></span>
-                            <% unless board.comment.length < 22 %>
+                            <% if board.comment.length < 22 %>
+                                <span class='board-comment-388'><%= board.comment %></span>  
+                            <% else %>
+                                <span class='board-comment-388'><%= board.comment[0..16] %></span>
                                 <span class='continue-comment-388'>...</span><span id='<%= i %>-388' class='continue-comment-link-388'>続きを読む</span></span>
                             <% end %>
 
-                            <span class='board-comment-377'><%= board.comment[0..15] %></span>
-                            <% unless board.comment.length < 21 %>
+                            <% if board.comment.length < 21 %>
+                                <span class='board-comment-377'><%= board.comment %></span>
+                            <% else %>
+                                <span class='board-comment-377'><%= board.comment[0..15] %></span>
                                 <span class='continue-comment-377'>...</span><span id='<%= i %>-377' class='continue-comment-link-377'>続きを読む</span></span>
                             <% end %>
 

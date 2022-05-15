@@ -31,15 +31,15 @@
                     <div class='comment-wrapper'>
                         <% #アイコン、名前 %>   
                         <div class='kakomons-show-user-info'>
-                            <%= link_to user_path(@kakomon.user),class:'index-profile-image-link' do %>
-                                <%= image_tag @kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                            <%= link_to end_user_path(@kakomon.end_user),class:'index-profile-image-link' do %>
+                                <%= image_tag @kakomon.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                             <% end %>
-                            <span class='kakomons-show-user-name'><%= @kakomon.user.name %></span>
-                            <% if @kakomon.user.followed_by?(current_end_user) %>
-                                <%= link_to'フォロー中',user_relationships_path(@kakomon.user),method: :delete,class:'kakomons-show-user-following' %>
+                            <span class='kakomons-show-user-name'><%= @kakomon.end_user.name %></span>
+                            <% if @kakomon.end_user.followed_by?(current_end_user) %>
+                                <%= link_to'フォロー中',end_user_relationships_path(@kakomon.end_user),method: :delete,class:'kakomons-show-user-following' %>
                             <% else %>
-                                <% unless @kakomon.user == current_end_user %>
-                                    <%= link_to 'フォローする',user_relationships_path(@kakomon.user),method: :post,class:'kakomons-show-user-followed' %>
+                                <% unless @kakomon.end_user == current_end_user %>
+                                    <%= link_to 'フォローする',end_user_relationships_path(@kakomon.end_user),method: :post,class:'kakomons-show-user-followed' %>
                                 <% end %>
                             <% end %>
                             <span class='kakomons-show-top-button'><i class="fa-solid fa-bars"></i></span>
@@ -68,14 +68,14 @@
                                     <hr>
                                     <% @comments.each do |comment| %>
                                         <div class='other-user-comment'>
-                                            <%= link_to user_path(comment.user),class:'index-profile-image-link' do %>
-                                                <%= image_tag comment.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                                            <%= link_to end_user_path(comment.end_user),class:'index-profile-image-link' do %>
+                                                <%= image_tag comment.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                                             <% end %>
-                                            <span class='comment-user-name'><%= comment.user.name %></span>
+                                            <span class='comment-user-name'><%= comment.end_user.name %></span>
                                             <div class='other-user-comment-content'>
                                                 <%= simple_format(comment.comment) %>
                                                 <span class='kakomon-date'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
-                                                <% if comment.user === current_end_user %>
+                                                <% if comment.end_user === current_end_user %>
                                                     <span class='delete-comment'><%= link_to '削除',kakomon_comment_path(comment.kakomon,comment),class:'delete-comment-link',method: :delete %></span>
                                                 <% end %>
                                             </div>
@@ -108,15 +108,15 @@
                     <div class='comment-wrapper-1000'>
                         <% #アイコン、名前 %> 
                         <div class='kakomons-show-user-info-1000'>
-                            <%= link_to user_path(@kakomon.user),class:'index-profile-image-link' do %>
-                                <%= image_tag @kakomon.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                            <%= link_to end_user_path(@kakomon.end_user),class:'index-profile-image-link' do %>
+                                <%= image_tag @kakomon.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                             <% end %>
-                            <span class='kakomons-show-user-name'><%= @kakomon.user.name %></span>
-                            <% if @kakomon.user.followed_by?(current_end_user) %>
-                                <%= link_to'フォロー中',user_relationships_path(@kakomon.user),method: :delete,class:'kakomons-show-user-following' %>
+                            <span class='kakomons-show-user-name'><%= @kakomon.end_user.name %></span>
+                            <% if @kakomon.end_user.followed_by?(current_end_user) %>
+                                <%= link_to'フォロー中',end_user_relationships_path(@kakomon.end_user),method: :delete,class:'kakomons-show-user-following' %>
                             <% else %>
-                                <% unless @kakomon.user == current_end_user %>
-                                    <%= link_to 'フォローする',user_relationships_path(@kakomon.user),method: :post,class:'kakomons-show-user-followed' %>
+                                <% unless @kakomon.end_user == current_end_user %>
+                                    <%= link_to 'フォローする',end_user_relationships_path(@kakomon.end_user),method: :post,class:'kakomons-show-user-followed' %>
                                 <% end %>
                             <% end %>
                             <span class='kakomons-show-top-button'><i class="fa-solid fa-bars"></i></span>
@@ -186,14 +186,14 @@
                                     <hr>
                                     <% @comments.each do |comment| %>
                                         <div class='other-user-comment'>
-                                            <%= link_to user_path(comment.user),class:'index-profile-image-link' do %>
-                                                <%= image_tag comment.user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                                            <%= link_to end_user_path(comment.end_user),class:'index-profile-image-link' do %>
+                                                <%= image_tag comment.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                                             <% end %>
-                                            <span class='comment-user-name'><%= comment.user.name %></span>
+                                            <span class='comment-user-name'><%= comment.end_user.name %></span>
                                             <div class='other-user-comment-content'>
                                                 <%= simple_format(comment.comment) %>
                                                 <span class='kakomon-date'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
-                                                <% if comment.user === current_end_user %>
+                                                <% if comment.end_user === current_end_user %>
                                                     <span class='delete-comment'><%= link_to '削除',kakomon_comment_path(comment.kakomon,comment),class:'delete-comment-link',method: :delete %></span>
                                                 <% end %>
                                             </div>

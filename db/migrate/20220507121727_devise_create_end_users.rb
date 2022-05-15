@@ -36,9 +36,15 @@ class DeviseCreateEndUsers < ActiveRecord::Migration[6.0]
       t.timestamps null: false
     end
 
-    add_index :end_users, :email,                unique: true
+    add_index :end_users, :email
     add_index :end_users, :reset_password_token, unique: true
     # add_index :end_users, :confirmation_token,   unique: true
     # add_index :end_users, :unlock_token,         unique: true
+    add_column :end_users,:name,:string
+    add_column :end_users,:introduction,:text
+    add_column :end_users,:number,:string
+    add_column :end_users,:dep,:string
+    add_column :end_users,:cor,:string
+    add_column :end_users,:year,:string
   end
 end

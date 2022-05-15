@@ -1,5 +1,9 @@
 class Public::EndUsersController < ApplicationController
   before_action :authenticate_end_user!
+  def index
+    @users = EndUser.all
+  end
+  
   def show
     @user = EndUser.find(params[:id])
     @kakomons = @user.kakomons.order(created_at: :desc)

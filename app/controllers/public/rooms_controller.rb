@@ -21,6 +21,9 @@ class Public::RoomsController < ApplicationController
       @read = Read.update(checked:true)
     end
   end
+
+  def index
+  end
   
   private
 

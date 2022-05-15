@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 2022_05_09_030107) do
     t.string "dep"
     t.string "cor"
     t.string "year"
-    t.index ["email"], name: "index_end_users_on_email", unique: true
+    t.index ["email"], name: "index_end_users_on_email"
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
   end
 

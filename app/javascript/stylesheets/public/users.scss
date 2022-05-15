@@ -4,6 +4,83 @@
 
                                                 // index.html.erb
 
+.end-users-index-top {
+    font-weight: bold;
+    font-size: 18px;
+    margin-left:40px;
+    margin-bottom: 5px;
+}
+
+.end-users-index {
+    margin: 100px auto 0 auto;
+}
+
+.end-users-index-content {
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.end-users-index-content {
+    background-color: white;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.end-users-index-image {
+    width: 10%;
+}
+
+.end-users-index-name {
+    width: 60%;
+}
+
+.end-users-index-follow {
+    width: 30%;
+    margin-bottom: 10px;
+    line-height: 20px;
+    position: relative;
+    top: 10px;
+    text-align:right;
+}
+
+.boards-reccommendation-image-size {
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    border: 1px solid #dbdbdb;
+    position: relative;
+    top: 3px;
+}
+
+.boards-reccommendation-image-size:hover {
+    cursor:pointer;
+}
+
+
+.end-users-index-name-link {
+    color: black;
+}
+
+.end-users-index-name-link:hover {
+    color: black;
+    cursor :pointer;
+    text-decoration: none;
+}
+
+.end-users-index-dep {
+    color: gray;
+    font-size: 13px;
+    position: relative;
+    bottom: 5px;
+}
+
+
+
+
+
 .user-index {
     margin: 0 auto;
     padding-top: 70px;
@@ -201,6 +278,7 @@
     width: 220px;
     line-height: 50px;
 }
+
 
                                                     // show.html.erb
 

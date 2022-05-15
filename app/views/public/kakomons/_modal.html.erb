@@ -2,7 +2,7 @@
 <div>
     <div class='index-modal'>
         <div class='modal-content'>
-            <% if @kakomon.user === current_end_user %>
+            <% if @kakomon.end_user === current_end_user %>
                 <div class='kakomon-delete'>
                     <%= link_to'削除する',kakomon_path(@kakomon),class:'kakomon-delete-link',method: :delete %>
                 </div>

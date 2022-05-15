@@ -71,6 +71,82 @@
 
                                   // index.html.erb
 
+#fixed-area {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 170px;
+  height: 500px;
+  width: 50px;
+  padding-left:0;
+  padding-right: 120px;
+  display: inline;
+}
+
+.recommendation {
+  color: gray;
+  font-weight: bold;
+  margin-right: 90px;
+}
+
+.watch-all {
+  font-weight: 500;
+  font-size: 14px;
+  font-weight: bolder;
+  float: right;
+}
+
+.watch-all-link {
+  color: black;
+}
+
+.watch-all-link:hover {
+  color: black;
+  text-decoration: none;
+  cursor:pointer;
+}
+
+.board-reccommendation-image-size {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #dbdbdb;
+  border-radius: 20px;
+}
+
+.board-reccommendation-image-size:hover {
+  cursor: pointer;
+}
+
+.boards-index-user-name {
+  color: black;
+}
+
+.boards-index-user-name:hover {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boards-index-td-dep {
+  text-align: right;
+}
+
+.boards-index-dep-font {
+  text-align: right;
+  color: gray;
+  font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+                                  
 .article-bottom-board {
   padding: 10px;
   position: relative;
@@ -129,7 +205,8 @@
 }
 
 .board-index {
-  margin: 0 auto;
+  margin-right: 0;
+  padding-right: 0;
   overflow: hidden;
 }
 
@@ -531,6 +608,8 @@
   color: gray;
   text-decoration: none;
 }
+
+
 
 
                               // show.html.erb

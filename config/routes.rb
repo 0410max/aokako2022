@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :kakomons, only:[:index,:new,:show,:create,:destroy,:about] do
       resources :comments,only: [:create,:destroy]
       resource :favorites, only: [:create, :destroy]
-      resources :reports,only:[:create,:index]
+      resources :reports,only:[:create]
       get :search, on: :collection
     end
     resources :end_users, only:[:index,:show,:edit,:update] do 
@@ -27,10 +27,11 @@ Rails.application.routes.draw do
     end
     get 'end_users/:id/boards'=>'end_users#board'
     resources :messages, only: [:create,:destroy]
-    resources :rooms, only: [:create,:show]
+    resources :rooms, only: [:create,:show,:index]
     resources :notifications,only:[:index]
     resources :boards,only:[:index,:show,:new,:create,:destroy] do 
       resources :board_comments,only: [:create,:destroy]
+      resources :reports,only:[:create]
       get :searchSub, on: :collection
       get :searchProf, on: :collection
     end
