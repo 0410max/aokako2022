@@ -31,7 +31,8 @@ Rails.application.routes.draw do
     resources :notifications,only:[:index]
     resources :boards,only:[:index,:show,:new,:create,:destroy] do 
       resources :board_comments,only: [:create,:destroy]
-      get :search, on: :collection
+      get :searchSub, on: :collection
+      get :searchProf, on: :collection
     end
   end
   

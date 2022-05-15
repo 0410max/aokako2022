@@ -35,9 +35,18 @@ class Public::BoardsController < ApplicationController
     redirect_to controller: :end_users, action: :board, id: current_end_user.id
   end
 
-  def search
-    if params[:sub].present? || params[:prof].present?
+  def searchSub
+    if params[:sub].present?
       @boards = Board.where('sub LIKE ?', "%#{params[:sub]}%")
+      @boards = @boards.page(params[:page]).per(10).order(created_at: :desc)
+    else
+      @boards = Board.none
+    end
+  end
+
+  def searchProf
+    if params[:prof].present?
+      @boards = Board.where('prof LIKE ?', "%#{params[:prof]}%")
       @boards = @boards.page(params[:page]).per(10).order(created_at: :desc)
     else
       @boards = Board.none

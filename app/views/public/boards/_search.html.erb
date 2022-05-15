@@ -1,5 +1,30 @@
-<%= form_with url: search_boards_path,method: :get, local: true do |f| %>
-    <%= f.text_field :sub,class:'board-search',placeholder:'講義名' %>
+<div class='search-sub-wrapper'>
+  <%= form_with url: searchSub_boards_path,method: :get, local: true do |f| %>
+      <%= f.text_field :sub,class:'board-search',placeholder:'講義名' %>
+      <% if end_user_signed_in? %>
+        <% if current_end_user.number.slice(3)==='2' && current_end_user.number.slice(4) === '2' %>
+          <span class='no-change-search'>検索する</span>
+          <%= f.submit '検索する',class:'search-submit' %>
+        <% else %>
+          <% if current_end_user.kakomons.count === 0 %>
+            <span class='no-kakomon-search-submit'>検索する</span><br />
+            <span class='no-kakomon-message'></span>
+          <% else %>
+            <span class='no-change-search'>検索する</span>
+            <%= f.submit '検索する',class:'search-submit' %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <span class='no-kakomon-search-submit-no-login'>検索する</span><br />
+        <span class='no-kakomon-message'></span>
+      <% end %>
+  <% end %>
+</div>
+
+
+<div class='search-prof-wrapper'>
+  <%= form_with url: searchProf_boards_path,method: :get, local: true do |f| %>
+    <%= f.text_field :prof,class:'board-search',placeholder:'教授名' %>
     <% if end_user_signed_in? %>
       <% if current_end_user.number.slice(3)==='2' && current_end_user.number.slice(4) === '2' %>
         <span class='no-change-search'>検索する</span>
@@ -17,4 +42,6 @@
       <span class='no-kakomon-search-submit-no-login'>検索する</span><br />
       <span class='no-kakomon-message'></span>
     <% end %>
-<% end %>
+  <% end %>
+</div>
+

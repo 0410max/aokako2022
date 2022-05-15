@@ -82,7 +82,7 @@
 
 .board-top {
   text-align: left;
-  padding-top: 90px;
+  padding-top: 80px;
   margin: 0 auto;
   padding-left: 20px;
   width: 400px;
@@ -99,17 +99,29 @@
   margin-top: 10px;
 }
 
+.search-prof-wrapper {
+  display: none;
+}
+
 .sub-search {
-  padding: 5px 10px;
+  padding: 4px 10px;
   border: 1px solid gray;
   border-radius: 4px;
   background-color: #dbdbdb;
 }
 
+.sub-search:hover {
+  cursor:pointer;
+}
+
 .prof-search {
-  padding: 5px 10px; 
+  padding: 4px 10px; 
   border: 1px solid gray;
   border-radius: 4px;
+}
+
+.prof-search:hover {
+  cursor:pointer;
 }
 
 .kakomons-index-top-button:hover {

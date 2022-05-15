@@ -11,6 +11,7 @@ require('kakomon/showComment');
 require('kakomon/index');
 require('kakomon/new');
 require('kakomon/showImage');
+require('board/search');
 require('user/edit');
 require('user/index');
 require('user/show');
