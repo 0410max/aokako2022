@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :kakomons, only:[:index,:new,:show,:create,:destroy,:about] do
       resources :comments,only: [:create,:destroy]
       resource :favorites, only: [:create, :destroy]
-      resources :reports,only:[:create]
+      resources :kakmonReports,only:[:create]
       get :search, on: :collection
     end
     resources :end_users, only:[:index,:show,:edit,:update] do 
