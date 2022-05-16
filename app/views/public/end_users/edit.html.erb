@@ -3,8 +3,6 @@
     <div class="col-mg-8 user-edit">
       <div class="user-info">
         <h3 class='user-edit-top'>プロフィールを編集</h3>
-        <%= render 'depCor',user:@user,number2:@number2,number3:@number3 %>
-        <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
         <%= form_with model:@user,local:true do |f| %>
           <p>プロフィール画像</p>          
           <label for="image">

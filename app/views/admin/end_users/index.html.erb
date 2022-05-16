@@ -1,0 +1,27 @@
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-8 user-index'>
+            <% @users.each do |user| %>
+                <span class='users-index-wrapper'>
+                    <div class='admin-users-index-image'>
+                        <%= image_tag user.get_profile_image,class:'admins-users-image-size' %>
+                    </div>
+                    <div class='admin-users-index-name'>
+                        <strong><%= user.name %></strong><br />
+                        <span class='admin-user-dep-cor'><%= user.dep %>&nbsp;<%= user.cor %></span>
+                    </div>
+                    <div class='admin-users-status'>
+                        <% if user.is_deleted == false %>
+                            <span class='is-deleted-true'>有効</span>
+                        <% else %>
+                            <span class='is-deleted-false'>退会</span>
+                        <% end %>
+                    </div>
+                </span>
+            <% end %>
+            <div class='pagenate'>
+                <%= paginate @users %>
+            </div>
+        </div>
+    </div>
+</div>

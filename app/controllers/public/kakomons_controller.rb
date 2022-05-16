@@ -1,9 +1,9 @@
 class Public::KakomonsController < ApplicationController
   before_action :authenticate_end_user!,except: [:index,:show]
   def index
-    @kakomons = Kakomon.page(params[:page]).per(10).order(created_at: :desc)
+    @kakomons = Kakomon.page(params[:page]).per(30).order(created_at: :desc)
     @comment = Comment.new
-    @report = Report.new
+    @report = Kakomonreport.new
   end
 
   def search
@@ -20,7 +20,7 @@ class Public::KakomonsController < ApplicationController
     @kakomon = Kakomon.find(params[:id])
     @comments = @kakomon.comments.order(created_at: :desc)
     @comment = Comment.new
-    @report = Report.new
+    @report = Kakomonreport.new
 
     @number2 = current_end_user.number.slice(1)
     @number3 = current_end_user.number.slice(2)

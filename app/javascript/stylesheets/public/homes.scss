@@ -8,6 +8,7 @@
     min-height: 830px;
 }
 
+
 .homes-top-content {
     text-align: center;
     font-size: 18px;
@@ -50,6 +51,50 @@
     font-size: 13px;
     color: gray;
 }
+
+
+
+
+
+.admin-users-count {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.admin-kakomons-count {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.admin-boards-count {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.homes-top-table {
+    margin: 0 auto;
+    border: 1px solid #dbdbdb;
+}
+
+.homes-top-table td {
+    padding: 5px;
+}
+
+.homes-top-table th {
+    font-weight: normal;
+    padding: 5px;
+}
+
+.users-count {
+    font-size: 12px;
+}
+
+
+
+
 
 @media (max-width:1000px) {
     .homes-top-content {

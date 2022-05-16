@@ -31,6 +31,8 @@ import "../stylesheets/public/rooms"
 import "../stylesheets/public/reports";
 import "../stylesheets/public/notification";
 import "../stylesheets/public/boards";
+import "../stylesheets/admin/boards";
+import "../stylesheets/admin/end_users";
 import '@fortawesome/fontawesome-free/js/all';
 Turbolinks.start()
 global.FontAwesome.config.mutateApproach = 'sync'

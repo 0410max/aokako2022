@@ -7,7 +7,7 @@
                     <%= link_to'削除する',kakomon_path(@kakomon),class:'kakomon-delete-link',method: :delete %>
                 </div>
             <% else %>
-                <%= form_with(model:[@kakomon,@report],local:true) do |f| %>
+                <%= form_with(model:[@kakomon,@report],local:true,url:kakomon_kakomonreports_path(@kakomon)) do |f| %>
                     <%= f.hidden_field :id, :value => @kakomon.id %>
                     <%= f.submit '報告する',class:'kakomon-report' %>
                 <% end %>

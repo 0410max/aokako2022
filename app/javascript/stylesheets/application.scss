@@ -337,6 +337,45 @@ ul {
 
 
 
+
+
+
+
+
+
+.file-admin {
+  margin-right: 50px;
+}
+
+.chalkboard-user-admin {
+  margin-right: 50px;
+}
+
+.users-admin {
+  margin-right: 50px;
+  color: black;
+}
+
+.users-admin:hover {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logout-admin {
+  margin-right: 300px;
+  color: black;
+}
+
+.logout-admin:hover{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
 @media (max-width:1200px) {
   .aokako-font{
     margin-left: 200px;

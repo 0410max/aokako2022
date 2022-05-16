@@ -7,7 +7,7 @@
                     <%= link_to'削除する',board_path(@board),class:'kakomon-delete-link',method: :delete %>
                 </div>
             <% else %>
-                <%= form_with(model:[@board,@report],local:true) do |f| %>
+                <%= form_with(model:[@board,@report],local:true,url:board_boardreports_path(@board)) do |f| %>
                     <%= f.hidden_field :id, :value => @board.id %>
                     <%= f.submit '報告する',class:'kakomon-report' %>
                 <% end %>

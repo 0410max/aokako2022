@@ -1,20 +1,21 @@
 class Public::BoardsController < ApplicationController
   before_action :authenticate_end_user!,except: [:index,:show]
   def index
-    @boards = Board.page(params[:page]).per(20).order(created_at: :desc)
+    @boards = Board.page(params[:page]).per(30).order(created_at: :desc)
     @comment = BoardComment.new
-    @report = Report.new
+    @report = Boardreport.new
     dep = current_end_user.dep
     cor = current_end_user.cor
     @users = EndUser.where(dep: dep)
     @userss = EndUser.all    
   end
 
+
   def show
     @board = Board.find(params[:id])
     @comments = @board.board_comments.order(created_at: :desc)
     @comment = BoardComment.new
-    @report = Report.new
+    @report = Boardreport.new
   end
 
   def new

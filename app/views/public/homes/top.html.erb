@@ -1,6 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-8 homes-top'>
+
       <% if end_user_signed_in? %>
         <div class='homes-top-content'>
           <p>ようこそ <span class='homes-top-aokako-font'>Aokako</span> へ！</p>
@@ -17,7 +18,41 @@
           <p>試験対策や履修登録に役立ててください！</p>
           <p class='fotter'>お問合せ先  aokako2022@gmail.com<p>
         </div>
+
+
+      <% elsif admin_signed_in?   %>
+
+
+        <div class='homes-top-content'>
+          <p><span class='homes-top-aokako-font'>Aokako</span>&nbsp;管理者ページ</p>
+          <p>
+            <table border class='homes-top-table'>
+              <tr>
+                <th>1年</th>
+                <th>2年</th>
+                <th>3年</th>
+                <th>4年</th>
+                <th>卒業</th>
+                <th>合計</th>
+              </tr>
+              <tr>
+                <td><strong><%= @user1 %></strong><span class='users-count'>人</span></td>
+                <td><strong><%= @user2 %></strong><span class='users-count'>人</span></td>
+                <td><strong><%= @user3 %></strong><span class='users-count'>人</span></td>
+                <td><strong><%= @user4 %></strong><span class='users-count'>人</span></td>
+                <td><strong><%= @user5 %></strong><span class='users-count'>人</span></td>
+                <td><strong><%= @users.length %></strong><span class='users-count'>人</span></td>
+              </tr>
+            <table>
+          </p>
+          <p>過去問の投稿数 :<span class='admin-kakomons-count'><%= @kakomons.length %></span>件</p>
+          <p>講義評価の投稿数 :<span class='admin-boards-count'><%= @boards.length %></span>件</p>
+        </div>
+
+
       <% else %>
+
+
         <div class='homes-top-content'>
           <p>ようこそ <span class='homes-top-aokako-font'>Aokako</span> へ！</p>
           <p><span class='homes-top-aokako-font'>Aokako</span>では<span class='share-kakomon'>過去問の共有</span>や<span class='share-class'>講義の評価</span>をすることができます！</p>

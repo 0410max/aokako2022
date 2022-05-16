@@ -19,8 +19,9 @@
               <%= image_tag kakomon.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
             <% end %>
             <span class='kakomon-user-name-top'><%= kakomon.end_user.name %></span>
-            <span id='<%= i %>' class='kakomons-index-top-button'><i class="fa-solid fa-bars"></i></span>
+            <span id='<%= i %>' class='kakomons-index-top-button'><i class="fa-solid fa-ellipsis"></i></span>
             
+
               <% #モーダル %>
               <div class='index-modal'>
                 <div class='modal-content'>
@@ -31,8 +32,8 @@
                     <div class='kakomons-show-link-hr'>
                       <%= link_to'詳細を表示',kakomon_path(kakomon),class:'index-kakomons-show-link' %>
                     </div>
-                  <% else %>
-                    <%= form_with(model:[kakomon,@report],local:true) do |f| %>
+                  <% else %>  
+                    <%= form_with(model:[kakomon,@report],local:true,url:kakomon_kakomonreports_path(kakomon)) do |f| %>
                       <%= f.hidden_field :id, :value => kakomon.id %>
                       <%= f.submit '報告する',class:'kakomon-report' %>
                     <% end %>

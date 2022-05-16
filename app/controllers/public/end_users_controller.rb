@@ -125,6 +125,12 @@ class Public::EndUsersController < ApplicationController
     @boards = @user.boards.order(created_at: :desc)
   end
 
+  def unsubscribe
+    current_end_user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
+
 
   private
 

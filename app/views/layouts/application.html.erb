@@ -84,7 +84,30 @@
           </ul>
         </span>
       <% elsif admin_signed_in? %>
-        
+          <ul>
+            <li><%= link_to 'Aokako' ,root_path,class:'aokako-font' %></li>
+          </ul>
+          <ul class='login-header-right'>
+            <li>
+              <%= link_to 'ログアウト',destroy_admin_session_path ,method: :delete,class:'logout-admin' %>
+            </li>
+            <li>
+              <%= link_to admin_end_users_path do %>
+                <i class="fa-solid fa-users users-admin"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_boards_path do %>
+                <i class='fa-solid fa-chalkboard-user chalkboard-user-admin'></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_kakomons_path do %>
+                <i class='fa-solid fa-file file-admin'></i>
+              <% end %>
+            </li>
+          </ul>
+        </span>
       <% else %>
         <ul>
           <li><%= link_to 'Aokako',root_path,class:'aokako-font' %></li>
@@ -94,12 +117,12 @@
           <li><%= link_to '新規登録',new_end_user_registration_path,class:'signin-font' %></li>
           <li class='top'><%= link_to 'ログイン' ,new_end_user_session_path,class:'login-font' %></li>
           <li>
-            <%= link_to boards_path do %>
+            <%= link_to noboards_path do %>
               <i class="fa-solid fa-chalkboard-user no-login-fa-chalkboard-user"></i>
             <% end %>
           </li>
           <li>
-            <%= link_to kakomons_path do %>
+            <%= link_to nokakomons_path do %>
               <i class="fa-solid fa-file no-login-fa-file"></i>
             <% end %>
           </li>

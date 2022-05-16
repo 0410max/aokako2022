@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    
+    resources :kakomons ,only: [:index,:show]
+    resources :boards ,only: [:index,:show]
+    resources :end_users, only: [:index,:show]
   end
 
   scope module: :public do
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
     resources :kakomons, only:[:index,:new,:show,:create,:destroy,:about] do
       resources :comments,only: [:create,:destroy]
       resource :favorites, only: [:create, :destroy]
-      resources :kakmonReports,only:[:create]
+      resources :kakomonreports,only:[:create]
       get :search, on: :collection
     end
     resources :end_users, only:[:index,:show,:edit,:update] do 
@@ -31,10 +33,13 @@ Rails.application.routes.draw do
     resources :notifications,only:[:index]
     resources :boards,only:[:index,:show,:new,:create,:destroy] do 
       resources :board_comments,only: [:create,:destroy]
-      resources :reports,only:[:create]
+      resources :boardreports,only:[:create]
       get :searchSub, on: :collection
       get :searchProf, on: :collection
     end
+    resources :nokakomons,only:[:index]
+    resources :noboards,only:[:index]
+    patch 'end_users/unsubscribe' => 'end_users#unsubscribe'
   end
   
 end
