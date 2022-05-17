@@ -8,6 +8,7 @@
   margin: 0 auto;
   padding-top: 70px;
   padding-left: 50px;
+  overflow: hidden;
 }                    
 
 .kakomon-new-content h3 {
@@ -35,6 +36,10 @@
   border: 1px solid gray;
   padding: 5px 10px;
   border-radius: 3px;
+}
+
+.past-class:hover {
+  cursor: pointer;
 }
 
 .past-class-link {
@@ -175,6 +180,13 @@
   color: white;
   background-color: #a9a9a9;
   filter: brightness(110%);
+}
+
+
+
+
+.new-board {
+  display: none;
 }
 
                           // index.html.erb

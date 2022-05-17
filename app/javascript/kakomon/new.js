@@ -8,14 +8,17 @@ document.addEventListener("turbolinks:load", function () {
                 $('.add-image3').css('display','block');
                 $('.image1').find('span').html('1');
             });
-    });
-
-    $(function(){
+            
         $('.add-image3')
             .on('click',function(){
                 $('.image3').css('display','block');
                 $(this).css('display','none');
-            });
+            });    
     });
+
+
+
+
+
 
 });

@@ -84,13 +84,13 @@
 <script>
     $('.users-show-logout-button')
     .on('click',function(){
-        $('.index-modal').fadeIn();
-        $('.index-modal-bg').fadeIn(1);
+        $('.index-modal').fadeIn(200);
+        $('.index-modal-bg').fadeIn(200);
         $("body").addClass("no_scroll");
     });
     $('.index-modal-bg,.index-modal-close-button')
     .on('click',function(){
         $("body").removeClass("no_scroll");
-        $('.index-modal,.index-modal-bg').fadeOut();
+        $('.index-modal,.index-modal-bg').fadeOut(400);
     });
 </script>
