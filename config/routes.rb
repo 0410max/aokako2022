@@ -23,11 +23,8 @@ Rails.application.routes.draw do
     end
     resources :end_users, only:[:index,:show,:edit,:update] do 
       resource :relationships,only: [:create,:destroy]
-      get :followings,on: :member
-      get :followers,on: :member
       get :search, on: :collection
     end
-    get 'end_users/:id/boards'=>'end_users#board'
     resources :messages, only: [:create,:destroy]
     resources :rooms, only: [:create,:show,:index]
     resources :notifications,only:[:index]

@@ -290,6 +290,10 @@
     margin-left: 10px;
 }
 
+.users-show-logout-button:hover {
+    cursor: pointer;
+}
+
 
 
 
@@ -399,20 +403,80 @@
     margin-left: 20px;
 }
 
+
+
+
+
+
+
 .kakomon-count {
+    color: black;
     padding-bottom: 10px;
     border-bottom: 1px solid black;
 }
 
+.kakomon-count-at {
+    padding-bottom: 10px;
+    color: gray;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.kakomon-count:hover {
+    cursor: pointer;
+}
+
+.class-count {
+    padding-bottom: 10px;
+    color: gray;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.class-count-at {
+    padding-bottom: 10px;
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+.class-count:hover {
+    cursor: pointer;
+}
+
 .span-following {
+    padding-bottom: 10px;
+    color: gray;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.span-following-at {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    color: black;
+}
+
+.span-following:hover {
+    cursor: pointer;
+}
+
+.span-follower {
+    color: gray;
     padding-bottom: 10px;
     border-bottom: 1px solid #dbdbdb;
 }
 
-.span-follower {
+.span-follower-at {
+    border-bottom: 1px solid black;
     padding-bottom: 10px;
-    border-bottom: 1px solid #dbdbdb;
+    color: black;
 }
+
+.span-follower:hover {
+    cursor: pointer;
+}
+
+
+
+
+
 
 .follower-page-kakomon-count {
     padding-bottom: 10px;
@@ -441,11 +505,6 @@
 
 .following-page-followers {
     padding-bottom: 10px;
-    border-bottom: 1px solid #dbdbdb;
-}
-
-.class-count {
-    color: gray;
     border-bottom: 1px solid #dbdbdb;
 }
 
@@ -717,6 +776,31 @@
 
 
 
+
+
+
+
+
+
+.board-index-end-user {
+    display: none;
+}
+
+.following-index-end-user {
+    display: none;
+}
+
+.follower-index-end-user {
+    display: none;
+}
+
+
+
+
+
+
+
+
                                                 // edit.html.erb
 
 .user-edit {
@@ -854,7 +938,7 @@
     color: black;
 }
 
-.user-info {
+.user-info-show {
     display: flex;
     padding-top: 80px
 }
@@ -1013,7 +1097,7 @@
     .user-info-follow-setting-wrapper {
         top: 25px;
     }
-    .user-info {
+    .user-info-show {
         padding-top: 60px
     }
 }
@@ -1174,7 +1258,7 @@
     .user-info-user-name {
         padding-left: 20px;
     }
-    .user-info {
+    .user-info-show {
         padding-top: 50px;
     }
 }

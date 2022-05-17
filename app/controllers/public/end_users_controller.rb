@@ -3,9 +3,10 @@ class Public::EndUsersController < ApplicationController
   def index
     @users = EndUser.all
   end
-  
+
   def show
     @user = EndUser.find(params[:id])
+    @boards = @user.boards.order(created_at: :desc)
     @kakomons = @user.kakomons.order(created_at: :desc)
     @comment = Comment.new
 
@@ -26,14 +27,6 @@ class Public::EndUsersController < ApplicationController
         @RoomUser = RoomUser.new
       end
     end
-
-    @number2 = @user.number.slice(1)
-    @number3 = @user.number.slice(2)
-    @number4 = @user.number.slice(3)
-    @number5 = @user.number.slice(4)
-    @number6 = @user.number.slice(5)
-    @number7 = @user.number.slice(6)
-    @number8 = @user.number.slice(7)
 
   end
 
@@ -59,79 +52,6 @@ class Public::EndUsersController < ApplicationController
       render :edit
     end
   end
-
-  def followings
-    @user = EndUser.find(params[:id])
-    @users = @user.followings
-
-    @currentRoomUser = RoomUser.where(end_user_id: current_end_user.id)  
-    @receiveUser = RoomUser.where(end_user_id: @user.id)  
-    
-    unless @user.id == current_end_user.id  
-      @currentRoomUser.each do |cu|    
-        @receiveUser.each do |u|   
-          if cu.room_id == u.room_id    
-            @haveRoom = true    
-            @roomId = cu.room_id   
-          end
-        end
-      end
-      unless @haveroom   
-        @room = Room.new
-        @RoomUser = RoomUser.new
-      end
-    end
-    @number2 = @user.number.slice(1)
-    @number3 = @user.number.slice(2)
-    @number4 = @user.number.slice(3)
-    @number5 = @user.number.slice(4)
-    @number6 = @user.number.slice(5)
-    @number7 = @user.number.slice(6)
-    @number8 = @user.number.slice(7)
-  end
-
-  def followers
-    @user = EndUser.find(params[:id])
-    @users = @user.followers
-
-    @currentRoomUser = RoomUser.where(end_user_id: current_end_user.id)  
-    @receiveUser = RoomUser.where(end_user_id: @user.id)  
-    
-    unless @user.id == current_end_user.id  
-      @currentRoomUser.each do |cu|    
-        @receiveUser.each do |u|   
-          if cu.room_id == u.room_id    
-            @haveRoom = true    
-            @roomId = cu.room_id   
-          end
-        end
-      end
-      unless @haveroom   
-        @room = Room.new
-        @RoomUser = RoomUser.new
-      end
-    end
-    @number2 = @user.number.slice(1)
-    @number3 = @user.number.slice(2)
-    @number4 = @user.number.slice(3)
-    @number5 = @user.number.slice(4)
-    @number6 = @user.number.slice(5)
-    @number7 = @user.number.slice(6)
-    @number8 = @user.number.slice(7)
-  end
-
-  def board 
-    @user = EndUser.find(params[:id])
-    @boards = @user.boards.order(created_at: :desc)
-  end
-
-  def unsubscribe
-    @user = EndUser.find(params[:id])
-    @uesr.update(is_deleted: true)
-    reset_session
-    redirect_to root_path
-  end
-
 
   private
 

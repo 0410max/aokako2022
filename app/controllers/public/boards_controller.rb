@@ -5,9 +5,8 @@ class Public::BoardsController < ApplicationController
     @comment = BoardComment.new
     @report = Boardreport.new
     dep = current_end_user.dep
-    cor = current_end_user.cor
     @users = EndUser.where(dep: dep)
-    @userss = EndUser.all    
+    @userss = EndUser.all
   end
 
 
@@ -26,7 +25,7 @@ class Public::BoardsController < ApplicationController
     @board = Board.new(board_params)
     @board.end_user_id = current_end_user.id
     if @board.save
-      redirect_to controller: :end_users, action: :board, id: current_end_user.id
+      redirect_to end_user_path(current_end_user)
       flash[:notice] = '投稿されました'
     else
       render :new

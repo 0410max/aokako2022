@@ -6,46 +6,30 @@
             
         <div class='count-follower-following'>
             <span class='kakomon-count'>
-                <%= link_to end_user_path(@user),class:'user-show-top' do %>
-                    過去問<%= @user.kakomons.count %>件
-                <% end %>
+                過去問<%= @user.kakomons.count %>件
             </span>
             <span class='class-count'>
-                <%= link_to "/end_users/#{@user.id}/boards",class:'user-show-top-show' do %>
-                    講義評価<%= @user.boards.count %>件
-                <% end %>
+                講義評価<%= @user.boards.count %>件
             </span>
-            <span class='span-following'><%= link_to 'フォロー中',followings_end_user_path,class:'user-show-top-show' %></span>
-            <span class='span-follower'><%= link_to 'フォロワー',followers_end_user_path,class:'user-show-top-show' %></span>
+            <span class='span-following'>フォロー中</span>
+            <span class='span-follower'>フォロワー</span>
+        </div>
+        
+
+        <div class='kakomon-index-end-user'>
+            <%= render 'kakomonIndex' %>
         </div>
 
-        <% if @user.kakomons.count === 0 %>
-            <span class='no-follower'>投稿はありません</span>
-        <% else %>
-            <div class='users-show-content'>
-                <% @kakomons.each do |kakomon| %>
-                    <div class='show-kakomon-content'>
-                        <div class='article-body'>
-                            <% if kakomon.image1.attached? %>
-                                <%= link_to kakomon_path(kakomon) do %>
-                                    <% if kakomon.image2.attached? || kakomon.image3.attached? %>
-                                        <i class="fa-solid fa-clone"></i>
-                                    <% end %>
-                                    <% if kakomon.image1.attached? %>
-                                        <%= image_tag kakomon.image1,class:'kakomon-show-link' %>
-                                    <% end %>
-                                <% end %>
-                            <% end %>
-                        </div>
-                        <div class='user-article-bottom'>
-                            講義 : <%= kakomon.sub %><br>
-                            教授 : <%= kakomon.prof %><br>
-                            年度 : <%= kakomon.year %><br>
-                            <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
-                        </div>
-                    </div>
-                <% end %>
-            </div>
-        <% end %>
+        <div class='board-index-end-user'>
+            <%= render 'boardIndex' %>
+        </div>
+
+        <div class='following-index-end-user'>
+            <%= render 'followingIndex' %>
+        </div>
+
+        <div class='follower-index-end-user'>
+            <%= render 'followerIndex' %>
+        </div>
     </div>
 </div>
