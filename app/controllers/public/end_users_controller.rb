@@ -126,7 +126,8 @@ class Public::EndUsersController < ApplicationController
   end
 
   def unsubscribe
-    current_end_user.update(is_deleted: true)
+    @user = EndUser.find(params[:id])
+    @uesr.update(is_deleted: true)
     reset_session
     redirect_to root_path
   end
