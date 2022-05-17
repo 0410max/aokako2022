@@ -136,10 +136,10 @@ class Public::EndUsersController < ApplicationController
 
   def user_params
     params.require(:end_user).permit(:name,:profile_image,:year,:introduction,:number,:dep,:cor)
-   end
+  end
 
   def correct_user
-    @user = User.find(params[:id])
+    @user = EndUser.find(params[:id])
     if @user == current_end_user
       render :edit
     else

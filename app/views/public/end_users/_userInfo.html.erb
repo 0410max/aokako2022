@@ -26,7 +26,6 @@
                 <td class='td-logout'>
                     <i class="fa-solid fa-gear users-show-logout-button"></i>
                 </td>
-                <td><%= link_to 'ログアウト',destroy_end_user_session_path,method: :delete %></td>
             <% else %>
                 <td>
                     <% unless @user.id == current_end_user.id %>    
