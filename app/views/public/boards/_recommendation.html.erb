@@ -1,22 +1,31 @@
 <div class='recommendation-wrapper'>
     <span class='recommendation'>おすすめ</span>
     <span class='watch-all'><%= link_to 'すべて見る',end_users_path,class:'watch-all-link' %></span><br />
-    <% for i in 0..30 %>
-        <% @userNum.each do |userNum| %>
-            <table>
-                <tr>    
-                    <td height='45' width='40'>
-                        <%= link_to end_user_path(userNum) do %>
-                            <%= image_tag userNum.get_profile_image ,class:'board-reccommendation-image-size'%>
-                        <% end %>
-                    </td>
-                    <td width='80'><%= link_to userNum.name,end_user_path(userNum),class:'boards-index-user-name' %></td>
-                    <td width='150' class='boards-index-td-dep'>
-                        <span class='boards-index-dep-font'><%= userNum.cor %></span>
-                    </td>
-                    <td><%= @count %></td>
-                </tr>
-            </table>
+    <% a = 0 %>
+    <% for i in -20..0 %>
+        <% @users.each do |user| %>
+            <% count = user.kakomons.count + user.boards.count %>
+            <% if count == -i %>
+                <% unless user == current_end_user %>
+                    <table>
+                        <tr>    
+                            <td height='45' width='40'>
+                                <%= link_to end_user_path(user) do %>
+                                    <%= image_tag user.get_profile_image ,class:'board-reccommendation-image-size'%>
+                                <% end %>
+                            </td>
+                            <td width='80'><%= link_to user.name,end_user_path(user),class:'boards-index-user-name' %></td>
+                            <td width='150' class='boards-index-td-dep'>
+                                <span class='boards-index-dep-font'><%= user.cor %></span>
+                            </td>
+                        </tr>
+                    </table>
+                    <% a += 1 %>
+                <% end %>
+            <% end %>
+            <% if a == 5 %>
+                <% break %>
+            <% end %>
         <% end %>
     <% end %>
 </div>

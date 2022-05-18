@@ -38,6 +38,11 @@
                     <% end %>
                 <% end %>
             </div>
+            <% if @user == current_end_user %>
+                <div>
+                    <span class='user-plus-button-wrapper'><span class='user-plus-button'><i class="fa-solid fa-angle-down user-plus-button-content"></i></span></span>
+                </div>
+            <% end %>
         </div>
     </div>           
 </div>

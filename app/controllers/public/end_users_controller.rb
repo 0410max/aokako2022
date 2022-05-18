@@ -1,10 +1,14 @@
 class Public::EndUsersController < ApplicationController
   before_action :authenticate_end_user!
   def index
-    @users = EndUser.all
+    dep = current_end_user.dep
+    @users = EndUser.where(dep: dep)
   end
 
   def show
+    dep = current_end_user.dep
+    @users = EndUser.where(dep: dep)
+    
     @user = EndUser.find(params[:id])
     @boards = @user.boards.order(created_at: :desc)
     @kakomons = @user.kakomons.order(created_at: :desc)
