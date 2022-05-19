@@ -1,2 +1,35 @@
-<h1>Admin::EndUsers#show</h1>
-<p>Find me in app/views/admin/end_users/show.html.erb</p>
+<div class='container'>
+    <div class='col-md-10 users-show'>
+        <div>
+            <%= render 'userInfo' %>
+        </div>
+
+        <div class='count-follower-following'>
+            <span class='kakomon-count'>
+                過去問<%= @user.kakomons.count %>件
+            </span>
+            <span class='class-count'>
+                講義評価<%= @user.boards.count %>件
+            </span>
+            <span class='span-following'>フォロー中</span>
+            <span class='span-follower'>フォロワー</span>
+        </div>
+        
+
+        <div class='kakomon-index-end-user'>
+            <%= render 'kakomonIndex' %>
+        </div>
+
+        <div class='board-index-end-user'>
+            <%= render 'boardIndex' %>
+        </div>
+
+        <div class='following-index-end-user'>
+            <%= render 'followingIndex' %>
+        </div>
+
+        <div class='follower-index-end-user'>
+            <%= render 'followerIndex' %>
+        </div>
+    </div>
+</div>

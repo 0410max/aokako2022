@@ -8,29 +8,31 @@
                 <% count = user.kakomons.count + user.boards.count %>
                 <% if count == -i %>
                     <% unless user == current_end_user %>
-                        <div class='users-show-recommendation-content'>
-                            <div>
-                                <%= link_to end_user_path(user) do %>
-                                    <%= image_tag user.get_profile_image ,class:'end-users-recommendation-image-size'%>
-                                <% end %>
-                            </div>
-                            <div>
-                                <%= link_to end_user_path(user),class:'end-users-index-name-link' do %>
-                                    <strong><%= user.name %></strong><br />
-                                <% end %>
-                            </div>
-                            <div><span class='end-users-index-dep'><%= user.cor %></span></div>
-                            <div>
-                                <% if user.followed_by?(current_end_user) %>
-                                    <%= link_to'フォロー中',end_user_relationships_path(user),method: :delete,class:'end-user-followed-show' %>
-                                <% else %>
-                                    <% unless user == current_end_user %>
-                                        <%= link_to 'フォローする',end_user_relationships_path(user),method: :post,class:'end-user-following-show' %>
+                        <% unless user.followed_by?(current_end_user) %>
+                            <div class='users-show-recommendation-content'>
+                                <div>
+                                    <%= link_to end_user_path(user) do %>
+                                        <%= image_tag user.get_profile_image ,class:'end-users-recommendation-image-size'%>
                                     <% end %>
-                                <% end %>
+                                </div>
+                                <div>
+                                    <%= link_to end_user_path(user),class:'end-users-index-name-link' do %>
+                                        <strong><%= user.name %></strong><br />
+                                    <% end %>
+                                </div>
+                                <div><span class='end-users-index-dep'><%= user.cor %></span></div>
+                                <div>
+                                    <% if user.followed_by?(current_end_user) %>
+                                        <%= link_to'フォロー中',end_user_relationships_path(user),method: :delete,class:'end-user-followed-show' %>
+                                    <% else %>
+                                        <% unless user == current_end_user %>
+                                            <%= link_to 'フォローする',end_user_relationships_path(user),method: :post,class:'end-user-following-show' %>
+                                        <% end %>
+                                    <% end %>
+                                </div>
                             </div>
-                        </div>
-                        <% a += 1 %>
+                            <% a += 1 %>
+                        <% end %>
                     <% end %>
                 <% end %>
                 <% if a == 10 %>

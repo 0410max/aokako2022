@@ -59,12 +59,14 @@ document.addEventListener("turbolinks:load", function () {
     $('.user-plus-button')
         .on('click',function(){
             $('.users-show-recommendation').css('display','block');
-            $('.user-plus-button-wrapper').html("<span class='user-minus-button'><i class='fa-solid fa-angle-up user-plus-button-content'></i></span>");
+            $('.user-plus').css('display','none');
+            $('.user-minus').css('display','inline');
         });
 
     $('.user-minus-button')
         .on('click',function(){
             $('.users-show-recommendation').css('display','none');
-            $('.user-plus-button-wrapper').html("<span class='user-plus-button'><i class='fa-solid fa-angle-down user-plus-button-content'></i></span>");
+            $('.user-plus').css('display','inline');
+            $('.user-minus').css('display','none');
         });
 });

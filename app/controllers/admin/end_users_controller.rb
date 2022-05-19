@@ -4,5 +4,7 @@ class Admin::EndUsersController < ApplicationController
   end
 
   def show
+    @boards = @user.boards.order(created_at: :desc)
+    @kakomons = @user.kakomons.order(created_at: :desc)    
   end
 end

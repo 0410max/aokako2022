@@ -569,7 +569,7 @@
 }
 
 .user-introduction p {
-    margin: 0;
+    margin-bottom: 10px;
 }
 
 .no-follower{
@@ -898,6 +898,21 @@
     float: right;
     padding-right: 20px;
 }
+
+.user-plus:hover {
+    cursor: pointer;
+}
+
+.user-minus {
+    display: none;
+}
+
+.user-minus:hover {
+    cursor: pointer;
+}
+
+
+
 
 
 
