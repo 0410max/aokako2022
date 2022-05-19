@@ -121,6 +121,7 @@
             </div>
         
             <script>
+                $('#star-rate1-<%= board.id %>').empty();
                 $('#star-rate1-<%= board.id %>').raty({
                 size: 36,
                 starOff:  '<%= asset_path('star-off.png') %>',
@@ -130,6 +131,7 @@
                 });
             </script>
             <script>
+                $('#star-rate2-<%= board.id %>').empty();
                 $('#star-rate2-<%= board.id %>').raty({
                 size: 36,
                 starOff:  '<%= asset_path('star-off.png') %>',
@@ -139,6 +141,7 @@
                 });
             </script>
             <script>
+                $('#star-rate3-<%= board.id %>').empty();
                 $('#star-rate3-<%= board.id %>').raty({
                 size: 36,
                 starOff:  '<%= asset_path('star-off.png') %>',

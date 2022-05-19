@@ -40,8 +40,10 @@
             </div>
 
             <% if @user == current_end_user %>
-                <span class='user-plus'><span class='user-plus-button'><i class="fa-solid fa-angle-down user-plus-button-content"></i></span></span>
-                <span class='user-minus'><span class='user-minus-button'><i class="fa-solid fa-angle-up user-plus-button-content"></i></span></span>
+                <span class='user-plus-button-wrapper'>
+                    <span class='user-plus'><span class='user-plus-button'><i class="fa-solid fa-angle-down user-plus-button-content"></i></span></span></span>
+                    <span class='user-minus'><span class='user-minus-button'><i class="fa-solid fa-angle-up user-plus-button-content"></i></span></span></span>
+                </span>
             <% end %>
 
         </div>
@@ -57,7 +59,7 @@
         <li class='li-user-dep'><%= @user.dep %></li>
         <li class='li-user-cor'><%= @user.cor %></li>
     </ul>
-    <span class='user-introduction'><%= simple_format(@user.introduction) %></span>
+    <div class='user-introduction'><%= simple_format(@user.introduction) %></div>
 </div> 
 
 

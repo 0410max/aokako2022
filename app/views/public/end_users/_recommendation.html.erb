@@ -20,7 +20,13 @@
                                         <strong><%= user.name %></strong><br />
                                     <% end %>
                                 </div>
-                                <div><span class='end-users-index-dep'><%= user.cor %></span></div>
+                                <div>
+                                    <% if user.cor.length > 8 %>
+                                        <span class='end-users-show-dep'><%= user.cor %></span>
+                                    <% else %>
+                                        <span class='end-users-show-dep-short'><%= user.cor %></span>
+                                    <% end %>
+                                </div>
                                 <div>
                                     <% if user.followed_by?(current_end_user) %>
                                         <%= link_to'フォロー中',end_user_relationships_path(user),method: :delete,class:'end-user-followed-show' %>
