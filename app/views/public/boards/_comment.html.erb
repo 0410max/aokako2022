@@ -14,7 +14,7 @@
                         <%= simple_format(comment.comment) %>
                         <span class='kakomon-date'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
                         <% if comment.end_user === current_end_user %>
-                        <span class='delete-comment'><%= link_to '削除',board_board_comment_path(comment.board,comment),class:'delete-comment-link',method: :delete,local:false %></span>
+                        <span class='delete-comment'><%= link_to '削除',board_board_comment_path(comment.board,comment),remote:true,class:'delete-comment-link',method: :delete %></span>
                         <% end %>
                     </div>
                 </div>

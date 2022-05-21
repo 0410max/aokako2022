@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     end
     resources :end_users, only:[:index,:show,:edit,:update] do 
       resource :relationships,only: [:create,:destroy]
+      post 'relationships/recommendation','relationships#recommendation'
       get :search, on: :collection
     end
     resources :messages, only: [:create,:destroy]

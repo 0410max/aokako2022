@@ -28,13 +28,7 @@
                         </td>
                         <td class='td-user-name'><span class='user-name-height'><%= user.name %></span></td>
                         <td class='td-follow'>
-                            <% if user.followed_by?(current_end_user) %>
-                                <%= link_to'フォロー中',end_user_relationships_path(user),method: :delete,class:'user-followed' %>
-                            <% else %>
-                                <% unless user == current_end_user %>
-                                    <%= link_to 'フォローする',end_user_relationships_path(user),method: :post,class:'user-following' %>
-                                <% end %>
-                            <% end %>
+                            <%= render 'tdFollow' ,user:user %>
                         </td>
                     <% end %>
                 </tr>
