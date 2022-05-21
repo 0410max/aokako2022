@@ -24,7 +24,7 @@
     </div>
     <div class='kakomons-show-comment-new'>
         <%= form_with(model:[board,@comment], local:false) do |f| %>
-            <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
+            <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area',id:'kakomons-show-text-area' %>
             <%= f.submit "投稿する",class:'kakomons-show-comment-submit' %>
         <% end %>
     </div>
