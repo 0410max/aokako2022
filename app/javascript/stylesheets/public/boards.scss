@@ -1,6 +1,6 @@
 
                                 // new.html.erb
-
+                  
 .past-paper-boards {
     border: 1px solid gray;
     padding: 5px 10px;
@@ -14,6 +14,7 @@
   padding: 5px 10px;
   border-radius: 3px;
 }
+
 
 .past-class-boards:hover {
     cursor: pointer;
@@ -69,9 +70,10 @@
 }
 
 
+
                                   // index.html.erb
 
-#fixed-area {
+.fixed-area {
   position: -webkit-sticky;
   position: sticky;
   top: 170px;
@@ -136,6 +138,25 @@
   font-size: 12px;
 }
 
+.board-index-recommendation-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px 0 5px 0;
+}
+
+.board-index-recommendation-image {
+  width: 15%;
+}
+
+.board-index-recommendation-name {
+  width: 20%;
+}
+
+.board-index-recommendation-cor {
+  width: 65%;
+  text-align: right;
+}
+
 
 
 
@@ -152,7 +173,7 @@
   position: relative;
 }                                
 
-.boards-index-wrapper-1000 {
+.board-index-wrapper-1000 {
   display: none;
 }
 
@@ -206,8 +227,14 @@
 
 .board-index {
   margin-right: 0;
-  padding-right: 0;
+  padding: 0;
   overflow: hidden;
+}
+
+.board-index-1000 {
+  padding: 0;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
 .index-board-content {
@@ -612,6 +639,27 @@
 
 
 
+
+
+
+.kakomons-show {
+  display: none;
+  position: fixed;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+  border: none;
+  width: 800px;
+}
+
+
+
+
+
+
                               // show.html.erb
 
 
@@ -753,7 +801,7 @@
   margin: 0 auto;
 }
 
-@media (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
   .board-comment {
     display: none;
   }
@@ -775,12 +823,15 @@
   .index-board-content-no-login {
     width: 85%;
   }
+  .fixed-area {
+    padding-right: 60px;
+  }
 }
 
-@media (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
   .index-board-content {
-    width: 70%;
     margin: 10px auto;
+    width: 70%;
   }
   .board-comment-1200 {
     display: none;
@@ -809,21 +860,18 @@
   .boards-index-wrapper {
     display: none;
   }
-  .boards-index-wrapper-1000 {
+  .board-index-wrapper-1000 {
     display: block;
   }
 }
 
-@media (max-width:991px) {
+@media screen and (max-width:991px) {
   .index-board-content {
     width: 95%;
   }
 }
 
-@media (max-width:767px) {
-  .index-board-content {
-    width: 100%;
-  }
+@media screen and (max-width:767px) {
   .board-comment-1000 {
     display: none;
   }
@@ -844,7 +892,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .index-board-content {
     width: 90%;
     font-size: 14px;
@@ -893,7 +941,13 @@
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width:500px) {
+  .index-board-content {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 480px) {
   .board-comment-600 {
     display: none;
   }
@@ -914,7 +968,7 @@
   }
 }
 
-@media (max-width: 470px) {
+@media screen and (max-width: 470px) {
   .board-comment-480 {
     display: none;
   }
@@ -935,7 +989,7 @@
   }
 }
 
-@media (max-width: 470px) {
+@media screen and (max-width: 470px) {
   .board-comment-470 {
     display: none;
   }
@@ -956,7 +1010,7 @@
   }
 }
 
-@media (max-width: 454px) {
+@media screen and (max-width: 454px) {
   .board-comment-454 {
     display: none;
   }
@@ -977,7 +1031,7 @@
   }
 }
 
-@media (max-width: 441px) {
+@media screen and (max-width: 441px) {
   .board-comment-441 {
     display: none;
   }
@@ -998,7 +1052,7 @@
   }
 }
 
-@media (max-width: 428px) {
+@media screen and (max-width: 428px) {
   .board-comment-428 {
     display: none;
   }
@@ -1019,7 +1073,7 @@
   }
 }
 
-@media (max-width: 417px) {
+@media screen and (max-width: 417px) {
   .board-comment-417 {
     display: none;
   }
@@ -1040,7 +1094,7 @@
   }
 }
 
-@media (max-width: 401px) {
+@media screen and (max-width: 401px) {
   .board-comment-401 {
     display: none;
   }
@@ -1061,7 +1115,7 @@
   }
 }
 
-@media (max-width: 388px) {
+@media screen and (max-width: 388px) {
   .board-comment-388 {
     display: none;
   }
@@ -1082,8 +1136,4 @@
   }
 }
 
-@media (max-width:500px) {
-  .index-board-content {
-    width: 100%;
-  }
-}
+

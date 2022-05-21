@@ -4,7 +4,11 @@ class Public::KakomonsController < ApplicationController
     @kakomons = Kakomon.page(params[:page]).per(30).order(created_at: :desc)
     @comment = Comment.new
     @report = Kakomonreport.new
+    dep = current_end_user.dep
+    @users = EndUser.where(dep: dep)
+    @userss = EndUser.all
   end
+
 
   def search
     @comment = Comment.new

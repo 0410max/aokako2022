@@ -7,7 +7,10 @@ class Public::BoardsController < ApplicationController
     dep = current_end_user.dep
     @users = EndUser.where(dep: dep)
     @userss = EndUser.all
+    #show
+    @comment = BoardComment.new
   end
+
 
 
   def show

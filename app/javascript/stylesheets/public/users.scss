@@ -384,6 +384,8 @@
 .users-info-wrapper {
     margin-top: 20px;
     margin-left: 120px;
+    position: relative;
+    bottom: 8px;
 }
 
 .users-info {
@@ -959,18 +961,21 @@
 
 
 
-.end-users-show-dep {
+.end-users-show-cor {
     color: gray;
     font-size: 13px;
     position: relative;
     bottom: 5px;
 }
 
-.end-users-show-dep-short {
+.end-users-show-cor-short {
     color: gray;
     font-size: 13px;
-    position: relative;
-    top: 5px;
+    line-height: 37px;
+}
+
+.end-users-show-cor-wrapper {
+    height: 50px;
 }
 
 
@@ -1217,6 +1222,7 @@
     }
     .users-info-wrapper {
         margin-left: 50px;  
+        bottom: 0;
     }
     .show-kakomon-content {
         width: 90%;

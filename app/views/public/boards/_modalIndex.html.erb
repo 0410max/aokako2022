@@ -1,0 +1,41 @@
+<div class='index-modal'>
+    <div class='modal-content'>
+    <% if board.end_user === current_end_user %>
+        <div class='kakomon-delete'>
+            <%= link_to'削除する',board_path(board),class:'kakomon-delete-link',method: :delete %><br />
+        </div>
+        <div class='kakomons-show-link-hr'>
+            <span class='index-boards-show-link-button-<%= i %>'>詳細を表示</span>
+        </div>
+    <% else %>
+        <%= form_with(model:[board,@report],local:true,url:board_boardreports_path(board)) do |f| %>
+            <%= f.hidden_field :id, :value => board.id %>
+            <%= f.submit '報告する',class:'kakomon-report' %>
+        <% end %>
+        <div class='kakomons-show-link-hr'>
+            <span class='index-boards-show-link-button-<%= i %>'>詳細を表示</span>
+        </div>
+    <% end %>
+    <div class='index-modal-close-button'>キャンセル</div>
+    <script>
+        $('#<%= i %>-top-button')
+            .on('click',function(){
+                var numberstr = '<%= i %>';
+                var numberInd = Number(numberstr)
+                $('.index-modal').eq(numberInd).fadeIn();
+                $('.index-modal-bg').fadeIn();
+                $("body").addClass("no_scroll");
+        });
+        $('.index-modal-bg')
+            .on('click',function(){
+                $("body").removeClass("no_scroll");
+                $('.index-modal-bg').fadeOut();
+                $('.index-modal').fadeOut(3);
+        });
+        $('.index-modal-close-button')
+            .on('click',function(){
+                $('.index-modal-bg,.index-modal').fadeOut();
+            });
+    </script>
+    </div>
+</div>

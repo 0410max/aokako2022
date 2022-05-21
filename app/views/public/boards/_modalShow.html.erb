@@ -1,0 +1,60 @@
+<span class='kakomons-show'>
+    <div class='kakomons-show-<%= i %>'>
+        <div class='kakomons-show-content'>
+            <div class='board-show'>
+            講義 : <%= board.sub %><br>
+            教授 : <%= board.prof %><br>
+            <span class='form1'>講義の面白さ</span><span class='star-rate1' id="show-star-rate1-<%= board.id %>"></span><br />
+            <span class='form2'>教授の人柄</span><span class='star-rate2' id="show-star-rate2-<%= board.id %>"></span><br />
+            <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="show-star-rate3-<%= board.id %>"></span><br />
+            <div class='board-show-comment'><%= simple_format(board.comment) %></div><br />
+            <span class='board-show-date'><%= board.created_at.strftime('%Y/%m/%d') %></span>
+            </div>
+            <script>
+            $('#show-star-rate1-<%= board.id %>').raty({
+                size: 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                readOnly: true,
+                score: <%= board.rate1 %>
+            });
+            </script>
+            <script>
+            $('#show-star-rate2-<%= board.id %>').raty({
+                size: 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                readOnly: true,
+                score: <%= board.rate2 %>
+            });
+            </script>
+            <script>
+            $('#show-star-rate3-<%= board.id %>').raty({
+                size: 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                readOnly: true,
+                score: <%= board.rate3 %>
+            });
+            </script>
+            
+            <div class='comment-wrapper'>
+            <% #アイコン、名前 %>   
+            <div class='kakomons-show-user-info'>
+                <%= link_to end_user_path(board.end_user),class:'index-profile-image-link' do %>
+                    <%= image_tag board.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                <% end %>
+                <span class='kakomons-show-user-name'><%= board.end_user.name %></span>
+                <% if board.end_user.followed_by?(current_end_user) %>
+                    <%= link_to'フォロー中',end_user_relationships_path(board.end_user),method: :delete,class:'kakomons-show-user-following' %>
+                <% else %>
+                    <% unless board.end_user == current_end_user %>
+                        <%= link_to 'フォローする',end_user_relationships_path(board.end_user),method: :post,class:'kakomons-show-user-followed' %>
+                    <% end %>
+                <% end %>
+            </div>
+            <% #コメント %>
+            <%= render 'comment' ,board:board %>
+        </div>
+    </div>
+</span>
