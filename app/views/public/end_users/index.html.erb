@@ -20,15 +20,11 @@
                                         <% end %>
                                         <span class='end-users-index-dep'><%= user.cor %></span>
                                     </div>
-                                    <div class='end-users-index-follow'>
-                                        <% if user.followed_by?(current_end_user) %>
-                                            <%= link_to'フォロー中',end_user_relationships_path(user),method: :delete,class:'user-followed-show' %>
-                                        <% else %>
-                                            <% unless user == current_end_user %>
-                                                <%= link_to 'フォローする',end_user_relationships_path(user),method: :post,class:'user-following-show' %>
-                                            <% end %>
-                                        <% end %>
-                                    </div>
+                                    <span class='end-users-index-following-followed'>
+                                        <div class='td-follow-<%= user.id %>'>
+                                            <%= render 'public/end_users/userFollowing',user:user %>
+                                        </div>
+                                    </span>
                                 <% end %>
                             <% end %>
                         <% end %>

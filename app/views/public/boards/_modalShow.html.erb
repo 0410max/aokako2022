@@ -45,13 +45,6 @@
                     <%= image_tag board.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                 <% end %>
                 <span class='kakomons-show-user-name'><%= board.end_user.name %></span>
-                <% if board.end_user.followed_by?(current_end_user) %>
-                    <%= link_to'フォロー中',end_user_relationships_path(board.end_user),method: :delete,class:'kakomons-show-user-following' %>
-                <% else %>
-                    <% unless board.end_user == current_end_user %>
-                        <%= link_to 'フォローする',end_user_relationships_path(board.end_user),method: :post,class:'kakomons-show-user-followed' %>
-                    <% end %>
-                <% end %>
             </div>
             <% #コメント %>
             <%= render 'comment' ,board:board %>

@@ -461,6 +461,36 @@
   text-align: center;
 }
 
+.end-users-index-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  width: 200px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+  background-color: #fff;
+  border: none;
+  text-align: center;
+}
+
+.report-reason-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  width: 200px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+  background-color: #fff;
+  border: none;
+  text-align: center;
+}
+
 .index-modal-1000 {
   display: none;
   position: fixed;
@@ -760,6 +790,7 @@
   border: none;
   outline: none;
 }
+
 
 .kakomons-show-comment-submit {
   position: absolute;

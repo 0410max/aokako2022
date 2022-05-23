@@ -10,13 +10,9 @@
                 <% if @user === current_end_user %>
                     <%= link_to 'プロフィールを編集',edit_end_user_path(@user),class:'user-setting' %>
                 <% else %>
-                    <% if @user.followed_by?(current_end_user) %>
-                        <%= link_to'フォロー中',end_user_relationships_path(@user),method: :delete,class:'user-followed-show' %>
-                    <% else %>
-                        <% unless @user == current_end_user %>
-                            <%= link_to 'フォローする',end_user_relationships_path(@user),method: :post,class:'user-following-show' %>
-                        <% end %>
-                    <% end %>
+                    <span class='td-follow-<%= @user.id %>'>
+                        <%= render 'userFollowing',user:@user %>
+                    </span>
                 <% end %>
             </div>
 
@@ -26,9 +22,9 @@
                 <% else %>
                     <% unless @user.id == current_end_user.id %>    
                         <% if @haveRoom == true %>    
-                            <%= link_to "メッセージ",room_path(@roomId),class:'make-room' %>
+                            <%= link_to "メッセージ",room_path(@roomId),class:'make-room-message' %>
                         <% else %>
-                            <%= form_with model: @room,local: true do |f|%>   
+                            <%= form_with model: @room do |f|%>   
                                 <%= fields_for @RoomUser do |r| %>  
                                     <%= r.hidden_field :end_user_id, value: @user.id %>  
                                 <% end %>
@@ -44,6 +40,10 @@
                     <span class='user-plus'><span class='user-plus-button'><i class="fa-solid fa-angle-down user-plus-button-content"></i></span></span></span>
                     <span class='user-minus'><span class='user-minus-button'><i class="fa-solid fa-angle-up user-plus-button-content"></i></span></span></span>
                 </span>
+            <% end %>
+
+            <% unless @user == current_end_user %>
+                <span class='other-user-modal-button'><i class="fa-solid fa-ellipsis"></i></span>
             <% end %>
 
         </div>
@@ -71,34 +71,53 @@
 
 <div class='index-modal'>
     <div class='modal-content'>
-        <% if @user === current_end_user %>
-            <div class='modal-logout'>
-                <%= link_to 'ログアウト',destroy_end_user_session_path,method: :delete,class:'logout-button-font' %>
-            </div>
-        <% else %>
-            <div class='block-user'>
-                ブロック
-            </div>
-            <div class='report-user'>
-                報告する
-            </div>
-        <% end %>
+        <div class='modal-logout'>
+            <%= link_to 'ログアウト',destroy_end_user_session_path,method: :delete,class:'logout-button-font' %>
+        </div>
         <div class='index-modal-close-button'>キャンセル</div>
     </div>
 </div>
 
 
+<div class='end-users-index-modal'>
+    <div class='modal-content'>
+        <div class='end-user-report'>
+            <span class='end-user-report-button'>報告する</span>
+        </div>
+        <div class='index-modal-close-button'>キャンセル</div>
+    </div>
+</div>
+
+
+<div class='report-reason-modal'>
+    <div class='modal-content'>
+        <span>報告する理由</span>
+        <div>投稿内容が不適切</div>
+        <div>メッセージによる嫌がらせ</div>
+        <div>投稿へのコメントが不適切</div>
+        <div class='index-modal-close-button'>キャンセル</div>
+    </div>
+</div>
+
 
 <script>
     $('.users-show-logout-button')
-    .on('click',function(){
-        $('.index-modal').fadeIn(200);
-        $('.index-modal-bg').fadeIn(200);
-        $("body").addClass("no_scroll");
-    });
+        .on('click',function(){
+            $('.index-modal,.index-modal-bg').fadeIn();
+            $("body").addClass("no_scroll");
+        });
     $('.index-modal-bg,.index-modal-close-button')
-    .on('click',function(){
-        $("body").removeClass("no_scroll");
-        $('.index-modal,.index-modal-bg').fadeOut(400);
-    });
+        .on('click',function(){
+            $("body").removeClass("no_scroll");
+            $('.index-modal,.index-modal-bg').fadeOut();
+        });
 </script>
+
+<script>
+    $('.other-user-modal-button')
+        .on('click',funciton(){
+            $('.end-users-index-modal,.index-modal-bg').fadeIn()
+            $("body").addClass("no_scroll");
+        });
+</script>
+

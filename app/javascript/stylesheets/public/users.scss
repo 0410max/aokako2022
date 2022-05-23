@@ -1,3 +1,4 @@
+
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
@@ -35,6 +36,12 @@
 
 .end-users-index-name {
     width: 60%;
+}
+
+.end-users-index-following-followed {
+    position: relative;
+    top: 11px;
+    width: 30%;
 }
 
 .end-users-index-follow {
@@ -162,8 +169,21 @@
     border: 1px solid #dbdbdb;
     padding: 2px 10px;
     border-radius:3px;
-    line-height: 25px;
+    line-height: 20px;
     display: inline;
+    margin-right: 11px;
+    font-size: 14px;
+}
+
+.user-following {
+    background-color: #0095F6;
+    color: white;
+    float:right;
+    padding: 2px 10px;
+    border-radius:3px;
+    line-height: 22px;
+    margin-right: 5px;
+    font-size: 14px;
 }
 
 .user-followed-show {
@@ -185,14 +205,6 @@
     color: black;
 }
 
-.user-following {
-    background-color: #0095F6;
-    color: white;
-    float:right;
-    padding: 2px 10px;
-    border-radius:3px;
-    line-height: 25px
-}
 
 .user-following-show {
     background-color: #0095F6;
@@ -280,6 +292,7 @@
 }
 
 
+
                                                     // show.html.erb
 
 
@@ -364,12 +377,25 @@
 
 .make-room {
     border: 1px solid #dbdbdb;
-    padding: 3px 10px;
+    padding: 1.5px 10px;
     border-radius: 3px;
     color: black;
     background-color: #fafafa;
-    position: relative;
-    bottom: 3.5px;
+    font-size: 14px;
+}
+
+.make-room-message {
+    border: 1px solid #dbdbdb;
+    padding: 4px 10px;
+    border-radius: 3px;
+    color: black;
+    background-color: #fafafa;
+    font-size: 14px;
+}
+
+.make-room-message:hover {
+    text-decoration: none;
+    color: black;
 }
 
 .make-room:hover {
@@ -620,6 +646,7 @@
     width: 300px;
 }
 
+
 .user-setting:hover {
     text-decoration: none;
     color: black;
@@ -866,7 +893,7 @@
     border: 1px solid #dbdbdb;
     border-radius: 4px;
     margin: 3px 10px 10px 10px;
-    padding: 10px 2px 25px 2px;
+    padding: 10px 2px 10px 2px;
     width: 120px;
     flex-shrink: 0;
     position: relative;
@@ -878,6 +905,7 @@
     border-radius: 4px;
     padding: 5px 0 0 0;
     margin-top: 5px;
+    min-height: 200px;
 }
 
 .end-users-recommendation-image-size {
@@ -978,6 +1006,10 @@
     height: 50px;
 }
 
+
+.other-user-modal-button {
+    margin-left: 15px;
+}
 
 
                                                 // edit.html.erb

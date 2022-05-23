@@ -1,6 +1,7 @@
 <div class='kakomons-show-wrapper'>
     <div class='conainer'>
         <div class='row'>
+
             <div class='col-md-9 kakomons-show'>
                 <div class='kakomons-show-content'>
                     <% #モーダル %>
@@ -203,4 +204,14 @@
         score: <%= @board.rate3 %>
         });
     </script>
+</div>
+
+<div class='end-user-report-modal'>
+    <div class='report-end-user'>
+        <%= form_with(model:[@user,@report],local:true,url:board_boardreports_path(board)) do |f| %>
+            <%= f.hidden_field :id, :value => board.id %>
+            <%= f.submit '報告する',class:'kakomon-report' %>
+        <% end %>
+    </div>
+    <div class='index-modal-close-button'>キャンセル</div>
 </div>

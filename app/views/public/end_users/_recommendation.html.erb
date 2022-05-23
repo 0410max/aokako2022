@@ -27,8 +27,8 @@
                                         <span class='end-users-show-cor-short'><%= user.cor %></span>
                                     <% end %>
                                 </div>
-                                <div>
-                                    <%= render 'endUserRecommendationFollow',user:user %>
+                                <div class='td-follow-<%= user.id %>'>
+                                    <%= render 'userFollowing' ,user:user %>
                                 </div>
                             </div>
                             <% a += 1 %>
