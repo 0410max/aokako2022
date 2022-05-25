@@ -15,7 +15,6 @@
   border-radius: 3px;
 }
 
-
 .past-class-boards:hover {
     cursor: pointer;
 }
@@ -651,11 +650,10 @@
   transform: translate(-50%, -70%);
   border-radius: 5px;
   cursor: pointer;
-  z-index: 2;
+  z-index: 3;
   border: none;
   width: 800px;
 }
-
 
 
 
@@ -671,7 +669,6 @@
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   height: 587px;
-  overflow:scroll;
 }
 
 .board-index-show {
@@ -790,17 +787,74 @@
   left: 3px;
 }
 
+
+
+
+
+
+
+
+.end-user-report-modal {
+  display: none;
+}
+
+.max-width-1000-boards-show {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 100%;
+  height: 1000px;
+  z-index: 3;
+  background-color: #fafafa;
+  border: none;
+  margin: 0 auto;
+  overflow:hidden;
+  display: none;
+}
+
+.boards-show-content-1000 {
+  margin: 0 auto;
+  padding-top: 270px;
+}
+
+.board-comment-content  {
+  padding: 10px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.board-no-comment {
+  color: gray;
+  font-size: 14px;
+}
+
+.comment-index {
+  padding: 10px;
+}
+
 .board-comment-scroll-1000 {
-  height: 600px;
-  overflow: scroll;
+  height: 455px;
   margin: 0 auto;
 }
 
-.board-comment-scroll-1000-no-comment{
-  height: 600px;
-  overflow: scroll;
-  margin: 0 auto;
+.board-comment-index {
+  padding: 10px 5px;
+  height: 285px;
 }
+
+.index-boards-show-link {
+  color: black;
+  font-weight: normal;
+  text-align: center;
+}
+
+.index-boards-show-link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+
+
 
 @media screen and (max-width: 1200px) {
   .board-comment {

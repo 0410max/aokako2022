@@ -1,0 +1,10 @@
+<% if user == current_end_user %>
+    <%= link_to 'プロフィールを編集',edit_end_user_path(user),class:'user-setting' %>
+<% else %> 
+    <% if user.followed_by?(current_end_user) %>
+        <%= link_to 'フォロー中',end_user_relationships_path(user),remote:true, method: :delete,class:'user-followed' %>
+    <% else %>
+        <%= link_to 'フォローする',end_user_relationships_path(user),remote:true, method: :post,class:'user-following' %>
+    <% end %>
+<% end %>
+

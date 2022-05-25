@@ -6,18 +6,13 @@
         <span class='show-user-name'><%= @user.name %></span><br />
         
         <div class='user-info-follow-setting-wrapper'>
-            <div class='user-info-follow'>
-                <% if @user === current_end_user %>
-                    <%= link_to 'プロフィールを編集',edit_end_user_path(@user),class:'user-setting' %>
-                <% else %>
-                    <span class='td-follow-<%= @user.id %>'>
-                        <%= render 'userFollowing',user:@user %>
-                    </span>
-                <% end %>
+
+            <div class='user-info-follow-<%= @user.id %>'>
+                <%= render 'userInfoFollow',user:@user %>
             </div>
 
             <div class='user-info-message'>
-                <% if @user === current_end_user %>
+                <% if @user == current_end_user %>
                     <span class='users-show-logout-button'><i class="fa-solid fa-gear"></i></span>
                 <% else %>
                     <% unless @user.id == current_end_user.id %>    
@@ -37,8 +32,8 @@
 
             <% if @user == current_end_user %>
                 <span class='user-plus-button-wrapper'>
-                    <span class='user-plus'><span class='user-plus-button'><i class="fa-solid fa-angle-down user-plus-button-content"></i></span></span></span>
-                    <span class='user-minus'><span class='user-minus-button'><i class="fa-solid fa-angle-up user-plus-button-content"></i></span></span></span>
+                    <span class='user-plus'><span class='user-plus-button'><i class="fa-solid fa-angle-down user-plus-button-content"></i></span></span>
+                    <span class='user-minus'><span class='user-minus-button'><i class="fa-solid fa-angle-up user-plus-button-content"></i></span></span>
                 </span>
             <% end %>
 

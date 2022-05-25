@@ -46,6 +46,7 @@
                 </div>
               </div>
               <script>
+                $('#star-rate1-<%= board.id %>').empty();
                 $('#star-rate1-<%= board.id %>').raty({
                   starOff:  '<%= asset_path('star-off.png') %>',
                   starOn : '<%= asset_path('star-on.png') %>',
@@ -54,6 +55,7 @@
                 });
               </script>
               <script>
+                $('#star-rate2-<%= board.id %>').empty();
                 $('#star-rate2-<%= board.id %>').raty({
                   starOff:  '<%= asset_path('star-off.png') %>',
                   starOn : '<%= asset_path('star-on.png') %>',
@@ -62,6 +64,7 @@
                 });
               </script>
               <script>
+                $('#star-rate3-<%= board.id %>').empty();
                 $('#star-rate3-<%= board.id %>').raty({
                   starOff:  '<%= asset_path('star-off.png') %>',
                   starOn : '<%= asset_path('star-on.png') %>',
@@ -201,6 +204,7 @@
               </div>
             </div>
             <script>
+              $('#star-rate1-<%= board.id %>-1000').empty();
               $('#star-rate1-<%= board.id %>-1000').raty({
                 starOff:  '<%= asset_path('star-off.png') %>',
                 starOn : '<%= asset_path('star-on.png') %>',
@@ -209,6 +213,7 @@
               });
             </script>
             <script>
+              $('#star-rate2-<%= board.id %>-1000').empty(); 
               $('#star-rate2-<%= board.id %>-1000').raty({
                 starOff:  '<%= asset_path('star-off.png') %>',
                 starOn : '<%= asset_path('star-on.png') %>',
@@ -217,6 +222,7 @@
               });
             </script>
             <script>
+              $('#star-rate3-<%= board.id %>-1000').empty();
               $('#star-rate3-<%= board.id %>-1000').raty({
                 starOff:  '<%= asset_path('star-off.png') %>',
                 starOn : '<%= asset_path('star-on.png') %>',

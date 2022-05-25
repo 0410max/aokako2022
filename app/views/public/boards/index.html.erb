@@ -7,7 +7,6 @@
           <span class='prof-search'>教授名検索</span>
           <%= render 'search' %>
         </div>
-
         <div class='index-modal-bg'></div>
         <% i = 0 %>
         <% len = @boards.length %>
@@ -139,8 +138,8 @@
           <span class='prof-search'>教授検索</span>
           <%= render 'search' %>
         </div>
-
         <div class='index-modal-bg'></div>
+        <div class='index-modal-bg-1000'></div>
         <% i = 0 %>
         <% len = @boards.length %>
 
@@ -157,42 +156,10 @@
                   <span id='<%= i %>-top-button-1000' class='kakomons-index-top-button'><i class="fa-solid fa-ellipsis"></i></span>
 
                   <% #モーダル %>
-                  <div class='index-modal-1000'>
-                    <div class='modal-content'>
-                      <% if board.end_user === current_end_user %>
-                        <div class='kakomon-delete'>
-                          <%= link_to'削除する',board_path(board),class:'kakomon-delete-link',method: :delete %><br />
-                        </div>
-                        <div class='kakomons-show-link-hr'>
-                          <%= link_to'詳細を表示',board_path(board),class:'index-kakomons-show-link' %>
-                        </div>
-                      <% else %>
-                        <%= form_with(model:[board,@report],local:true,url:board_boardreports_path(board)) do |f| %>
-                          <%= f.hidden_field :id, :value => board.id %>
-                          <%= f.submit '報告する',class:'kakomon-report' %>
-                        <% end %>
-                        <div class='kakomons-show-link-hr'>
-                          <%= link_to'詳細を表示',board_path(board),class:'index-kakomons-show-link' %>
-                        </div>
-                      <% end %>
-                      <div class='index-modal-close-button'>キャンセル</div>
-                      <script>
-                        $('#<%= i %>-top-button-1000')
-                          .on('click',function(){
-                            var numberstr = '<%= i %>';
-                            var numberInd = Number(numberstr)
-                            $('.index-modal-1000').eq(numberInd).fadeIn();
-                            $('.index-modal-bg').fadeIn();
-                            $("body").addClass("no_scroll");
-                          });
-                        $('.index-modal-bg,.index-modal-close-button')
-                          .on('click',function(){
-                            $("body").removeClass("no_scroll");
-                            $('.index-modal-1000,.index-modal-bg').fadeOut();
-                          });
-                      </script>
-                    </div>
-                  </div>
+                  <%= render 'modalIndex1000',board:board,i:i %>
+
+                  <% #講義評価詳細 %>
+                  <%= render 'modalShow1000',board:board,i:i %>
 
                 </div>
                 <div class='article-bottom-board'>
@@ -291,6 +258,7 @@
                 </div>
               </div>
               <script>
+                $('#star-rate1-<%= board.id %>-1000').empty();
                 $('#star-rate1-<%= board.id %>-1000').raty({
                   starOff:  '<%= asset_path('star-off.png') %>',
                   starOn : '<%= asset_path('star-on.png') %>',
@@ -299,6 +267,7 @@
                 });
               </script>
               <script>
+                $('#star-rate2-<%= board.id %>-1000').empty(); 
                 $('#star-rate2-<%= board.id %>-1000').raty({
                   starOff:  '<%= asset_path('star-off.png') %>',
                   starOn : '<%= asset_path('star-on.png') %>',
@@ -307,6 +276,7 @@
                 });
               </script>
               <script>
+                $('#star-rate3-<%= board.id %>-1000').empty();
                 $('#star-rate3-<%= board.id %>-1000').raty({
                   starOff:  '<%= asset_path('star-off.png') %>',
                   starOn : '<%= asset_path('star-on.png') %>',
@@ -424,6 +394,25 @@
                       $('.continue-comment-377').eq(continue1000Ind).css('display','none');
                   });
               </script>
+
+              
+
+              <script>
+                $('.index-boards-show-link-button-1000-<%= i %>')
+                  .on('click',function(){
+                    var numberstr = '<%= i %>';
+                    var numberInd = Number(numberstr)
+                    $('.max-width-1000-boards-show').eq(numberInd).fadeIn();
+                    $('.index-modal-bg').fadeIn();
+                  });
+                $('.index-modal-bg')
+                  .on('click',function(){
+                    $('.max-width-1000-boards-show').fadeOut();
+                  });
+              </script>
+
+
+
               <% i += 1 %>
             <% end %>
           <% end %>

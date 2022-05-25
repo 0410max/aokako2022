@@ -9,7 +9,7 @@
     <table class='user-index-table'>
         <tbody>
             <% users.each do |user| %>
-                <% if user === current_end_user %>
+                <% if user == current_end_user %>
                     <tr>
                         <td class='td-profile-image' height='50'> 
                         <%= link_to end_user_path(user) do %>
@@ -19,19 +19,21 @@
                         <td class='td-user-name'><span class='user-name-height'><%= user.name %></span></td>
                     </tr>
                 <% end %>
-                <tr>
-                    <% unless user === current_end_user %>
+            <% end %>
+            <% users.each do |user| %>
+                <% unless user == current_end_user %>
+                    <tr>
                         <td class='td-profile-image' height='50'> 
                             <%= link_to end_user_path(user) do %>
                                 <%= image_tag user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                             <% end %>
                         </td>
                         <td class='td-user-name'><span class='user-name-height'><%= user.name %></span></td>
-                        <td class='td-follow'>
+                        <td class='td-follow-<%= user.id %> td-follow'>
                             <%= render 'userFollowing' ,user:user %>
                         </td>
-                    <% end %>
-                </tr>
+                    </tr>
+                <% end %>
             <% end %>
         </tbody>
     </table>

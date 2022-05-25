@@ -1,3 +1,2 @@
 $('.td-follow-<%= @user.id %>').html("<%= j(render 'public/end_users/userFollowing',user:@user) %>");
-
-
+$('.user-info-follow-<%= @user.id %>').html("<%= j(render 'public/end_users/userInfoFollow',user:@user) %>");

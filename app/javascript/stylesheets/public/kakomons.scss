@@ -3,8 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
                       // new.html.erb
-
-                      
+  
 .kakomon-new-content {
   margin: 0 auto;
   padding-top: 70px;
@@ -425,6 +424,7 @@
   padding-top: 50px;
   margin: 0 auto;
   width: 100%;
+  overflow: hidden;
 }                                
 
 .kakomons-show-content {
@@ -443,7 +443,18 @@
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 2;
+}
+
+.index-modal-bg-1000 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 4;
 }
 
 .index-modal {
@@ -455,7 +466,7 @@
   width: 200px;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 2;
+  z-index: 4;
   background-color: #fff;
   border: none;
   text-align: center;
@@ -711,6 +722,17 @@
   cursor: pointer;
 }
 
+.kakomons-show-top-button-1000 {
+  margin-left: 200px;
+  position: absolute;
+  right: 20px;
+  top: 12px;
+}
+
+.kakomons-show-top-button-1000:hover {
+  cursor: pointer;
+}
+
 .comment-scroll {
   height: 478.5px;
   overflow: scroll;
@@ -754,7 +776,7 @@
 }
 
 .other-user-comment-content {
-  margin-left: 15px;
+  margin-left: 10px;
   margin-right: 15px;
 }
 
@@ -800,7 +822,7 @@
   border: none;
   color: #0095f6;
   font-weight: bold;
-}
+} 
 
 .max-width-1000 {
   display: none;

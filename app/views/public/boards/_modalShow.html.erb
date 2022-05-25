@@ -11,6 +11,7 @@
             <span class='board-show-date'><%= board.created_at.strftime('%Y/%m/%d') %></span>
             </div>
             <script>
+            $('#show-star-rate1-<%= board.id %>').empty();
             $('#show-star-rate1-<%= board.id %>').raty({
                 size: 36,
                 starOff:  '<%= asset_path('star-off.png') %>',
@@ -20,6 +21,7 @@
             });
             </script>
             <script>
+            $('#show-star-rate2-<%= board.id %>').empty();
             $('#show-star-rate2-<%= board.id %>').raty({
                 size: 36,
                 starOff:  '<%= asset_path('star-off.png') %>',
@@ -29,6 +31,7 @@
             });
             </script>
             <script>
+            $('#show-star-rate3-<%= board.id %>').empty();
             $('#show-star-rate3-<%= board.id %>').raty({
                 size: 36,
                 starOff:  '<%= asset_path('star-off.png') %>',
