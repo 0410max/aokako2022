@@ -7,7 +7,7 @@ document.addEventListener("turbolinks:load", function () {
                 $("body").addClass("no_scroll"); 
             });
 
-        $('.kakomons-show-top-button-1000')
+        $('.kakomons-show-top-button-1000') 
             .on('click',function(){
                 $('.index-modal,.index-modal-bg-1000,.index-modal-bg').fadeIn();
                 $("body").addClass("no_scroll"); 

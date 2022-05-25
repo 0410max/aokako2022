@@ -828,6 +828,12 @@
   font-size: 14px;
 }
 
+.boards-no-comment {
+  color: gray;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
 .comment-index {
   padding: 10px;
 }
@@ -840,6 +846,7 @@
 .board-comment-index {
   padding: 10px 5px;
   height: 285px;
+  overflow: scroll;
 }
 
 .index-boards-show-link {

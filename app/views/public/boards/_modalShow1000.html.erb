@@ -10,49 +10,22 @@
                     <%= image_tag board.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                 <% end %>
                 <span class='kakomons-show-user-name'><%= board.end_user.name %></span>
-                <span class='kakomons-show-top-button-1000'><i class="fa-solid fa-ellipsis"></i></span>
             </div>
             <% #コメント %>
-            <div class='board-comment-scroll-1000'>
-                <div class='kakomon-comment-content-top'>   
-                    <div class='board-comment-content'>
-                        講義 : <%= board.sub %><br>
-                        教授 : <%= board.prof %><br>
-                        <span class='form1'>講義の面白さ</span><span class='star-rate1' id="1000-star-rate1-<%= board.id %>"></span><br />
-                        <span class='form2'>教授の人柄</span><span class='star-rate2' id="1000-star-rate2-<%= board.id %>"></span><br />
-                        <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="1000-star-rate3-<%= board.id %>"></span><br />
-                        <span class='board-show-comment'><%= safe_join(board.comment.split("\n"), tag(:br)) %></span><br />
-                        <span class='board-date'><%= board.created_at.strftime('%Y/%m/%d') %></span>
-                    </div>
-                </div>
-                <div class='board-comment-index'>
-                    <% if @comments.count == 0 %> 
-                        <span class='board-no-comment'>コメントはありません</span>
-                    <% end %>
-                    <% @comments.each do |comment| %>
-                        <div class='other-user-comment'>
-                            <%= link_to end_user_path(comment.end_user),class:'index-profile-image-link' do %>
-                                <%= image_tag comment.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-                            <% end %>
-                            <span class='comment-user-name'><%= comment.end_user.name %></span>
-                            <div class='other-user-comment-content'>
-                                <%= simple_format(comment.comment) %>
-                                <span class='kakomon-date'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
-                                <% if comment.end_user === current_end_user %>
-                                    <span class='delete-comment'><%= link_to '削除',board_board_comment_path(comment.board,comment),class:'delete-comment-link',method: :delete %></span>
-                                <% end %>
-                            </div>
-                        </div>
-                        <br />
-                    <% end %>
+            <div class='kakomon-comment-content-top'>   
+                <div class='board-comment-content'>
+                    講義 : <%= board.sub %><br>
+                    教授 : <%= board.prof %><br>
+                    <span class='form1'>講義の面白さ</span><span class='star-rate1' id="1000-star-rate1-<%= board.id %>"></span><br />
+                    <span class='form2'>教授の人柄</span><span class='star-rate2' id="1000-star-rate2-<%= board.id %>"></span><br />
+                    <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="1000-star-rate3-<%= board.id %>"></span><br />
+                    <span class='board-show-comment'><%= safe_join(board.comment.split("\n"), tag(:br)) %></span><br />
+                    <span class='board-date'><%= board.created_at.strftime('%Y/%m/%d') %></span>
                 </div>
             </div>
-            <div class='kakomons-show-comment-new-1000'>
-                <%= form_with(model:[board,@comment], local: false ) do |f| %>
-                    <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
-                    <%= f.submit "投稿する",class:'kakomons-show-comment-submit-1000' %>
-                <% end %>
-            </div> 
+            <div class='boards-show-comment-wrapper-<%= board.id %>'>
+                <%= render 'comment1000',board:board %>
+            </div>
         </div>
     </div>
 </div>
