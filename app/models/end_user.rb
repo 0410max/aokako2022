@@ -9,7 +9,7 @@ class EndUser < ApplicationRecord
   has_many :boards,dependent: :destroy
   has_many :comments,dependent: :destroy
   has_many :board_comments,dependent: :destroy
-  has_many :favorites,dependent: :destroy
+  has_many :boardfavorites,dependent: :destroy
   has_many :relationships,foreign_key: :following_id
   has_many :followings,through: :relationships,source: :follower
   has_many :reverse_of_relationshiops,class_name:'Relationship',foreign_key: :follower_id

@@ -20,6 +20,8 @@
         <br />
     <% end %>
 </div>
+
+
 <div class='kakomons-show-comment-new-1000'>
     <%= form_with(model:[board,@comment], local: false ) do |f| %>
         <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>

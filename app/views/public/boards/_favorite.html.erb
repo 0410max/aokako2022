@@ -1,0 +1,9 @@
+<% if board.favorited_by?(current_end_user) %>
+    <%= link_to board_boardfavorites_path(board),remote:true, method: :delete,class:'thanks-link' do %>
+<span class='thanks'>Thanks</span><span class='thanks-count'><%= board.boardfavorites.count %></span>
+    <% end %>
+<% else %>
+    <%= link_to board_boardfavorites_path(board),remote:true, method: :post,class:'not-thanks-link' do %>
+        <span class='not-thanks'>Thanks</span><span class='thanks-count'><%= board.boardfavorites.count %></span>
+    <% end %>
+<% end %>

@@ -325,9 +325,28 @@
   padding: 0;
   color: white;
   background-color: #a9a9a9;
-  padding: 6px 10px;
+  padding: 3px 10px;
   border: none;
   border-radius: 4px;
+  height: 30px;
+  position: relative;
+  top: 10px;
+}
+
+.no-board-search-submit {
+  padding: 0;
+  color: white;
+  background-color: #a9a9a9;
+  padding: 3px 10px;
+  border: none;
+  border-radius: 4px;
+  height: 30px;
+  position: relative;
+  top: 10px;
+}
+
+.no-board-search-submit:hover {
+  cursor: pointer;
 }
 
 .no-kakomon-search-submit-clear {
@@ -348,9 +367,12 @@
   padding: 0;
   color: white;
   background-color: #a9a9a9;
-  padding: 6px 10px;
+  padding: 3px 10px;
   border: none;
   border-radius: 4px;
+  height: 30px;
+  position: relative;
+  top: 10px;
 }
 
 .no-kakomon-search-submit:hover {
@@ -366,7 +388,7 @@
   color: red;
 }
 
-.search-submit {
+.sub-search-submit-not-blank {
   display: none;
   padding: 0;
   color: white;
@@ -376,12 +398,24 @@
   border-radius: 4px;
 }
 
+.prof-search-submit-not-blank {
+  display: none;
+  padding: 0;
+  color: white;
+  background-color: #a9a9a9;
+  padding: 3px 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+
 .no-change-search {
     color: white;
     background-color: #a9a9a9;
     padding: 5.5px 10px;
     border: none;
     border-radius: 4px;
+    opacity: 0.6;
 }
 
 .no-change-search:hover {

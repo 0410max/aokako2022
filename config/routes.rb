@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :rooms, only: [:create,:show,:index]
     resources :notifications,only:[:index]
     resources :boards,only:[:index,:show,:new,:create,:destroy] do 
+      resource :boardfavorites, only: [:create, :destroy]
       resources :board_comments,only: [:create,:destroy]
       resources :boardreports,only:[:create]
       get :searchSub, on: :collection

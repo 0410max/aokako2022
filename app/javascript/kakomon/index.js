@@ -8,7 +8,11 @@ document.addEventListener("turbolinks:load", function () {
         $('.no-kakomon-message').html('過去問を投稿するとこの機能が使えます')
     });
 
-    $('.no-kakomon-search-submit-no-login').on('click',function(){
+    $('.no-board-search-submit,.sub-demo-text-area,.sub-demo-text-area-content').on('click',function(){
+        $('.no-kakomon-message').html('講義評価を投稿するとこの機能が使えます')
+    });
+
+    $('.no-kakomon-search-submit-no-login,.sub-demo-text-area-no-login,.sub-demo-text-area-content-no-login').on('click',function(){
         $('.no-kakomon-message').html('ログインまたは新規登録をしてください')
     });
 });

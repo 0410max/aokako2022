@@ -6,9 +6,6 @@ class Public::BoardsController < ApplicationController
     @report = Boardreport.new
     dep = current_end_user.dep
     @users = EndUser.where(dep: dep)
-    @userss = EndUser.all
-    #show
-    @comment = BoardComment.new
   end
 
 
@@ -49,6 +46,10 @@ class Public::BoardsController < ApplicationController
     else
       @boards = Board.none
     end
+    @report = Boardreport.new
+    @comment = BoardComment.new
+    dep = current_end_user.dep
+    @users = EndUser.where(dep: dep)
   end
 
   def searchProf
@@ -58,6 +59,10 @@ class Public::BoardsController < ApplicationController
     else
       @boards = Board.none
     end
+    @report = Boardreport.new
+    @comment = BoardComment.new
+    dep = current_end_user.dep
+    @users = EndUser.where(dep: dep)
   end
 
   private
@@ -66,3 +71,4 @@ class Public::BoardsController < ApplicationController
     params.require(:board).permit(:sub,:prof,:rate1,:rate2,:rate3,:comment)
   end
 end
+
