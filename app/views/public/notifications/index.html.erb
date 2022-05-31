@@ -1,6 +1,6 @@
 <div class='container'>
     <div class='row'>
-        <div class='col-md-6'>
+        <div class='col-md-6 notifications-index-wrapper'>
             <div class='notification-wrapper'>
                 <% notifications = @notifications.where.not(visitor_id: current_end_user.id) %>
                 <% if notifications.exists? %>

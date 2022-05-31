@@ -1,2 +1,11 @@
-<br /><br /><br />
-rooms/indexページです
+<div class='container rooms-index-wrapper'>
+    <div class='row'>
+        <div class='col-md-4 offset-1 rooms-index-left'>
+            <% @rooms.each do |room| %>
+                <%= room.id %><br />
+            <% end %>
+        </div>
+        <div class='col-md-6 rooms-index-right'>
+        </div>
+    </div>
+</div>

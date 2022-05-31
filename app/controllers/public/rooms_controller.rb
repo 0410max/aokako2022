@@ -23,6 +23,7 @@ class Public::RoomsController < ApplicationController
   end
 
   def index
+    @rooms = current_end_user.rooms
   end
   
   private
@@ -31,3 +32,4 @@ class Public::RoomsController < ApplicationController
     params.require(:room_user).permit(:end_user_id, :room_id).merge(room_id: @room.id)
   end
 end
+
