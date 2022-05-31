@@ -169,6 +169,7 @@
 
 
 
+
                                   
 .article-bottom-board {
   padding: 10px;
@@ -180,11 +181,9 @@
 }
 
 .board-top {
-  text-align: left;
-  padding-top: 80px;
+  padding-top: 83px;
   margin: 0 auto;
-  padding-left: 20px;
-  width: 400px;
+  width: 251px;
 }              
 
 .text-area-submit-button-wrapper {
@@ -298,6 +297,10 @@
   position: relative;
   margin-right: 20px;
   margin: 20px auto 0 auto;
+}
+
+.index-board-content:first-child {
+  margin-top: 5px;
 }
 
 .index-board-content-no-login {
@@ -751,6 +754,38 @@
   top: 2px; 
 }
 
+
+.search-result {
+  text-align: center;
+  margin-top: 15px;
+  position: relative;
+  margin-bottom: 5px;
+  bottom: 11px;
+}
+
+.search-result-sub {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 5px;
+}
+
+.search-result-prof {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 5px;
+}
+
+.search-clear-button {
+  padding: 4px 10px;
+  margin-left: 10px;
+  color: black;
+}
+
+.search-clear-button:hover {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
 
 
 

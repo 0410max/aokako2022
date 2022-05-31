@@ -46,6 +46,7 @@ class Public::BoardsController < ApplicationController
     else
       @boards = Board.none
     end
+    @sub = params[:sub]
     @report = Boardreport.new
     @comment = BoardComment.new
     dep = current_end_user.dep
@@ -59,6 +60,15 @@ class Public::BoardsController < ApplicationController
     else
       @boards = Board.none
     end
+    @prof = params[:prof]
+    @report = Boardreport.new
+    @comment = BoardComment.new
+    dep = current_end_user.dep
+    @users = EndUser.where(dep: dep)
+  end
+
+  def searchClear
+    @boards = Board.page(params[:page]).per(30).order(created_at: :desc)
     @report = Boardreport.new
     @comment = BoardComment.new
     dep = current_end_user.dep

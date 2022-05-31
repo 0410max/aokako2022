@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       resources :boardreports,only:[:create]
       get :searchSub, on: :collection
       get :searchProf, on: :collection
+      get :searchClear,on: :collection
     end
     resources :nokakomons,only:[:index]
     resources :noboards,only:[:index]

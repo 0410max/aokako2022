@@ -11,6 +11,4 @@ document.addEventListener("turbolinks:load", function () {
         $('.sub-search').css('backgroundColor','#dbdbdb');
         $('.prof-search').css('backgroundColor','white');
     });
-
-    
 });

@@ -1,10 +1,9 @@
 <div class='search-sub-wrapper'>
   <% if end_user_signed_in? %>
     <% if current_end_user.number.slice(3)==='2' && current_end_user.number.slice(4) === '2' %>
-      <%= form_with url: searchSub_boards_path,method: :get do |f| %>
-        <%= f.text_field :sub,class:'board-search',placeholder:'講義名' %>
-        <span class='no-change-search'>検索する</span>
-        <%= f.submit '検索する',class:'search-submit' %>
+      <%= form_with url: searchSub_boards_path,method: :get,local:false do |f| %>
+        <%= f.text_field :sub,class:'board-search-sub',placeholder:'講義名' %>
+        <%= f.submit '検索する',class:'sub-search-submit' %>
       <% end %>
     <% else %>
       <% if current_end_user.boards.count === 0 %>
@@ -14,10 +13,9 @@
         </div>
         <span class='no-kakomon-message'></span>
       <% else %>
-        <%= form_with url: searchSub_boards_path,method: :get,local:true do |f| %>
+        <%= form_with url: searchSub_boards_path,method: :get,local:false do |f| %>
           <%= f.text_field :sub,class:'board-search-sub',placeholder:'講義名' %>
-          <span class='no-change-search'>検索する</span>
-          <%= f.submit '検索する',class:'sub-search-submit-not-blank' %>
+          <%= f.submit '検索する',class:'sub-search-submit' %>
         <% end %>
       <% end %>
     <% end %>
@@ -36,10 +34,9 @@
 <div class='search-prof-wrapper'>
   <% if end_user_signed_in? %>
     <% if current_end_user.number.slice(3)==='2' && current_end_user.number.slice(4) === '2' %>
-      <%= form_with url: searchProf_boards_path,method: :get do |f| %>
-        <%= f.text_field :prof,class:'board-search',placeholder:'教授名' %>
-        <span class='no-change-search'>検索する</span>
-        <%= f.submit '検索する',class:'search-submit' %>
+      <%= form_with url: searchProf_boards_path,method: :get,local:false do |f| %>
+        <%= f.text_field :prof,class:'board-search-prof',placeholder:'教授名' %>
+        <%= f.submit '検索する',class:'prof-search-submit' %>
       <% end %>
     <% else %>
       <% if current_end_user.boards.count === 0 %>
@@ -49,10 +46,9 @@
         </div>
         <span class='no-kakomon-message'></span>
       <% else %>
-        <%= form_with url: searchProf_boards_path,method: :get,local:true do |f| %>
+        <%= form_with url: searchProf_boards_path,method: :get,local:false do |f| %>
           <%= f.text_field :prof,class:'board-search-prof',placeholder:'教授名' %>
-          <span class='no-change-search'>検索する</span>
-          <%= f.submit '検索する',class:'prof-search-submit-not-blank' %>
+          <%= f.submit '検索する',class:'prof-search-submit' %>
         <% end %>
       <% end %>
     <% end %>
@@ -67,28 +63,24 @@
 
 
 <script>
-  $('.board-search-sub')
+  $('.board-search-sub')  
     .on('input',function(){
-      let text = $(this).val();
+      let text = $('.board-search-sub').val();
       if (text == ''){
-        $('.no-change-search').css('display','inline');
-        $('.sub-search-submit-not-blank').css('display','none')
+        $('.sub-search-submit').css('opacity','0.7')
       }else {
-        $('.no-change-search').css('display','none');
-        $('.sub-search-submit-not-blank').css('display','inline')
+        $('.sub-search-submit').css('opacity','1')
       }  
     });
 </script>
 <script>
   $('.board-search-prof')
     .on('input',function(){
-      let text = $(this).val();
+      let text = $('.board-search-prof').val();
       if (text == ''){
-        $('.no-change-search').css('display','inline');
-        $('.prof-search-submit-not-blank').css('display','none')
+        $('.prof-search-submit').css('opacity','0.7')
       }else {
-        $('.no-change-search').css('display','none');
-        $('.prof-search-submit-not-blank').css('display','inline')
+        $('.prof-search-submit').css('opacity','1')
       }  
     });
 </script>
