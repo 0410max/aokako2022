@@ -86,6 +86,10 @@
             <div class="swiper-button-prev"></div>
         </div>
         </div>
+        <% #thanks %>
+        <div class='kakomon-favorites-<%= kakomon.id %> kakomon-favorites'>
+            <%= render 'favorite' ,kakomon:kakomon %>
+        </div>
         <% #投稿の下部分 %>
         <div class='article-bottom'>
         講義 : <%= kakomon.sub %><br>

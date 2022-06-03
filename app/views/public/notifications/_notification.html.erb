@@ -53,23 +53,40 @@
               <%= link_to 'にコメントしました',board_path(notification.board),class:'visitor-name' %>
             <% end %>
           <% when 'thanks' then %>
-          <% if visitor == current_end_user %>
-            <%= link_to board_path(notification.board),class:'visitor-name' do %>
-              <strong>自分の講義評価</strong>
+            <% if visitor == current_end_user %>
+              <%= link_to board_path(notification.board),class:'visitor-name' do %>
+                <strong>自分の講義評価</strong>
+              <% end %>
+              <%= link_to 'にThanksしました',board_path(notification.board),class:'visitor-name' %>        
+            <% elsif notification.board.end_user == current_end_user %>
+              <%= link_to board_path(notification.board),class:'visitor-name' do %>
+                <strong>あなたの講義評価</strong>
+              <% end %>
+              <%= link_to 'にThanksしました',board_path(notification.board),class:'visitor-name' %>  
+            <% else %>
+              <%= link_to board_path(notification.board),class:'visitor-name' do %>
+                <strong><%= notification.board.end_user.name %>の講義評価</strong>
+              <% end %>
+              <%= link_to 'にThanksしました',board_path(notification.board),class:'visitor-name' %>
             <% end %>
-            <%= link_to 'にThanksしました',board_path(notification.board),class:'visitor-name' %>        
-          <% elsif notification.board.end_user == current_end_user %>
-            <%= link_to board_path(notification.board),class:'visitor-name' do %>
-              <strong>あなたの講義評価</strong>
+            <% when 'kakomonthanks' then %>
+              <% if visitor == current_end_user %>
+                <%= link_to kakomon_path(notification.kakomon),class:'visitor-name' do %>
+                  <strong>自分の過去問</strong>
+                <% end %>
+                <%= link_to 'にThanksしました',kakomon_path(notification.kakomon),class:'visitor-name' %>        
+              <% elsif notification.kakomon.end_user == current_end_user %>
+                <%= link_to kakomon_path(notification.kakomon),class:'visitor-name' do %>
+                  <strong>あなたの過去問</strong>
+                <% end %>
+                <%= link_to 'にThanksしました',kakomon_path(notification.kakomon),class:'visitor-name' %>  
+              <% else %>
+                <%= link_to kakomon_path(notification.kakomon),class:'visitor-name' do %>
+                  <strong><%= notification.kakomon.end_user.name %>の過去問</strong>
+                <% end %>
+                <%= link_to 'にThanksしました',kakomon_path(notification.kakomon),class:'visitor-name' %>
             <% end %>
-            <%= link_to 'にThanksしました',board_path(notification.board),class:'visitor-name' %>  
-          <% else %>
-            <%= link_to board_path(notification.board),class:'visitor-name' do %>
-              <strong><%= notification.board.end_user.name %>の講義評価</strong>
-            <% end %>
-            <%= link_to 'にThanksしました',board_path(notification.board),class:'visitor-name' %>
-          <% end %>
-        <% end %><br />
+          <% end %><br />
         <span class='notification-time-ago'><%= time_ago_in_words(notification.created_at).upcase %>前</span>
       </div>
       <% unless visitor == current_end_user %>
