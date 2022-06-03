@@ -11,4 +11,17 @@ document.addEventListener("turbolinks:load", function () {
         $('.sub-search').css('backgroundColor','#dbdbdb');
         $('.prof-search').css('backgroundColor','white');
     });
+
+    $('.kakomon-prof-search').on('click',function(){
+        $('.kakomon-search-prof-wrapper').css('display','block');
+        $('.kakomon-search-sub-wrapper').css('display','none');
+        $('.kakomon-sub-search').css('backgroundColor','white');
+        $('.kakomon-prof-search').css('backgroundColor','#dbdbdb');
+    });
+    $('.kakomon-sub-search').on('click',function(){
+        $('.kakomon-search-prof-wrapper').css('display','none');
+        $('.kakomon-search-sub-wrapper').css('display','block');
+        $('.kakomon-sub-search').css('backgroundColor','#dbdbdb');
+        $('.kakomon-prof-search').css('backgroundColor','white');
+    });
 });

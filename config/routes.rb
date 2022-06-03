@@ -19,11 +19,12 @@ Rails.application.routes.draw do
       resources :comments,only: [:create,:destroy]
       resource :favorites, only: [:create, :destroy]
       resources :kakomonreports,only:[:create]
-      get :search, on: :collection
+      get :searchSub, on: :collection
+      get :searchProf, on: :collection
+      get :searchClear,on: :collection
     end
     resources :end_users, only:[:index,:show,:edit,:update] do 
       resource :relationships,only: [:create,:destroy]
-      get :search, on: :collection
     end
     resources :messages, only: [:create,:destroy]
     resources :rooms, only: [:create,:show,:index]

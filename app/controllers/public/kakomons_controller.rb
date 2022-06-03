@@ -9,17 +9,6 @@ class Public::KakomonsController < ApplicationController
     @userss = EndUser.all
   end
 
-
-  def search
-    @comment = Comment.new
-    if params[:sub].present?
-      @kakomons = Kakomon.where('sub LIKE ?', "%#{params[:sub]}%")
-      @kakomons = @kakomons.page(params[:page]).per(10).order(created_at: :desc)
-    else
-      @kakomons = Kakomon.none
-    end
-  end
-
   def show
     @kakomon = Kakomon.find(params[:id])
     @comments = @kakomon.comments.order(created_at: :desc)
@@ -55,6 +44,42 @@ class Public::KakomonsController < ApplicationController
     kakomon.destroy
     flash[:notice] = "削除されました"
     redirect_to end_user_path(current_end_user)
+  end
+
+  def searchSub
+    if params[:sub].present?
+      @kakomons = Kakomon.where('sub LIKE ?', "%#{params[:sub]}%")
+      @kakomons = @kakomons.page(params[:page]).per(10).order(created_at: :desc)
+    else
+      @kakomons = Kakomon.none
+    end
+    @sub = params[:sub]
+    @report = Kakomonreport.new
+    @comment = KakomonComment.new
+    dep = current_end_user.dep
+    @users = EndUser.where(dep: dep)
+  end
+
+  def searchProf
+    if params[:prof].present?
+      @kakomons = Kakomon.where('prof LIKE ?', "%#{params[:prof]}%")
+      @kakomons = @kakomons.page(params[:page]).per(10).order(created_at: :desc)
+    else
+      @kakomons = Kakomon.none
+    end
+    @prof = params[:prof]
+    @report = Kakomonreport.new
+    @comment = KakomonComment.new
+    dep = current_end_user.dep
+    @users = EndUser.where(dep: dep)
+  end
+
+  def searchClear
+    @kakomons = Kakomon.page(params[:page]).per(30).order(created_at: :desc)
+    @report = Kakomonreport.new
+    @comment = KakomonComment.new
+    dep = current_end_user.dep
+    @users = EndUser.where(dep: dep)
   end
 
   private
