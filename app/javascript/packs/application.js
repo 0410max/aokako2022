@@ -20,6 +20,7 @@ require("jquery");
 require('rate/jquery.raty');
 require("jquery-ui/ui/widgets/datepicker");
 
+
 window.$ = window.jQuery = require('jquery');
 import "popper.js";
 import "bootstrap";

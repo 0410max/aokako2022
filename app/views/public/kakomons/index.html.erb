@@ -85,8 +85,8 @@
                       <% end %>
                   </div>
                   <div class="swiper-pagination"></div>
-                  <div class="swiper-button-prev"></div>
                   <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
                 </div>
               </div>
               <% #投稿の下部分 %>
@@ -191,14 +191,28 @@
               </div>
               <% #画像 %>
               <div class='article-body'> 
-                <%= link_to kakomon_path(kakomon),class:'image-link' do %>
-                  <% if kakomon.image2.attached? || kakomon.image3.attached? %>
-                    <i class="fa-solid fa-clone"></i>
-                  <% end %>
-                  <% if kakomon.image1.attached? %>
-                    <%= image_tag kakomon.image1,class:'kakomons-index-image-size' %>
-                  <% end %>
-                <% end %>
+                <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <% if kakomon.image1.attached? %>
+                          <%= image_tag kakomon.image1,class:'kakomons-index-image-size' %>
+                        <% end %>
+                      </div>
+                      <% if kakomon.image2.attached? %>
+                        <div class="swiper-slide">
+                          <%= image_tag kakomon.image2,class:'kakomons-index-image-size' %>
+                        </div>
+                      <% end %>
+                      <% if kakomon.image3.attached? %>
+                        <div class="swiper-slide">
+                          <%= image_tag kakomon.image3,class:'kakomons-index-image-size' %>
+                        </div>
+                      <% end %>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                </div>
               </div>
               <% #投稿の下部分 %>
               <div class='article-bottom'>
