@@ -8,6 +8,7 @@
     margin-right: 5px;
   }
   
+
 .past-class-boards {
   border: 1px solid gray;
   background-color: #dbdbdb;
@@ -295,7 +296,6 @@
   background-color: white;
   border-radius: 2px;
   position: relative;
-  margin-right: 20px;
   margin: 20px auto 0 auto;
 }
 
@@ -309,7 +309,7 @@
   background-color: white;
   border-radius: 2px;
   position: relative;
-  margin: 20px auto 0 auto;
+  margin: 20px auto 0 auto; 
 }
 
 .board-index-no-login {
@@ -1132,7 +1132,7 @@
   .thanks-link {
     font-size: 14px;
   }
-  .not-thanks-link {
+  .not-thanks-link { 
     font-size: 14px;
   }
 }

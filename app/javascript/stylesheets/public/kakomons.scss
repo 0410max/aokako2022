@@ -11,6 +11,7 @@
   overflow: hidden;
 }                    
 
+
 .kakomon-new-content h3 {
   margin-left: 100px;
 }
@@ -56,7 +57,7 @@
   color: gray;
 }
 
-.index-profile-image {
+.profile-image {
   border: 1px solid #dbdbdb;
 }
 
@@ -196,13 +197,16 @@
 }
 
 .index-kakomon-content {
-  width: 45%;
   border: 1px solid #dbdbdb;
   background-color: white;
   border-radius: 2px;
   position: relative;
-  margin-right: 20px;
-  margin-top: 20px;
+  width: 70%;
+  margin: 20px auto 0 auto;
+}
+
+.index-kakomon-content:first-child {
+  margin-top: 5px;
 }
 
 
@@ -232,7 +236,7 @@
 
 .article-body {
   border-bottom: 1px solid #dbdbdb;
-  position: relative;
+  overflow: hidden;
 }
 
 .fa-clone {
@@ -248,7 +252,7 @@
 }
 
 .article-bottom {
-  padding: 10px;
+  padding: 5px 10px 0 10px;
 }
 
 .kakomon-user-name {
@@ -258,13 +262,23 @@
 
 .kakomons-index-image-size {
     width: 100%;
-    height: 580px;
+    height: 619px;
+}
+
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  width: 100%;
 }
 
 .comment-count {
   color: #8e8e8e;
   font-size: 15px;
 }
+
 
 .kakomon-show-link:hover {
   text-decoration: none;
@@ -274,6 +288,8 @@
 .kakomon-date {
   color: #8e8e8e;
   font-size: 12px;
+  position: relative;
+  bottom: 3px;
 }
 
 .article-comment {
@@ -940,13 +956,20 @@
 
 @media (max-width:1200px) {
   .kakomons-index-image-size {
-    height: 513px;
+    height: 520px;
   }
+  
 }
 
+
 @media (max-width:1000px) {
-  .kakomons-index-image-size {
-    height: 352px;
+  .index-kakomon-content {
+    margin: 10px auto;
+    width: 70%;
+    padding: 0;
+  }
+  .board-index {
+    margin: 0 auto;
   }
   .article-bottom {
     padding: 5px 10px;
@@ -968,19 +991,20 @@
   }
 }
 
-@media (max-width:770px) {
-  .kakomons-index-image-size {
-    height: 310px;
+@media (max-width:991px) {
+  .index-kakomon-content {
+    width: 95%;
   }
 }
+
 
 @media (max-width: 600px) {
   .kakomon-index{
     flex-direction: column;
   }
   .index-kakomon-content {
-    width: 100%;
-    margin: 10px auto;
+    width: 90%;
+    font-size: 14px;
   }
   .kakomons-index-image-size{
     height: 430px;
@@ -994,6 +1018,12 @@
   .kakomons-index-top-button {
     font-size: 14px;
     top: 9px;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .index-kakomon-content {
+    width: 95%;
   }
 }
 
