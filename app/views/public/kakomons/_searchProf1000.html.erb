@@ -5,10 +5,6 @@
 
 <% len = kakomons.length %>
 <% i = 0 %>
-<div class='col-md-10 offset-1 board-index-1000'>
-<div class="depSelector">
-    <%= render 'search' %>
-</div>
 <% while i < len do %>
     <% kakomons.each do |kakomon| %>
     <div class='index-kakomon-content'>
@@ -103,3 +99,4 @@
 <div class='pagenate'>
     <%= paginate kakomons %>
 </div>
+

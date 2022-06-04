@@ -21,21 +21,19 @@
 </div>
 
 
-
 <div class='board-index-wrapper-1000'>
   <div class='container'>
     <div class='row' %>
-    <div class='col-md-7 offset-1 board-index'>
-      <div class="kakomon-top">
-        <span class='kakomon-sub-search'>講義名検索</span>
-        <span class='kakomon-prof-search'>教授名検索</span>
-        <%= render 'search' %>
-      </div>
-      <div class='index-modal-bg'></div>
-      <div class='kakomonIndex1000'>
-        <%= render 'kakomonIndex1000',kakomons:@kakomons %>
-      </div>
-    </div>
+      <div class='col-md-10 board-index'>
+        <div class="kakomon-top">
+          <span class='kakomon-sub-search'>講義名検索</span>
+          <span class='kakomon-prof-search'>教授名検索</span>
+          <%= render 'search' %>
+        </div>
+        <div class='index-modal-bg'></div>
+        <div class='kakomonIndex1000'>
+          <%= render 'kakomonIndex1000',kakomons:@kakomons %>
+        </div>
       </div>
     </div>
   </div>

@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+
+
 <div class='search-result'>
   <span class='search-result-sub'><%= @sub %></span>の検索結果<span class='search-result-sub'><%= kakomons.length %></span>件
   <%= link_to 'クリア',searchClear_kakomons_path,method: :get,remote:true,class:'search-clear-button' %>
