@@ -33,3 +33,4 @@ class Public::RoomsController < ApplicationController
   end
 end
 
+

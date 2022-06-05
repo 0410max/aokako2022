@@ -5,17 +5,21 @@ class Kakomon < ApplicationRecord
   has_many :reports,dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_many :kakomonfavorites,dependent: :destroy
-  has_one_attached :image1
-  has_one_attached :image2
-  has_one_attached :image3
-  validates :image1,presence:true
+  has_many_attached :images
   validates :year,presence:true
   validates :sub, presence:true
   validates :prof, presence:true
   validates :comment,presence:true
+  validate :images_length
 
   def favorited_by?(end_user)
     kakomonfavorites.exists?(end_user_id: end_user.id)
+  end
+
+  def images_length
+    if images.length > 10
+      errors.add(:images, "は10枚以内にしてください")
+    end
   end
 
   def create_notification_comment!(current_end_user, comment_id)

@@ -254,7 +254,6 @@ ActiveRecord::Schema.define(version: 2022_06_03_112113) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
     t.text "profile_image_id"
     t.text "introduction"
     t.string "number"

@@ -65,20 +65,10 @@
         <div class='article-body'> 
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                    <% if kakomon.image1.attached? %>
-                        <%= image_tag kakomon.image1,class:'kakomons-index-image-size' %>
-                    <% end %>
-                    </div>
-                    <% if kakomon.image2.attached? %>
-                    <div class="swiper-slide">
-                        <%= image_tag kakomon.image2,class:'kakomons-index-image-size' %>
-                    </div>
-                    <% end %>
-                    <% if kakomon.image3.attached? %>
-                    <div class="swiper-slide">
-                        <%= image_tag kakomon.image3,class:'kakomons-index-image-size' %>
-                    </div>
+                    <% kakomon.images.each do |image|%>
+                        <div class="swiper-slide">
+                            <%= image_tag image,class:'kakomons-index-image-size' %>
+                        </div>
                     <% end %>
                 </div>
                 <div class="swiper-pagination"></div>

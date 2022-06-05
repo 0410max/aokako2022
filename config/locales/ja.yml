@@ -12,7 +12,7 @@ ja:
         dep: 学部
         cor: 学科
       kakomon:
-        image1: 画像
+        images: 画像
         year: 年度
         prof: 教授名
         comment: コメント

@@ -59,28 +59,18 @@
         </div>
         <% #画像 %>
         <div class='article-body'> 
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                <% if kakomon.image1.attached? %>
-                    <%= image_tag kakomon.image1,class:'kakomons-index-image-size' %>
-                <% end %>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <% kakomon.images.each do |image|%>
+                        <div class="swiper-slide">
+                            <%= image_tag image,class:'kakomons-index-image-size' %>
+                        </div>
+                    <% end %>
                 </div>
-                <% if kakomon.image2.attached? %>
-                <div class="swiper-slide">
-                    <%= image_tag kakomon.image2,class:'kakomons-index-image-size' %>
-                </div>
-                <% end %>
-                <% if kakomon.image3.attached? %>
-                <div class="swiper-slide">
-                    <%= image_tag kakomon.image3,class:'kakomons-index-image-size' %>
-                </div>
-                <% end %>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
         </div>
         <% #thanks %>
         <div class='kakomon-favorites-<%= kakomon.id %> kakomon-favorites'>
