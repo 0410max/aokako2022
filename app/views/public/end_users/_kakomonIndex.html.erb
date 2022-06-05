@@ -5,18 +5,13 @@
         <% @kakomons.each do |kakomon| %>
             <div class='show-kakomon-content'>
                 <div class='article-body'> 
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            <% kakomon.images.each do |image|%>
-                                <div class="swiper-slide">
-                                    <%= image_tag image,class:'kakomons-index-image-size' %>
-                                </div>
-                            <% end %>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
+                    <%if kakomon.images.length > 1 %>
+                        <span class='many-images'><i class="fa-solid fa-clone"></i></span>
+                    <% end %>
+                    <% kakomon.images.each do |image|%>
+                        <%= image_tag image,class:'end-users-kakomons-image-size' %>
+                        <% break %>
+                    <% end %>
                 </div>
                 <div class='user-article-bottom'>
                     講義 : <%= kakomon.sub %><br>
