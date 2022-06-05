@@ -22,7 +22,7 @@
     border-bottom-left-radius: 4px;
     height: 600px;
     background-color: white;
-    padding: 0;
+    padding: 10px 0 0 0;
     line-height: 65px;
 }
 
@@ -34,6 +34,7 @@
     margin-left: 0;
     height: 600px;
     background-color: white;
+    padding: 0;
 }
 
 .rooms-content {
@@ -42,9 +43,13 @@
     position: relative;
 }
 
-.rooms-content:first-child {
-    margin-top: 10px;
+.rooms-content-at {
+    height: 70px;
+    line-height: 70px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.05);
 }
+
 
 .rooms-index-profile-image {
     width: 55px;
@@ -76,7 +81,44 @@
     color: black;
 }
 
+.message-area {
+    height: 460px;
+    border-bottom: 1px solid #dbdbdb;
+    overflow: scroll;
+    padding: 0;
+    margin: 0;
+}
 
+.rooms-show-form {
+    position: relative;
+}
+
+.rooms-index-paper-plane {
+    font-size: 30px;
+    position: relative;
+    left: 19px;
+}
+
+.rooms-index-message {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 25px 5px;
+    border-radius: 60px;
+    width: 85px;
+    margin: 40% auto 0 auto;
+}
+
+.rooms-index-right-message {
+    text-align: center;
+}
+
+.message-font {
+    font-weight: bold;
+}
+
+.message-content-font {
+    color: gray;
+}
 
 
 
@@ -107,7 +149,6 @@
 .rooms-show-link:hover {
     color: black;
     text-decoration: none;
-    filter: brightness(110%);
 }
 
 
@@ -173,16 +214,6 @@
     text-decoration: none;
 }
 
-.message-area {
-    width: 500px;
-    margin: 0 auto;
-    height: 550px;
-    border: 1px solid #dbdbdb;  
-    border-bottom: 1px solid #dbdbdb;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-    overflow: scroll;
-}
 
 .message-content {
     padding-left: 15px;
@@ -194,8 +225,8 @@
 
 
 .message-text-area {
-    width: 450px;
-    height: 76px;
+    width: 515px;
+    height: 78px;
     resize: none;
     outline: none;
     border: none;
@@ -214,21 +245,7 @@
     padding: 5px;
 }
 
-.rooms-show-form {
-    position: relative;
-    border-top:none;
-    border-bottom: 1px solid #dbdbdb;
-    border-right: 1px solid #dbdbdb;
-    border-left: 1px solid #dbdbdb;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    background-color: white;
-    width: 500px;
-    margin: 0 auto;
-}
-
 .message-submit {
-    opacity: 0.6;
     position: absolute;
     top: 26px;
     right: 5px;
@@ -247,11 +264,12 @@
     position: relative;
     text-align: left;
     width: fit-content;
-    margin: 10px 0 0 auto;
+    margin: 10px 10px 0 auto;
     border-radius: 20px;
     box-sizing: border-box;
-    background-color: #00ff7f;
-    padding: 5px 10px;
+    padding: 7px 7px 7px 10px;
+    border: 1px solid #dbdbdb;
+    background-color: #dbdbdb;
 }
 
 .current_user-width {
@@ -271,7 +289,9 @@
 }
 
 .visited_user {
-    background-color: #87cefa;
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    padding: 7px 10px;
 }
 
 .visited_user-width {
@@ -286,21 +306,17 @@
     margin-top: 7px;
     margin-bottom: 7px;
     margin-right: 20px;
-    padding: 9px 14px;
     border-radius: 19px;
     overflow-wrap: break-word;
     clear: both;
     box-sizing: content-box;
 }
 
-
-.fukidasi::after {
-    position: absolute;
-    content: "";
-    width:26px;
-    height:15px;
-    top: 5px;
+.last-message {
+    font-size: 14px;
 }
+
+
 
 .visited_user::after {
     left: -15px;    
@@ -331,6 +347,43 @@
     bottom: 1px;
     right: -75px;
 }
+
+.rooms-index-right-top {
+    border-bottom: 1px solid #dbdbdb;
+    height: 60px;
+}
+
+.rooms-show-profile-image-top {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #dbdbdb;
+    border-radius: 15px;
+    margin-left: 20px; 
+    position: relative;
+    top: 13px;
+}
+
+.rooms-show-top-name {
+    position: relative;
+    top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+.rooms-show-end-user-link {
+    color: black;
+}
+
+.rooms-show-end-user-link:hover {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
 
 @media(max-width:1200px){
     .back-rooms-index {

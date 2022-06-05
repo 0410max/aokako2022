@@ -8,6 +8,7 @@ class Public::RoomsController < ApplicationController
   end
 
   def show
+    @rooms = current_end_user.rooms
     @room = Room.find(params[:id]) 
     if RoomUser.where(end_user_id: current_end_user.id, room_id: @room.id).present?
       @messages = @room.messages.order("messages.created_at asc")

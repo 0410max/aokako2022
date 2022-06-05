@@ -2,21 +2,34 @@
     <div class='row'>
         <div class='col-md-4 offset-1 rooms-index-left'>
             <% @rooms.each do |room| %>
-                <div class='rooms-content'>
-                    <% @RoomUsers = room.room_users %>
-                    <% @RoomUsers.each do |r| %> 
-                        <% unless r.end_user.name === current_end_user.name %>
-                            <%= image_tag r.end_user.get_profile_image,size:'40x40',class:'rooms-index-profile-image' %>
-                            <span class='rooms-index-top-name'>
-                                <%= r.end_user.name %>
-                            </span><br />
-                            <span class='last-message'>aaa</span>
+                <%= link_to room_path(room),class:'rooms-show-link' do %>
+                    <div class='rooms-content'>
+                        <% @RoomUsers = room.room_users %>
+                        <% @RoomUsers.each do |r| %> 
+                            <% unless r.end_user.name === current_end_user.name %>
+                                <%= image_tag r.end_user.get_profile_image,size:'40x40',class:'rooms-index-profile-image' %>
+                                <span class='rooms-index-top-name'>
+                                    <%= r.end_user.name %>
+                                </span><br />
+                                <% if Message.find_by(id: room.messages.last).message.length > 10 %>
+                                    <span class='last-message'><%= Message.find_by(id: room.messages.last).message[0..10] %>...&nbsp;&nbsp;
+                                    <%= time_ago_in_words(Message.find_by(id: room.messages.last).created_at).upcase %>前</span>
+                                <% else %>
+                                    <span class='last-message'><%= Message.find_by(id: room.messages.last).message %>&nbsp;&nbsp;
+                                    <%= time_ago_in_words(Message.find_by(id: room.messages.last).created_at).upcase %>前</span>
+                                <% end %>
+                            <% end %>
                         <% end %>
-                    <% end %>
-                </div>
+                    </div>
+                <% end %>
             <% end %>
         </div>
         <div class='col-md-6 rooms-index-right'>
+            <div class='rooms-index-message'><i class="fa-solid fa-paper-plane rooms-index-paper-plane"></i></div>
+            <div class='rooms-index-right-message'>
+                <span class='message-font'>メッセージ</span><br />
+                <span class='message-content-font'>友達に非公開でメッセージを送信できます。</span>
+            </div>
         </div>
     </div>
 </div>
