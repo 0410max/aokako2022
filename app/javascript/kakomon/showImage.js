@@ -99,6 +99,7 @@ document.addEventListener("turbolinks:load", function () {
         // Optional parameters
         direction: 'horizontal',
         loop: false,
+        observer: true,
       
         // If we need pagination
         pagination: {

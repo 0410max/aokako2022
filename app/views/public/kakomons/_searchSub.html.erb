@@ -1,7 +1,3 @@
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-
-
 <div class='search-result'>
   <span class='search-result-sub'><%= @sub %></span>の検索結果<span class='search-result-sub'><%= kakomons.length %></span>件
   <%= link_to 'クリア',searchClear_kakomons_path,method: :get,remote:true,class:'search-clear-button' %>
@@ -94,3 +90,25 @@
 <div class='pagenate'>
     <%= paginate kakomons %>
 </div>
+
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: 'horizontal',
+        loop: false,
+        observer: true,
+        calculateHeight:true,
+    
+        pagination: {
+        el: '.swiper-pagination',
+        },
+    
+        navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        },
+      
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+    })
+</script>

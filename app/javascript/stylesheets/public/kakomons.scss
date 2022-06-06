@@ -246,6 +246,14 @@
   position: relative;
 }
 
+.article-body-kakomons-show {
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #dbdbdb;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
 .fa-clone {
   position: absolute;
   top: 10px;
@@ -532,6 +540,22 @@
 .kakomon-favorites {
   margin: 5px 10px;
 }
+
+.kakomons-show-swiper-container {
+  width: 400px;
+}
+
+.kakomons-show-swiper-wrapper {
+  width: 400px;
+}
+
+.swiper-container {
+  margin: 0;
+}
+
+.swiper-wrapper {
+  margin: 0;
+}
                                 // show.html.erb
                 
 .kakomons-show-wrapper {
@@ -544,19 +568,50 @@
   width: 100%;
 }
 
+.kakomons-show-kakomon {
+  margin: 50px auto;
+}
+
 .kakomons-show-1000 {
   padding-top: 50px;
   margin: 0 auto;
   width: 100%;
   overflow: hidden;
-}                                
+}         
+
+.kakomon-show {
+  padding-top: 110px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.kakomon-show-1000 {
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+}  
 
 .kakomons-show-content {
   display: flex;
   position: relative;
   margin: 100px 0 0 0;
   width: 800px;
-}                      
+}      
+
+.kakomons-show-content-kakomon {
+  margin: 50px auto;
+  display: flex;
+  position: relative;
+  width: 800px;
+}
+
+.kakomon-show-content {
+  display: flex;
+  position: relative;
+  margin: 0 auto;
+  width: 800px;
+}    
 
 // モーダル
 .index-modal-bg {
@@ -567,7 +622,7 @@
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 51;
 }
 
 .index-modal-bg-1000 {
@@ -590,7 +645,7 @@
   width: 200px;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 3;
+  z-index: 52;
   background-color: #fff;
   border: none;
   text-align: center;
@@ -1029,6 +1084,10 @@
   height: 512px;
 }
 
+.kakomons-show-wrapper-1000 {
+  display: none;
+  overflow:hidden;
+}
 
 @media (max-width:1200px) {
   .kakomons-index-image-size {
@@ -1054,6 +1113,9 @@
   }
   .kakomons-show-wrapper{
     display: none;
+  }
+  .kakomons-show-wrapper-1000 {
+    display: block;
   }
   .max-width-1000 {
     display: block;

@@ -1,7 +1,7 @@
 class Kakomon < ApplicationRecord
   belongs_to :end_user
   has_many :comments,dependent: :destroy
-  has_many :kakomoncomments,dependent: :destroy
+  has_many :kakomon_comments,dependent: :destroy
   has_many :reports,dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_many :kakomonfavorites,dependent: :destroy

@@ -58,28 +58,31 @@
                     <% end %>
                 <% end %>
             </div>
-            <div class='message-area'>
+            <div class='message-area-wrapper'>
+                <div class='message-area'>
                 <% if @messages.present? %>
                     <div class='message-wrapper'>
                         <% @messages.each do |m| %>
-                            <% if m.end_user_id == current_end_user.id %>
-                                <div class='current_user-wrapper'>
-                                    <div class="current_user">
-                                        <div class='current_user-width'><%= safe_join(m.message.split("\n"),tag(:br)) %></div>
-                                        <span class='current_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%S") %></span>
+                            <div class='message-content-wrapper'>
+                                <% if m.end_user_id == current_end_user.id %>
+                                    <div class='current_user-wrapper'>
+                                        <div class="current_user">
+                                            <div class='current_user-width'><%= safe_join(m.message.split("\n"),tag(:br)) %></div>
+                                            <span class='current_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%S") %></span>
+                                        </div>
                                     </div>
-                                </div>
-                            <% else %>
-                                <div class='visited_user-wrapper'>
-                                    <%= link_to end_user_path(m.end_user) do %>
-                                        <%= image_tag m.end_user.get_profile_image,size:'30x30',class:'message-profile-image' %>
-                                    <% end %>
-                                    <div class="visited_user fukidasi">
-                                        <div class='visited_user-width'><%= safe_join(m.message.split("\n"),tag(:br)) %></div>
-                                        <span class='visited_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%S") %></span>
+                                <% else %>
+                                    <div class='visited_user-wrapper'>
+                                        <%= link_to end_user_path(m.end_user) do %>
+                                            <%= image_tag m.end_user.get_profile_image,size:'30x30',class:'message-profile-image' %>
+                                        <% end %>
+                                        <div class="visited_user fukidasi">
+                                            <div class='visited_user-width'><%= safe_join(m.message.split("\n"),tag(:br)) %></div>
+                                            <span class='visited_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%S") %></span>
+                                        </div>
                                     </div>
-                                </div>
-                            <% end %>
+                                <% end %>
+                            </div>
                         <% end %>   
                     </div>
                 <% else %>
@@ -87,11 +90,12 @@
                 <% end %>
             </div>
             <div class='rooms-show-form'>
-                <%= form_with model: @message, local: true do |f| %>
+                <%= form_with model: @message do |f| %>
                     <%= f.text_area :message, placeholder: "メッセージを入力してください",class:'message-text-area' %>
                     <%= f.hidden_field :room_id, value: @room.id %>
                     <%= f.submit '送信',class:'message-submit' %>
                 <% end %>
+            </div>
             </div>
         </div>
     </div>

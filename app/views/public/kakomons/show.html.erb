@@ -1,25 +1,22 @@
 <div class='kakomons-show-wrapper'>
     <div class='conainer'>
         <div class='row'>
-            <div class='col-md-9 kakomons-show'>
-                <div class='kakomons-show-content'>
+            <div class='col-md-9 kakomons-show-kakomon'>
+                <div class='kakomons-show-content-kakomon'>
                     <% #モーダル %>
                     <%= render 'modal'%>
-                    <div class='slideshow'>
-                        <div class='slideshow-slides'>
-                            <% if @kakomon.image1.attached? %>
-                                <span class='slide'><%= image_tag @kakomon.image1,class:'kakomons-show-image-size' %></span>
-                            <% end %>
-                            <% if @kakomon.image2.attached? %>
-                                <span class='slide'><%= image_tag @kakomon.image2,class:'kakomons-show-image-size' %></span>
-                            <% end %>
-                            <% if @kakomon.image3.attached? %>
-                                <span class='slide'><%= image_tag @kakomon.image3,class:'kakomons-show-image-size' %></span>
-                            <% end %>
-                        </div>
-                        <div class='slideshow-nav'>
-                            <span class='prev'><</span>
-                            <span class='next'>></span>
+                    <div class='article-body-kakomons-show'> 
+                        <div class="swiper-container kakomons-show-swiper-container">
+                            <div class="swiper-wrapper kakomons-show-swiper-wrapper">
+                                <% @kakomon.images.each do |image|%>
+                                    <div class="swiper-slide">
+                                        <%= image_tag image,class:'kakomons-index-image-size' %>
+                                    </div>
+                                <% end %>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
                     </div>
                     <div class='comment-wrapper'>
@@ -119,38 +116,18 @@
                             <span class='kakomons-show-top-button'><i class="fa-solid fa-ellipsis"></i></span>
                         </div>
                         <% #画像　%>
-                        <div class='slideshow-1000'>
-                            <div class='slideshow-slides'>
-                                <% if @kakomon.image1.attached? %>
-                                    <span class='slide'><%= image_tag @kakomon.image1,class:'kakomons-show-image-size-1000'%></span>
-                                <% end %>
-                                <% if @kakomon.image2.attached? %>
-                                    <span class='slide'><%= image_tag @kakomon.image2,class:'kakomons-show-image-size-1000'%></span>
-                                <% end %>
-                                <% if @kakomon.image3.attached? %>
-                                    <span class='slide'><%= image_tag @kakomon.image3,class:'kakomons-show-image-size-1000'%></span>
-                                <% end %>
-                            </div>
-                            <div class='slideshow-nav'>
-                                <span class='prev'><</span>
-                                <span class='next'>></span>
-                            </div>
-                        </div>
-                        <div class='slideshow-420'>
-                            <div class='slideshow-slides'>
-                                <% if @kakomon.image1.attached? %>
-                                    <span class='slide'><%= image_tag @kakomon.image1,class:'kakomons-show-image-size-420'%></span>
-                                <% end %>
-                                <% if @kakomon.image2.attached? %>
-                                    <span class='slide'><%= image_tag @kakomon.image2,class:'kakomons-show-image-size-420'%></span>
-                                <% end %>
-                                <% if @kakomon.image3.attached? %>
-                                    <span class='slide'><%= image_tag @kakomon.image3,class:'kakomons-show-image-size-420'%></span>
-                                <% end %>
-                            </div>
-                            <div class='slideshow-nav'>
-                                <span class='prev-420'><</span>
-                                <span class='next-420'>></span>
+                        <div class='article-body'> 
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <% @kakomon.images.each do |image|%>
+                                        <div class="swiper-slide">
+                                            <%= image_tag image,class:'kakomons-index-image-size' %>
+                                        </div>
+                                    <% end %>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
                             </div>
                         </div>
                         <% #コメント %>

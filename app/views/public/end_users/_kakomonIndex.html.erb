@@ -1,25 +1,47 @@
+<% i = 0 %>
+<% len = @kakomons.length %>
+
+
 <% if @user.kakomons.count === 0 %>
     <span class='no-follower'>投稿はありません</span>
 <% else %>
     <div class='users-show-content'>
-        <% @kakomons.each do |kakomon| %>
-            <div class='show-kakomon-content'>
-                <div class='article-body'> 
-                    <%if kakomon.images.length > 1 %>
-                        <span class='many-images'><i class="fa-solid fa-clone"></i></span>
-                    <% end %>
-                    <% kakomon.images.each do |image|%>
-                        <%= image_tag image,class:'end-users-kakomons-image-size' %>
-                        <% break %>
-                    <% end %>
+            <% @kakomons.each do |kakomon| %>
+                <div class='show-kakomon-content'>
+                    <div class='article-body'> 
+                        <%if kakomon.images.length > 1 %>
+                            <span><i class="fa-solid fa-clone"></i></span>
+                        <% end %>
+                        <% kakomon.images.each do |image|%>
+                            <%= image_tag image,class:'end-users-kakomons-image-size end-users-kakomons-image-size' %>
+                            <% break %>
+                        <% end %>
+                    </div>
+                    <div class='user-article-bottom'>
+                        講義 : <%= kakomon.sub %><br>
+                        教授 : <%= kakomon.prof %><br>
+                        年度 : <%= kakomon.year %><br>
+                        <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
+                    </div>
                 </div>
-                <div class='user-article-bottom'>
-                    講義 : <%= kakomon.sub %><br>
-                    教授 : <%= kakomon.prof %><br>
-                    年度 : <%= kakomon.year %><br>
-                    <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
-                </div>
-            </div>
-        <% end %>
+                <% #過去問評価詳細 %>
+                <%= render 'modalKakomonShow',kakomon:kakomon,i:i %>
+            <% end %>
+            <% i += 1 %>
     </div>
 <% end %>
+
+
+<script>
+    $('image')
+        .on('click',function(){
+        var numberstr = '<%= i %>';
+        var numberInd = Number(numberstr)
+        $('.kakomons-show').eq(numberInd).fadeIn();
+        $('.index-modal-bg').fadeIn();
+        });
+    $('.index-modal-bg')
+        .on('click',function(){
+        $('.kakomons-show').fadeOut();
+        });
+</script>

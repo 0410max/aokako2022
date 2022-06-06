@@ -3,110 +3,110 @@
 
 <div class='kakomon-index'>
     <% while i < len do %>
-    <% boards.each do |board| %>
-        <div class='index-board-content'>
-            <div class='article-top'>
-                <% #アイコン、名前 %>
-                <%= link_to end_user_path(board.end_user),class:'index-profile-image-link' do %>
-                <%= image_tag board.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-                <% end %>
-                <span class='kakomon-user-name-top'><%= board.end_user.name %></span>
-                <span id='<%= i %>-top-button' class='kakomons-index-top-button'><i class="fa-solid fa-ellipsis"></i></span>
-                <% #モーダル %>
-                <%= render 'modalIndex' ,board:board,i:i %>
+        <% boards.each do |board| %>
+            <div class='index-board-content'>
+                <div class='article-top'>
+                    <% #アイコン、名前 %>
+                    <%= link_to end_user_path(board.end_user),class:'index-profile-image-link' do %>
+                    <%= image_tag board.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                    <% end %>
+                    <span class='kakomon-user-name-top'><%= board.end_user.name %></span>
+                    <span id='<%= i %>-top-button' class='kakomons-index-top-button'><i class="fa-solid fa-ellipsis"></i></span>
+                    <% #モーダル %>
+                    <%= render 'modalIndex' ,board:board,i:i %>
+                </div>
+
+                <% #講義評価詳細 %>
+                <%= render 'modalShow',board:board,i:i %>
+
+                <div class='article-bottom-board'>
+                    講義 : <%= board.sub %><br>
+                    教授 : <%= board.prof %><br>
+                    <span class='form1'>講義の面白さ</span><span class='star-rate1' id="star-rate1-<%= board.id %>"></span><br />
+                    <span class='form2'>教授の人柄</span><span class='star-rate2' id="star-rate2-<%= board.id %>"></span><br />
+                    <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="star-rate3-<%= board.id %>"></span><br />
+                    <span class='board-comment'><%= board.comment[0..26] %></span> 
+                    <span class='board-comment-1200'><%= board.comment[0..20] %></span> 
+                    <% unless board.comment.length < 31 %>
+                        <span class='continue-comment'>...</span><span id='<%= i %>' class='continue-comment-link'>続きを読む</span></span>
+                    <% end %>
+                    <% unless board.comment.length < 25 %>
+                        <span class='continue-comment-1200'>...</span><span id='<%= i %>-1200' class='continue-comment-link-1200'>続きを読む</span></span>
+                    <% end %>
+                    <span class='board-comment-all'><%= board.comment %></span><br />
+
+
+                    <span class='board-favorites-<%= board.id %> board-favorites'>
+                        <%= render 'favorite' ,board:board %>
+                    </span>
+
+
+
+                    <span class='board-date'><br /><%= board.created_at.strftime('%Y/%m/%d') %>
+                </div>
             </div>
-
-            <% #講義評価詳細 %>
-            <%= render 'modalShow',board:board,i:i %>
-
-            <div class='article-bottom-board'>
-                講義 : <%= board.sub %><br>
-                教授 : <%= board.prof %><br>
-                <span class='form1'>講義の面白さ</span><span class='star-rate1' id="star-rate1-<%= board.id %>"></span><br />
-                <span class='form2'>教授の人柄</span><span class='star-rate2' id="star-rate2-<%= board.id %>"></span><br />
-                <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="star-rate3-<%= board.id %>"></span><br />
-                <span class='board-comment'><%= board.comment[0..26] %></span> 
-                <span class='board-comment-1200'><%= board.comment[0..20] %></span> 
-                <% unless board.comment.length < 31 %>
-                    <span class='continue-comment'>...</span><span id='<%= i %>' class='continue-comment-link'>続きを読む</span></span>
-                <% end %>
-                <% unless board.comment.length < 25 %>
-                    <span class='continue-comment-1200'>...</span><span id='<%= i %>-1200' class='continue-comment-link-1200'>続きを読む</span></span>
-                <% end %>
-                <span class='board-comment-all'><%= board.comment %></span><br />
-
-
-                <span class='board-favorites-<%= board.id %> board-favorites'>
-                    <%= render 'favorite' ,board:board %>
-                </span>
-
-
-
-                <span class='board-date'><br /><%= board.created_at.strftime('%Y/%m/%d') %>
-            </div>
-        </div>
-        <script>
-        $('#star-rate1-<%= board.id %>').empty();
-        $('#star-rate1-<%= board.id %>').raty({
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            readOnly: true,
-            score: <%= board.rate1 %>
-        });
-        </script>
-        <script>
-        $('#star-rate2-<%= board.id %>').empty();
-        $('#star-rate2-<%= board.id %>').raty({
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            readOnly: true,
-            score: <%= board.rate2 %>
-        });
-        </script>
-        <script>
-        $('#star-rate3-<%= board.id %>').empty();
-        $('#star-rate3-<%= board.id %>').raty({
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            readOnly: true,
-            score: <%= board.rate3 %>
-        });
-        </script>
-        <script>
-        $('#<%= i %>')
-            .on('click',function(){
-                var continue1000Str = '<%= i %>';
-                var continue1000Ind = Number(continue1000Str);
-                $('.board-comment-all').eq(continue1000Ind).css('display','inline');
-                $('.board-comment').eq(continue1000Ind).css('display','none');
-                $('.continue-comment-link').eq(continue1000Ind).css('display','none');
-                $('.continue-comment').eq(continue1000Ind).css('display','none');
+            <script>
+            $('#star-rate1-<%= board.id %>').empty();
+            $('#star-rate1-<%= board.id %>').raty({
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                readOnly: true,
+                score: <%= board.rate1 %>
             });
-            $('#<%= i %>-1200')
-            .on('click',function(){
-                var continue1000Str = '<%= i %>';
-                var continue1000Ind = Number(continue1000Str);
-                $('.board-comment-all').eq(continue1000Ind).css('display','inline');
-                $('.board-comment').eq(continue1000Ind).css('display','none');
-                $('.continue-comment-link').eq(continue1000Ind).css('display','none');
-                $('.continue-comment').eq(continue1000Ind).css('display','none');
+            </script>
+            <script>
+            $('#star-rate2-<%= board.id %>').empty();
+            $('#star-rate2-<%= board.id %>').raty({
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                readOnly: true,
+                score: <%= board.rate2 %>
             });
-        </script>
-        <script>
-        $('.index-boards-show-link-button-<%= i %>')
-            .on('click',function(){
-            var numberstr = '<%= i %>';
-            var numberInd = Number(numberstr)
-            $('.kakomons-show').eq(numberInd).fadeIn();
-            $('.index-modal-bg').fadeIn();
+            </script>
+            <script>
+            $('#star-rate3-<%= board.id %>').empty();
+            $('#star-rate3-<%= board.id %>').raty({
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                readOnly: true,
+                score: <%= board.rate3 %>
             });
-        $('.index-modal-bg')
-            .on('click',function(){
-            $('.kakomons-show').fadeOut();
-            });
-        </script>
-        <% i += 1 %>
-    <% end %>
+            </script>
+            <script>
+            $('#<%= i %>')
+                .on('click',function(){
+                    var continue1000Str = '<%= i %>';
+                    var continue1000Ind = Number(continue1000Str);
+                    $('.board-comment-all').eq(continue1000Ind).css('display','inline');
+                    $('.board-comment').eq(continue1000Ind).css('display','none');
+                    $('.continue-comment-link').eq(continue1000Ind).css('display','none');
+                    $('.continue-comment').eq(continue1000Ind).css('display','none');
+                });
+                $('#<%= i %>-1200')
+                .on('click',function(){
+                    var continue1000Str = '<%= i %>';
+                    var continue1000Ind = Number(continue1000Str);
+                    $('.board-comment-all').eq(continue1000Ind).css('display','inline');
+                    $('.board-comment').eq(continue1000Ind).css('display','none');
+                    $('.continue-comment-link').eq(continue1000Ind).css('display','none');
+                    $('.continue-comment').eq(continue1000Ind).css('display','none');
+                });
+            </script>
+            <script>
+                $('.index-boards-show-link-button-<%= i %>')
+                    .on('click',function(){
+                    var numberstr = '<%= i %>';
+                    var numberInd = Number(numberstr)
+                    $('.kakomons-show').eq(numberInd).fadeIn();
+                    $('.index-modal-bg').fadeIn();
+                    });
+                $('.index-modal-bg')
+                    .on('click',function(){
+                    $('.kakomons-show').fadeOut();
+                    });
+            </script>
+            <% i += 1 %>
+        <% end %>
     <% end %>
 
     <div class='pagenate'>

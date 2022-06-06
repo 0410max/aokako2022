@@ -1,6 +1,6 @@
-<div class='board-show-comment-area-<%= board.id %>'>
+<div class='board-show-comment-area-<%= kakomon.id %>'>
     <div class='board-comment-scroll'>
-        <% @comments = board.board_comments.order(created_at: :desc) %>
+        <% @comments = kakomon.kakomon_comments.order(created_at: :desc) %>
         <% if @comments.length == 0 %> 
             <span class='boards-no-comment'>コメントはありません</span>
         <% end %>
@@ -14,19 +14,11 @@
                     <%= simple_format(comment.comment) %>
                     <span class='kakomon-date'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
                     <% if comment.end_user === current_end_user %>
-                    <span class='delete-comment'><%= link_to '削除',board_board_comment_path(comment.board,comment),remote:true,class:'delete-comment-link',method: :delete %></span>
+                    <span class='delete-comment'><%= link_to '削除',kakomon_kakomon_comment_path(comment.kakomon,comment),remote:true,class:'delete-comment-link',method: :delete %></span>
                     <% end %>
                 </div>
             </div>
             <br />
         <% end %>
     </div>
-    <div class='kakomons-show-comment-new'>
-        <%= form_with(model:[board,@comment], local:false) do |f| %>
-            <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area',id:'kakomons-show-text-area' %>
-            <%= f.submit "投稿する",class:'kakomons-show-comment-submit' %>
-        <% end %>
-    </div>
-    </div>
 </div>
-
