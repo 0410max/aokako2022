@@ -4,7 +4,7 @@ document.addEventListener("turbolinks:load", function () {
         $('.no-change-search').addClass('none');
     });
 
-    $('.no-kakomon-search-submit').on('click',function(){
+    $('.no-kakomon-search-submit,.sub-demo-text-area-kakomon,.sub-demo-text-area-content-kakomon').on('click',function(){
         $('.no-kakomon-message').html('過去問を投稿するとこの機能が使えます')
     });
 
@@ -16,3 +16,4 @@ document.addEventListener("turbolinks:load", function () {
         $('.no-kakomon-message').html('ログインまたは新規登録をしてください')
     });
 });
+

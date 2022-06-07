@@ -8,8 +8,8 @@
     <% else %>
       <% if current_end_user.kakomons.count === 0 %>
         <div class='text-area-submit-button-wrapper'>
-          <div class='sub-demo-text-area'><span class='sub-demo-text-area-content'>講義名</span></div>
-          <div class='no-board-search-submit'>検索する</div><br />
+          <div class='sub-demo-text-area-kakomon'><span class='sub-demo-text-area-content-kakomon'>講義名</span></div>
+          <div class='no-kakomon-search-submit'>検索する</div><br />
         </div>
         <span class='no-kakomon-message'></span>
       <% else %>
@@ -30,7 +30,6 @@
 
 
 
-
 <div class='kakomon-search-prof-wrapper'>
   <% if end_user_signed_in? %>
     <% if current_end_user.number.slice(3)==='2' && current_end_user.number.slice(4) === '2' %>
@@ -41,8 +40,8 @@
     <% else %>
       <% if current_end_user.kakomons.count === 0 %>
         <div class='text-area-submit-button-wrapper'>
-          <div class='sub-demo-text-area'><span class='sub-demo-text-area-content'>講義名</span></div>
-          <div class='no-board-search-submit'>検索する</div><br />
+          <div class='sub-demo-text-area-kakomon'><span class='sub-demo-text-area-content-kakomon'>講義名</span></div>
+          <div class='no-kakomon-search-submit'>検索する</div><br />
         </div>
         <span class='no-kakomon-message'></span>
       <% else %>
