@@ -1,28 +1,65 @@
 <div class='container rooms-index-wrapper'>
     <div class='row'>
         <div class='col-md-4 offset-1 rooms-index-left'>
-            <% @rooms.each do |room| %>
-                <%= link_to room_path(room),class:'rooms-show-link' do %>
-                    <div class='rooms-content'>
-                        <% @RoomUsers = room.room_users %>
-                        <% @RoomUsers.each do |r| %> 
-                            <% unless r.end_user.name === current_end_user.name %>
-                                <%= image_tag r.end_user.get_profile_image,size:'40x40',class:'rooms-index-profile-image' %>
-                                <span class='rooms-index-top-name'>
-                                    <%= r.end_user.name %>
-                                </span><br />
-                                <% if Message.find_by(id: room.messages.last).message.length > 10 %>
-                                    <span class='last-message'><%= Message.find_by(id: room.messages.last).message[0..10] %>...&nbsp;&nbsp;
-                                    <%= time_ago_in_words(Message.find_by(id: room.messages.last).created_at).upcase %>前</span>
-                                <% else %>
-                                    <span class='last-message'><%= Message.find_by(id: room.messages.last).message %>&nbsp;&nbsp;
-                                    <%= time_ago_in_words(Message.find_by(id: room.messages.last).created_at).upcase %>前</span>
+            <% if @rooms.count != 0 %>
+                <% @rooms.each do |room| %>
+                    <%= link_to room_path(room),class:'rooms-show-link' do %>
+                        <div class='rooms-content'>
+                            <% @RoomUsers = room.room_users %>
+                            <% @RoomUsers.each do |r| %> 
+                                <% unless r.end_user.name === current_end_user.name %>
+                                    <%= image_tag r.end_user.get_profile_image,size:'40x40',class:'rooms-index-profile-image' %>
+                                    <span class='rooms-index-top-name'>
+                                        <%= r.end_user.name %>
+                                    </span><br />
+                                    <% if Message.find_by(id: room.messages.last).message.length > 10 %>
+                                        <span class='last-message'><%= Message.find_by(id: room.messages.last).message[0..10] %>...&nbsp;&nbsp;
+                                        <%= time_ago_in_words(Message.find_by(id: room.messages.last).created_at).upcase %>前</span>
+                                    <% else %>
+                                        <span class='last-message'><%= Message.find_by(id: room.messages.last).message %>&nbsp;&nbsp;
+                                        <%= time_ago_in_words(Message.find_by(id: room.messages.last).created_at).upcase %>前</span>
+                                    <% end %>
                                 <% end %>
                             <% end %>
-                        <% end %>
-                    </div>
+                        </div>
+                    <% end %>
                 <% end %>
+            <% else %>
+                <div class='rooms-content'>
+                    <div class='no-rooms-wrapper'>
+                        <div class='no-rooms-user-image'>
+                            <div class='no-rooms-user-image-size'></div>
+                        </div>
+                        <div class='no-rooms-message'>
+                            <div class='no-rooms-message-long'></div><br />
+                            <div class='no-rooms-message-short'></div>
+                        </div>
+                    </div>
+                </div>
+                <div class='rooms-content'>
+                    <div class='no-rooms-wrapper'>
+                        <div class='no-rooms-user-image'>
+                            <div class='no-rooms-user-image-size'></div>
+                        </div>
+                        <div class='no-rooms-message'>
+                            <div class='no-rooms-message-long'></div><br />
+                            <div class='no-rooms-message-short'></div>
+                        </div>
+                    </div>
+                </div>
+                <div class='rooms-content'>
+                    <div class='no-rooms-wrapper'>
+                        <div class='no-rooms-user-image'>
+                            <div class='no-rooms-user-image-size'></div>
+                        </div>
+                        <div class='no-rooms-message'>
+                            <div class='no-rooms-message-long'></div><br />
+                            <div class='no-rooms-message-short'></div>
+                        </div>
+                    </div>
+                </div>
             <% end %>
+
         </div>
         <div class='col-md-6 rooms-index-right'>
             <div class='rooms-index-message'><i class="fa-solid fa-paper-plane rooms-index-paper-plane"></i></div>
@@ -33,3 +70,4 @@
         </div>
     </div>
 </div>
+

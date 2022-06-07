@@ -125,7 +125,9 @@
 
 .message-content-font {
     color: gray;
+    font-size: 14px;
 }
+
 
 
 
@@ -159,8 +161,32 @@
 }
 
 
+.no-rooms-wrapper {
+    display: flex;
+}
 
+.no-rooms-message {
+    height: 30px;
+    margin-left: 15px;
+}
 
+.no-rooms-message-long {
+    background-color: #efefef;
+    height: 15px;
+    width: 150px;
+    position: relative;
+    top: 15px;
+    border-radius: 5px;
+}
+
+.no-rooms-message-short {
+    background-color: #efefef;
+    height: 15px;
+    width: 100px;
+    position: relative;
+    bottom: 46px;
+    border-radius: 5px;
+}
 
 
 
@@ -395,6 +421,16 @@
     align-items:flex-end;
 }
 
+.no-rooms-user-image-size {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    background-color: #efefef;
+    border-radius: 30px;
+    background-color: #efefef;
+    margin-top: 6px;
+    margin-left: 20px;
+}
 
 
 
