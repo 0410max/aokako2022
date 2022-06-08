@@ -259,12 +259,15 @@ ul {
   border: 1px solid #dbdbdb;
   position: relative;
   bottom: 3px;
+}
 
+html {
+  background-color: #fafafa;
 }
 
 #body {
   background-color: #fafafa;
-  min-height: 900px;
+  height: 100%;
 }
 
 .fotter {
