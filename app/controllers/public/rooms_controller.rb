@@ -18,6 +18,9 @@ class Public::RoomsController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
+    current_end_user.passive_notifications.where(action: 'dm', checked: false, room_id: params[:id]).each do |notification|
+      notification.update_attributes(checked: true)
+    end
   end
 
   def index

@@ -83,6 +83,7 @@
 
 .message-area {
     height: 460px;
+    width: 569px;
     border-bottom: 1px solid #dbdbdb;
     overflow: scroll;
     padding-bottom: 10px;
@@ -353,7 +354,7 @@
 
 .visited_user::after {
     left: -15px;    
-    border-radius: 0 0px 10px 16px; 
+    border-radius: 0 0px 10px 16px;
     box-shadow: -8px -14px 0 -8px #87cefa inset;
 }
 
@@ -377,7 +378,6 @@
     position: absolute;
     font-size: 12px;
     color: gray;
-    width: 100px;
     bottom: 13px;
     left: -36px;
     font-weight: thin;

@@ -13,6 +13,5 @@ class Notification < ApplicationRecord
     def favorited_by?(user)
         favorites.where(end_user_id: user.id).exists?
     end 
-
 end
 
