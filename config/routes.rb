@@ -28,7 +28,9 @@ Rails.application.routes.draw do
     end
     resources :messages, only: [:create,:destroy]
     resources :rooms, only: [:create,:show,:index]
-    resources :notifications,only:[:index]
+    resources :notifications,only: [:index] do
+      patch :read, on: :member
+    end
     resources :boards,only:[:index,:show,:new,:create,:destroy] do 
       resource :boardfavorites, only: [:create, :destroy]
       resources :board_comments,only: [:create,:destroy]

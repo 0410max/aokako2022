@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_07_175401) do
+ActiveRecord::Schema.define(version: 2022_06_08_003452) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -195,7 +195,7 @@ ActiveRecord::Schema.define(version: 2022_06_07_175401) do
     t.integer "room_id"
     t.integer "message_id"
     t.string "action"
-    t.boolean "checked"
+    t.boolean "checked", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "kakomon_id"
@@ -203,6 +203,7 @@ ActiveRecord::Schema.define(version: 2022_06_07_175401) do
     t.integer "board_comment_id"
     t.integer "board_id"
     t.integer "end_user_id"
+    t.string "read"
   end
 
   create_table "reads", force: :cascade do |t|

@@ -18,10 +18,6 @@ class Public::RoomsController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
-
-    if Read.create(room_id:@room.id,end_user_id:current_end_user.id)
-      @read = Read.update(checked:true)
-    end
   end
 
   def index

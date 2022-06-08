@@ -44,6 +44,7 @@ class Kakomon < ApplicationRecord
   end
 
 
+  
   def create_notification_thanks!(current_end_user)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and kakomon_id = ? and action = ? ", current_end_user.id, end_user_id, id, 'kakomonthanks'])
     if temp.blank?

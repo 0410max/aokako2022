@@ -23,7 +23,6 @@ class Public::MessagesController < ApplicationController
     end
   end
 
-
   private
   def message_params
     params.require(:message).permit(:end_user_id, :room_id, :message).merge(end_user_id: current_end_user.id)

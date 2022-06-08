@@ -8,6 +8,7 @@ class Board < ApplicationRecord
       boardfavorites.exists?(end_user_id: end_user.id)
     end
 
+    
     validates :sub,presence: true
     validates :prof,presence: true
     validates :comment,presence: true

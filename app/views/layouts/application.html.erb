@@ -30,9 +30,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to notifications_path do %>
-                <i class="fa-solid fa-heart heart-1200"></i>
-              <% end %>
+              <%= render 'public/notifications/circle' %>
             </li>
             <li>
               <%= link_to new_kakomon_path,class:'plus plus-1200' do %>
@@ -142,4 +140,5 @@
 
   </body>
 </html>
+
 

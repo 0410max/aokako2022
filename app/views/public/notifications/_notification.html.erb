@@ -1,7 +1,6 @@
 <% @notifications.each do |notification| %>
     <% visitor = notification.visitor %>
     <% visited = notification.visited %>
-  
     <div class='notification-contents' %>
       <div class='notification-content-image'>
         <%= link_to end_user_path(visitor) do %>

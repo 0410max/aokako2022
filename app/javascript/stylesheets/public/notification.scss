@@ -14,12 +14,28 @@
     color: gray;
 }
 
-.n-circle {
+.circle-1200 {
     position: absolute;
-    padding-left: 1rem;
-    padding-top: 0rem;
-    color: #efa04c;
-  }
+    color: red;
+    font-size: 8px;
+    top: -3px;
+    left: 15px;
+}
+
+.circle-550 {
+    position: absolute;
+    color: red;
+    font-size: 8px;
+    top: -3px;
+    left: 15px;
+}
+
+.fa-stack {
+    display: inline;
+    height: 2em;
+    width: 2.5em;
+    line-height: 0;
+}
 
 .notification-wrapper {
     margin: 0 auto;
@@ -38,6 +54,7 @@
 .notification-contents {
     display: flex;
 }
+
 
 .notification-content-image {
     width: 20%;

@@ -199,7 +199,7 @@
 .kakomon-top {
   padding-top: 83px;
   margin: 0 auto;
-  width: 251px;
+  width: 350px;
 }    
 
 .index-kakomon-content {
@@ -469,6 +469,8 @@
   padding: 3px 10px;
   border: none;
   border-radius: 4px;
+  height: 30px;
+  position: relative;
 }
 
 .prof-search-submit {
@@ -517,7 +519,7 @@
 
 
 .kakomon-sub-search {
-  padding: 4px 20px;
+  padding: 5px 44.5px;
   border: 1px solid gray;
   border-radius: 4px;
   background-color: #dbdbdb;
@@ -528,7 +530,7 @@
 }
 
 .kakomon-prof-search {
-  padding: 4px 20px; 
+  padding: 5px 44.5px; 
   border: 1px solid gray;
   border-radius: 4px;
 }
