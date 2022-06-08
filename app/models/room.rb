@@ -2,7 +2,7 @@ class Room < ApplicationRecord
     has_many :room_users
     has_many :end_users, through: :room_users
     has_many :messages
-    has_many :nofifications, dependent: :destroy
+    has_many :notifications, dependent: :destroy
     has_many :reads,dependent: :destroy
     def get_profile_image
       unless profile_image.attached?

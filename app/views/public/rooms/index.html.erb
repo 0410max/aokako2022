@@ -3,6 +3,12 @@
         <div class='col-md-4 offset-1 rooms-index-left'>
             <% if @rooms.count != 0 %>
                 <% @rooms.each do |room| %>
+                    <% room.end_users.each do |user| %>
+                        <% if user.name != current_end_user.name %>
+                            <% @anotherUser = user %>
+                        <% end %>
+                    <% end %>
+                    <% messageCount = Notification.where(action:'dm',visited_id:current_end_user.id,visitor_id:@anotherUser.id,checked:false).count %>
                     <%= link_to room_path(room),class:'rooms-show-link' do %>
                         <div class='rooms-content'>
                             <% @RoomUsers = room.room_users %>
@@ -22,6 +28,11 @@
                                         <% end %>
                                     <% end %>
                                 <% end %>
+                            <% end %>
+                            <% if messageCount != 0 %>
+                                <span class='message-count'>
+                                    <span class='message-count-content'><%= messageCount %></span>
+                                </span>
                             <% end %>
                         </div>
                     <% end %>

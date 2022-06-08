@@ -17,17 +17,53 @@
 .circle-1200 {
     position: absolute;
     color: red;
-    font-size: 8px;
-    top: -3px;
-    left: 15px;
+    font-size: 16px;
+    top: -10px;
+    left: 14px;
+}
+
+.circle-1200-big {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    top: -11.5px;
+    left: 16px;
+}
+
+.circle-550-big {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    top: -11.5px;
+    left: 16px;
+}
+
+.uncheckedCount-1200 {
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: -1.8px;
+    left: 17.5px;
+}
+
+.uncheckedCount-550 {
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: -1px;
+    left: 37.5px;
+}
+
+.circle-1200-font {
+    background-color: red;
 }
 
 .circle-550 {
     position: absolute;
     color: red;
-    font-size: 8px;
-    top: -3px;
-    left: 15px;
+    font-size: 16px;
+    top: -9px;
+    left: 34px;
 }
 
 .fa-stack {

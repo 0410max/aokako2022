@@ -1,10 +1,21 @@
+<% followCount = Notification.where(action:'follow',visited_id:current_end_user.id,checked:false).count %>
+<% commentCount = Notification.where(action:'comment',visited_id:current_end_user.id,checked:false).count %>
+<% boardCommentCount = Notification.where(action:'board_comment',visited_id:current_end_user.id,checked:false).count %>
+<% thanksCount = Notification.where(action:'thanks',visited_id:current_end_user.id,checked:false).count %>
+<% uncheckedCount = followCount + commentCount + boardCommentCount + thanksCount %>
+
 <%= link_to notifications_path do %>
-    <% if unchecked_notifications.any? %>
+    <% if uncheckedCount != 0 %>
         <span class='fa-stack'>
-            <i class='fa-solid fa-heart'></i>
-            <i class='fa-solid fa-circle circle-550'></i>
+            <i class='fa-solid fa-heart heart-550'></i>
+            <% if uncheckedCount > 9 %>
+                <i class='fa-solid fa-circle circle-550-big'></i>
+            <% else %>
+                <i class='fa-solid fa-circle circle-550'></i>
+            <% end %>
+            <i class='uncheckedCount-550'><%= uncheckedCount %></i>
         </span>
     <% else %>
-        <i class='fa-solid fa-heart'></i>
+        <i class='fa-solid fa-heart heart-550'></i>
     <% end %>
 <% end %>

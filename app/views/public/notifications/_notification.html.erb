@@ -1,4 +1,5 @@
 <% @notifications.each do |notification| %>
+  <% unless notification.action == 'dm' %>
     <% visitor = notification.visitor %>
     <% visited = notification.visited %>
     <div class='notification-contents' %>
@@ -15,8 +16,6 @@
         <% case notification.action %>
           <% when 'follow' then %>
             <%= link_to 'あなたをフォローしました',end_user_path(visitor),class:'visitor-name' %>
-          <% when 'dm' then %>
-            <%= link_to 'あなたにメッセージを送信しました',end_user_path(visitor),class:'visitor-name' %>
           <% when 'comment' then %>
             <% if visitor == current_end_user %>
               <%= link_to kakomon_path(notification.kakomon),class:'visitor-name' do %>
@@ -96,5 +95,5 @@
     </div>
   
     <br />
-  
+  <% end %>
   <% end %>

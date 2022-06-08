@@ -11,6 +11,7 @@
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  
   <body>
     <div id='header'>
       <% if end_user_signed_in? %>
@@ -25,9 +26,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to rooms_path do %>
-                <i class="fa-solid fa-paper-plane paper-plane-1200"></i>
-              <% end %>
+              <%= render 'public/rooms/circle' %>
             </li>
             <li>
               <%= render 'public/notifications/circle' %>
@@ -67,14 +66,10 @@
               <% end %>
             </li>
             <li>
-              <%= link_to notifications_path do %>
-                <i class="fa-solid fa-heart heart-550"></i>
-              <% end %>
+              <%= render 'public/notifications/circle550' %>
             </li>
             <li>
-              <%= link_to rooms_path do %>
-                <i class="fa-solid fa-paper-plane paper-plane-550"></i>
-              <% end %>
+            <%= render 'public/rooms/circle550' %>
             </li>
             <li>
               <%= link_to end_user_path(current_end_user) do %>

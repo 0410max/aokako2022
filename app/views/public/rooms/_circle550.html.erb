@@ -1,0 +1,18 @@
+<% dmCount = Notification.where(action:'dm',visited_id:current_end_user.id,checked:false).count %>
+
+<%= link_to rooms_path do %>
+    <% if dmCount != 0 %>
+        <span class='fa-stack'>
+            <i class="fa-solid fa-paper-plane paper-plane-550"></i>
+            <% if dmCount > 9 %>
+                <i class='fa-solid fa-circle circle-550-big'></i>
+            <% else %>
+                <i class='fa-solid fa-circle circle-550'></i>
+            <% end %>
+            <i class='dmCount-550'><%= dmCount %></i>
+        </span>
+    <% else %>
+        <i class="fa-solid fa-paper-plane paper-plane-550"></i>
+    <% end %>
+<% end %>
+

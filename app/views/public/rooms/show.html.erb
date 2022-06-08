@@ -2,6 +2,12 @@
     <div class='row'>
         <div class='col-md-4 offset-1 rooms-index-left'>
             <% @rooms.each do |room| %>
+                <% room.end_users.each do |user| %>
+                    <% if user.name != current_end_user.name %>
+                        <% @anotherUser = user %>
+                    <% end %>
+                <% end %>
+                <% messageCount = Notification.where(action:'dm',visited_id:current_end_user.id,visitor_id:@anotherUser.id,checked:false).count %>
                 <%= link_to room_path(room),class:'rooms-show-link' do %>
                     <% if room.id == @room.id %>
                         <div class='rooms-content-at'>
@@ -44,6 +50,11 @@
                                     <% end %>
                                 <% end %>
                             <% end %>
+                            <% if messageCount != 0 %>
+                                <span class='message-count'>
+                                    <span class='message-count-content'><%= messageCount %></span>
+                                </span>
+                            <% end %>
                         </div>
                     <% end %>
                 <% end %>
@@ -53,13 +64,14 @@
             <div class='rooms-index-right-top'>
                 <% @RoomUsers = @room.room_users %>
                 <% @RoomUsers.each do |r| %>
-                    <% unless r.end_user.name === current_end_user.name %>
-                        <%= link_to end_user_path(r),class:'rooms-show-end-user-link' do %>
-                            <span class='rooms-show-top-name'>
-                                <%= r.end_user.name %>
-                            </span>
-                        <% end %>
+                    <% if r.end_user.name != current_end_user.name %>
+                        <% @anotherRoomUser = r.end_user %>
                     <% end %>
+                <% end %>
+                <%= link_to end_user_path(@anotherRoomUser),class:'rooms-show-end-user-link' do %>
+                    <span class='rooms-show-top-name'>
+                        <%= @anotherRoomUser.name %>
+                    </span>
                 <% end %>
             </div>
             <div class='message-area-wrapper'>
@@ -72,8 +84,15 @@
                                     <div class='current_user-wrapper'>
                                         <div class="current_user">
                                             <div class='current_user-width'><%= safe_join(m.message.split("\n"),tag(:br)) %></div>
-                                            <span class='current_user-check'>既読</span>
-                                            <span class='current_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%S") %></span>
+                                            <span class='current_user-check'>
+                                                <% if m.room.notifications.where(action:'dm',visitor_id:@anotherRoomUser,visited_id:current_end_user,checked:false).exists? %>
+                                                    <% m.checked = true %>
+                                                <% end %>
+                                                <% if m.checked == true %>
+                                                    既読
+                                                <% end %>
+                                            </span>
+                                            <span class='current_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%M") %></span>
                                         </div>
                                     </div>
                                 <% else %>
@@ -83,7 +102,7 @@
                                         <% end %>
                                         <div class="visited_user fukidasi">
                                             <div class='visited_user-width'><%= safe_join(m.message.split("\n"),tag(:br)) %></div>
-                                            <span class='visited_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%S") %></span>
+                                            <span class='visited_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%M") %></span>
                                         </div>
                                     </div>
                                 <% end %>

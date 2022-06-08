@@ -15,6 +15,7 @@
     padding-top: 90px;
     padding-bottom: 20px;
 }
+
 .rooms-index-left {
     border: 1px solid #dbdbdb;
     margin-right: 0;
@@ -43,6 +44,13 @@
     position: relative;
 }
 
+.message-count-content {
+    border-radius: 10px;
+    background-color: red;
+    padding: 0 6px;
+    color: white;
+}
+
 .rooms-content-at {
     height: 70px;
     line-height: 70px;
@@ -57,6 +65,7 @@
     border: 1px solid #dbdbdb;
     border-radius: 35px;
     margin-left: 20px;  
+    margin-bottom: 7px;
 }
 
 .rooms-index-top-name-link {
@@ -67,15 +76,16 @@
 
 .last-message {
     position: absolute;
-    top: 38px;
-    left: 85px;
+    top: 37px;
+    left: 81px;
     height: 20px;
     line-height: 15px;
     color: gray;
+    font-size: 14px;
 }
 
 .rooms-index-top-name {
-    bottom: 7px;
+    bottom: 10px;
     margin-left: 5px;
     position: relative;
     color: black;
@@ -129,7 +139,21 @@
     font-size: 14px;
 }
 
+.dmCount-1200 {
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: -1.8px;
+    left: 17.5px;
+}
 
+.dmCount-550 {
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: -1px;
+    left: 37.5px;
+}
 
 
 
@@ -189,6 +213,13 @@
     border-radius: 5px;
 }
 
+
+.message-count {
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+
+}
 
 
 
@@ -346,9 +377,6 @@
     box-sizing: content-box;
 }
 
-.last-message {
-    font-size: 14px;
-}
 
 
 
@@ -368,7 +396,7 @@
     position: absolute;
     font-size: 12px;
     color: gray;
-    width: 100px;
+    width: 90px;
     bottom: -2px;
     left: -59px;
     font-weight: thin;
