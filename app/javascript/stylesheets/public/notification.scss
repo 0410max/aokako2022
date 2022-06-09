@@ -20,6 +20,8 @@
     font-size: 16px;
     top: -10px;
     left: 14px;
+    border: 1px solid white;
+    border-radius: 10px;
 }
 
 .circle-1200-big {
@@ -28,29 +30,33 @@
     font-size: 20px;
     top: -11.5px;
     left: 16px;
+    border: 1px solid white;
+    border-radius: 13px;
 }
 
 .circle-550-big {
+    border-radius: 13px;
     position: absolute;
     color: red;
     font-size: 20px;
-    top: -11.5px;
-    left: 16px;
+    top: -11px;
+    border: 1px solid white;
+    left: 35.5px;
 }
 
 .uncheckedCount-1200 {
     position: absolute;
     color: white;
     font-size: 14px;
-    top: -1.8px;
-    left: 17.5px;
+    top: -1px;
+    left: 19px;
 }
 
 .uncheckedCount-550 {
     position: absolute;
     color: white;
     font-size: 14px;
-    top: -1px;
+    top: -0.5px;
     left: 37.5px;
 }
 

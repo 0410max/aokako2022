@@ -23,7 +23,8 @@ class Public::RoomsController < ApplicationController
         @anotherUser = user 
       end 
     end 
-    @notification = Notification.where(action:'dm',visited_id:current_end_user.id,visitor_id:@anotherUser.id,checked:false).update(checked: true)
+    Notification.where(action:'dm',visited_id:current_end_user.id,visitor_id:@anotherUser.id,checked:false).update(checked: true)
+    Message.where(checked:false,end_user_id:@anotherUser.id).where.not(end_user_id:current_end_user.id).update_all(checked: true)
   end
 
   def index
