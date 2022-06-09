@@ -1,10 +1,10 @@
 <% if kakomon.favorited_by?(current_end_user) %>
-    <%= link_to kakomon_kakomonfavorites_path(kakomon),remote:true, method: :delete,class:'thanks-link' do %>
-<span class='thanks'>Thanks</span><span class='thanks-count'><%= kakomon.kakomonfavorites.count %></span>
+    <%= link_to kakomon_kakomonfavorites_path(kakomon),remote:true, method: :delete,class:'kakomon-thanks-link' do %>
+<span class='kakomon-thanks'>Thanks</span><span class='kakomon-thanks-count'><%= kakomon.kakomonfavorites.count %></span>
     <% end %>
 <% else %>
-    <%= link_to kakomon_kakomonfavorites_path(kakomon),remote:true, method: :post,class:'not-thanks-link' do %>
-        <span class='not-thanks'>Thanks</span><span class='thanks-count'><%= kakomon.kakomonfavorites.count %></span>
+    <%= link_to kakomon_kakomonfavorites_path(kakomon),remote:true, method: :post,class:'not-kakomon-thanks-link' do %>
+        <span class='not-kakomon-thanks'>Thanks</span><span class='kakomon-thanks-count'><%= kakomon.kakomonfavorites.count %></span>
     <% end %>
 <% end %>
 

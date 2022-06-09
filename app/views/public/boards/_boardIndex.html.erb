@@ -1,7 +1,7 @@
-<% i = 0 %>
-<% len = boards.length %>
-
 <div class='kakomon-index'>
+    <% i = 0 %>
+    
+    <% len = boards.length %>
     <% while i < len do %>
         <% boards.each do |board| %>
             <div class='index-board-content'>
@@ -102,11 +102,10 @@
             </script>
             <% i += 1 %>
         <% end %>
+        <div class='pagenate'>
+            <%= paginate boards %>
+        </div>
     <% end %>
-
-    <div class='pagenate'>
-    <%= paginate boards %>
-    </div>
 </div>  
 </div>
 

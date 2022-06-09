@@ -1,3 +1,5 @@
 $(".board-show-comment-area-<%= @board.id %>").html("<%= j(render 'public/boards/comment', board:@board) %>");
 $(".boards-show-comment-wrapper-<%= @board.id %>").html("<%= j(render 'public/boards/comment1000', board:@board) %>");
+$(".board-show-comment-scroll").html("<%= j(render 'public/boards/boardShow') %>");
+$(".board-show-comment-scroll-1000").html("<%= j(render 'public/boards/boardShow1000') %>");
 $(".kakomons-show-text-area").val('');

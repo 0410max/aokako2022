@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root'homes#top'
     resources :kakomons, only:[:index,:new,:show,:create,:destroy,:about] do
-      resources :comments,only: [:create,:destroy]
+      resources :kakomon_comments,only: [:create,:destroy]
       resource :kakomonfavorites, only: [:create, :destroy]
       resources :kakomonreports,only:[:create]
       get :searchSub, on: :collection

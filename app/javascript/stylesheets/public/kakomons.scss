@@ -199,7 +199,7 @@
 .kakomon-top {
   padding-top: 83px;
   margin: 0 auto;
-  width: 350px;
+  width: 300px;
 }    
 
 .index-kakomon-content {
@@ -417,7 +417,7 @@
   border-radius: 4px;
   height: 30px;
   position: relative;
-  top: 10px;
+  top: 13px;
 }
 
 .no-board-search-submit:hover {
@@ -472,6 +472,7 @@
   border-radius: 4px;
   height: 30px;
   position: relative;
+  top: 1px;
 }
 
 .prof-search-submit {
@@ -516,11 +517,47 @@
   font-size: 20px;
 }
 
+.kakomon-thanks-link:hover {
+  text-decoration: none;
+}
+
+.not-kakomon-thanks-link:hover {
+  text-decoration: none;
+}
+
+.kakomon-thanks {
+  background-color: #009B8E;
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: white;
+  margin-right: 5px;
+  border: 1px solid #009b8e;
+  position: relative;
+  top: 3px;
+}
+
+.not-kakomon-thanks {
+  background-color: white;
+  color: #009b8e;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-right: 5px; 
+  border: 1px solid #009b8e;
+  position: relative;
+  top: 3px;
+}
+
+.kakomon-thanks-count {
+  color: #009B8E;
+  font-weight: bold;  
+  position: relative;
+  top: 3px;
+}
 
 
 
 .kakomon-sub-search {
-  padding: 5px 44.5px;
+  padding: 5px 32px;
   border: 1px solid gray;
   border-radius: 4px;
   background-color: #dbdbdb;
@@ -531,7 +568,7 @@
 }
 
 .kakomon-prof-search {
-  padding: 5px 44.5px; 
+  padding: 5px 32px; 
   border: 1px solid gray;
   border-radius: 4px;
 }
@@ -572,7 +609,7 @@
 }
 
 .kakomons-show-kakomon {
-  margin: 50px auto;
+  margin: 60px auto;
 }
 
 .kakomons-show-1000 {
@@ -636,7 +673,7 @@
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
-  z-index: 4;
+  z-index: 51;
 }
 
 .index-modal {
@@ -693,7 +730,7 @@
   width: 200px;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 2;
+  z-index: 52;
   background-color: #fff;
   border: none;
   text-align: center;
@@ -915,7 +952,7 @@
   cursor: pointer;
 }
 
-.comment-scroll {
+.kakomons-show-comment-scroll {
   height: 478.5px;
   overflow: scroll;
 }
@@ -926,8 +963,9 @@
 
 .no-comment {
   color: gray;
-  padding-left: 10px;
-  padding-bottom: 16px;
+  padding-left: 2px;
+  position: relative;
+  bottom: 15px;
 }
 
 .kakomon-comment-content {
@@ -1051,18 +1089,28 @@
 }
 
 .comment-scroll-1000 {
-  height: 180px;
-  overflow: scroll;
-  margin: 0 auto;
-  border-top: 1px solid #dbdbdb;
-}
-
-.comment-scroll-1000-no-comment{
   height: 300px;
   overflow: scroll;
   margin: 0 auto;
-  border-top: 1px solid #dbdbdb;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+
+.comment-scroll-1000::-webkit-scrollbar{
+ display: none;
+}
+
+.comment-scroll-1000-no-comment{
+  height: 200px;
+  overflow: scroll;
+  margin: 0 auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.comment-scroll-1000-no-comment::-webkit-scrollbar{
+  display: none;
+ }
 
 .kakomons-show-comment-submit-1000 {
   position: absolute;
@@ -1164,6 +1212,32 @@
   .kakomons-index-top-button {
     font-size: 14px;
     top: 9px;
+  }
+  .kakomon-thanks-link {
+    font-size: 14px;
+  }
+  .not-kakomon-thanks-link { 
+    font-size: 14px;
+  }
+  .kakomon-thanks {
+    padding: 1px 5px;
+    position: relative;
+    bottom: 2px;
+    position: relative;
+    top: 3px;
+  }
+  .not-kakomon-thanks {
+    padding: 1px 5px;
+    position: relative;
+    bottom: 2px;
+    position: relative;
+    top: 3px;
+  }
+  .kakomon-thanks-count {
+    font-size: 14px;
+    padding: 1px 5px;
+    position: relative;
+    bottom: 2px;
   }
 }
 

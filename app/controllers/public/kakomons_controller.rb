@@ -1,18 +1,17 @@
 class Public::KakomonsController < ApplicationController
   before_action :authenticate_end_user!,except: [:index,:show]
   def index
-    @kakomons = Kakomon.page(params[:page]).per(30).order(created_at: :desc)
-    @comment = Comment.new
+    @kakomons = Kakomon.find(Kakomonfavorite.group(:kakomon_id).order('count(kakomon_id) desc').pluck(:kakomon_id))
+    @kakomons = Kakomon.page(params[:page]).per(30)
+    @comment = KakomonComment.new
     @report = Kakomonreport.new
     dep = current_end_user.dep
     @users = EndUser.where(dep: dep)
-    @userss = EndUser.all
   end
 
   def show
     @kakomon = Kakomon.find(params[:id])
-    @comments = @kakomon.comments.order(created_at: :desc)
-    @comment = Comment.new
+    @comment = KakomonComment.new
     @report = Kakomonreport.new
 
     @number2 = current_end_user.number.slice(1)

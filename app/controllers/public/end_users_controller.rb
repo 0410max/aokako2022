@@ -12,7 +12,7 @@ class Public::EndUsersController < ApplicationController
     @user = EndUser.find(params[:id])
     @boards = @user.boards.order(created_at: :desc)
     @kakomons = @user.kakomons.order(created_at: :desc)
-    @comment = Comment.new
+    @comment = KakomonComment.new
 
     @currentRoomUser = RoomUser.where(end_user_id: current_end_user.id)  
     @receiveUser = RoomUser.where(end_user_id: @user.id)  
@@ -36,14 +36,6 @@ class Public::EndUsersController < ApplicationController
 
   def edit
     @user = EndUser.find(params[:id])
-    @number2 = @user.number.slice(1)
-    @number3 = @user.number.slice(2)
-    @number4 = @user.number.slice(3)
-    @number5 = @user.number.slice(4)
-    @number6 = @user.number.slice(5)
-    @number7 = @user.number.slice(6)
-    @number8 = @user.number.slice(7)
-    
   end
 
   def update

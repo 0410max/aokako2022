@@ -24,6 +24,7 @@ require("jquery-ui/ui/widgets/datepicker");
 window.$ = window.jQuery = require('jquery');
 import "popper.js";
 import "bootstrap";
+import "scroll-behavior-polyfill";
 import "../stylesheets/application";
 import "../stylesheets/public/homes";
 import "../stylesheets/public/kakomons";

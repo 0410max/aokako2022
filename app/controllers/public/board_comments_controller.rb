@@ -17,7 +17,7 @@ class Public::BoardCommentsController < ApplicationController
         @comments = @board.board_comments.order(created_at: :desc)
         @comment = BoardComment.new
     end
-private
+    private
 
     def comment_params
         params.require(:board_comment).permit(:comment)

@@ -9,9 +9,9 @@ class Public::BoardsController < ApplicationController
     @users = EndUser.where(dep: dep)
   end
 
+
   def show
     @board = Board.find(params[:id])
-    @comments = @board.board_comments.order(created_at: :desc)
     @comment = BoardComment.new
     @report = Boardreport.new
   end
