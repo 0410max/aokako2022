@@ -84,3 +84,90 @@
     </div>
 </div>
 
+
+
+
+
+
+
+
+
+<div class='container rooms-index-wrapper-1000'>
+    <div class='row'>
+        <div class='col-md-10 offset-1 rooms-index-1000'>
+            <% if @rooms.count != 0 %>
+                <% @rooms.each do |room| %>
+                    <% room.end_users.each do |user| %>
+                        <% if user.name != current_end_user.name %>
+                            <% @anotherUser = user %>
+                        <% end %>
+                    <% end %>
+                    <% messageCount = Notification.where(action:'dm',visited_id:current_end_user.id,visitor_id:@anotherUser.id,checked:false).count %>
+                    <%= link_to room_path(room),class:'rooms-show-link' do %>
+                        <div class='rooms-content'>
+                            <% @RoomUsers = room.room_users %>
+                            <% @RoomUsers.each do |r| %> 
+                                <% unless r.end_user.name === current_end_user.name %>
+                                    <%= image_tag r.end_user.get_profile_image,size:'40x40',class:'rooms-index-profile-image' %>
+                                    <span class='rooms-index-top-name'>
+                                        <%= r.end_user.name %>
+                                    </span><br />
+                                    <% if Message.find_by(id: room.messages).present? %>
+                                        <% if Message.find_by(id: room.messages.last).message.length > 10 %>
+                                            <span class='last-message'><%= Message.find_by(id: room.messages.last).message[0..10] %>...&nbsp;&nbsp;
+                                            <%= time_ago_in_words(Message.find_by(id: room.messages.last).created_at).upcase %>前</span>
+                                        <% else %>
+                                            <span class='last-message'><%= Message.find_by(id: room.messages.last).message %>&nbsp;&nbsp;
+                                            <%= time_ago_in_words(Message.find_by(id: room.messages.last).created_at).upcase %>前</span>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                            <% if messageCount != 0 %>
+                                <span class='message-count'>
+                                    <span class='message-count-content'><%= messageCount %></span>
+                                </span>
+                            <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <div class='rooms-content'>
+                    <div class='no-rooms-wrapper'>
+                        <div class='no-rooms-user-image'>
+                            <div class='no-rooms-user-image-size'></div>
+                        </div>
+                        <div class='no-rooms-message'>
+                            <div class='no-rooms-message-long'></div><br />
+                            <div class='no-rooms-message-short'></div>
+                        </div>
+                    </div>
+                </div>
+                <div class='rooms-content'>
+                    <div class='no-rooms-wrapper'>
+                        <div class='no-rooms-user-image'>
+                            <div class='no-rooms-user-image-size'></div>
+                        </div>
+                        <div class='no-rooms-message'>
+                            <div class='no-rooms-message-long'></div><br />
+                            <div class='no-rooms-message-short'></div>
+                        </div>
+                    </div>
+                </div>
+                <div class='rooms-content'>
+                    <div class='no-rooms-wrapper'>
+                        <div class='no-rooms-user-image'>
+                            <div class='no-rooms-user-image-size'></div>
+                        </div>
+                        <div class='no-rooms-message'>
+                            <div class='no-rooms-message-long'></div><br />
+                            <div class='no-rooms-message-short'></div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+
+        </div>
+    </div>
+</div>
+

@@ -263,11 +263,24 @@ ul {
 
 html {
   background-color: #fafafa;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+
+html::-webkit-scrollbar{
+  display: none;
+ }
 
 #body {
   background-color: #fafafa;
   height: 100%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+#body::-webkit-scrollbar{
+ display: none;
 }
 
 .fotter {
@@ -371,6 +384,45 @@ html {
   text-decoration: none;
   cursor: pointer;
 }
+
+
+
+
+
+
+
+.flash-message {
+  position: fixed;
+  top: 64px;
+  z-index: 49;
+  width: 100%;
+  line-height: 8px;
+  border-radius: 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+}
+
+.flash-message-not-login {
+  position: fixed;
+  top: 60px;
+  z-index: 49;
+  width: 100%;
+  line-height: 8px;
+  border-radius: 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+}
+
+
+
+
+
+
+
 
 
 

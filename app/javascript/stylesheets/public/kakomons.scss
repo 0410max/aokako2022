@@ -6,7 +6,7 @@
   
 .kakomon-new-content {
   margin: 0 auto;
-  padding-top: 70px;
+  padding-top: 65px;
   padding-left: 50px;
   overflow: hidden;
 }                    
@@ -18,7 +18,11 @@
 
 .select-past {
   padding-top: 20px;
-  padding-bottom: 20px;
+}
+
+.select-past-board {
+  padding-top: 20px;
+  padding-bottom: 2px;
 }
 
 .past-paper {
@@ -190,6 +194,22 @@
   display: none;
 }
 
+.kakomons-new-sub-font {
+  letter-spacing: 5.3px;
+}
+
+.kakomons-new-prof-font {
+  letter-spacing: 5.1px;
+}
+
+.kakomons-new-year-font {
+  letter-spacing: 15.4px;
+}
+
+.kakomons-new-image-font {
+  letter-spacing: 15.4px;
+}
+
                           // index.html.erb
 
 .kakomon-index {
@@ -278,7 +298,7 @@
 
 .kakomons-index-image-size {
     width: 100%;
-    height: 619px;
+    height: auto;
 }
 
 .swiper-wrapper {
@@ -405,7 +425,7 @@
   border-radius: 4px;
   height: 30px;
   position: relative;
-  top: 10px;
+  top: 13px;
 }
 
 .no-board-search-submit {
@@ -1140,17 +1160,8 @@
   overflow:hidden;
 }
 
-@media (max-width:1200px) {
-  .kakomons-index-image-size {
-    height: 520px;
-  }
-}
-
 
 @media (max-width:1000px) {
-  .kakomons-index-image-size {
-    height: 693px;
-  }
   .index-kakomon-content {
     margin: 10px auto;
     width: 70%;
@@ -1185,12 +1196,6 @@
   }
 }
 
-@media (max-width:1000px) {
-  .kakomons-index-image-size {
-    height: 681px;
-  }
-}
-
 
 @media (max-width: 600px) {
   .kakomon-index{
@@ -1199,9 +1204,6 @@
   .index-kakomon-content {
     width: 90%;
     font-size: 14px;
-  }
-  .kakomons-index-image-size{
-    height: 430px;
   }
   .article-bottom {
     font-size: 13px;
@@ -1241,11 +1243,6 @@
   }
 }
 
-@media (max-width:576px) {
-  .kakomons-index-image-size {
-    height: 520px;
-  }
-}
 
 @media screen and (max-width:500px) {
   .index-kakomon-content {
@@ -1269,7 +1266,7 @@
     width: 300px;
   }
   .prof-new {
-    width: 230px;
+    width: 220px;
   }
 }
 

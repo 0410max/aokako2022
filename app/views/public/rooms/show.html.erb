@@ -126,3 +126,77 @@
     </div>
 </div>
 
+
+
+
+
+
+<div class='container rooms-index-wrapper-1000'>
+    <div class='row'>
+        <div class='col-md-10 offset-1 rooms-index-1000'>
+            <div class='rooms-index-right-top'>
+                <% @RoomUsers = @room.room_users %>
+                <% @RoomUsers.each do |r| %>
+                    <% if r.end_user.name != current_end_user.name %>
+                        <% @anotherRoomUser = r.end_user %>
+                    <% end %>
+                <% end %>
+                <%= link_to end_user_path(@anotherRoomUser),class:'rooms-show-end-user-link' do %>
+                    <span class='rooms-show-top-name'>
+                        <%= @anotherRoomUser.name %>
+                    </span>
+                <% end %>
+            </div>
+            <div class='message-area-wrapper'>
+                <div class='message-area'>
+                    <% if @messages.present? %>
+                        <div class='message-wrapper'>
+                            <div class='message-content-wrapper'>
+                                <% @messages.each do |m| %>
+                                    <% if m.end_user_id == current_end_user.id %>
+                                        <div class='current_user-wrapper'>
+                                            <div class="current_user">
+                                                <div class='current_user-width'><%= safe_join(m.message.split("\n"),tag(:br)) %></div>
+                                                <span class='current_user-check'>            
+                                                    <% if m.checked == true %>
+                                                        既読
+                                                    <% end %>
+                                                </span>
+                                                <span class='current_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%M") %></span>
+                                            </div>
+                                        </div>
+                                    <% else %>
+                                        <div class='visited_user-wrapper'>
+                                            <%= link_to end_user_path(m.end_user) do %>
+                                                <%= image_tag m.end_user.get_profile_image,size:'30x30',class:'message-profile-image' %>
+                                            <% end %>
+                                            <div class="visited_user fukidasi">
+                                                <div class='visited_user-width'><%= safe_join(m.message.split("\n"),tag(:br)) %></div>
+                                                <span class='visited_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%M") %></span>
+                                            </div>
+                                        </div>
+                                    <% end %>
+                                <% end %> 
+                            </div>  
+                        </div>
+                    <% else %>
+                        <p class='no-dm-message'>メッセージはまだありません</p>
+                    <% end %>
+                </div>
+                <script>   
+                    $('.message-area').scrollTop(1000000000000);
+                </script>
+            </div>
+            <div class='rooms-show-form'>
+                <%= form_with model: @message do |f| %>
+                    <%= f.text_area :message, placeholder: "メッセージを入力してください",class:'message-text-area' %>
+                    <%= f.hidden_field :room_id, value: @room.id %>
+                    <%= f.submit '送信',class:'message-submit' %>
+                <% end %>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
