@@ -1,32 +1,6 @@
 <span class='kakomons-show'>
-    <div class='kakomons-show-<%= i %>'>
-        <div class='kakomons-show-content'>
-            <div class='article-body-kakomons-show'> 
-                <div class="swiper-container kakomons-show-swiper-container">
-                    <div class="swiper-wrapper kakomons-show-swiper-wrapper">
-                        <% kakomon.images.each do |image|%>
-                            <div class="swiper-slide">
-                                <%= image_tag image,class:'kakomons-index-image-size' %>
-                            </div>
-                        <% end %>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-            </div> 
-            <div class='comment-wrapper'>
-                <% #アイコン、名前 %>   
-                <div class='kakomons-show-user-info'>
-                    <%= link_to end_user_path(kakomon.end_user),class:'index-profile-image-link' do %>
-                        <%= image_tag kakomon.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-                    <% end %>
-                    <span class='kakomons-show-user-name'><%= kakomon.end_user.name %></span>
-                </div>
-                <% #コメント %>
-                <%= render 'comment' ,kakomon:kakomon %>
-            </div>
-        </div>
+    <div class='kakomons-show-content-<%= kakomon.id %> kakomons-show-content'>
+        <%= render 'kakomonsShowContent',kakomon:kakomon %>
     </div>
 </span>
 
@@ -39,10 +13,10 @@
             $('.index-modal-bg').fadeIn();
             $("body").addClass("no_scroll");
     });
-    $('.index-modal-bg')
+    $('.index-modal-bg,.modal-show-close-button')
         .on('click',function(){
             $("body").removeClass("no_scroll");
-            $('.index-modal-bg').fadeOut();
+            $('.index-modal-bg,.kakomons-show').fadeOut();
             $('.index-modal').fadeOut(3);
     });
     $('.index-modal-close-button')

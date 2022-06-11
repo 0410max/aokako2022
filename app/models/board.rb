@@ -11,8 +11,6 @@ class Board < ApplicationRecord
     
     validates :sub,presence: true
     validates :prof,presence: true
-    validates :comment,presence: true
-
     validates :rate1, presence: true
     validates :rate2, presence: true
     validates :rate3, presence: true

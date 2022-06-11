@@ -12,7 +12,6 @@
                 <span id='<%= i %>' class='kakomons-index-top-button'><i class="fa-solid fa-ellipsis"></i></span>
             
 
-
                 <% #モーダル %>
                 <div class='index-modal'>
                     <div class='modal-content'>
@@ -42,11 +41,6 @@
                             $('.index-modal').eq(numberInd).fadeIn();
                             $('.index-modal-bg').fadeIn();
                             $("body").addClass("no_scroll");
-                            });
-                        $('.index-modal-bg,.index-modal-close-button')
-                            .on('click',function(){
-                            $("body").removeClass("no_scroll");
-                            $('.index-modal,.index-modal-bg').fadeOut();
                             });
                         </script>
                     </div>
@@ -80,6 +74,15 @@
             </div>
             <% #過去問詳細 %>
             <%= render 'modalShow',kakomon:kakomon,i:i %>
+            <script>
+                $('.index-kakomons-show-link-<%= i %>')
+                    .on('click',function(){
+                        var numberstr = '<%= i %>';
+                        var numberInd = Number(numberstr)
+                        $('.kakomons-show').eq(numberInd).fadeIn();
+                        $('.index-modal-bg').fadeIn();
+                    });
+            </script>
         </div>
         <% i += 1 %>
     <% end %>
@@ -88,12 +91,5 @@
     <%= paginate kakomons %>
 </div>
 
-<script>
-    $('.index-kakomons-show-link-<%= i %>')
-        .on('click',function(){
-        var numberstr = '<%= i %>';
-        var numberInd = Number(numberstr)
-        $('.kakomons-show').eq(numberInd).fadeIn();
-        $('.index-modal-bg').fadeIn();
-        });
-</script>
+
+

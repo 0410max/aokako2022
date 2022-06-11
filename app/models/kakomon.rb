@@ -9,7 +9,6 @@ class Kakomon < ApplicationRecord
   validates :year,presence:true
   validates :sub, presence:true
   validates :prof, presence:true
-  validates :comment,presence:true
   validate :images_length
 
   def favorited_by?(end_user)

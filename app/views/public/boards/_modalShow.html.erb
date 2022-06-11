@@ -7,7 +7,6 @@
             <span class='form1'>講義の面白さ</span><span class='star-rate1' id="show-star-rate1-<%= board.id %>"></span><br />
             <span class='form2'>教授の人柄</span><span class='star-rate2' id="show-star-rate2-<%= board.id %>"></span><br />
             <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="show-star-rate3-<%= board.id %>"></span><br />
-            <div class='board-show-comment'><%= simple_format(board.comment) %></div><br />
             <span class='board-show-date'><%= board.created_at.strftime('%Y/%m/%d') %></span>
             </div>
             <script>
@@ -48,6 +47,7 @@
                     <%= image_tag board.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                 <% end %>
                 <span class='kakomons-show-user-name'><%= board.end_user.name %></span>
+                <span class='modal-show-close-button'><i class="fa-solid fa-xmark"></i></span>
             </div>
             <% #コメント %>
             <%= render 'comment' ,board:board %>

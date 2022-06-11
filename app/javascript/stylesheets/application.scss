@@ -359,8 +359,14 @@ html::-webkit-scrollbar{
   margin-right: 50px;
 }
 
-.chalkboard-user-admin {
+.bell-admin {
   margin-right: 50px;
+  color: black;
+}
+
+.bell-admin:hover {
+  text-decoration: none;
+  color: black;
 }
 
 .users-admin {
@@ -417,8 +423,22 @@ html::-webkit-scrollbar{
   border: none;
 }
 
+button.close {
+  height: 0;
+}
 
+.close {
+  color: white;
+  position: relative;
+  bottom: 10px;
+  opacity:1;
+  font-weight: 100;
+}
 
+.close:hover {
+  text-decoration: none;
+  color: white;
+}
 
 
 

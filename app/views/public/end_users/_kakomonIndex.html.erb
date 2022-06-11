@@ -1,14 +1,13 @@
 <% i = 0 %>
 <% len = @kakomons.length %>
 
-
 <% if @user.kakomons.count === 0 %>
     <span class='no-follower'>投稿はありません</span>
 <% else %>
     <div class='users-show-content'>
             <% @kakomons.each do |kakomon| %>
                 <div class='show-kakomon-content'>
-                    <div class='article-body'> 
+                    <div class='end-users-article-body-<%= i %> end-users-article-body'> 
                         <%if kakomon.images.length > 1 %>
                             <span><i class="fa-solid fa-clone"></i></span>
                         <% end %>
@@ -16,6 +15,23 @@
                             <%= image_tag image,class:'end-users-kakomons-image-size end-users-kakomons-image-size' %>
                             <% break %>
                         <% end %>
+                    </div>
+                    <div class='end-users-article-body-1000'> 
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <% kakomon.images.each do |image|%>
+                                    <div class="swiper-slide">
+                                        <%= image_tag image,class:'kakomons-index-image-size' %>
+                                    </div>
+                                <% end %>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                    <div class='kakomon-favorites-<%= kakomon.id %> kakomon-favorites'>
+                        <%= render 'public/kakomons/favorite' ,kakomon:kakomon %>
                     </div>
                     <div class='user-article-bottom'>
                         講義 : <%= kakomon.sub %><br>
@@ -45,3 +61,4 @@
         $('.kakomons-show').fadeOut();
         });
 </script>
+

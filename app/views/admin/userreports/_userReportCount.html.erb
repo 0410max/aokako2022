@@ -1,0 +1,10 @@
+<%= link_to 'DM',admin_userreports_path,class:'user-report-link' %>
+<% count = 0 %>
+<% users.each do |user| %>
+    <% if user.status == false %>
+        <% count += 1 %>
+    <% end %>
+<% end %>
+<% unless count == 0 %>
+    <span class='false-status-count'><%= count %></span>
+<% end %>

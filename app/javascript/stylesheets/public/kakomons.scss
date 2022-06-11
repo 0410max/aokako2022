@@ -7,13 +7,12 @@
 .kakomon-new-content {
   margin: 0 auto;
   padding-top: 65px;
-  padding-left: 50px;
   overflow: hidden;
+  width: 340px
 }                    
 
-
-.kakomon-new-content h3 {
-  margin-left: 100px;
+.kakomons-new-image-file-field {
+  width: 260px;
 }
 
 .select-past {
@@ -157,7 +156,7 @@
 }
 
 .prof-new {
-  width: 240px;
+  width: 205px;
   height: 30px;
 }
 
@@ -279,7 +278,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  color: white;
+  color: #dbdbdb;
   z-index:1.5;
 }
 
@@ -294,6 +293,10 @@
 .kakomon-user-name {
   font-weight: 500;
   margin-right: 10px;
+}
+
+.end-users-kakomons-show {
+  display: none; 
 }
 
 .kakomons-index-image-size {
@@ -429,10 +432,9 @@
 }
 
 .no-board-search-submit {
-  padding: 0;
   color: white;
   background-color: #a9a9a9;
-  padding: 3px 10px;
+  padding: 3px 9.8px 3px 10.2px;
   border: none;
   border-radius: 4px;
   height: 30px;
@@ -491,8 +493,6 @@
   border: none;
   border-radius: 4px;
   height: 30px;
-  position: relative;
-  top: 1px;
 }
 
 .prof-search-submit {
@@ -616,6 +616,12 @@
 .swiper-wrapper {
   margin: 0;
 }
+
+.modal-show-close-button {
+  float: right;
+  margin-right: 10px;
+  margin-top: 2px;
+}
                                 // show.html.erb
                 
 .kakomons-show-wrapper {
@@ -720,22 +726,7 @@
   width: 200px;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 2;
-  background-color: #fff;
-  border: none;
-  text-align: center;
-}
-
-.report-reason-modal {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -70%);
-  width: 200px;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 2;
+  z-index: 52;
   background-color: #fff;
   border: none;
   text-align: center;
@@ -1045,6 +1036,22 @@
   bottom: 0;
 }
 
+.kakomons-show-modal-comment-new {
+  border-top: 1px solid #dbdbdb;
+  border-left: 1px solid #dbdbdb;
+  width: 400px;
+  position: absolute;
+  bottom: 0;
+  left: 400px;
+}
+.kakomons-show-modal-text-area {
+  height: 55px;
+  width: 315px;
+  resize: none;
+  outline: none;
+  border: none;
+}
+
 .kakomons-show-text-area {
   width: 320px;
   height: 50px;
@@ -1160,6 +1167,19 @@
   overflow:hidden;
 }
 
+@media (max-width:1200px) {
+  .show-kakomon-content {
+    margin: 10px 7px;
+  }
+  .show-kakomon-content {
+    width: 48%;
+    border: 1px solid #dbdbdb;
+    background-color: white;
+    border-radius: 2px;
+    margin-top: 20px;
+    margin: 10px 20px;
+  }
+}
 
 @media (max-width:1000px) {
   .index-kakomon-content {
@@ -1254,10 +1274,7 @@
   .new-container {
     width: 400px;
     margin: 0 auto;
-  }
-  .kakomon-new-content {
-    padding-left: 20px;
-  }             
+  }           
 }
 
 @media (max-width:450px) {
@@ -1265,19 +1282,13 @@
     margin-left: 40px;
     width: 300px;
   }
-  .prof-new {
-    width: 220px;
-  }
 }
 
 @media (max-width:430px) {
   .new-container {
     width: 300px;
     margin: 0 auto;
-  }
-  .kakomon-new-content {
-    padding-left: 0;
-  }             
+  }          
   .comment-new {
     width: 300px;
   }
@@ -1305,16 +1316,4 @@
   .depSelector{
     margin-left: 20px;
   }
-}
-
-@media (max-width:400px) {
-  
-}
-
-@media (max-width:390px) {
-  
-}
-
-@media (max-width:380px) {
-  
 }

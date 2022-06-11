@@ -32,6 +32,8 @@ class Public::EndUsersController < ApplicationController
       end
     end
 
+    @report = Userreport.new
+
   end
 
   def edit

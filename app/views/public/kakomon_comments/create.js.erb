@@ -1,3 +1,5 @@
 $(".kakomons-show-comment-scroll").html("<%= j(render 'public/kakomons/kakomonComment') %>");
 $(".kakomons-show-comment-scroll-1000").html("<%= j(render 'public/kakomons/kakomonComment1000') %>");
+$(".kakomons-show-content-<%= @kakomon.id %>").html("<%= j(render 'public/kakomons/kakomonsShowContent',kakomon:@kakomon) %>");
 $(".kakomons-show-text-area").val('');
+$(".kakomons-show-modal-text-area").val('');

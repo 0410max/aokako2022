@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :kakomons ,only: [:index,:show]
-    resources :boards ,only: [:index,:show]
+    resources :kakomonreports ,only: [:index,:update]
+    resources :boardreports ,only: [:index,:update]
+    resources :userreports,only: [:index,:update]
     resources :end_users, only: [:index,:show]
   end
 
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
     end
     resources :end_users, only:[:index,:show,:edit,:update] do 
       resource :relationships,only: [:create,:destroy]
+      resources :userreports,only:[:create]
     end
     resources :messages, only: [:create,:destroy]
     resources :rooms, only: [:create,:show,:index]

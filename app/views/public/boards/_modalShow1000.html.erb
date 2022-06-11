@@ -16,7 +16,6 @@
                     <span class='form1'>講義の面白さ</span><span class='star-rate1' id="1000-star-rate1-<%= board.id %>"></span><br />
                     <span class='form2'>教授の人柄</span><span class='star-rate2' id="1000-star-rate2-<%= board.id %>"></span><br />
                     <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="1000-star-rate3-<%= board.id %>"></span><br />
-                    <span class='board-show-comment'><%= safe_join(board.comment.split("\n"), tag(:br)) %></span><br />
                     <span class='board-date'><%= board.created_at.strftime('%Y/%m/%d') %></span>
                 </div>
             </div>

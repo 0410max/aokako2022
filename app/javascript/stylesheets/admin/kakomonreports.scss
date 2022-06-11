@@ -1,0 +1,136 @@
+.kakomon-reports-index {
+    padding-top: 80px;
+}
+
+.kakomon-reports {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.kakomon-report-link {
+    color: black;
+}
+
+.kakomon-report-link:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.board-reports {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.board-report-link {
+    color: black;
+}
+
+.board-report-link:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.user-reports {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.user-report-link {
+    color: black;
+}
+
+.user-report-link:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.kakomon-reports-at {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: #dbdbdb;
+}
+
+.board-reports-at {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: #dbdbdb;
+}
+
+.user-reports-at {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: #dbdbdb;
+}
+
+
+
+
+                                                // userreports.html.erb
+
+
+
+.user-reports-top {
+    text-align: center;
+}   
+
+.userreports-index-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}   
+
+
+.userreports-index:nth-child(1) {
+    margin-top: 30px;
+}  
+
+.userreports-index:nth-child(2) {
+    margin-top: 30px;
+}   
+
+.userreports-index:nth-child(3) {
+    margin-top: 30px;
+}   
+
+.userreports-index {
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    margin: 10px 12px;
+    width: 30%;
+}                                                
+
+.user-status {
+    float: right;
+    position: relative;
+    padding: 2px 5px;
+    font-size: 14px;
+    bottom: 3px;
+}
+
+.reported-user-image-size {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid #dbdbdb;
+}
+
+.reportor-name {
+    font-weight: bold;
+}
+
+.reported-name {
+    font-weight: bold;
+}
+
+.false-status-count {
+    color: white;
+    background-color: red;
+    border-radius: 15px;
+    padding: 1px 7px;
+}

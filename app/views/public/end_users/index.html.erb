@@ -34,3 +34,42 @@
         </div>
     </div>
 </div>
+
+
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-10 end-users-index-1000'>
+            <div class='end-users-index-top'>おすすめ</div>
+            <div class='end-users-index-content'>
+                <% for i in -20..0 %>
+                    <% @users.each do |user| %>
+                        <% count = user.kakomons.count + user.boards.count %>
+                        <% if count == -i %>
+                            <% unless user == current_end_user %>
+                                <% unless user.followed_by?(current_end_user) %>
+                                    <div class='end-users-index-image'>
+                                        <%= link_to end_user_path(user) do %>
+                                            <%= image_tag user.get_profile_image ,class:'boards-reccommendation-image-size'%>
+                                        <% end %>
+                                    </div>
+                                    <div class='end-users-index-name'>
+                                        <%= link_to end_user_path(user),class:'end-users-index-name-link' do %>
+                                            <strong><%= user.name %></strong><br />
+                                        <% end %>
+                                        <span class='end-users-index-dep'><%= user.cor %></span>
+                                    </div>
+                                    <span class='end-users-index-following-followed'>
+                                        <div class='td-follow-<%= user.id %>'>
+                                            <%= render 'public/end_users/userFollowing',user:user %>
+                                        </div>
+                                    </span>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+

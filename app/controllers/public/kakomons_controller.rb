@@ -74,7 +74,8 @@ class Public::KakomonsController < ApplicationController
   end
 
   def searchClear
-    @kakomons = Kakomon.page(params[:page]).per(30).order(created_at: :desc)
+    @kakomons = Kakomon.find(Kakomonfavorite.group(:kakomon_id).order('count(kakomon_id) desc').pluck(:kakomon_id))
+    @kakomons = Kakomon.page(params[:page]).per(30)
     @report = Kakomonreport.new
     @comment = KakomonComment.new
     dep = current_end_user.dep

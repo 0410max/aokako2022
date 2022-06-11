@@ -1,0 +1,2 @@
+$('.user-status-<%= @user.id %>').html("<%= j(render 'admin/userreports/userStatus',user:@user) %>");
+$('.user-reports-at').html("<%= j(render 'admin/userreports/userReportCount',users:@users) %>");

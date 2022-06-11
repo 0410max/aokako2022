@@ -1,0 +1,55 @@
+<div class='article-body-kakomons-show'> 
+    <div class="swiper-container kakomons-show-swiper-container">
+        <div class="swiper-wrapper kakomons-show-swiper-wrapper">
+            <% kakomon.images.each do |image|%>
+                <div class="swiper-slide">
+                    <%= image_tag image,class:'kakomons-index-image-size' %>
+                </div>
+            <% end %>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</div> 
+<div class='comment-wrapper'>
+    <% #アイコン、名前 %>   
+    <div class='kakomons-show-user-info'>
+        <%= link_to end_user_path(kakomon.end_user),class:'index-profile-image-link' do %>
+            <%= image_tag kakomon.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+        <% end %>
+        <span class='kakomons-show-user-name'><%= kakomon.end_user.name %></span>
+        <span class='modal-show-close-button'><i class="fa-solid fa-xmark"></i></span>
+    </div>
+    <% #コメント %>
+        <div class='board-show-comment-area-<%= kakomon.id %>'>
+        <div class='board-comment-scroll'>
+            <% @comments = kakomon.kakomon_comments.order(created_at: :desc) %>
+            <% if @comments.length == 0 %> 
+                <span class='boards-no-comment'>コメントはありません</span>
+            <% end %>
+            <% @comments.each do |comment| %>
+                <div class='other-user-comment'>
+                    <%= link_to end_user_path(comment.end_user),class:'index-profile-image-link' do %>
+                        <%= image_tag comment.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                    <% end %>
+                    <span class='comment-user-name'><%= comment.end_user.name %></span>
+                    <div class='other-user-comment-content'>
+                        <%= simple_format(comment.comment) %>
+                        <span class='kakomon-date'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+                        <% if comment.end_user === current_end_user %>
+                        <span class='delete-comment'><%= link_to '削除',kakomon_kakomon_comment_path(comment.kakomon,comment),remote:true,class:'delete-comment-link',method: :delete %></span>
+                        <% end %>
+                    </div>
+                </div>
+                <br />
+            <% end %>
+        </div>
+    </div>
+</div>
+<div class='kakomons-show-modal-comment-new'>
+    <%= form_with(model:[kakomon,@comment], local:false) do |f| %>
+        <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-modal-text-area' %>
+        <%= f.submit "投稿する",class:'kakomons-show-comment-submit' %>
+    <% end %>
+</div>

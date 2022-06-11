@@ -76,43 +76,53 @@
 
 <div class='end-users-index-modal'>
     <div class='modal-content'>
-        <div class='end-user-report'>
-            <span class='end-user-report-button'>報告する</span>
-        </div>
+        <div class='end-user-report-button'>報告する</div>
         <div class='index-modal-close-button'>キャンセル</div>
     </div>
 </div>
-
 
 <div class='report-reason-modal'>
     <div class='modal-content'>
-        <span>報告する理由</span>
-        <div>投稿内容が不適切</div>
-        <div>メッセージによる嫌がらせ</div>
-        <div>投稿へのコメントが不適切</div>
-        <div class='index-modal-close-button'>キャンセル</div>
+        <%= form_with(model:[@user,@report],url:end_user_userreports_path(@user)) do |f| %>
+            <div class='report-reason-content'>
+                <span class='user-radio-button'><%= f.radio_button :report, Userreport.reports.key(0) %></span>投稿(過去問)が不適切
+            </div>
+            <div class='report-reason-content'>
+                <span class='user-radio-button'><%= f.radio_button :report, Userreport.reports.key(1) %></span>投稿(講義評価)が不適切
+            </div>
+            <div class='report-reason-content'>
+                <span class='user-radio-button'><%= f.radio_button :report, Userreport.reports.key(2) %></span>メッセージが不適切
+            </div>
+            <div class='report-reason-content'>
+                <%= f.submit'報告する',class:'end-user-report-button-last' %>
+            </div>
+        <% end %>
     </div>
 </div>
 
 
 <script>
-    $('.users-show-logout-button')
-        .on('click',function(){
-            $('.index-modal,.index-modal-bg').fadeIn();
-            $("body").addClass("no_scroll");
-        });
-    $('.index-modal-bg,.index-modal-close-button')
-        .on('click',function(){
-            $("body").removeClass("no_scroll");
-            $('.index-modal,.index-modal-bg').fadeOut();
-        });
+    $('.users-show-logout-button').on('click',function(){
+        $('.index-modal,.index-modal-bg').fadeIn();
+        $("body").addClass("no_scroll");
+    });
+    $('.index-modal-bg,.index-modal-close-button').on('click',function(){
+        $("body").removeClass("no_scroll");
+        $('.index-modal,.index-modal-bg,.end-users-index-modal,.report-reason-modal').fadeOut();
+    });
 </script>
 
 <script>
-    $('.other-user-modal-button')
-        .on('click',funciton(){
-            $('.end-users-index-modal,.index-modal-bg').fadeIn()
-            $("body").addClass("no_scroll");
-        });
+    $('.other-user-modal-button').on('click',function(){
+        $('.end-users-index-modal,.index-modal-bg').fadeIn()
+        $("body").addClass("no_scroll");
+    });
+    $('.end-user-report-button').on('click',function(){
+        $('.report-reason-modal').fadeIn()
+        $('.end-users-index-modal').fadeOut();
+    });
+
 </script>
+
+
 

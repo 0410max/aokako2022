@@ -220,14 +220,14 @@
   height: 30px;
   outline: none;
   margin-bottom: 10px;
-  margin-right: 5px;
+  margin-right: 4px;
 }
 
 .sub-demo-text-area-content {
   color: gray;
   position: relative;
   bottom: 3px;
-  right: 7px;
+  right: 8px;
 }
 
 .sub-demo-text-area-kakomon {
@@ -249,7 +249,7 @@
   right: 7px;
 }
 
-.sub-demo-text-area-no-login {
+.sub-demo-text-area-login {
   border: 1px solid gray;
   border-radius: 3px;
   padding: 5px 10px;
@@ -361,6 +361,12 @@
   font-size: 12px;
   position: relative;
   top:5px;
+}
+
+.board-date-show {
+  color: #8e8e8e;
+  font-size: 12px;
+  position: relative;
 }
 
 .continue-comment-link {
@@ -734,6 +740,11 @@
 .board-favorites {
   position: relative;
   top: 5px;
+}
+
+.end-users-show-board-favorites {
+  position: relative;
+  top: 2px;
 }
 
 .thanks-link:hover {
@@ -1359,5 +1370,6 @@
     display: inline;
   }
 }
+
 
 

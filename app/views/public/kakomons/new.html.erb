@@ -12,7 +12,7 @@
 
         <%= form_with model:@kakomon,class:'kakomon-new',local: true do |f| %>
           <ul>
-            <li class='mt-2'><span class='kakomons-new-sub-font'>講義名</span> :  <%= f.text_field :sub,class:'prof-new',placeholder:'正式に記述' %></li>
+            <li class='mt-2'><span class='kakomons-new-sub-font'>講義名</span> : <%= f.text_field :sub,class:'prof-new',placeholder:'正式に記述' %></li>
             <li class='mt-2'><span class='kakomons-new-prof-font'>教授名</span> :  <%= f.text_field :prof,class:'prof-new',placeholder:'苗字のみ記述' %></li>
             <li class='mt-2'>
               <span class='kakomons-new-year-font'>年度</span> :
@@ -23,10 +23,9 @@
             </li>
             <li class='image mt-2'>
               <span class='kakomons-new-image-font'>画像</span> :
-                <%= f.file_field :images,accept: "image/*",multiple: true %><br />
+                <%= f.file_field :images,accept: "image/*",multiple: true,class:'kakomons-new-image-file-field' %><br />
                 <span class='image-count'>画像は1度に10枚まで投稿できます</span>
             </li>
-            <li class='mt-2'>コメント<br><%= f.text_area :comment,class:'comment-new',placeholder:'試験対策方法など' %></li>
           </ul>
 
           <% if @kakomon.errors.any? %>

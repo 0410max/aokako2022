@@ -67,7 +67,8 @@ class Public::BoardsController < ApplicationController
   end
 
   def searchClear
-    @boards = Board.page(params[:page]).per(30).order(created_at: :desc)
+    @boards = Board.find(Boardfavorite.group(:board_id).order('count(board_id) desc').pluck(:board_id))
+    @boards = Board.page(params[:page]).per(30)
     @report = Boardreport.new
     @comment = BoardComment.new
     dep = current_end_user.dep
