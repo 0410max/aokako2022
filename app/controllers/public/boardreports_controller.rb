@@ -14,3 +14,4 @@ class Public::BoardreportsController < ApplicationController
     params.require(:boardreport).permit(:report,:board_id,:end_user_id)
   end
 end
+

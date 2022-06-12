@@ -19,14 +19,10 @@
                             <span><%= board.created_at.strftime("%-Y年%-m月%-d日") %></span>
                             <span class='report-board-delete-button btn btn-danger'>未処理</span>
                             <span>
-                                <% if reportboard.is_display == true %>
-                                    <%= link_to'非表示にする',admin_board_path(reportboard),class:'btn btn-danger report-board-delete-button',method: :patch %>
-                                <% else %>
-                                    <span class='btn btn-success report-board-delete-button'>非表示中</span>
-                                <% end %>
+                                <%= link_to'削除する',admin_board_path(reportboard),class:'btn btn-danger report-board-delete-button',method: :delete %>
                             </span>
                         </div>
-                        <div class='mt-2'>   
+                        <div class='mt-2'>  
                             <%= image_tag board.end_user.get_profile_image ,class:'reported-user-image-size' %>
                             <span class='reportor-name'><%= board.end_user.name %></span>により報告
                         </div>

@@ -9,11 +9,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :kakomonreports ,only: [:index,:update]
-    resources :boardreports ,only: [:index,:update]
+    resources :boardreports ,only: [:index,:destroy]
     resources :userreports,only: [:index,:update]
     resources :end_users, only: [:index,:show]
     resources :boards, only: [:update]
-    resources :board_comments,only: [:update]
+    resources :board_comments,only: [:destroy]
   end
 
   scope module: :public do

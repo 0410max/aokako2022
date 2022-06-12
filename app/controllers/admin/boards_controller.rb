@@ -1,7 +1,7 @@
 class Admin::BoardsController < ApplicationController
-    def update
+    def destroy
         board = Board.find(params[:id])
-        board.update(is_display:false)
+        board.destroy
         redirect_to request.referer
     end
 end

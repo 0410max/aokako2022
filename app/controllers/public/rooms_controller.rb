@@ -4,12 +4,12 @@ class Public::RoomsController < ApplicationController
     @room = Room.create
     @joinCurrentUser = RoomUser.create(end_user_id: current_end_user.id, room_id: @room.id)
     @joinUser = RoomUser.create(join_room_params)
-    @rooms = current_end_user.rooms
+    @rooms = current_end_user.rooms.joins(:messages).includes(:messages).order("messages.created_at DESC")
     redirect_to room_path(@room.id)
   end
 
   def show
-    @rooms = current_end_user.rooms
+    @rooms = current_end_user.rooms.joins(:messages).includes(:messages).order("messages.created_at DESC")
     @room = Room.find(params[:id])  
     if RoomUser.where(end_user_id: current_end_user.id, room_id: @room.id).present?
       @messages = @room.messages.order("messages.created_at asc")
@@ -28,7 +28,7 @@ class Public::RoomsController < ApplicationController
   end
 
   def index
-    @rooms = current_end_user.rooms
+    @rooms = current_end_user.rooms.joins(:messages).includes(:messages).order("messages.created_at DESC")
   end
   
   private

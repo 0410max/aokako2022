@@ -22,7 +22,7 @@
     <div class='modal-content'>
         <%= form_with(model:[board,@report],url:board_boardreports_path(board)) do |f| %>
             <div class='report-reason-content'>
-                <span class='user-radio-button'><%= f.radio_button :report, Boardreport.reports.key(0) %></span>投稿内容が不適切
+                <span class='user-radio-button'><%= f.radio_button :report, Bardreport.reports.key(0) %></span>投稿内容が不適切
             </div>
             <div class='report-reason-content'>
                 <span class='user-radio-button'><%= f.radio_button :report, Boardreport.reports.key(1) %></span>投稿のコメントが不適切
@@ -30,9 +30,11 @@
             <div class='report-reason-content'>
                 <%= f.submit'報告する',class:'end-user-report-button-last' %>
             </div>
+            
         <% end %>
     </div>
 </div>
+
 
 
 <script>
