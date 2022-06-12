@@ -134,3 +134,55 @@
     border-radius: 15px;
     padding: 1px 7px;
 }
+
+
+
+                                            // kakomonreport.html.erb
+
+
+.boardreports-index-wrapper:first-child {
+    margin-top: 50px;
+}
+
+.boardreports-index-wrapper {
+    display: flex;
+    border:1px solid #dbdbdb;
+    border-radius: 4px;
+    width: 800px;
+    margin: 10px auto 0 auto;
+}                       
+
+.board-report-wrapper {
+    width: 400px;
+    height: 280px;
+    padding: 10px;
+}
+
+.board-report-comment-wrapper {
+    width: 400px;
+    height: 280px;
+    border-left: 1px solid #dbdbdb;
+    padding: 10px;
+    overflow: scroll;
+}
+
+.comment-user-name {
+    margin-right: 10px;
+}
+
+.kakomon-date {
+    margin-right: 10px;
+}
+
+.kakomon-date-report {
+    color: #8e8e8e;
+    font-size: 12px;
+}
+
+.report-board-delete-button {
+    float: right;
+    position: relative;
+    padding: 2px 5px;
+    font-size: 14px;
+    margin-right: 10px;
+}

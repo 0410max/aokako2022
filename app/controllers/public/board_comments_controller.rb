@@ -1,4 +1,5 @@
 class Public::BoardCommentsController < ApplicationController
+    before_action :authenticate_end_user!
     def create
         @board = Board.find(params[:board_id])
         @comments = @board.board_comments.order(created_at: :desc)

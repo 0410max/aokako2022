@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :boardreports ,only: [:index,:update]
     resources :userreports,only: [:index,:update]
     resources :end_users, only: [:index,:show]
+    resources :boards, only: [:update]
+    resources :board_comments,only: [:update]
   end
 
   scope module: :public do

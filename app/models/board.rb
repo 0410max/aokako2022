@@ -3,6 +3,7 @@ class Board < ApplicationRecord
     has_many :board_comments,dependent: :destroy
     has_many :notifications, dependent: :destroy
     has_many :boardfavorites, dependent: :destroy
+    has_many :boardreports,dependent: :destroy
 
     def favorited_by?(end_user)
       boardfavorites.exists?(end_user_id: end_user.id)

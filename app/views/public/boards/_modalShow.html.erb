@@ -10,34 +10,34 @@
             <span class='board-show-date'><%= board.created_at.strftime('%Y/%m/%d') %></span>
             </div>
             <script>
-            $('#show-star-rate1-<%= board.id %>').empty();
-            $('#show-star-rate1-<%= board.id %>').raty({
-                size: 36,
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                readOnly: true,
-                score: <%= board.rate1 %>
-            });
+                $('#show-star-rate1-<%= board.id %>').empty();
+                $('#show-star-rate1-<%= board.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    readOnly: true,
+                    score: <%= board.rate1 %>
+                });
             </script>
             <script>
-            $('#show-star-rate2-<%= board.id %>').empty();
-            $('#show-star-rate2-<%= board.id %>').raty({
-                size: 36,
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                readOnly: true,
-                score: <%= board.rate2 %>
-            });
+                $('#show-star-rate2-<%= board.id %>').empty();
+                $('#show-star-rate2-<%= board.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    readOnly: true,
+                    score: <%= board.rate2 %>
+                });
             </script>
             <script>
-            $('#show-star-rate3-<%= board.id %>').empty();
-            $('#show-star-rate3-<%= board.id %>').raty({
-                size: 36,
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                readOnly: true,
-                score: <%= board.rate3 %>
-            });
+                $('#show-star-rate3-<%= board.id %>').empty();
+                $('#show-star-rate3-<%= board.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    readOnly: true,
+                    score: <%= board.rate3 %>
+                });
             </script>
             
             <div class='comment-wrapper'>
@@ -54,4 +54,6 @@
         </div>
     </div>
 </span>
+
+
 

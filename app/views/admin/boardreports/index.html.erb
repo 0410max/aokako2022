@@ -1,9 +1,99 @@
 <div class='container'>
     <div class='row'>
         <div class='col-md-10 offset-1 kakomon-reports-index'>
-            <span class='kakomon-reports'><%= link_to '過去問',admin_kakomonreports_path,class:'kakomon-report-link' %></span>
-            <span class='board-reports-at'><%= link_to '講義評価',admin_boardreports_path,class:'board-report-link' %></span>
-            <span class='user-reports'><%= link_to 'DM',admin_userreports_path,class:'user-report-link' %></span>
+            <div class='user-reports-top'>
+                <span class='kakomon-reports'><%= link_to '過去問',admin_kakomonreports_path,class:'kakomon-report-link' %></span>
+                <span class='board-reports-at'><%= link_to '講義評価',admin_boardreports_path,class:'board-report-link' %></span>
+                <span class='user-reports'>
+                    <%= link_to admin_userreports_path,class:'user-report-link' do %>
+                        <%= render 'admin/userreports/userReportCount' ,users:@users %>
+                    <% end %>
+                </span>
+            </div>
+
+            <% @boards.each do |board| %>
+                <% reportboard = Board.find(board.board_id) %>
+                <div class='boardreports-index-wrapper'>
+                    <div class='board-report-wrapper'>
+                        <div>
+                            <span><%= board.created_at.strftime("%-Y年%-m月%-d日") %></span>
+                            <span class='report-board-delete-button btn btn-danger'>未処理</span>
+                            <span>
+                                <% if reportboard.is_display == true %>
+                                    <%= link_to'非表示にする',admin_board_path(reportboard),class:'btn btn-danger report-board-delete-button',method: :patch %>
+                                <% else %>
+                                    <span class='btn btn-success report-board-delete-button'>非表示中</span>
+                                <% end %>
+                            </span>
+                        </div>
+                        <div class='mt-2'>   
+                            <%= image_tag board.end_user.get_profile_image ,class:'reported-user-image-size' %>
+                            <span class='reportor-name'><%= board.end_user.name %></span>により報告
+                        </div>
+                        <div class='mt-2'>
+                            <%= image_tag reportboard.end_user.get_profile_image ,class:'reported-user-image-size' %>
+                            <span class='reportor-name'><%= reportboard.end_user.name %></span>の<%= board.report_i18n %>
+                        </div>
+                        <div class='mt-2'>
+                            講義 : <%= reportboard.sub %><br>
+                            教授 : <%= reportboard.prof %><br>
+                            <span class='form1'>講義の面白さ</span><span class='star-rate1' id="star-rate1-<%= reportboard.id %>"></span><br />
+                            <span class='form2'>教授の人柄</span><span class='star-rate2' id="star-rate2-<%= reportboard.id %>"></span><br />
+                            <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="star-rate3-<%= reportboard.id %>"></span><br />
+                            <span>Thanks数: <%= reportboard.boardfavorites.count %></span>
+
+                            <script>
+                                $('#star-rate1-<%= reportboard.id %>').empty();
+                                $('#star-rate1-<%= reportboard.id %>').raty({
+                                    starOff:  '<%= asset_path('star-off.png') %>',
+                                    starOn : '<%= asset_path('star-on.png') %>',
+                                    readOnly: true,
+                                    score: <%= reportboard.rate1 %>
+                                });
+                                </script>
+                            <script>
+                                $('#star-rate2-<%= reportboard.id %>').empty();
+                                $('#star-rate2-<%= reportboard.id %>').raty({
+                                    starOff:  '<%= asset_path('star-off.png') %>',
+                                    starOn : '<%= asset_path('star-on.png') %>',
+                                    readOnly: true,
+                                    score: <%= reportboard.rate2 %>
+                                });
+                            </script>
+                            <script>
+                                $('#star-rate3-<%= reportboard.id %>').empty();
+                                $('#star-rate3-<%= reportboard.id %>').raty({
+                                    starOff:  '<%= asset_path('star-off.png') %>',
+                                    starOn : '<%= asset_path('star-on.png') %>',
+                                    readOnly: true,
+                                    score: <%= reportboard.rate3 %>
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class='board-report-comment-wrapper'>
+                        <% @comments = reportboard.board_comments.order(created_at: :desc) %>
+                        <% if @comments.count == 0 %>
+                            <span class='board-show-no-comment'>コメントはありません</span>
+                        <% end %>
+                        <% @comments.each do |comment| %>
+                            <div class='other-user-comment'>
+                                <%= link_to end_user_path(comment.end_user),class:'index-profile-image-link' do %>
+                                    <%= image_tag comment.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                                <% end %>
+                                <span class='comment-user-name'><%= comment.end_user.name %></span>
+                                <span class='kakomon-date-report'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+                                <span class='delete-comment'><%= link_to '削除',board_board_comment_path(comment.board,comment),class:'delete-comment-link',method: :delete,remote:true %></span>
+                                <div class='other-user-comment-content'>
+                                    <%= simple_format(comment.comment) %>
+                                </div>
+                            </div>
+                            <br />
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+
         </div>
     </div>
 </div>  
