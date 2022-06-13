@@ -10,25 +10,3 @@
         $("body").removeClass("no_scroll");
     });
 </script>
-
-<script>
-    $('.users-show-logout-button').on('click',function(){
-        $('.index-modal,.index-modal-bg').fadeIn();
-        $("body").addClass("no_scroll");
-    });
-    $('.index-modal-bg,.index-modal-close-button').on('click',function(){
-        $("body").removeClass("no_scroll");
-        $('.index-modal,.index-modal-bg,.end-users-index-modal,.report-reason-modal').fadeOut();
-    });
-</script>
-
-<script>
-    $('.other-user-modal-button').on('click',function(){
-        $('.end-users-index-modal,.index-modal-bg').fadeIn()
-        $("body").addClass("no_scroll");
-    });
-    $('.end-user-report-button').on('click',function(){
-        $('.report-reason-modal').fadeIn()
-        $('.end-users-index-modal').fadeOut();
-    });
-</script>

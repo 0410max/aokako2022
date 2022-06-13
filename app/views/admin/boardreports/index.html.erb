@@ -14,71 +14,74 @@
                     <% end %>
                 </span>
             </div>
+            <div class='board-reports-index-wrapper'>
+                <% @boards.each do |board| %>
+                    <% reportboard = Board.find(board.board_id) %>
+                    <div class='boardreports-index-wrapper'>
+                        <div class='board-report-wrapper'>
+                            <div>
+                                <span><%= board.created_at.strftime("%-Y年%-m月%-d日") %></span>
+                                <span class='board-report-<%= board.id %>'>
+                                    <%= render 'admin/boardreports/boardReport',board:board %>
+                                </span>
+                                <span>
+                                    <%= link_to'削除する',admin_board_path(reportboard),class:'btn btn-danger report-board-delete-button',method: :delete,data:{confirm:'本当に削除しますか？'} %>
+                                </span>
+                            </div>
+                            <div class='mt-2'>  
+                                <%= image_tag board.end_user.get_profile_image ,class:'reported-user-image-size' %>
+                                <span class='reportor-name'><%= board.end_user.name %></span>により報告
+                            </div>
+                            <div class='mt-2'>
+                                <%= image_tag reportboard.end_user.get_profile_image ,class:'reported-user-image-size' %>
+                                <span class='reportor-name'><%= reportboard.end_user.name %></span>の<%= board.report_i18n %>
+                            </div>
+                            <div class='mt-2'>
+                                講義 : <%= reportboard.sub %><br>
+                                教授 : <%= reportboard.prof %><br>
+                                <span class='form1'>講義の面白さ</span><span class='star-rate1' id="star-rate1-<%= reportboard.id %>"></span><br />
+                                <span class='form2'>教授の人柄</span><span class='star-rate2' id="star-rate2-<%= reportboard.id %>"></span><br />
+                                <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="star-rate3-<%= reportboard.id %>"></span><br />
+                                <span>Thanks数: <%= reportboard.boardfavorites.count %></span>
 
-            <% @boards.each do |board| %>
-                <% reportboard = Board.find(board.board_id) %>
-                <div class='boardreports-index-wrapper'>
-                    <div class='board-report-wrapper'>
-                        <div>
-                            <span><%= board.created_at.strftime("%-Y年%-m月%-d日") %></span><%= reportboard.id %>
-                            <span class='board-report-<%= board.id %>'>
-                                <%= render 'admin/boardreports/boardReport',board:board %>
-                            </span>
-                            <span>
-                                <%= link_to'削除する',admin_board_path(reportboard),class:'btn btn-danger report-board-delete-button',method: :delete,data:{confirm:'本当に削除しますか？'} %>
-                            </span>
+                                <script>
+                                    $('#star-rate1-<%= reportboard.id %>').empty();
+                                    $('#star-rate1-<%= reportboard.id %>').raty({
+                                        starOff:  '<%= asset_path('star-off.png') %>',
+                                        starOn : '<%= asset_path('star-on.png') %>',
+                                        readOnly: true,
+                                        score: <%= reportboard.rate1 %>
+                                    });
+                                </script>
+                                <script>
+                                    $('#star-rate2-<%= reportboard.id %>').empty();
+                                    $('#star-rate2-<%= reportboard.id %>').raty({
+                                        starOff:  '<%= asset_path('star-off.png') %>',
+                                        starOn : '<%= asset_path('star-on.png') %>',
+                                        readOnly: true,
+                                        score: <%= reportboard.rate2 %>
+                                    });
+                                </script>
+                                <script>
+                                    $('#star-rate3-<%= reportboard.id %>').empty();
+                                    $('#star-rate3-<%= reportboard.id %>').raty({
+                                        starOff:  '<%= asset_path('star-off.png') %>',
+                                        starOn : '<%= asset_path('star-on.png') %>',
+                                        readOnly: true,
+                                        score: <%= reportboard.rate3 %>
+                                    });
+                                </script>
+                            </div>
                         </div>
-                        <div class='mt-2'>  
-                            <%= image_tag board.end_user.get_profile_image ,class:'reported-user-image-size' %>
-                            <span class='reportor-name'><%= board.end_user.name %></span>により報告
-                        </div>
-                        <div class='mt-2'>
-                            <%= image_tag reportboard.end_user.get_profile_image ,class:'reported-user-image-size' %>
-                            <span class='reportor-name'><%= reportboard.end_user.name %></span>の<%= board.report_i18n %>
-                        </div>
-                        <div class='mt-2'>
-                            講義 : <%= reportboard.sub %><br>
-                            教授 : <%= reportboard.prof %><br>
-                            <span class='form1'>講義の面白さ</span><span class='star-rate1' id="star-rate1-<%= reportboard.id %>"></span><br />
-                            <span class='form2'>教授の人柄</span><span class='star-rate2' id="star-rate2-<%= reportboard.id %>"></span><br />
-                            <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="star-rate3-<%= reportboard.id %>"></span><br />
-                            <span>Thanks数: <%= reportboard.boardfavorites.count %></span>
-
-                            <script>
-                                $('#star-rate1-<%= reportboard.id %>').empty();
-                                $('#star-rate1-<%= reportboard.id %>').raty({
-                                    starOff:  '<%= asset_path('star-off.png') %>',
-                                    starOn : '<%= asset_path('star-on.png') %>',
-                                    readOnly: true,
-                                    score: <%= reportboard.rate1 %>
-                                });
-                            </script>
-                            <script>
-                                $('#star-rate2-<%= reportboard.id %>').empty();
-                                $('#star-rate2-<%= reportboard.id %>').raty({
-                                    starOff:  '<%= asset_path('star-off.png') %>',
-                                    starOn : '<%= asset_path('star-on.png') %>',
-                                    readOnly: true,
-                                    score: <%= reportboard.rate2 %>
-                                });
-                            </script>
-                            <script>
-                                $('#star-rate3-<%= reportboard.id %>').empty();
-                                $('#star-rate3-<%= reportboard.id %>').raty({
-                                    starOff:  '<%= asset_path('star-off.png') %>',
-                                    starOn : '<%= asset_path('star-on.png') %>',
-                                    readOnly: true,
-                                    score: <%= reportboard.rate3 %>
-                                });
-                            </script>
+                        <div class='board-report-comment-wrapper'>
+                            <%= render 'boardReportComment' ,comments:@comments ,board:board %>
                         </div>
                     </div>
-                    <div class='board-report-comment-wrapper'>
-                        <%= render 'boardReportComment' ,comments:@comments ,board:board %>
-                    </div>
-                </div>
-            <% end %>
-
+                <% end %>
+            </div>
+            <div class='pagenate'>
+                <%= paginate @boards %>
+            </div>
         </div>
     </div>
 </div>  

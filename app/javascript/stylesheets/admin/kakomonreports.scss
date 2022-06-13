@@ -83,24 +83,13 @@
 
 .user-reports-top {
     text-align: center;
+    margin-bottom: 15px;
 }   
+
 
 .userreports-index-wrapper {
     display: flex;
     flex-wrap: wrap;
-}   
-
-
-.userreports-index:nth-child(1) {
-    margin-top: 30px;
-}  
-
-.userreports-index:nth-child(2) {
-    margin-top: 30px;
-}   
-
-.userreports-index:nth-child(3) {
-    margin-top: 30px;
 }   
 
 .userreports-index {
@@ -147,7 +136,7 @@
 
 
 .boardreports-index-wrapper:first-child {
-    margin-top: 50px;
+    margin-top: 25px;
 }
 
 .boardreports-index-wrapper {
