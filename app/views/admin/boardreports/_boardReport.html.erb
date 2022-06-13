@@ -1,0 +1,6 @@
+<% if board.status == false %>
+    <%= link_to '未処理',admin_boardreport_path(board),remote:true,method: :patch,class:'report-board-delete-button btn btn-danger' %>
+<% else %>
+    <span class='report-board-delete-button btn btn-success'>処理済</span>
+<% end %>
+ 

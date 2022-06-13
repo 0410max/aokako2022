@@ -1010,6 +1010,40 @@
   color: black;
 }
 
+.fa-check {
+  padding: 7px 8px;
+  border: 2px solid rgb(88, 195, 34);
+  border-radius: 20px;
+  color: rgb(88, 195, 34);
+  font-size: 19px;
+  margin: 10px auto 5px auto;
+}
+
+.thanks-report {
+  font-weight: bold;
+}
+
+.thanks-report-content {
+  color: gray;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.thanks-report-close-button {
+  position: relative;
+  bottom: 7px;
+  color: white;
+  background-color: #0095f6;
+  margin: 5px 20px 5px 20px;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
 
 
 @media screen and (max-width: 1200px) {

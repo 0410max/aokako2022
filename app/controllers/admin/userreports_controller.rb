@@ -1,5 +1,6 @@
 class Admin::UserreportsController < ApplicationController
   def index
+    @boards = Boardreport.all.order(created_at: :desc)
     @users = Userreport.all.order(created_at: :desc)
   end
 
@@ -9,3 +10,4 @@ class Admin::UserreportsController < ApplicationController
     @user.update(status:true)
   end
 end
+

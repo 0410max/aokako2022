@@ -53,3 +53,22 @@
         <%= f.submit "投稿する",class:'kakomons-show-comment-submit' %>
     <% end %>
 </div>
+
+
+
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: 'horizontal',
+        loop: false,
+        observer: true,
+    
+        pagination: {
+        el: '.swiper-pagination',
+        },
+    
+        navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        }
+    })
+</script>

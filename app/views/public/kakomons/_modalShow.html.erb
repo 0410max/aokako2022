@@ -5,22 +5,19 @@
 </span>
 
 <script>
-    $('#<%= i %>-top-button')
-        .on('click',function(){
-            var numberstr = '<%= i %>';
-            var numberInd = Number(numberstr)
-            $('.index-modal').eq(numberInd).fadeIn();
-            $('.index-modal-bg').fadeIn();
-            $("body").addClass("no_scroll");
+    $('#<%= i %>-top-button').on('click',function(){
+        var numberstr = '<%= i %>';
+        var numberInd = Number(numberstr)
+        $('.index-modal').eq(numberInd).fadeIn();
+        $('.index-modal-bg').fadeIn();
+        $("body").addClass("no_scroll");
     });
-    $('.index-modal-bg,.modal-show-close-button')
-        .on('click',function(){
-            $("body").removeClass("no_scroll");
-            $('.index-modal-bg,.kakomons-show').fadeOut();
-            $('.index-modal').fadeOut(3);
+    $('.index-modal-bg,.modal-show-close-button').on('click',function(){
+        $("body").removeClass("no_scroll");
+        $('.index-modal-bg,.kakomons-show').fadeOut();
+        $('.index-modal').fadeOut(3);
     });
-    $('.index-modal-close-button')
-        .on('click',function(){
-            $('.index-modal-bg,.index-modal').fadeOut();
-        });
+    $('.index-modal-close-button').on('click',function(){
+        $('.index-modal-bg,.index-modal').fadeOut();
+    });
 </script>

@@ -19,12 +19,12 @@
                                         <%= r.end_user.name %>
                                     </span><br />
                                     <% if Message.find_by(id: room.messages).present? %>
-                                        <% if Message.find_by(id: room.messages.last).message.length > 10 %>
-                                            <span class='last-message'><%= Message.find_by(id: room.messages.last).message[0..10] %>...&nbsp;&nbsp;
-                                            <%= time_ago_in_words(Message.find_by(id: room.messages.last).created_at).upcase %>前</span>
+                                        <% if Message.find_by(id: room.messages.first).message.length > 10 %>
+                                            <span class='last-message'><%= Message.find_by(id: room.messages.first).message[0..10] %>...&nbsp;&nbsp;
+                                            <%= time_ago_in_words(Message.find_by(id: room.messages.first).created_at).upcase %>前</span>
                                         <% else %>
-                                            <span class='last-message'><%= Message.find_by(id: room.messages.last).message %>&nbsp;&nbsp;
-                                            <%= time_ago_in_words(Message.find_by(id: room.messages.last).created_at).upcase %>前</span>
+                                            <span class='last-message'><%= Message.find_by(id: room.messages.first).message %>&nbsp;&nbsp;
+                                            <%= time_ago_in_words(Message.find_by(id: room.messages.first).created_at).upcase %>前</span>
                                         <% end %>
                                     <% end %>
                                 <% end %>
@@ -40,12 +40,12 @@
                                         <%= r.end_user.name %>
                                     </span><br />
                                     <% if Message.find_by(id: room.messages).present? %>
-                                        <% if Message.find_by(id: room.messages.last).message.length > 10 %>
-                                            <span class='last-message'><%= Message.find_by(id: room.messages.last).message[0..10] %>...&nbsp;&nbsp;
-                                            <%= time_ago_in_words(Message.find_by(id: room.messages.last).created_at).upcase %>前</span>
+                                        <% if Message.find_by(id: room.messages.first).message.length > 10 %>
+                                            <span class='last-message'><%= Message.find_by(id: room.messages.first).message[0..10] %>...&nbsp;&nbsp;
+                                            <%= time_ago_in_words(Message.find_by(id: room.messages.first).created_at).upcase %>前</span>
                                         <% else %>
-                                            <span class='last-message'><%= Message.find_by(id: room.messages.last).message %>&nbsp;&nbsp;
-                                            <%= time_ago_in_words(Message.find_by(id: room.messages.last).created_at).upcase %>前</span>
+                                            <span class='last-message'><%= Message.find_by(id: room.messages.first).message %>&nbsp;&nbsp;
+                                            <%= time_ago_in_words(Message.find_by(id: room.messages.first).created_at).upcase %>前</span>
                                         <% end %>
                                     <% end %>
                                 <% end %>

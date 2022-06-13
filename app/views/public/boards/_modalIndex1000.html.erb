@@ -1,36 +1,35 @@
+
 <div class='index-modal-1000'>
     <div class='modal-content'>
         <% if board.end_user === current_end_user %>
-        <div class='kakomon-delete'>
-            <%= link_to'削除する',board_path(board),class:'kakomon-delete-link',method: :delete %><br />
-        </div>
-        <div class='kakomons-show-link-hr'>
-            <span class='index-boards-show-link-button-1000-<%= i %>'>詳細を表示</span>
-        </div>
+            <div class='kakomon-delete'>
+                <%= link_to'削除する',board_path(board),class:'kakomon-delete-link',method: :delete %><br />
+            </div>
+            <div class='kakomons-show-link-hr'>
+                <span class='index-boards-show-link-button-1000-<%= i %>'>詳細を表示</span>
+            </div>
         <% else %>
-        <%= form_with(model:[board,@report],local:true,url:board_boardreports_path(board)) do |f| %>
-            <%= f.hidden_field :id, :value => board.id %>
-            <%= f.submit '報告する',class:'kakomon-report' %>
+            <%= form_with(model:[board,@report],local:true,url:board_boardreports_path(board)) do |f| %>
+                <%= f.hidden_field :id, :value => board.id %>
+                <%= f.submit '報告する',class:'kakomon-report' %>
+            <% end %>
+            <div class='kakomons-show-link-hr'>
+                <span class='index-boards-show-link-button-1000-<%= i %>'>詳細を表示</span>
+            </div>
         <% end %>
-        <div class='kakomons-show-link-hr'>
-            <span class='index-boards-show-link-button-1000-<%= i %>'>詳細を表示</span>
-        </div>
-        <% end %>
-        <div class='index-modal-close-button'>キャンセル</div>
-        <script>
-        $('#<%= i %>-top-button-1000')
-            .on('click',function(){
+    <div class='index-modal-close-button'>キャンセル</div>
+    <script>
+        $('#<%= i %>-top-button-1000').on('click',function(){
             var numberstr = '<%= i %>';
             var numberInd = Number(numberstr)
             $('.index-modal-1000').eq(numberInd).fadeIn();
             $('.index-modal-bg').fadeIn();
             $("body").addClass("no_scroll");
-            });
-        $('.index-modal-bg,.index-modal-close-button')
-            .on('click',function(){
+        });
+        $('.index-modal-bg,.index-modal-close-button').on('click',function(){
             $("body").removeClass("no_scroll");
             $('.index-modal-1000,.index-modal-bg').fadeOut();
-            });
-        </script>
+        });
+    </script>
     </div>
 </div>

@@ -9,10 +9,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :kakomonreports ,only: [:index,:update]
-    resources :boardreports ,only: [:index,:destroy]
+    resources :boardreports ,only: [:index,:update]
     resources :userreports,only: [:index,:update]
     resources :end_users, only: [:index,:show]
-    resources :boards, only: [:update]
+    resources :boards, only: [:destroy]
     resources :board_comments,only: [:destroy]
   end
 

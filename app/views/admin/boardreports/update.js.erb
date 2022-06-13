@@ -1,0 +1,2 @@
+$('.board-report-<%= @board.id %>').html("<%= j(render 'admin/boardreports/boardReport',board:@board) %>");
+$('.board-reports-at').html("<%= j(render 'admin/boardreports/boardReportCount',boards:@boards) %>");

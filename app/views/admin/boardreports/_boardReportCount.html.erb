@@ -1,0 +1,10 @@
+講義評価
+<% count = 0 %>
+<% boards.each do |board| %>
+    <% if board.status == false %>
+        <% count += 1 %>
+    <% end %>
+<% end %>
+<% unless count == 0 %>
+    <span class='false-status-count'><%= count %></span>
+<% end %>

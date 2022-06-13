@@ -1,0 +1,12 @@
+<div><i class="fa-solid fa-check"></i></div>
+<div class='thanks-report'>ご報告ありがとうございました</div>
+<div class='thanks-report-content'>お互いが支え合って安心して利用できるコミュニティづくりにご協力いただき、ありがとうございました。</div>
+<div class='thanks-report-close-button'>閉じる</div>
+
+<script>
+    $('.thanks-report-close-button').on('click',function(){
+        $('.report-reason-modal').fadeOut();
+        $('.index-modal-bg').fadeOut();
+        $("body").removeClass("no_scroll");
+    });
+</script>
