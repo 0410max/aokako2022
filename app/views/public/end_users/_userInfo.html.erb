@@ -83,7 +83,7 @@
 
 <div class='report-reason-modal'>
     <div class='modal-content'>
-        <%= form_with(model:[@user,@report],url:end_user_userreports_path(@user)) do |f| %>
+        <%= form_with(model:[@user,@report],url:end_user_userreports_path(@user),local:false) do |f| %>
             <div class='report-reason-content'>
                 <span class='user-radio-button'><%= f.radio_button :report, Userreport.reports.key(0) %></span>投稿(過去問)が不適切
             </div>
@@ -91,7 +91,7 @@
                 <span class='user-radio-button'><%= f.radio_button :report, Userreport.reports.key(1) %></span>投稿(講義評価)が不適切
             </div>
             <div class='report-reason-content'>
-                <span class='user-radio-button'><%= f.radio_button :report, Userreport.reports.key(2) %></span>メッセージが不適切
+                <span class='user-radio-button'><%= f.radio_button :report, Userreport.reports.key(2) %></span>メッセージによる嫌がらせ
             </div>
             <div class='report-reason-content'>
                 <%= f.submit'報告する',class:'end-user-report-button-last' %>
@@ -121,8 +121,8 @@
         $('.report-reason-modal').fadeIn()
         $('.end-users-index-modal').fadeOut();
     });
-
 </script>
+
 
 
 

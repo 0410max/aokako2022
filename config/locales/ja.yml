@@ -36,7 +36,7 @@ ja:
       report:
         kakomon: '過去問が不適切'
         board: '講義評価が不適切'
-        dm: 'メッセージが不適切'
+        dm: 'メッセージによる嫌がらせ'
     boardreport:
         report:
           content: '投稿内容が不適切'

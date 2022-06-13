@@ -4,8 +4,6 @@ class Public::UserreportsController < ApplicationController
         @report.end_user_id = current_end_user.id
         @report.user_id = params[:end_user_id]
         @report.save
-        flash[:notice] = '報告されました'
-        redirect_to request.referer
     end
     
     private
