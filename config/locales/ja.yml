@@ -41,3 +41,7 @@ ja:
         report:
           content: '投稿内容が不適切'
           comment: '投稿のコメントが不適切'
+    kakomonreport:
+        report:
+          content: '投稿内容が不適切'
+          comment: '投稿のコメントが不適切'

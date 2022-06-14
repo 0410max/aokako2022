@@ -1,16 +1,15 @@
 class Public::KakomonreportsController < ApplicationController
   def create
-    kakomon = Kakomon.find(params[:kakomon_id])
     report = current_end_user.kakomonreports.new(report_params)
-    report.kakomon_id = kakomon.id
+    report.kakomon_id = params[:kakomon_id]
+    report.end_user_id = current_end_user.id
     report.save
-    flash[:notice] = '報告されました'
-    redirect_to request.referer
   end
 
   private
 
   def report_params 
-      params.require(:kakomonreport).permit(:report)
+    params.require(:kakomonreport).permit(:report,:kakomon_id,:end_user_id)
   end
 end
+

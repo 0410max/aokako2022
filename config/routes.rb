@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :userreports,only: [:index,:update]
     resources :end_users, only: [:index,:show]
     resources :boards, only: [:destroy]
+    resources :kakomons, only: [:destroy]
   end
 
   scope module: :public do

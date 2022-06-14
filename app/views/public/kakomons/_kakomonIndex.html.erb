@@ -22,28 +22,49 @@
                                 <span class='index-kakomons-show-link-<%= i %>'>詳細を表示</span>
                             </div>
                         <% else %>  
-                            <%= form_with(model:[kakomon,@report],local:true,url:kakomon_kakomonreports_path(kakomon)) do |f| %>
-                                <%= f.hidden_field :id, :value => kakomon.id %>
-                                <%= f.submit '報告する',class:'kakomon-report' %>
-                            <% end %>
+                            <div class='kakomon-report-<%= i %> kakomon-report'>報告する</div>
                             <div class='kakomons-show-link-hr'>
                                 <span class='index-kakomons-show-link-<%= i %>'>詳細を表示</span>
                             </div>
                         <% end %>
                         <div class='index-modal-close-button'>キャンセル</div>
-
-                        <script>
-                        $('#<%= i %>')
-                            .on('click',function(){
-                            var numberstr = '<%= i %>';
-                            var numberInd = Number(numberstr)
-                            $('.index-modal').eq(numberInd).fadeIn();
-                            $('.index-modal-bg').fadeIn();
-                            $("body").addClass("no_scroll");
-                            });
-                        </script>
                     </div>
                 </div>
+                <script>
+                    $('#<%= i %>').on('click',function(){
+                        var numberstr = '<%= i %>';
+                        var numberInd = Number(numberstr)
+                        $('.index-modal').eq(numberInd).fadeIn();
+                        $('.index-modal-bg').fadeIn();
+                        $("body").addClass("no_scroll");
+                    });
+                </script>
+
+                <div class='report-reason-modal'>
+                    <div class='modal-content'>
+                        <%= form_with(model:[kakomon,@report],url:kakomon_kakomonreports_path(kakomon),local:false) do |f| %>
+                            <div class='report-reason-content'>
+                                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(0) %></span>投稿内容が不適切
+                            </div>
+                            <div class='report-reason-content'>
+                                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(1) %></span>投稿のコメントが不適切
+                            </div>
+                            <div class='report-reason-content'>
+                                <%= f.submit'報告する',class:'end-user-report-button-last' %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+                <script>
+                    $('.kakomon-report-<%= i %>').on('click',function() {
+                        var numberstr = '<%= i %>';
+                        var numberInd = Number(numberstr)
+                        $('.report-reason-modal').eq(numberInd).fadeIn();
+                        $('.index-modal').fadeOut();
+                    });
+                </script>
+
+
             </div>
             <% #画像 %>
             <div class='article-body'> 
@@ -89,4 +110,5 @@
 <div class='pagenate'>
     <%= paginate kakomons %>
 </div>
+
 

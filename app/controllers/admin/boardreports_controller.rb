@@ -12,3 +12,4 @@ class Admin::BoardreportsController < ApplicationController
   end
 end
 
+
