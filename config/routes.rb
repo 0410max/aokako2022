@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       resource :boardfavorites, only: [:create, :destroy]
       resources :board_comments,only: [:create,:destroy]
       resources :boardreports,only:[:create]
+      get 'report' => 'boardreports#report'
       get :searchSub, on: :collection
       get :searchProf, on: :collection
       get :searchClear,on: :collection

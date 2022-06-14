@@ -1,22 +1,24 @@
 <div class='container'>
     <div class='row'>
         <div class='col-md-10 offset-1 kakomon-reports-index'>
-            <div class='user-reports-top'>
-                <span class='kakomon-reports-at'>
-                    <%= link_to admin_kakomonreports_path,class:'kakomon-report-link' do %>
-                        <%= render 'admin/kakomonreports/kakomonReportCount',kakomons:@kakomons %>
-                    <% end %>
-                </span>
-                <span class='board-reports'>
-                    <%= link_to admin_boardreports_path,class:'board-report-link' do %>
-                        <%= render 'admin/boardreports/boardReportCount',boards:@boards %>
-                    <% end %>
-                </span>
-                <span class='user-reports'>
-                    <%= link_to admin_userreports_path,class:'user-report-link' do %>
-                        <%= render 'admin/userreports/userReportCount' ,users:@users %>
-                    <% end %>
-                </span>
+            <div class='user-reports-top-wrapper'>
+                <div class='user-reports-top'>
+                    <span class='kakomon-reports-at'>
+                        <%= link_to admin_kakomonreports_path,class:'kakomon-report-link' do %>
+                            <%= render 'admin/kakomonreports/kakomonReportCount',kakomons:@kakomons %>
+                        <% end %>
+                    </span>
+                    <span class='board-reports'>
+                        <%= link_to admin_boardreports_path,class:'board-report-link' do %>
+                            <%= render 'admin/boardreports/boardReportCount',boards:@boards %>
+                        <% end %>
+                    </span>
+                    <span class='user-reports'>
+                        <%= link_to admin_userreports_path,class:'user-report-link' do %>
+                            <%= render 'admin/userreports/userReportCount' ,users:@users %>
+                        <% end %>
+                    </span>
+                </div>
             </div>
 
             <div class='board-reports-index-wrapper'>
