@@ -3,6 +3,7 @@ class Admin::BoardreportsController < ApplicationController
     @boards = Boardreport.all.order(created_at: :desc)
     @boards = @boards.page(params[:page]).per(30)
     @users = Userreport.all.order(created_at: :desc)
+    @kakomons = Kakomonreport.all.order(created_at: :desc)
   end
 
   def update

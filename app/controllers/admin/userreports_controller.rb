@@ -1,6 +1,7 @@
 class Admin::UserreportsController < ApplicationController
   def index
     @boards = Boardreport.all.order(created_at: :desc)
+    @kakomons = Kakomonreport.all.order(created_at: :desc)
     @users = Userreport.all.order(created_at: :desc)
     @users = @users.page(params[:page]).per(30)
   end

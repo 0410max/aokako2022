@@ -1,0 +1,2 @@
+$('.kakomon-report-<%= @kakomon.id %>').html("<%= j(render 'admin/kakomonreports/kakomonReport',kakomon:@kakomon) %>");
+$('.kakomon-reports-at').html("<%= j(render 'admin/kakomonreports/kakomonReportCount',kakomons:@kakomons) %>");

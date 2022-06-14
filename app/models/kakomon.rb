@@ -19,6 +19,9 @@ class Kakomon < ApplicationRecord
     if images.length > 10
       errors.add(:images, "は10枚以内にしてください")
     end
+    if images.length < 1
+      errors.add(:images,"を選択していください")
+    end
   end
 
   def create_notification_comment!(current_end_user, comment_id)

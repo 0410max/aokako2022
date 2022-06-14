@@ -84,6 +84,9 @@
 .user-reports-top {
     text-align: center;
     margin-bottom: 15px;
+    position: fixed;
+    top: 80px;
+    left: 550px;
 }   
 
 
@@ -98,7 +101,19 @@
     border-radius: 4px;
     margin: 10px 12px;
     width: 30%;
-}                                                
+}     
+
+.userreports-index:nth-child(1) {
+    margin-top: 50px;
+}   
+
+.userreports-index:nth-child(2) {
+    margin-top: 50px;
+}   
+
+.userreports-index:nth-child(3) {
+    margin-top: 50px;
+}   
 
 .user-status {
     float: right;
@@ -136,7 +151,7 @@
 
 
 .boardreports-index-wrapper:first-child {
-    margin-top: 25px;
+    margin-top: 50px;
 }
 
 .boardreports-index-wrapper {
@@ -161,6 +176,7 @@
     overflow: scroll;
 }
 
+
 .comment-user-name {
     margin-right: 10px;
 }
@@ -184,4 +200,23 @@
 
 .other-user-comment-report-content {
     margin-right: 15px;
+}
+
+
+                                        // kakomonreport.html.erb
+
+.kakomon-report-comment-wrapper {
+    width: 400px;
+    border-left: 1px solid #dbdbdb;
+    padding: 10px;
+    overflow: scroll;
+}                                        
+
+.kakomon-report-wrapper {
+    width: 400px;
+    padding: 10px;
+}
+
+.kakomonreports-index-wrapper:first-child {
+    margin-top: 50px;
 }
