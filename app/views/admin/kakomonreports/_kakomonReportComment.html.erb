@@ -5,7 +5,7 @@
 <% end %>
 <% comments.each do |comment| %>
     <div class='other-user-comment'>
-        <%= link_to end_user_path(comment.end_user),class:'index-profile-image-link' do %>
+        <%= link_to admin_end_user_path(comment.end_user),class:'index-profile-image-link' do %>
             <%= image_tag comment.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
         <% end %>
         <span class='comment-user-name'><%= comment.end_user.name %></span>

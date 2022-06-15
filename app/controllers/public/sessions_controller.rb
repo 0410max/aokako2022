@@ -29,7 +29,7 @@ class Public::SessionsController < Devise::SessionsController
   protected
   def end_user_state
     @user = EndUser.find_by(number: params[:end_user][:number])
-    return if !@number
+    return if !@user
     unless @user.valid_password?(params[:end_user][:password]) && !@user.is_deleted
       redirect_to new_end_user_registration_path
     end

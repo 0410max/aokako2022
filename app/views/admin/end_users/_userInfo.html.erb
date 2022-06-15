@@ -6,39 +6,11 @@
         <span class='show-user-name'><%= @user.name %></span><br />
         
         <div class='user-info-follow-setting-wrapper'>
-            <div class='user-info-follow'>
-                <% if @user === current_end_user %>
-                    <%= link_to 'プロフィールを編集',edit_end_user_path(@user),class:'user-setting' %>
-                <% else %>
-                    <% if @user.followed_by?(current_end_user) %>
-                        <%= link_to'フォロー中',end_user_relationships_path(@user),method: :delete,class:'user-followed-show' %>
-                    <% else %>
-                        <% unless @user == current_end_user %>
-                            <%= link_to 'フォローする',end_user_relationships_path(@user),method: :post,class:'user-following-show' %>
-                        <% end %>
-                    <% end %>
-                <% end %>
-            </div>
-
-            <div class='user-info-message'>
-                <% if @user === current_end_user %>
-                    <span class='users-show-logout-button'><i class="fa-solid fa-gear"></i></span>
-                <% else %>
-                    <% unless @user.id == current_end_user.id %>    
-                        <% if @haveRoom == true %>    
-                            <%= link_to "メッセージ",room_path(@roomId),class:'make-room' %>
-                        <% else %>
-                            <%= form_with model: @room,local: true do |f|%>   
-                                <%= fields_for @RoomUser do |r| %>  
-                                    <%= r.hidden_field :end_user_id, value: @user.id %>  
-                                <% end %>
-                                <%= f.submit "メッセージ",class:'make-room' %>
-                            <% end %>
-                        <% end %>
-                    <% end %>
-                <% end %>
-            </div>
-
+            <% if @user.is_deleted == false %>
+                <%= link_to 'BAN',admin_path(@user),method: :patch,class:'btn btn-danger ban-false',data:{confirm:'本当にBANしますか？'} %>
+            <% else %>
+                <span class='ban-true'>BAN中</span>
+            <% end %>
         </div>
     </div>           
 </div>

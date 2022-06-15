@@ -91,9 +91,12 @@
                 <i class="fa-solid fa-users users-admin"></i>
               <% end %>
             </li>
+            <li class='bell-icon-wrapper'>
+              <%= render 'admin/kakomonreports/bell' %>
+            </li>
             <li>
-              <%= link_to admin_kakomonreports_path do %>
-                <i class="fa-solid fa-bell bell-admin"></i>
+              <%= link_to admin_kakomons_path do %>
+                <i class="fa-solid fa-file admin-file"></i>
               <% end %>
             </li>
           </ul>

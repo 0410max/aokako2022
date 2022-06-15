@@ -11,8 +11,6 @@
             <span class='class-count'>
                 講義評価<%= @user.boards.count %>件
             </span>
-            <span class='span-following'>フォロー中</span>
-            <span class='span-follower'>フォロワー</span>
         </div>
         
 
@@ -22,14 +20,6 @@
 
         <div class='board-index-end-user'>
             <%= render 'boardIndex' %>
-        </div>
-
-        <div class='following-index-end-user'>
-            <%= render 'followingIndex' %>
-        </div>
-
-        <div class='follower-index-end-user'>
-            <%= render 'followerIndex' %>
         </div>
     </div>
 </div>

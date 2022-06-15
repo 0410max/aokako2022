@@ -1,0 +1,132 @@
+<div class='search-count'>
+    検索結果&nbsp;<strong><%= users.length %></strong>&nbsp;人&nbsp;&nbsp;&nbsp;<%= link_to 'クリア',admin_clear_path,remote:true,class:'end-users-search-clear' %>
+</div>
+
+<% users.each do |user| %>
+    <% if user.number.slice(3) == 2 && user.number.slice(4) == 2 %>
+        <%= link_to admin_end_user_path(user),class:'end-user-name-link' do %>
+            <span class='users-index-wrapper'>
+                <div class='admin-users-index-image'>
+                    <%= image_tag user.get_profile_image,class:'admins-users-image-size' %>
+                </div>
+                <div class='admin-users-index-name'>
+                    <strong><%= user.name %></strong><span class='end-user-year-font'>(<%= render 'yearIndex',user:user %>)</span>
+                    <br />
+                    <span class='admin-user-dep-cor'><%= user.dep %>&nbsp;<%= user.cor %></span>
+                </div>
+                <div class='admin-users-status'>
+                    <% if user.is_deleted == false %>
+                        <span class='is-deleted-true'>有効</span>
+                    <% else %>
+                        <span class='is-deleted-false'>無効</span>
+                    <% end %>
+                </div>
+            </span>
+        <% end %>
+    <% end %>
+<% end %>
+
+<% users.each do |user| %>
+    <% if user.number.slice(3) == 2 && user.number.slice(4) == 1 %>
+        <%= link_to admin_end_user_path(user),class:'end-user-name-link' do %>
+            <span class='users-index-wrapper'>
+                <div class='admin-users-index-image'>
+                    <%= image_tag user.get_profile_image,class:'admins-users-image-size' %>
+                </div>
+                <div class='admin-users-index-name'>
+                    <strong><%= user.name %></strong><span class='end-user-year-font'>(<%= render 'yearIndex',user:user %>)</span>
+                    <br />
+                    <span class='admin-user-dep-cor'><%= user.dep %>&nbsp;<%= user.cor %></span>
+                </div>
+                <div class='admin-users-status'>
+                    <% if user.is_deleted == false %>
+                        <span class='is-deleted-true'>有効</span>
+                    <% else %>
+                        <span class='is-deleted-false'>無効</span>
+                    <% end %>
+                </div>
+            </span>
+        <% end %>
+    <% end %>
+<% end %>
+
+
+<% users.each do |user| %>
+    <% if user.number.slice(3) == 2 && user.number.slice(4) == 0 %>
+        <%= link_to admin_end_user_path(user),class:'end-user-name-link' do %>
+            <span class='users-index-wrapper'>
+                <div class='admin-users-index-image'>
+                    <%= image_tag user.get_profile_image,class:'admins-users-image-size' %>
+                </div>
+                <div class='admin-users-index-name'>
+                    <strong><%= user.name %></strong><span class='end-user-year-font'>(<%= render 'yearIndex',user:user %>)</span>
+                    <br />
+                    <span class='admin-user-dep-cor'><%= user.dep %>&nbsp;<%= user.cor %></span>
+                </div>
+                <div class='admin-users-status'>
+                    <% if user.is_deleted == false %>
+                        <span class='is-deleted-true'>有効</span>
+                    <% else %>
+                        <span class='is-deleted-false'>無効</span>
+                    <% end %>
+                </div>
+            </span>
+        <% end %>
+    <% end %>
+<% end %>
+
+
+<% users.each do |user| %>
+    <% if user.number.slice(3) == 1 && user.number.slice(4) == 9 %>
+        <%= link_to admin_end_user_path(user),class:'end-user-name-link' do %>
+            <span class='users-index-wrapper'>
+                <div class='admin-users-index-image'>
+                    <%= image_tag user.get_profile_image,class:'admins-users-image-size' %>
+                </div>
+                <div class='admin-users-index-name'>
+                    <strong><%= user.name %></strong><span class='end-user-year-font'>(<%= render 'yearIndex',user:user %>)</span>
+                    <br />
+                    <span class='admin-user-dep-cor'><%= user.dep %>&nbsp;<%= user.cor %></span>
+                </div>
+                <div class='admin-users-status'>
+                    <% if user.is_deleted == false %>
+                        <span class='is-deleted-true'>有効</span>
+                    <% else %>
+                        <span class='is-deleted-false'>無効</span>
+                    <% end %>
+                </div>
+            </span>
+        <% end %>
+    <% end %>
+<% end %>
+
+
+<% users.each do |user| %>
+    <% unless user.number.slice(3) == 2 && user.number.slice(4) == 2 %>
+        <% unless user.number.slice(3) == 2 && user.number.slice(4) == 1 %>
+            <% unless user.number.slice(3) == 2 && user.number.slice(4) == 0 %>
+                <% unless user.number.slice(3) == 1 && user.number.slice(4) == 9 %>
+                    <%= link_to admin_end_user_path(user),class:'end-user-name-link' do %>
+                        <span class='users-index-wrapper'>
+                            <div class='admin-users-index-image'>
+                                <%= image_tag user.get_profile_image,class:'admins-users-image-size' %>
+                            </div>
+                            <div class='admin-users-index-name'>
+                                <strong><%= user.name %></strong><span class='end-user-year-font'>(<%= render 'yearIndex',user:user %>)</span>
+                                <br />
+                                <span class='admin-user-dep-cor'><%= user.dep %>&nbsp;<%= user.cor %></span>
+                            </div>
+                            <div class='admin-users-status'>
+                                <% if user.is_deleted == false %>
+                                    <span class='is-deleted-true'>有効</span>
+                                <% else %>
+                                    <span class='is-deleted-false'>無効</span>
+                                <% end %>
+                            </div>
+                        </span>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

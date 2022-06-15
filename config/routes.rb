@@ -12,8 +12,11 @@ Rails.application.routes.draw do
     resources :boardreports ,only: [:index,:update]
     resources :userreports,only: [:index,:update]
     resources :end_users, only: [:index,:show]
-    resources :boards, only: [:destroy]
-    resources :kakomons, only: [:destroy]
+    get 'search' => 'end_users#search'
+    get 'clear' => 'end_users#clear'
+    patch 'unsubscribe/:id' => 'end_users#unsubscribe'
+    resources :boards, only: [:destroy,:index,:update]
+    resources :kakomons, only: [:destroy,:index,:update]
   end
 
   scope module: :public do
@@ -48,5 +51,4 @@ Rails.application.routes.draw do
     resources :noboards,only:[:index]
     patch 'end_users/unsubscribe' => 'end_users#unsubscribe'
   end
-  
 end

@@ -1,0 +1,20 @@
+<% kakomonreportCount = Kakomonreport.where(status:false).count %>
+<% boardreportCount = Boardreport.where(status:false).count %>
+<% userreportCount = Userreport.where(status:false).count %>
+<% falseStatusCount = kakomonreportCount + boardreportCount + userreportCount %>
+
+<%= link_to admin_kakomonreports_path do %>
+    <% if falseStatusCount != 0 %>
+        <span class='fa-stack'>
+            <i class="fa-solid fa-bell bell-admin"></i>
+            <% if falseStatusCount > 9 %>
+                <i class='fa-solid fa-circle circle-bell-big'></i>
+            <% else %>
+                <i class='fa-solid fa-circle circle-bell'></i>
+            <% end %>
+            <i class='falseStatusCount'><%= falseStatusCount %></i>
+        </span>
+    <% else %>
+        <i class="fa-solid fa-bell bell-admin"></i>
+    <% end %>
+<% end %>

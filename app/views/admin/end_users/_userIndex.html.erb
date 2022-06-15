@@ -1,0 +1,24 @@
+<% users.each do |user| %>
+    <%= link_to admin_end_user_path(user),class:'end-user-name-link' do %>
+        <span class='users-index-wrapper'>
+            <div class='admin-users-index-image'>
+                <%= image_tag user.get_profile_image,class:'admins-users-image-size' %>
+            </div>
+            <div class='admin-users-index-name'>
+                <strong><%= user.name %></strong><span class='end-user-year-font'>(<%= render 'yearIndex',user:user %>)</span>
+                <br />
+                <span class='admin-user-dep-cor'><%= user.dep %>&nbsp;<%= user.cor %></span>
+            </div>
+            <div class='admin-users-status'>
+                <% if user.is_deleted == false %>
+                    <span class='is-deleted-true'>有効</span>
+                <% else %>
+                    <span class='is-deleted-false'>無効</span>
+                <% end %>
+            </div>
+        </span>
+    <% end %>
+<% end %>
+<div class='pagenate'>
+    <%= paginate users %>
+</div>

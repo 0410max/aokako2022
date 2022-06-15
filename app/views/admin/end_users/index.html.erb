@@ -1,28 +1,21 @@
 <div class='container'>
     <div class='row'>
-        <div class='col-md-8 user-index'>
-            <% @users.each do |user| %>
-                <span class='users-index-wrapper'>
-                    <div class='admin-users-index-image'>
-                        <%= image_tag user.get_profile_image,class:'admins-users-image-size' %>
-                    </div>
-                    <div class='admin-users-index-name'>
-                        <strong><%= user.name %></strong><span class='end-user-year-font'>(<%= render 'yearIndex',user:user %>)</span>
-                        <br />
-                        <span class='admin-user-dep-cor'><%= user.dep %>&nbsp;<%= user.cor %></span>
-                    </div>
-                    <div class='admin-users-status'>
-                        <% if user.is_deleted == false %>
-                            <span class='is-deleted-true'>有効</span>
-                        <% else %>
-                            <span class='is-deleted-false'>退会</span>
-                        <% end %>
-                    </div>
-                </span>
-            <% end %>
-            <div class='pagenate'>
-                <%= paginate @users %>
+        <div class='col-md-8 user-index'>  
+            <div class='user-search-wrapper'>
+                <div class='user-search-content'>
+                    <%= form_with url: admin_search_path,local:false, method: :get do |f| %>
+                        <%= f.select :dep, options_for_select([["文学部","文学部"], ["教育人間科学部","教育人間科学部"],  ["経済学部","経済学部"], 
+                        ["法学部","法学部"], ["経営学部","経営学部"], ["国際政治経済学部","国際政治経済学部"], ["総合文化政策学部","総合文化政策学部"], 
+                        ["理工学部","理工学部"], ["社会情報学部","社会情報学部"], ["地球社会共生学部","地球社会共生学部"], ["コミュニティ人間科学部","コミュニティ人間科学部"]]),{include_blank:'学部を選択'},{class:'select'} %>
+                        <%= f.submit "検索する" %>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class='end-user-search'>
+                <%= render 'userIndex',users:@users %>
             </div>
         </div>
     </div>
 </div>
+

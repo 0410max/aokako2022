@@ -4,18 +4,20 @@
     <div class='users-show-content'>
         <% @kakomons.each do |kakomon| %>
             <div class='show-kakomon-content'>
-                <div class='article-body'>
-                    <% if kakomon.image1.attached? %>
-                        <%= link_to kakomon_path(kakomon) do %>
-                            <% if kakomon.image2.attached? || kakomon.image3.attached? %>
-                                <i class="fa-solid fa-clone"></i>
+                <div class='article-body'> 
+                    <div class="swiper-container kakomons-show-swiper-container">
+                        <div class="swiper-wrapper kakomons-show-swiper-wrapper">
+                            <% kakomon.images.each do |image|%>
+                                <div class="swiper-slide">
+                                    <%= image_tag image,class:'kakomons-index-image-size' %>
+                                </div>
                             <% end %>
-                            <% if kakomon.image1.attached? %>
-                                <%= image_tag kakomon.image1,class:'kakomon-show-link' %>
-                            <% end %>
-                        <% end %>
-                    <% end %>
-                </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div> 
                 <div class='user-article-bottom'>
                     講義 : <%= kakomon.sub %><br>
                     教授 : <%= kakomon.prof %><br>

@@ -37,12 +37,16 @@
                                 </span>
                             </div>
                             <div class='mt-2'>  
-                                <%= image_tag board.end_user.get_profile_image ,class:'reported-user-image-size' %>
-                                <span class='reportor-name'><%= board.end_user.name %></span>により報告
+                                <%= link_to admin_end_user_path(board.end_user),class:'end-user-name-link' do %>
+                                    <%= image_tag board.end_user.get_profile_image ,class:'reported-user-image-size' %>
+                                    <span class='reportor-name'><%= board.end_user.name %></span>により報告
+                                <% end %>
                             </div>
                             <div class='mt-2'>
-                                <%= image_tag reportboard.end_user.get_profile_image ,class:'reported-user-image-size' %>
-                                <span class='reportor-name'><%= reportboard.end_user.name %></span>の<%= board.report_i18n %>
+                                <%= link_to admin_end_user_path(reportboard),class:'end-user-name-link' do %>
+                                    <%= image_tag reportboard.end_user.get_profile_image ,class:'reported-user-image-size' %>
+                                    <span class='reportor-name'><%= reportboard.end_user.name %></span>の<%= board.report_i18n %>
+                                <% end %>
                             </div>
                             <div class='mt-2'>
                                 講義 : <%= reportboard.sub %><br>

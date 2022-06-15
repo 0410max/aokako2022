@@ -1,4 +1,8 @@
 class Admin::BoardsController < ApplicationController
+    def index
+        @borders = Board.all.order(created_at: :desc)
+    end
+
     def destroy
         board = Board.find(params[:id])
         boardreport = Boardreport.find_by(board_id:params[:id])

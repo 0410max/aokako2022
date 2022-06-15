@@ -30,12 +30,16 @@
                             </span>
                         </div>
                         <div class='mt-2'>
-                            <%= image_tag user.end_user.get_profile_image ,class:'reported-user-image-size' %>
-                            <span class='reportor-name'><%= user.end_user.name %></span>により報告
+                            <%= link_to admin_end_user_path(user.end_user),class:'end-user-name-link' do %>
+                                <%= image_tag user.end_user.get_profile_image ,class:'reported-user-image-size' %>
+                                <span class='reportor-name'><%= user.end_user.name %></span>により報告
+                            <% end %>
                         </div>
                         <div class='mt-2'>
-                            <%= image_tag reportedUser.get_profile_image ,class:'reported-user-image-size' %>
-                            <span class='reported-name'><%= reportedUser.name %></span>の<%= user.report_i18n %>
+                            <%= link_to admin_end_user_path(reportedUser),class:'end-user-name-link' do %>
+                                <%= image_tag reportedUser.get_profile_image ,class:'reported-user-image-size' %>
+                                <span class='reported-name'><%= reportedUser.name %></span>の<%= user.report_i18n %>
+                            <% end %>
                         </div> 
                     </div>
                 <% end %>
