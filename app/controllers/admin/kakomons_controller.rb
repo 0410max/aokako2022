@@ -6,7 +6,7 @@ class Admin::KakomonsController < ApplicationController
 
     def destroy
         kakomon = Kakomon.find(params[:id])
-        if Kakomonreport.find_by(kakomon_id:params[:id]).exist?
+        if Kakomonreport.find_by(kakomon_id:params[:id]).present?
             kakomonreport = Kakomonreport.find_by(kakomon_id:params[:id])
             kakomonreport.destroy
         end
@@ -15,8 +15,8 @@ class Admin::KakomonsController < ApplicationController
     end
 
     def update
-        kakomon = Kakomon.find(params[:id])
-        kakomon.update(status:true)
+        @kakomon = Kakomon.find(params[:id])
+        @kakomon.update(status:true)
     end
 
 end
