@@ -13,7 +13,7 @@
 
   
   <body>
-    <div id='header'>
+    <div id='header'  >
       <% if end_user_signed_in? %>
         <span class='header-max-width-1200'>
           <ul>
@@ -79,28 +79,27 @@
           </ul>
         </span>
       <% elsif admin_signed_in? %>
-          <ul>
-            <li><%= link_to 'Aokako' ,root_path,class:'aokako-font' %></li>
-          </ul>
-          <ul class='login-header-right'>
-            <li>
-              <%= link_to 'ログアウト',destroy_admin_session_path ,method: :delete,class:'logout-admin' %>
-            </li>
-            <li>
-              <%= link_to admin_end_users_path do %>
-                <i class="fa-solid fa-users users-admin"></i>
-              <% end %>
-            </li>
-            <li class='bell-icon-wrapper'>
-              <%= render 'admin/kakomonreports/bell' %>
-            </li>
-            <li>
-              <%= link_to admin_kakomons_path do %>
-                <i class="fa-solid fa-file admin-file"></i>
-              <% end %>
-            </li>
-          </ul>
-        </span>
+        <ul>
+          <li><%= link_to 'Aokako' ,root_path,class:'aokako-font' %></li>
+        </ul>
+        <ul class='login-header-right'>
+          <li>
+            <%= link_to 'ログアウト',destroy_admin_session_path ,method: :delete,class:'logout-admin' %>
+          </li>
+          <li>
+            <%= link_to admin_end_users_path do %>
+              <i class="fa-solid fa-users users-admin"></i>
+            <% end %>
+          </li>
+          <li class='bell-icon-wrapper'>
+            <%= render 'admin/kakomonreports/bell' %>
+          </li>
+          <li class='file-icon-wrapper'>
+            <%= link_to admin_kakomons_path do %>
+              <%= render 'admin/kakomons/file' %>
+            <% end %>
+          </li>
+        </ul>
       <% else %>
         <ul>  
           <li><%= link_to 'Aokako',root_path,class:'aokako-font' %></li>

@@ -2,7 +2,6 @@ class Public::KakomonsController < ApplicationController
   before_action :authenticate_end_user!,except: [:index,:show]
   def index
     @kakomons = Kakomon.find(Kakomonfavorite.group(:kakomon_id).order('count(kakomon_id) desc').pluck(:kakomon_id))
-    @kakomons = Kakomon.page(params[:page]).per(30)
     @comment = KakomonComment.new
     @report = Kakomonreport.new
     dep = current_end_user.dep

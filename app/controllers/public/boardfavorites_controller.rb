@@ -12,3 +12,4 @@ class Public::BoardfavoritesController < ApplicationController
         favorite.destroy
     end
 end
+

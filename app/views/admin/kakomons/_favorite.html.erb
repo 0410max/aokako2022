@@ -1,0 +1,7 @@
+<% if kakomon.favorited_by?(current_admin) %>
+    <span class='admin-thanks'>Thanks</span>
+<% else %>
+    <%= link_to admin_kakomon_kakomonfavorites_path(kakomon),remote:true, method: :post,class:'not-thanks-link' do %>
+        <span class='admin-not-thanks'>Thanks</span>
+    <% end %>
+<% end %>

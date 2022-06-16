@@ -1,0 +1,34 @@
+<% kakomons = Kakomon.all %>
+<% boards = Board.all %>
+
+<% kakomonCount = 0 %>
+<% kakomons.each do |kakomon| %>
+    <% if kakomon.kakomonfavorites.count == 0 %>
+        <% kakomonCount += 1 %>
+    <% end %>
+<% end %>
+
+<% boardCount = 0 %>
+<% boards.each do |board| %>
+    <% if board.boardfavorites.count == 0 %>
+        <% boardCount += 1 %>
+    <% end %>
+<% end %>
+
+<% notThanksCount = kakomonCount + boardCount %>
+
+<%= link_to admin_kakomons_path do %>
+    <% if notThanksCount != 0 %>
+        <span class='fa-stack'>
+            <i class="fa-solid fa-file admin-file"></i>
+            <% if notThanksCount > 9 %>
+                <i class='fa-solid fa-circle circle-bell-big'></i>
+            <% else %>
+                <i class='fa-solid fa-circle circle-bell'></i>
+            <% end %>
+            <i class='falseStatusCount'><%= notThanksCount %></i>
+        </span>
+    <% else %>
+        <i class="fa-solid fa-file admin-file"></i>
+    <% end %>
+<% end %>

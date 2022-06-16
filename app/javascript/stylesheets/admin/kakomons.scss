@@ -1,6 +1,6 @@
 .admin-index-kakomon-wrapper {
     margin: 0 auto;
-    margin-top: 120px;
+    margin-top: 80px;
 }
 
 .admin-index-kakomon-content-wrapper {
@@ -67,10 +67,10 @@
 }
 
 .admin-index-kakomon-comment-content {
-    border-top: 1px solid #dbdbdb;
-    height: 146px;
+    border-left: 1px solid #dbdbdb;
     padding: 10px;
     overflow: scroll;
+    width: 400px;
 }
 
 .admin-file {
@@ -83,10 +83,11 @@
     padding: 2px 5px;
     font-size: 14px;
     float: right;
+    margin-right: 10px;
 }
 
 .admin-index-kakomon-content-wrapper {
-    margin: 20px auto 0 auto;
+    margin: 10px auto 0 auto;
 }
 
 .admin-kakomon-status-button {
@@ -123,7 +124,7 @@
     margin-bottom: 15px;
     position: fixed;
     top: 80px;
-    left: 580px;
+    left: 570px;
 }   
 
 .admin-kakomon-show-no-comment {

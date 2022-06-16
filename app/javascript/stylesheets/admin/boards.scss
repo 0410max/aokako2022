@@ -24,14 +24,47 @@
 
 .admin-index-board-content {
   padding: 10px;
-  width: 50%;
+  width: 400px;
 }
 
 .admin-index-board-comment {
-  width: 50%;
+  width: 400px;
   border-left: 1px solid #dbdbdb;
   height: 200px;
   overflow: scroll;
+}
+
+.admin-index-board-wrapper:first-child {
+  margin-top: 50px;
+}
+
+.admin-board-index-wrapper {
+  width: 802px;
+  margin: 0 auto;
+}
+
+.admin-board-favorites {
+  float: right;
+  position: relative;
+  top: 2px;
+}
+
+.admin-thanks {
+  background-color: #009B8E;
+  padding: 3.5px 5px;
+  border-radius: 3px;
+  color: white;
+  margin-right: 5px;
+  border: 1px solid #009b8e;
+}
+
+.admin-not-thanks {
+  background-color: white;
+  color: #009b8e;
+  padding: 3.5px 5px;
+  border-radius: 3px;
+  margin-right: 5px;
+  border: 1px solid #009b8e;
 }
 
 @media (max-width: 600px) {

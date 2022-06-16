@@ -15,8 +15,12 @@ Rails.application.routes.draw do
     get 'search' => 'end_users#search'
     get 'clear' => 'end_users#clear'
     patch 'unsubscribe/:id' => 'end_users#unsubscribe'
-    resources :boards, only: [:destroy,:index,:update]
-    resources :kakomons, only: [:destroy,:index,:update]
+    resources :boards, only: [:destroy,:index,:update] do 
+      resources :boardfavorites,only: [:create]
+    end
+    resources :kakomons, only: [:destroy,:index,:update] do 
+      resources :kakomonfavorites,only: [:create]
+    end
   end
 
   scope module: :public do

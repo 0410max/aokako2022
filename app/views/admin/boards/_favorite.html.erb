@@ -1,0 +1,7 @@
+<% if board.favorited_by?(current_admin) %>
+    <span class='admin-thanks'>Thanks</span>
+<% else %>
+    <%= link_to admin_board_boardfavorites_path(board),remote:true, method: :post,class:'not-thanks-link' do %>
+        <span class='admin-not-thanks'>Thanks</span>
+    <% end %>
+<% end %>
