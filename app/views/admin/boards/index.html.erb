@@ -25,6 +25,9 @@
                           <div class='admin-index-kakomon-content-wrapper'>
                               <div class='admin-index-board-content'>
                                 <%= board.created_at.strftime('%Y年%m月%d日') %>
+                                <span class='admin-board-status-<%= board.id %>'>
+                                    <%= render 'boardStatus',board:board %>
+                                </span>
                                 <span class='admin-board-favorites-<%= board.id %> admin-board-favorites'>
                                     <%= render 'admin/boards/favorite' ,board:board %>
                                 </span>
@@ -101,5 +104,6 @@
         </div>
     </div>  
 </div>
+
 
 

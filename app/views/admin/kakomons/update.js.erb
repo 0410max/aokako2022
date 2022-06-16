@@ -1,2 +1,3 @@
 $('.admin-kakomon-status-<%= @kakomon.id %>').html("<%= j(render 'admin/kakomons/kakomonStatus',kakomon:@kakomon) %>");
 $('.admin-kakomon-at').html("<%= j(render 'admin/kakomons/statusCount',kakomons:@kakomons) %>");
+$('.file-icon-wrapper').html("<%= j(render 'admin/kakomons/file',kakomons:@kakomons) %>");

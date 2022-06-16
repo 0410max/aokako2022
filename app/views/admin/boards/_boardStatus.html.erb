@@ -1,5 +1,6 @@
 <% if board.status == false %>
-    <%= link_to '未処理',admin_board_path(board),class:'btn btn-danger admin-kakomon-status-button',remote:true,method: :patch %>
+    <%= link_to '未処理',admin_board_path(board),class:'btn btn-outline-success admin-kakomon-status-button',remote:true,method: :patch %>
 <% else %>
     <span class='admin-kakomon-status-button-true btn btn-success'>処理済</span>
 <% end %>
+

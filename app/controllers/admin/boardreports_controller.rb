@@ -1,4 +1,5 @@
 class Admin::BoardreportsController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @boards = Boardreport.all.order(created_at: :desc)
     @boards = @boards.page(params[:page]).per(30)

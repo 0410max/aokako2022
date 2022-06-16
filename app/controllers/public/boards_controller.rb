@@ -9,7 +9,7 @@ class Public::BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find(params[:id])
+    @board = Board.find(params[:id])  
     @comment = BoardComment.new
     @report = Boardreport.new
   end

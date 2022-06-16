@@ -1,4 +1,5 @@
 class Admin::KakomonreportsController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @kakomons = Kakomonreport.all.order(created_at: :desc)
     @boards = Boardreport.all.order(created_at: :desc)

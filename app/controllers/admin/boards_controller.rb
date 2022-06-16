@@ -1,4 +1,5 @@
 class Admin::BoardsController < ApplicationController
+    before_action :authenticate_admin!
     def index
         @boards = Board.all.order(id: "DESC") 
         @boards = @boards.page(params[:page]).per(30)
@@ -21,3 +22,4 @@ class Admin::BoardsController < ApplicationController
         @board.update(status:true)
     end
 end
+

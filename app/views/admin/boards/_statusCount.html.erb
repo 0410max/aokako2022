@@ -1,7 +1,7 @@
 講義評価
 <% count = 0 %>
 <% boards.each do |board| %>
-    <% if board.boardfavorites.count == 0 %>
+    <% if board.status == false %>
         <% count += 1 %>
     <% end %>
 <% end %>

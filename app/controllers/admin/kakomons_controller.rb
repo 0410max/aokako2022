@@ -1,4 +1,5 @@
 class Admin::KakomonsController < ApplicationController
+    before_action :authenticate_admin!
     def index
         @kakomons = Kakomon.all.order(id: "DESC") 
         @kakomons = @kakomons.page(params[:page]).per(30)
@@ -21,3 +22,4 @@ class Admin::KakomonsController < ApplicationController
         @kakomon.update(status:true)
     end
 end
+

@@ -1,4 +1,5 @@
 class Admin::KakomonfavoritesController < ApplicationController
+    before_action :authenticate_admin!
     def create
         @kakomons = Kakomon.all
         @kakomon = Kakomon.find(params[:kakomon_id])

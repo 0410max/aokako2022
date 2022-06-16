@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'rooms/index'
+  end
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
@@ -21,6 +24,7 @@ Rails.application.routes.draw do
     resources :kakomons, only: [:destroy,:index,:update] do 
       resources :kakomonfavorites,only: [:create]
     end
+    resources :rooms ,only: [:index]
   end
 
   scope module: :public do

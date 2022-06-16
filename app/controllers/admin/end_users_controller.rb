@@ -1,4 +1,5 @@
 class Admin::EndUsersController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @users = EndUser.page(params[:page]).per(30).order(created_at: :desc)
   end

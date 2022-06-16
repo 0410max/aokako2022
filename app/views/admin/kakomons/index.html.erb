@@ -25,18 +25,25 @@
                             <div class='kakomon-report-wrapper'>
                                 <div>
                                     <span><%= kakomon.created_at.strftime("%-Y年%-m月%-d日") %></span>
+                                    <span class='admin-kakomon-status-<%= kakomon.id %>'>
+                                        <%= render 'kakomonStatus',kakomon:kakomon %>
+                                    </span>
                                     <span class='admin-kakomon-favorites-<%= kakomon.id %> admin-board-favorites'>
                                         <%= render 'admin/kakomons/favorite' ,kakomon:kakomon %>
                                     </span>
                                     <span>
                                         <%= link_to'削除する',admin_kakomon_path(kakomon),class:'btn btn-danger report-board-delete-button',method: :delete,data:{confirm:'本当に削除しますか？'} %>
                                     </span>
+
                                 </div>
                                 <div class='mt-2'>
                                     <%= link_to admin_end_user_path(kakomon),class:'end-user-name-link' do %>
                                         <%= image_tag kakomon.end_user.get_profile_image ,class:'reported-user-image-size' %>
                                         <%= link_to kakomon.end_user.name,admin_end_user_path(kakomon.end_user),class:'end-user-name-link' %>
-                                    <% end %>
+                                    <% end %><br />
+                                    講義名: <%= kakomon.sub %><br />
+                                    教授名: <%= kakomon.prof %><br />
+                                    年度: <%= kakomon.year %><br />
                                 </div>
                                 <div class='mt-2'>
                                     <div class='article-body-kakomons-show'> 
@@ -54,7 +61,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <span>Thanks数: <%= kakomon.kakomonfavorites.count %></span>
                             </div>
                             <div class='admin-index-kakomon-comment-content'>
                                 <% comments = kakomon.kakomon_comments.order(created_at: :desc) %>
