@@ -1,11 +1,13 @@
 .admin-index-kakomon-wrapper {
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 .admin-index-kakomon-content-wrapper {
     display: flex;
     flex-wrap: wrap;
+    min-height: 191px;
+    border: 1px solid #dbdbdb;
 }
 
 .admin-index-kakomon-content {
@@ -14,6 +16,39 @@
 
 .admin-index-kakomon-comment {
     width: 50%;
+    border-left: 1px solid #dbdbdb;
+}
+
+.admin-kakomon-at {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: #dbdbdb;
+    margin: 5px;
+}
+
+.admin-board-at {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: #dbdbdb;
+    margin: 5px;
+}
+
+.admin-kakomon {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: #fafafa;
+    margin: 5px;
+}
+
+.admin-board {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: #fafafa;
+    margin: 5px;
 }
 
 .admin-article-top {
@@ -22,20 +57,9 @@
     padding: 5px 10px;
 }
 
-.admin-article-body {
-    border: 1px solid #dbdbdb;
-}
-
 .admin-article-bottom {
-    border: 1px solid #dbdbdb;
     border-bottom-left-radius: 2px;
     padding: 5px 10px;
-}
-
-.admin-index-kakomon-comment {
-    border-top: 1px solid #dbdbdb;
-    border-right: 1px solid #dbdbdb;
-    border-bottom: 1px solid #dbdbdb;
 }
 
 .admin-index-kakomon-comment-top {
@@ -44,7 +68,9 @@
 
 .admin-index-kakomon-comment-content {
     border-top: 1px solid #dbdbdb;
+    height: 146px;
     padding: 10px;
+    overflow: scroll;
 }
 
 .admin-file {
@@ -82,6 +108,25 @@
     font-size: 18px;
 }
 
-.swiper-slide {
-    min-height: 191px;
+.admin-kakomons-top-wrapper {
+    width: 1000px;
+    height: 100px;
+    position: fixed;
+    top: 30px;
+    left: 200px;
+    background-color: #fafafa;
+    z-index: 40;
+}      
+
+.admin-kakomons-top {
+    text-align: center;
+    margin-bottom: 15px;
+    position: fixed;
+    top: 80px;
+    left: 580px;
+}   
+
+.admin-kakomon-show-no-comment {
+    color: gray;
+    font-size: 14px;
 }

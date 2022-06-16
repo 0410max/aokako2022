@@ -1,7 +1,8 @@
 class Admin::KakomonsController < ApplicationController
     def index
-        @kakomons = Kakomon.page(params[:page]).per(30)
-        @kakomons = @kakomons.order(create_at: :desc)
+        @kakomons = Kakomon.all.order(id: "DESC") 
+        @kakomons = @kakomons.page(params[:page]).per(30)
+        @boards = Board.all.order(id: "DESC") 
     end
 
     def destroy
@@ -15,8 +16,8 @@ class Admin::KakomonsController < ApplicationController
     end
 
     def update
+        @kakomons = Kakomon.all.order(id: "DESC") 
         @kakomon = Kakomon.find(params[:id])
         @kakomon.update(status:true)
     end
-
 end

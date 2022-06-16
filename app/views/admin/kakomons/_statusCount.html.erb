@@ -1,0 +1,10 @@
+過去問
+<% count = 0 %>
+<% kakomons.each do |kakomon| %>
+    <% if kakomon.status == false %>
+        <% count += 1 %>
+    <% end %>
+<% end %>
+<% unless count == 0 %>
+    <span class='false-status-count'><%= count %></span>
+<% end %>

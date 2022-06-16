@@ -1,6 +1,8 @@
 class Admin::BoardsController < ApplicationController
     def index
-        @borders = Board.all.order(created_at: :desc)
+        @boards = Board.all.order(id: "DESC") 
+        @boards = @boards.page(params[:page]).per(30)
+        @kakomons = Kakomon.all.order(id: "DESC") 
     end
 
     def destroy
@@ -9,5 +11,11 @@ class Admin::BoardsController < ApplicationController
         board.destroy
         boardreport.destroy
         redirect_to request.referer
+    end
+
+    def update
+        @boards = Board.all.order(id: "DESC") 
+        @board = Board.find(params[:id])
+        @board.update(status:true)
     end
 end

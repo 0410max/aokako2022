@@ -88,7 +88,8 @@
     left: 200px;
     background-color: #fafafa;
     z-index: 40;
-}                                                
+}    
+
 
 .user-reports-top {
     text-align: center;
@@ -228,4 +229,9 @@
 
 .kakomonreports-index-wrapper:first-child {
     margin-top: 50px;
+}
+
+.admin-kakomons-image-size {
+    width: 380px;
+    height: auto;
 }

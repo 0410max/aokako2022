@@ -2,65 +2,84 @@
     <div class='container'>
         <div class='row' %>
             <div class='col-md-10 admin-index-kakomon-wrapper'>
+
+                <div class='admin-kakomons-top-wrapper'>
+                    <div class='admin-kakomons-top'>
+                        <span class='post-index'>投稿一覧</span>
+                        <span class='admin-kakomon-at'>
+                            <%= link_to admin_kakomons_path,class:'kakomon-report-link' do %>
+                                <%= render 'statusCount' ,kakomons:@kakomons %>
+                            <% end %>
+                        </span>
+                        <span class='admin-board'>
+                            <%= link_to admin_boards_path,class:'kakomon-report-link' do %>
+                                <%= render 'admin/boards/statusCount' ,boards:@boards %>
+                            <% end %>
+                        </span>
+                    </div>
+                </div>
+
                 <% @kakomons.each do |kakomon| %>
-                    <div class='admin-index-kakomon-content-wrapper'>
-                        <div class='admin-index-kakomon-content'>
-                            <% #画像 %>
-                            <div class='admin-article-body'> 
-                                <div class="swiper-container">
-                                    <div class="swiper-wrapper">
-                                        <% kakomon.images.each do |image|%>
-                                            <div class="swiper-slide">
-                                                <%= image_tag image,class:'kakomons-index-image-size' %>
-                                            </div>
-                                        <% end %>
+                    <div class='admin-index-kakomons-wrapper'>
+                        <div class='admin-index-kakomon-content-wrapper'>
+                            <div class='admin-index-kakomon-content'>
+                                <% #画像 %>
+                                <div class='admin-article-body'> 
+                                    <div class="swiper-container">
+                                        <div class="swiper-wrapper">
+                                            <% kakomon.images.each do |image|%>
+                                                <div class="swiper-slide">
+                                                    <%= image_tag image,class:'kakomons-index-image-size' %>
+                                                </div>
+                                            <% end %>
+                                        </div>
+                                        <div class="swiper-pagination"></div>
+                                        <div class="swiper-button-next"></div>
+                                        <div class="swiper-button-prev"></div>
                                     </div>
-                                    <div class="swiper-pagination"></div>
-                                    <div class="swiper-button-next"></div>
-                                    <div class="swiper-button-prev"></div>
+                                </div>
+                            </div>
+                            <div class='admin-index-kakomon-comment'>
+                                <div class='admin-index-kakomon-comment-top'>
+                                    <%= link_to admin_end_user_path(kakomon.end_user),class:'index-profile-image-link' do %>
+                                        <%= image_tag kakomon.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                                    <% end %>
+                                    <span class='kakomon-user-name-top'>
+                                        <%= link_to kakomon.end_user.name,admin_end_user_path(kakomon.end_user),class:'end-user-name-link' %>
+                                    </span>
+                                    <%= link_to '削除する',admin_kakomon_path(kakomon),method: :delete,class:'btn btn-danger admin-kakomon-delete-button',data:{confirm:'本当に削除しますか？'} %>
+                                    <span class='admin-kakomon-status-<%= kakomon.id %>'>
+                                        <%= render 'kakomonStatus',kakomon:kakomon %>
+                                    </span>
+                                    <br />
+                                    講義 : <%= kakomon.sub %><br>
+                                    教授 : <%= kakomon.prof %><br>
+                                    年度 : <%= kakomon.year %><br>
+                                    <%= kakomon.created_at.strftime('%Y年%m月%d日') %>
+                                </div>
+
+                                <div class='admin-index-kakomon-comment-content'>
+                                    <% comments = kakomon.kakomon_comments.order(created_at: :desc) %>
+                                    <% if comments.count == 0 %>
+                                        <span class='admin-kakomon-show-no-comment'>コメントはありません</span>
+                                    <% end %>
+                                    <% comments.each do |comment| %>
+                                        <div class='other-user-comment'>
+                                            <%= link_to admin_end_user_path(comment.end_user),class:'index-profile-image-link' do %>
+                                                <%= image_tag comment.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                                            <% end %>
+                                            <span class='comment-user-name'><%= comment.end_user.name %></span>
+                                            <span class='kakomon-date-report'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+                                            <div class='admin-other-user-comment-report-content'>
+                                                <%= simple_format(comment.comment, {}, wrapper_tag: "div") %>
+                                            </div>
+                                        </div>
+                                        <br />
+                                    <% end %>
                                 </div>
                             </div>
                         </div>
-                        <div class='admin-index-kakomon-comment'>
-                            <div class='admin-index-kakomon-comment-top'>
-                                <%= link_to admin_end_user_path(kakomon.end_user),class:'index-profile-image-link' do %>
-                                    <%= image_tag kakomon.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-                                <% end %>
-                                <span class='kakomon-user-name-top'><%= kakomon.end_user.name %></span>
-                                <%= link_to '削除する',admin_kakomon_path(kakomon),method: :delete,class:'btn btn-danger admin-kakomon-delete-button',data:{confirm:'本当に削除しますか？'} %>
-                                <span class='admin-kakomon-status'>
-                                    <%= render 'kakomonStatus' ,kakomon:kakomon %>
-                                </span>
-                                <br />
-                                講義 : <%= kakomon.sub %><br>
-                                教授 : <%= kakomon.prof %><br>
-                                年度 : <%= kakomon.year %><br>
-                                <%= kakomon.created_at.strftime('%Y年%m月%d日%H時%M分%-S秒') %>
-                            </div>
-
-                            <div class='admin-index-kakomon-comment-content'>
-                                <% comments = kakomon.kakomon_comments.order(created_at: :desc) %>
-                                <% if comments.count == 0 %>
-                                    <span class='board-show-no-comment'>コメントはありません</span>
-                                <% end %>
-                                <% comments.each do |comment| %>
-                                    <div class='other-user-comment'>
-                                        <%= link_to admin_end_user_path(comment.end_user),class:'index-profile-image-link' do %>
-                                            <%= image_tag comment.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-                                        <% end %>
-                                        <span class='comment-user-name'><%= comment.end_user.name %></span>
-                                        <span class='kakomon-date-report'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
-                                        <div class='other-user-comment-report-content'>
-                                            <%= simple_format(comment.comment) %>
-                                        </div>
-                                    </div>
-                                    <br />
-                                <% end %>
-                            </div>
-                        </div>
                     </div>
-
-
                 <% end %>
                 <div class='pagenate'>
                     <%= paginate @kakomons %>
