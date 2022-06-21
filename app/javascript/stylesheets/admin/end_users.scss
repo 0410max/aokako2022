@@ -60,7 +60,6 @@
 }
 
 .ban-false {
-    color: white;
     padding: 4px 17px;
     border-radius: 4px;
 }
@@ -137,4 +136,35 @@
     left: 7px;
     border: 1px solid white;
     border-radius: 13px;
+}
+
+.admin-end-user-kakomon-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    width: 802px;
+    margin: 10px auto 0 auto;
+}
+
+.admin-show-kakomon-content {
+    width: 400px;
+}
+
+.admin-end-user-kakomon-message {
+    width: 400px;
+    padding: 10px;
+    border-left: 1px solid #dbdbdb;    
+    overflow: scroll;
+}
+
+.users-show-content {
+    width: 850px;
+    margin: 10px auto 0 auto;
+}
+
+.admin-enduser-boards-index-wrapper {
+    display: flex;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    width: 800px;
+    margin: 10px auto 0 auto;
 }

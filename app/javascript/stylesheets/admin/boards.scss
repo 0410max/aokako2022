@@ -67,6 +67,53 @@
   border: 1px solid #009b8e;
 }
 
+.admin-board-date {
+  color: #8e8e8e;
+  font-size: 12px;
+}
+
+.admin-board-index-show {
+  margin: 10px auto 0 auto;
+  display: flex;
+  flex-wrap:wrap;
+  width: 800px;
+  position: relative;
+  bottom: 10px;
+}
+
+.admin-board-message-wrapper {
+  width: 400px;
+  float:right;
+  border: 1px solid #dbdbdb;
+  margin-top: 10px;
+  padding: 10px;
+  height: 156px;
+  overflow: scroll;
+  border-left: none;
+}
+
+.admin-show-board-content {
+  width: 400px;
+  float:left;
+  border: 1px solid #dbdbdb;
+  margin-top: 10px;
+}
+
+.admin-end-user-board-delete  {
+  padding: 2px 5px;
+  padding: 1px 3px;
+  float: right;
+}
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 600px) {
   .admin-board-comment-all-1000 {
     font-size: 13px;

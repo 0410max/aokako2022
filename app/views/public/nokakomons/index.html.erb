@@ -1,2 +1,108 @@
-<h1>Public::Nokakomons#index</h1>
-<p>Find me in app/views/public/nokakomons/index.html.erb</p>
+<div class='container'>
+    <div class='row' %>
+        <div class='col-md-10 nokakomon-index'>
+            <div class="nokakomon-top">
+                <span class='kakomon-sub-search'>講義名検索</span>
+                <span class='kakomon-prof-search'>教授名検索</span>
+                <%= render 'public/kakomons/search' %>
+            </div>
+            <div class='index-modal-bg'></div>
+
+            <% len = @kakomons.length %>
+            <% i = 0 %>
+            <% while i < len do %>
+                <div>
+                    <% @kakomons.each do |kakomon| %>
+                        <div class='index-nokakomon-content'>
+                            <div class='article-top'>
+                                <% #アイコン、名前 %>
+                                <%= link_to end_user_path(kakomon.end_user),class:'index-profile-image-link' do %>
+                                    <%= image_tag kakomon.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                                <% end %>
+                                <span class='kakomon-user-name-top'><%= kakomon.end_user.name %></span>
+                                    <% #モーダル %>
+                                <div class='index-modal'>
+                                    <div class='modal-content'>
+                                        <% if kakomon.end_user === current_end_user %>
+                                        <div class='kakomon-delete'>
+                                            <%= link_to'削除する',kakomon_path(kakomon),class:'kakomon-delete-link',method: :delete %><br />
+                                        </div>
+                                        <div class='kakomons-show-link-hr'>
+                                            <%= link_to'詳細を表示',kakomon_path(kakomon),class:'index-kakomons-show-link' %>
+                                        </div>
+                                        <% else %>  
+                                        <%= form_with(model:[kakomon,@report],local:true,url:kakomon_kakomonreports_path(kakomon)) do |f| %>
+                                            <%= f.hidden_field :id, :value => kakomon.id %>
+                                            <%= f.submit '報告する',class:'kakomon-report' %>
+                                        <% end %>
+                                        <div class='kakomons-show-link-hr'>
+                                            <%= link_to'詳細を表示',kakomon_path(kakomon),class:'index-kakomons-show-link' %>
+                                        </div>
+                                        <% end %>
+                                        <div class='index-modal-close-button'>キャンセル</div>
+                                        <script>
+                                            $('#<%= i %>').on('click',function(){
+                                                var numberstr = '<%= i %>';
+                                                var numberInd = Number(numberstr)
+                                                $('.index-modal').eq(numberInd).fadeIn();
+                                                $('.index-modal-bg').fadeIn();
+                                                $("body").addClass("no_scroll");
+                                            });
+                                            $('.index-modal-bg,.index-modal-close-button').on('click',function(){
+                                                $("body").removeClass("no_scroll");
+                                                $('.index-modal,.index-modal-bg').fadeOut();
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                            <% #画像 %>
+                            <div class='article-body'> 
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <% kakomon.images.each do |image|%>
+                                            <div class="swiper-slide">
+                                                <%= image_tag image,class:'kakomons-index-image-size' %>
+                                            </div>
+                                        <% end %>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                            </div>
+                            <% #投稿の下部分 %>
+                            <div class='article-bottom'>
+                                講義 : <%= kakomon.sub %><br>
+                                教授 : <%= kakomon.prof %><br>
+                                年度 : <%= kakomon.year %><br>
+                                <span class='kakomon-date'><%= kakomon.created_at.strftime('%Y/%m/%d') %></span>
+                            </div>
+                        </div>
+                        <% i += 1 %>
+                    <% end %>
+                </div>
+                <div class='pagenate'>
+                    <%= paginate @kakomons %>
+                </div>
+            <% end %>
+
+            <script>
+                var mySwiper = new Swiper('.swiper-container', {
+                    direction: 'horizontal',
+                    loop: false,
+                    observer: true,
+                
+                    pagination: {
+                    el: '.swiper-pagination',
+                    },
+                
+                    navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                    }
+                })
+            </script>
+        </div>
+    </div>
+</div>

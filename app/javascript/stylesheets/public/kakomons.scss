@@ -219,6 +219,12 @@
   padding-top: 83px;
   margin: 0 auto;
   width: 300px;
+}  
+
+.nokakomon-top {
+  padding-top: 47px;
+  margin: 0 auto;
+  width: 300px;
 }    
 
 .index-kakomon-content {
@@ -231,6 +237,10 @@
 }
 
 .index-kakomon-content:first-child {
+  margin-top: 5px;
+}
+
+.index-nokakomon-content:first-child {
   margin-top: 5px;
 }
 
@@ -484,6 +494,15 @@
 .no-kakomon-message {
   font-size: 14px;
   color: red;
+  position:relative;
+  bottom: 4px;
+}
+
+.no-kakomon-message-not-login {
+  font-size: 14px;
+  color: red;
+  position:relative;
+  top: 14px;
 }
 
 .sub-search-submit{
@@ -1168,6 +1187,30 @@
   overflow:hidden;
 }
 
+
+
+.index-nokakomon-content {
+  border: 1px solid #dbdbdb;
+  background-color: white;
+  border-radius: 2px;
+  position: relative;
+  width: 70%;
+  margin: 20px auto 0 auto;
+}
+
+.index-nokakomon-content:first-child {
+  margin-top: 20px;
+}
+
+.kakomons-index-wrapper-1000 {
+  display: none;
+}
+
+
+
+
+
+
 @media (max-width:1200px) {
   .show-kakomon-content {
     margin: 10px 7px;
@@ -1188,8 +1231,10 @@
     width: 70%;
     padding: 0;
   }
-  .article-bottom {
-    padding: 5px 10px;
+  .index-nokakomon-content {
+    margin: 10px auto;
+    width: 70%;
+    padding: 0;
   }
   .article-top {
     padding: 5px 10px;
@@ -1209,10 +1254,19 @@
   .kakomons-show-top-button {
     top: 14px;
   }
+  .kakomons-index-wrapper {
+    display: none;
+  }
+  .kakomons-index-wrapper-1000 {
+    display: block;
+  }
 }
 
 @media (max-width:991px) {
   .index-kakomon-content {
+    width: 75%;
+  }
+  .index-nokakomon-content {
     width: 95%;
   }
 }
@@ -1223,6 +1277,10 @@
     flex-direction: column;
   }
   .index-kakomon-content {
+    width: 75%;
+    font-size: 14px;
+  }
+  .index-nokakomon-content {
     width: 90%;
     font-size: 14px;
   }
@@ -1264,18 +1322,14 @@
   }
 }
 
-
-@media screen and (max-width:500px) {
-  .index-kakomon-content {
-    width: 95%;
-  }
-}
-
 @media (max-width:520px) {
   .new-container {
     width: 400px;
     margin: 0 auto;
   }           
+  .index-kakomon-content {
+    width: 80%;
+  }
 }
 
 @media (max-width:450px) {

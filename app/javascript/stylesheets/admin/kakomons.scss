@@ -67,10 +67,11 @@
 }
 
 .admin-index-kakomon-comment-content {
-    border-left: 1px solid #dbdbdb;
     padding: 10px;
     overflow: scroll;
     width: 400px;
+    height: 500px;
+    border-bottom: 1px dashed #dbdbdb;
 }
 
 .admin-file {

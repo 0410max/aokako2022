@@ -2,6 +2,7 @@ class Public::KakomonsController < ApplicationController
   before_action :authenticate_end_user!,except: [:index,:show]
   def index
     @kakomons = Kakomon.find(Kakomonfavorite.group(:kakomon_id).order('count(kakomon_id) desc').pluck(:kakomon_id))
+    @kakomons = Kaminari.paginate_array(@kakomons).page(params[:page]).per(30)
     @comment = KakomonComment.new
     @report = Kakomonreport.new
     dep = current_end_user.dep
@@ -47,7 +48,7 @@ class Public::KakomonsController < ApplicationController
   def searchSub
     if params[:sub].present?
       @kakomons = Kakomon.where('sub LIKE ?', "%#{params[:sub]}%")
-      @kakomons = @kakomons.page(params[:page]).per(10).order(created_at: :desc)
+      @kakomons = @kakomons.order(created_at: :desc)
     else
       @kakomons = Kakomon.none
     end
@@ -61,7 +62,7 @@ class Public::KakomonsController < ApplicationController
   def searchProf
     if params[:prof].present?
       @kakomons = Kakomon.where('prof LIKE ?', "%#{params[:prof]}%")
-      @kakomons = @kakomons.page(params[:page]).per(10).order(created_at: :desc)
+      @kakomons = @kakomons.order(created_at: :desc)
     else
       @kakomons = Kakomon.none
     end
@@ -74,7 +75,7 @@ class Public::KakomonsController < ApplicationController
 
   def searchClear
     @kakomons = Kakomon.find(Kakomonfavorite.group(:kakomon_id).order('count(kakomon_id) desc').pluck(:kakomon_id))
-    @kakomons = Kakomon.page(params[:page]).per(30)
+    @kakomons = Kaminari.paginate_array(@kakomons).page(params[:page]).per(30)
     @report = Kakomonreport.new
     @comment = KakomonComment.new
     dep = current_end_user.dep

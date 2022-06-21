@@ -1,0 +1,120 @@
+<div class='admin-user-rooms-top'>
+    <span class='admin-user-rooms-top-content'><%= link_to @user.name,admin_end_user_path(@user),class:'admin-end-user-link' %></span>のメッセージ
+</div>
+
+<div class='container admin-rooms-index-wrapper'>
+    <div class='row'>
+        <div class='col-md-4 offset-1 rooms-index-left'>
+            <% @rooms.each do |room| %>
+                <%= link_to admin_end_user_room_path(id:room,end_user_id:@user),class:'rooms-show-link' do %>
+                    <% if room.id == @room.id %>
+                        <div class='rooms-content-at'>
+                            <% @RoomUsers = room.room_users %>
+                            <% @RoomUsers.each do |r| %>
+                                <% unless r.end_user.name === @user.name %>
+                                    <%= image_tag r.end_user.get_profile_image,size:'40x40',class:'rooms-index-profile-image' %>
+                                    <span class='rooms-index-top-name'>
+                                        <%= r.end_user.name %>
+                                    </span><br />
+                                    <% if Message.find_by(id: room.messages).present? %>
+                                        <% if Message.find_by(id: room.messages.first).message.length > 10 %>
+                                            <span class='last-message'><%= Message.find_by(id: room.messages.first).message[0..10] %>...&nbsp;&nbsp;
+                                            <%= time_ago_in_words(Message.find_by(id: room.messages.first).created_at).upcase %>前</span>
+                                        <% else %>
+                                            <span class='last-message'><%= Message.find_by(id: room.messages.first).message %>&nbsp;&nbsp;
+                                            <%= time_ago_in_words(Message.find_by(id: room.messages.first).created_at).upcase %>前</span>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                        </div>
+                    <% else %>
+                        <div class='rooms-content'>
+                            <% @RoomUsers = room.room_users %>
+                            <% @RoomUsers.each do |r| %> 
+                                <% unless r.end_user.name === @user.name %>
+                                    <%= image_tag r.end_user.get_profile_image,size:'40x40',class:'rooms-index-profile-image' %>
+                                    <span class='rooms-index-top-name'>
+                                        <%= r.end_user.name %>
+                                    </span><br />
+                                    <% if Message.find_by(id: room.messages).present? %>
+                                        <% if Message.find_by(id: room.messages.first).message.length > 10 %>
+                                            <span class='last-message'><%= Message.find_by(id: room.messages.first).message[0..10] %>...&nbsp;&nbsp;
+                                            <%= time_ago_in_words(Message.find_by(id: room.messages.first).created_at).upcase %>前</span>
+                                        <% else %>
+                                            <span class='last-message'><%= Message.find_by(id: room.messages.first).message %>&nbsp;&nbsp;
+                                            <%= time_ago_in_words(Message.find_by(id: room.messages.first).created_at).upcase %>前</span>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+
+
+
+        <div class='col-md-6 rooms-index-right'>
+            <div class='rooms-index-right-top'>
+                <%= link_to admin_end_user_path(@anotherUser),class:'rooms-show-end-user-link' do %>
+                    <span class='rooms-show-top-name'>
+                        <%= @anotherUser.name %>
+                    </span>
+                <% end %>
+            </div>
+
+            <div class='message-area-wrapper'>
+                <div class='message-area'>
+                    <% @messages = @room.messages %>
+                    <% if @messages.present? %>
+                        <div class='message-wrapper'>
+                            <div class='message-content-wrapper'>
+                                <% @messages.each do |m| %>
+                                    <% if m.end_user_id == @user.id %>
+                                        <div class='current_user-wrapper'>
+                                            <div class="current_user">
+                                                <div class='current_user-width'><%= safe_join(m.message.split("\n"),tag(:br)) %></div>
+                                                <span class='current_user-check'>            
+                                                    <% if m.checked == true %>
+                                                        既読
+                                                    <% end %>
+                                                </span>
+                                                <span class='current_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%M") %></span>
+                                            </div>
+                                        </div>
+                                    <% else %>
+                                        <div class='visited_user-wrapper'>
+                                            <%= link_to admin_end_user_path(m.end_user) do %>
+                                                <%= image_tag m.end_user.get_profile_image,size:'30x30',class:'message-profile-image' %>
+                                            <% end %>
+                                            <div class="visited_user fukidasi">
+                                                <div class='visited_user-width'><%= safe_join(m.message.split("\n"),tag(:br)) %></div>
+                                                <span class='visited_user-time'><%= m.created_at.strftime("%-m/%-d %-H:%M") %></span>
+                                            </div>
+                                        </div>
+                                    <% end %>
+                                <% end %> 
+                            </div>  
+                        </div>
+                    <% else %>
+                        <p class='no-dm-message'>メッセージはまだありません</p>
+                    <% end %>
+                </div>
+                <script>   
+                    $('.message-area').scrollTop(1000000000000);
+                </script>
+            </div>
+            <div class='rooms-show-form'>
+                <%= form_with model: @message do |f| %>
+                    <%= f.text_area :message, placeholder: "メッセージを入力してください",class:'message-text-area' %>
+                    <%= f.hidden_field :room_id, value: @room.id %>
+                    <%= f.submit '送信',class:'message-submit' %>
+                <% end %>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>

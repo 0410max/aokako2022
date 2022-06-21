@@ -14,7 +14,7 @@ class Public::RoomsController < ApplicationController
     if RoomUser.where(end_user_id: current_end_user.id, room_id: @room.id).present?
       @messages = @room.messages.order("messages.created_at asc")
       @message = Message.new
-      @RoomUsers = @room.room_users
+      @RoomUsers = @room.room_users 
     else
       redirect_back(fallback_location: root_path)
     end

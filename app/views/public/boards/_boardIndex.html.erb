@@ -7,7 +7,7 @@
                 <div class='article-top'>
                     <% #アイコン、名前 %>
                     <%= link_to end_user_path(board.end_user),class:'index-profile-image-link' do %>
-                    <%= image_tag board.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                        <%= image_tag board.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
                     <% end %>
                     <span class='kakomon-user-name-top'><%= board.end_user.name %></span>
                     <span id='<%= i %>-top-button' class='kakomons-index-top-button'><i class="fa-solid fa-ellipsis"></i></span>
@@ -32,35 +32,34 @@
             </div>
 
             <script>
-            $('#star-rate1-<%= board.id %>').empty();
-            $('#star-rate1-<%= board.id %>').raty({
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                readOnly: true,
-                score: <%= board.rate1 %>
-            });
+                $('#star-rate1-<%= board.id %>').empty();
+                $('#star-rate1-<%= board.id %>').raty({
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    readOnly: true,
+                    score: <%= board.rate1 %>
+                });
             </script>
             <script>
-            $('#star-rate2-<%= board.id %>').empty();
-            $('#star-rate2-<%= board.id %>').raty({
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                readOnly: true,
-                score: <%= board.rate2 %>
-            });
+                $('#star-rate2-<%= board.id %>').empty();
+                $('#star-rate2-<%= board.id %>').raty({
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    readOnly: true,
+                    score: <%= board.rate2 %>
+                });
             </script>
             <script>
-            $('#star-rate3-<%= board.id %>').empty();
-            $('#star-rate3-<%= board.id %>').raty({
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                readOnly: true,
-                score: <%= board.rate3 %>
-            });
+                $('#star-rate3-<%= board.id %>').empty();
+                $('#star-rate3-<%= board.id %>').raty({
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    readOnly: true,
+                    score: <%= board.rate3 %>
+                });
             </script>
             <script>
-            $('#<%= i %>')
-                .on('click',function(){
+                $('#<%= i %>').on('click',function(){
                     var continue1000Str = '<%= i %>';
                     var continue1000Ind = Number(continue1000Str);
                     $('.board-comment-all').eq(continue1000Ind).css('display','inline');
@@ -68,8 +67,7 @@
                     $('.continue-comment-link').eq(continue1000Ind).css('display','none');
                     $('.continue-comment').eq(continue1000Ind).css('display','none');
                 });
-                $('#<%= i %>-1200')
-                .on('click',function(){
+                $('#<%= i %>-1200').on('click',function(){
                     var continue1000Str = '<%= i %>';
                     var continue1000Ind = Number(continue1000Str);
                     $('.board-comment-all').eq(continue1000Ind).css('display','inline');
@@ -79,17 +77,15 @@
                 });
             </script>
             <script>
-                $('.index-boards-show-link-button-<%= i %>')
-                    .on('click',function(){
+                $('.index-boards-show-link-button-<%= i %>').on('click',function(){
                     var numberstr = '<%= i %>';
                     var numberInd = Number(numberstr)
                     $('.kakomons-show').eq(numberInd).fadeIn();
                     $('.index-modal-bg').fadeIn();
-                    });
-                $('.index-modal-bg,.modal-show-close-button')
-                    .on('click',function(){
+                });
+                $('.index-modal-bg,.modal-show-close-button').on('click',function(){
                     $('.kakomons-show').fadeOut();
-                    });
+                });
             </script>
             <% i += 1 %>
         <% end %>

@@ -25,50 +25,51 @@
                     <span class='form1'>講義の面白さ</span><span class='star-rate1' id="star-rate1-<%= board.id %>-1000"></span><br />
                     <span class='form2'>教授の人柄</span><span class='star-rate2' id="star-rate2-<%= board.id %>-1000"></span><br />
                     <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="star-rate3-<%= board.id %>-1000"></span><br />
-                    <span class='board-date'><br /><%= board.created_at.strftime('%Y/%m/%d') %>
+                    <span class='board-favorites-<%= board.id %> board-favorites'>
+                        <%= render 'favorite' ,board:board %>
+                    </span><br />  
+                    <span class='board-date'><%= board.created_at.strftime('%Y/%m/%d') %>
                 </div>
             </div>
             <script>
-            $('#star-rate1-<%= board.id %>-1000').empty();
-            $('#star-rate1-<%= board.id %>-1000').raty({
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                readOnly: true,
-                score: <%= board.rate1 %>
-            });
+                $('#star-rate1-<%= board.id %>-1000').empty();
+                $('#star-rate1-<%= board.id %>-1000').raty({
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    readOnly: true,
+                    score: <%= board.rate1 %>
+                });
             </script>
             <script>
-            $('#star-rate2-<%= board.id %>-1000').empty(); 
-            $('#star-rate2-<%= board.id %>-1000').raty({
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                readOnly: true,
-                score: <%= board.rate2 %>
-            });
+                $('#star-rate2-<%= board.id %>-1000').empty(); 
+                $('#star-rate2-<%= board.id %>-1000').raty({
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    readOnly: true,
+                    score: <%= board.rate2 %>
+                });
             </script>
             <script>
-            $('#star-rate3-<%= board.id %>-1000').empty();
-            $('#star-rate3-<%= board.id %>-1000').raty({
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                readOnly: true,
-                score: <%= board.rate3 %>
+                $('#star-rate3-<%= board.id %>-1000').empty();
+                $('#star-rate3-<%= board.id %>-1000').raty({
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    readOnly: true,
+                    score: <%= board.rate3 %>
             });
             </script>
 
             
 
             <script>
-            $('.index-boards-show-link-button-1000-<%= i %>')
-                .on('click',function(){
-                var numberstr = '<%= i %>';
-                var numberInd = Number(numberstr)
-                $('.max-width-1000-boards-show').eq(numberInd).fadeIn();
-                $('.index-modal-bg').fadeIn();
+                $('.index-boards-show-link-button-1000-<%= i %>').on('click',function(){
+                    var numberstr = '<%= i %>';
+                    var numberInd = Number(numberstr)
+                    $('.max-width-1000-boards-show').eq(numberInd).fadeIn();
+                    $('.index-modal-bg').fadeIn();
                 });
-            $('.index-modal-bg')
-                .on('click',function(){
-                $('.max-width-1000-boards-show').fadeOut();
+                $('.index-modal-bg').on('click',function(){
+                    $('.max-width-1000-boards-show').fadeOut();
                 });
             </script>
 

@@ -7,13 +7,17 @@
         
         <div class='user-info-follow-setting-wrapper'>
             <% if @user.is_deleted == false %>
-                <%= link_to 'BAN',admin_path(@user),method: :patch,class:'btn btn-danger ban-false',data:{confirm:'本当にBANしますか？'} %>
+                <%= link_to 'BAN',admin_path(@user),method: :patch,class:'btn btn-outline-danger ban-false',data:{confirm:'本当にBANしますか？'} %>
             <% else %>
                 <span class='ban-true'>BAN中</span>
+            <% end %>
+            <% unless @user.rooms.count == 0 %>
+                <span class='admin-rooms-link'><%= link_to 'メッセージ',admin_end_user_rooms_path(@user),class:'admin-message-link' %></span>
             <% end %>
         </div>
     </div>           
 </div>
+
 
 <div class='users-info-wrapper'>
     <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
@@ -29,11 +33,8 @@
 
 
 
-
 <% #モーダル %>
-
 <div class='index-modal-bg'></div>
-
 <div class='index-modal'>
     <div class='modal-content'>
         <% if @user === current_end_user %>

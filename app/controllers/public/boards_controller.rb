@@ -2,6 +2,7 @@ class Public::BoardsController < ApplicationController
   before_action :authenticate_end_user!,except: [:index,:show]
   def index
     @boards = Board.find(Boardfavorite.group(:board_id).order('count(board_id) desc').pluck(:board_id))
+    @boards = Kaminari.paginate_array(@boards).page(params[:page]).per(30)
     @comment = BoardComment.new
     @report = Boardreport.new
     dep = current_end_user.dep
@@ -39,7 +40,7 @@ class Public::BoardsController < ApplicationController
   def searchSub
     if params[:sub].present?
       @boards = Board.where('sub LIKE ?', "%#{params[:sub]}%")
-      @boards = @boards.page(params[:page]).per(10).order(created_at: :desc)
+      @boards = @boards.page(params[:page]).per(3).order(created_at: :desc)
     else
       @boards = Board.none
     end
@@ -53,7 +54,7 @@ class Public::BoardsController < ApplicationController
   def searchProf
     if params[:prof].present?
       @boards = Board.where('prof LIKE ?', "%#{params[:prof]}%")
-      @boards = @boards.page(params[:page]).per(10).order(created_at: :desc)
+      @boards = @boards.page(params[:page]).per(30).order(created_at: :desc)
     else
       @boards = Board.none
     end

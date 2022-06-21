@@ -1,22 +1,38 @@
-<% i = 0 %>
-<% len = @boards.length %>
 <% if @user.boards.count === 0 %>
     <span class='no-follower'>投稿はありません</span>
 <% else %>
-    <div class='board-index-show'>
-        <% while i < len do %>
-            <% @boards.each do |board| %>
-            <div class='show-board-content'>
+    <div class='admin-board-index-show'>
+        <% @boards.each do |board| %>
+            <div class='admin-show-board-content'>
                 <div class='article-bottom'>
-                    講義 : <%= board.sub %><br>
+                    講義 : <%= board.sub %><%= link_to '削除する',admin_board_path(board),method: :delete,class:'btn btn-outline-danger admin-end-user-board-delete',data:{confirm:'本当に削除しますか？'} %><br>
                     教授 : <%= board.prof %><br>
                     <span class='user-form1'>講義の面白さ</span><span class='star-rate1' id="star-rate1-<%= board.id %>"></span><br />
                     <span class='user-form2'>教授の人柄</span><span class='star-rate2' id="star-rate2-<%= board.id %>"></span><br />
                     <span class='user-form3'>単位の取りやすさ</span><span class='star-rate3' id="star-rate3-<%= board.id %>"></span><br />
-                    <span class='board-date'><br /><%= board.created_at.strftime('%Y/%m/%d') %>
+                    <span class='admin-board-date'><%= board.created_at.strftime('%Y/%m/%d') %>
                 </div>
             </div>
-        
+            <div class='admin-board-message-wrapper'>
+                <% comments = board.board_comments.order(created_at: :desc) %>
+                <% if comments.count == 0 %>
+                    <span class='admin-kakomon-show-no-comment'>コメントはありません</span>
+                <% end %>
+                <% comments.each do |comment| %>
+                    <div class='other-user-comment'>
+                        <%= link_to admin_end_user_path(comment.end_user),class:'index-profile-image-link' do %>
+                            <%= image_tag comment.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                        <% end %>
+                        <span class='comment-user-name'><%= comment.end_user.name %></span>
+                        <span class='kakomon-date-report'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+                        <div class='admin-other-user-comment-report-content'>
+                            <%= simple_format(comment.comment, {}, wrapper_tag: "div") %>
+                        </div>
+                    </div>
+                    <br />
+                <% end %>
+            </div>
+    
             <script>
                 $('#star-rate1-<%= board.id %>').raty({
                 size: 36,
@@ -44,9 +60,6 @@
                 score: <%= board.rate3 %>
                 });
             </script>
-        
-            <% i += 1 %>
-            <% end %>
         <% end %>
     </div>
 <% end %>

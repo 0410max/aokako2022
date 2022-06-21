@@ -72,3 +72,11 @@
         }
     })
 </script>
+
+<script>
+    $('.index-modal-bg,.modal-show-close-button').on('click',function(){
+        $("body").removeClass("no_scroll");
+        $('.index-modal-bg,.kakomons-show').fadeOut();
+        $('.index-modal').fadeOut(3);
+    });
+</script>

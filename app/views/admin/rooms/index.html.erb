@@ -1,2 +1,93 @@
-<h1>Admin::Rooms#index</h1>
-<p>Find me in app/views/admin/rooms/index.html.erb</p>
+<div class='admin-user-rooms-top'>
+    <span class='admin-user-rooms-top-content'><%= link_to @user.name,admin_end_user_path(@user),class:'admin-end-user-link' %></span>のメッセージ
+</div>
+
+<div class='container admin-rooms-index-wrapper'>
+    <div class='row'>
+        <div class='col-md-4 offset-1 rooms-index-left'>
+            <% if @rooms.count != 0 %>
+                <% @rooms.each do |room| %>
+
+                    <% room.end_users.each do |user| %>
+                        <% if user.name != @user.name %>
+                            <% @anotherUser = user %>
+                        <% end %>
+                    <% end %>
+
+                    <% messageCount = Notification.where(action:'dm',visited_id:@user.id,visitor_id:@anotherUser.id,checked:false).count %>
+                        
+                    <%= link_to admin_end_user_room_path(id:room,end_user_id:@user),class:'rooms-show-link' do %>
+                        <div class='rooms-content'>
+                            <% @RoomUsers = room.room_users %>
+                            <% @RoomUsers.each do |r| %>
+                                <% unless r.end_user.name === @user.name %>
+                                    <%= image_tag r.end_user.get_profile_image,size:'40x40',class:'rooms-index-profile-image' %>
+                                    <span class='rooms-index-top-name'>
+                                        <%= r.end_user.name %>
+                                    </span><br />
+                                    <% if Message.find_by(id: room.messages).present? %>
+                                        <% if Message.find_by(id: room.messages.first).message.length > 10 %>
+                                            <span class='last-message'><%= Message.find_by(id: room.messages.first).message[0..10] %>...&nbsp;&nbsp;
+                                            <%= time_ago_in_words(Message.find_by(id: room.messages.first).created_at).upcase %>前</span>
+                                        <% else %>
+                                            <span class='last-message'><%= Message.find_by(id: room.messages.first).message %>&nbsp;&nbsp;
+                                            <%= time_ago_in_words(Message.find_by(id: room.messages.first).created_at).upcase %>前</span>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                            <% if messageCount != 0 %>
+                                <span class='message-count'>
+                                    <span class='message-count-content'><%= messageCount %></span>
+                                </span>
+                            <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% else %>
+
+                <div class='rooms-content'>
+                    <div class='no-rooms-wrapper'>
+                        <div class='no-rooms-user-image'>
+                            <div class='no-rooms-user-image-size'></div>
+                        </div>
+                        <div class='no-rooms-message'>
+                            <div class='no-rooms-message-long'></div><br />
+                            <div class='no-rooms-message-short'></div>
+                        </div>
+                    </div>
+                </div>
+                <div class='rooms-content'>
+                    <div class='no-rooms-wrapper'>
+                        <div class='no-rooms-user-image'>
+                            <div class='no-rooms-user-image-size'></div>
+                        </div>
+                        <div class='no-rooms-message'>
+                            <div class='no-rooms-message-long'></div><br />
+                            <div class='no-rooms-message-short'></div>
+                        </div>
+                    </div>
+                </div>
+                <div class='rooms-content'>
+                    <div class='no-rooms-wrapper'>
+                        <div class='no-rooms-user-image'>
+                            <div class='no-rooms-user-image-size'></div>
+                        </div>
+                        <div class='no-rooms-message'>
+                            <div class='no-rooms-message-long'></div><br />
+                            <div class='no-rooms-message-short'></div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+
+        </div>
+        <div class='col-md-6 rooms-index-right'>
+            <div class='rooms-index-message'><i class="fa-solid fa-paper-plane rooms-index-paper-plane"></i></div>
+            <div class='rooms-index-right-message'>
+                <span class='message-font'>メッセージ</span><br />
+                <span class='message-content-font'>友達に非公開でメッセージを送信できます。</span>
+            </div>
+        </div>
+    </div>
+</div>

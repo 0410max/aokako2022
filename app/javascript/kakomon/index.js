@@ -13,7 +13,6 @@ document.addEventListener("turbolinks:load", function () {
     });
 
     $('.no-kakomon-search-submit-no-login,.sub-demo-text-area-no-login,.sub-demo-text-area-content-no-login').on('click',function(){
-        $('.no-kakomon-message').html('ログインまたは新規登録をしてください')
+        $('.no-kakomon-message-not-login').html('ログインまたは新規登録をしてください')
     });
 });
-
