@@ -15,7 +15,7 @@
     </div>
 </div>
 
-<div class='report-reason-modal'>
+<div class='report-reason-modal-1000'>
     <div class='modal-content'>
         <%= form_with(model:[board,@report],url:board_boardreports_path(board),local:false) do |f| %>
             <div class='report-reason-content'>
@@ -51,20 +51,20 @@
     });
     $('.index-modal-bg').on('click',function(){
         $("body").removeClass("no_scroll");
-        $('.index-modal-bg,.report-reason-modal').fadeOut();
-        $('.index-modal').fadeOut(3);
+        $('.index-modal-bg,.report-reason-modal-1000').fadeOut();
+        $('.index-modal-1000').fadeOut(3);
     });
     $('.index-modal-close-button').on('click',function(){
-        $('.index-modal-bg,.index-modal').fadeOut();
+        $('.index-modal-bg,.index-modal-1000').fadeOut();
     });
     $('.modal-show-close-button').on('click',function(){
         $('.kakomons-show,.index-modal-bg').fadeOut();
-        $('.index-modal').fadeOut(3);
+        $('.index-modal-1000').fadeOut(3);
     });
     $('.kakomon-report-<%= i %>').on('click',function() {
         var numberstr = '<%= i %>';
         var numberInd = Number(numberstr)
-        $('.report-reason-modal').eq(numberInd).fadeIn();
-        $('.index-modal').fadeOut();
+        $('.report-reason-modal-1000').eq(numberInd).fadeIn();
+        $('.index-modal-1000').fadeOut();
     });
 </script>
