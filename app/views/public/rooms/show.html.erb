@@ -130,10 +130,14 @@
 
 
 
-
-<div class='container rooms-index-wrapper-1000'>
+<div class='container rooms-show-wrapper-1000'>
     <div class='row'>
-        <div class='col-md-10 offset-1 rooms-index-1000'>
+        <div class='col-md-10 offset-1 rooms-show-top-1000'>
+            <div class='room-back-link-wrapper'><%= link_to '<',:back,class:'room-back-link' %></div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-10 offset-1 rooms-show-name-1000'>
             <div class='rooms-index-right-top'>
                 <% @RoomUsers = @room.room_users %>
                 <% @RoomUsers.each do |r| %>
@@ -147,8 +151,12 @@
                     </span>
                 <% end %>
             </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-10 offset-1 rooms-show-1000'>
             <div class='message-area-wrapper'>
-                <div class='message-area'>
+                <div class='message-area-1000'>
                     <% if @messages.present? %>
                         <div class='message-wrapper'>
                             <div class='message-content-wrapper'>
@@ -184,17 +192,18 @@
                     <% end %>
                 </div>
                 <script>   
-                    $('.message-area').scrollTop(1000000000000);
+                    $('.message-area-1000').scrollTop(1000000000000);
                 </script>
             </div>
-            <div class='rooms-show-form'>
-                <%= form_with model: @message do |f| %>
-                    <%= f.text_area :message, placeholder: "メッセージを入力してください",class:'message-text-area' %>
-                    <%= f.hidden_field :room_id, value: @room.id %>
-                    <%= f.submit '送信',class:'message-submit' %>
-                <% end %>
-            </div>
-            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-10 offset-1 rooms-show-form-1000'>
+            <%= form_with model: @message do |f| %>
+                <%= f.text_area :message, placeholder: "メッセージを入力してください",class:'message-text-area' %>
+                <%= f.hidden_field :room_id, value: @room.id %>
+                <%= f.submit '送信',class:'message-submit' %>
+            <% end %>
         </div>
     </div>
 </div>
