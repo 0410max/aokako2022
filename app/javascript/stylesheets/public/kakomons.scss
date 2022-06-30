@@ -283,6 +283,8 @@
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   background-color: white;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .fa-clone {
@@ -666,7 +668,7 @@
 }         
 
 .kakomon-show {
-  padding-top: 110px;
+  padding-top: 70px;
   margin: 0 auto;
   width: 100%;
 }
@@ -824,6 +826,7 @@
   padding: 10px;
   border-top: 1px solid #dbdbdb;
 }
+
 
 // イメージ
 .slideshow {
@@ -1182,10 +1185,6 @@
   height: 512px;
 }
 
-.kakomons-show-wrapper-1000 {
-  display: none;
-  overflow:hidden;
-}
 
 
 
@@ -1238,12 +1237,6 @@
   }
   .article-top {
     padding: 5px 10px;
-  }
-  .kakomons-show-wrapper{
-    display: none;
-  }
-  .kakomons-show-wrapper-1000 {
-    display: block;
   }
   .max-width-1000 {
     display: block;

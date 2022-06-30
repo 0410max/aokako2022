@@ -1,18 +1,18 @@
-<div class='index-modal'>
+<div class='report-index-modal'>
     <div class='modal-content'>
-        <% if @board.end_user === current_end_user %>
+        <% if board.end_user === current_end_user %>
             <div class='kakomon-delete'>
                 <%= link_to'削除する',board_path(board),class:'kakomon-delete-link',method: :delete %><br />
             </div>
         <% else %>
-            <div class='kakomon-report kakomon-report'>報告する</div>
+            <div class='kakomon-report-<%= i %> kakomon-report'>報告する</div>
         <% end %>
         <div class='index-modal-close-button'>キャンセル</div>
     </div>
 </div>
-<div class='report-reason-modal'>
+<div class='report-board-reason-modal'>
     <div class='modal-content'>
-        <%= form_with(model:[board,@report],url:board_boardreports_path(board),local:false) do |f| %>
+        <%= form_with(model:[board,@boardreport],url:board_boardreports_path(board),local:false) do |f| %>
             <div class='report-reason-content'>
                 <span class='user-radio-button'><%= f.radio_button :report, Boardreport.reports.key(0) %></span>スパムである
             </div>
@@ -34,26 +34,30 @@
 
 
 <script>
-    $('#top-button').on('click',function(){
-        $('.index-modal').fadeIn();
+    $('#<%= i %>-top-report-button').on('click',function(){
+        var numberstr = '<%= i %>';
+        var numberInd = Number(numberstr)
+        $('.report-index-modal').eq(numberInd).fadeIn();
         $('.index-modal-bg').fadeIn();
         $("body").addClass("no_scroll");
     });
     $('.index-modal-bg').on('click',function(){
         $("body").removeClass("no_scroll");
-        $('.index-modal-bg,.report-reason-modal').fadeOut();
-        $('.index-modal').fadeOut(3);
+        $('.index-modal-bg,.report-board-reason-modal').fadeOut();
+        $('.report-index-modal').fadeOut(3);
     });
     $('.index-modal-close-button').on('click',function(){
-        $('.index-modal-bg,.index-modal').fadeOut();
+        $('.index-modal-bg,.report-index-modal').fadeOut();
     });
     $('.modal-show-close-button').on('click',function(){
         $('.kakomons-show,.index-modal-bg').fadeOut();
-        $('.index-modal').fadeOut(3);
+        $('.report-index-modal').fadeOut(3);
     });
-    $('.kakomon-report').on('click',function() {
-        $('.report-reason-modal').fadeIn();
-        $('.index-modal').fadeOut();
+    $('.kakomon-report-<%= i %>').on('click',function() {
+        var numberstr = '<%= i %>';
+        var numberInd = Number(numberstr)
+        $('.report-board-reason-modal').eq(numberInd).fadeIn();
+        $('.report-index-modal').fadeOut();
     });
 </script>
 

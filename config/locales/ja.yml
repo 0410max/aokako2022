@@ -39,9 +39,14 @@ ja:
         dm: 'メッセージが不適切'
     boardreport:
         report:
-          content: '投稿内容が不適切'
-          comment: '投稿のコメントが不適切'
+          spam: 'スパム'
+          bullying: 'いじめまたは嫌がらせ'
+          lie: '虚偽の情報'
+          dislike: '単に気に入らない'
     kakomonreport:
         report:
-          content: '投稿内容が不適切'
-          comment: '投稿のコメントが不適切'
+          spam: 'スパム'
+          bullying: 'いじめまたは嫌がらせ'
+          lie: '虚偽の情報'
+          dislike: '単に気に入らない'
+          

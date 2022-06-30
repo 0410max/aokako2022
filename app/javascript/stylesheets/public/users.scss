@@ -164,7 +164,7 @@
 }
 
 .user-index-table {
-    margin: 20px auto;
+    margin: 0 auto;
     width: 400px;
 }
 
@@ -1065,6 +1065,10 @@
     border-bottom: 1px solid #dbdbdb;
 }
 
+.report-reason-content:nth-child(5) {
+    border-bottom: 1px solid #dbdbdb;
+}
+
 .user-radio-button {
     float: left;
     margin-left: 5px;
@@ -1285,6 +1289,158 @@
     display: none;
 }
 
+
+
+
+
+.end-users-boards-top-button {
+    float:right;
+}
+
+.report-index-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    width: 200px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 52;
+    background-color: #fff;
+    border: none;
+    text-align: center;
+}
+
+.report-board-reason-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    width: 250px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 52;
+    background-color: #fff;
+    border: none;
+    text-align: center;
+}
+
+.report-kakomon-reason-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    width: 250px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 52;
+    background-color: #fff;
+    border: none;
+    text-align: center;
+}
+
+.index-kakomon-report-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    width: 200px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 52;
+    background-color: #fff;
+    border: none;
+    text-align: center;
+}
+
+
+
+.end-users-show-kakomon-content {
+    width: 45%;
+    border: 1px solid #dbdbdb;
+    margin-left: 30px;
+    margin-top: 20px;
+    position: relative;
+    bottom: 10px;
+}
+
+.endusers-show-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-article-bottom {
+    position: relative;
+}
+
+.endusers-kakomon-favorites {
+    position: relative;
+}
+
+.end-users-kakomons-top-button {
+    position: absolute;
+    right: 5px;
+    top: 3px;
+}
+
+.end-users-kakomons-top-button:hover {
+    cursor: pointer;
+}
+
+.end-users-boards-top-button:hover {
+    cursor: pointer;
+}
+
+.end-users-show-image-link:hover {
+    filter: brightness(105%);
+}
+
+.end-users-kakomons-show-content-kakomon {
+    margin: 10px auto;
+}
+
+.back-link-wrapper {
+    margin: 10px auto;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto 10px auto;
+    width: 50%;
+}
+
+.back-link {
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.back-link:hover {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.board-show-wrapper {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.back-link-wrapper-board {
+    margin: 10px auto;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto 10px auto;
+    width: 400px;
+}
+
+
+
+
+
+
 @media (max-width:1200px){
     .td-users-show-profile-image {
         width: 400px;
@@ -1402,8 +1558,24 @@
     .end-users-index-1000 {
         display: block;
     }
+    .end-users-show-kakomon-content {
+        margin: 10px auto;
+        width: 75%;
+        border: 1px solid #dbdbdb;
+    }
+    .article-body-kakomons-show {
+        width: 55%;
+    }
 }
 
+@media(max-width: 900px){
+    .article-body-kakomons-show {
+        width: 60%;
+    }
+    .back-link-wrapper {
+        width: 60%;
+    }
+}
 
 
 @media(max-width: 800px){
@@ -1428,6 +1600,12 @@
     }
     .show-profile-image {
         margin-left: 40px;
+    }
+    .article-body-kakomons-show {
+        width: 68%;
+    }
+    .back-link-wrapper {
+        width: 68%;
     }
 }
 
@@ -1498,6 +1676,24 @@
     }
     .end-users-index-name {
         width: 55%;
+    }
+    .end-users-show-kakomon-content {
+        width: 80%;
+    }
+    .board-show {
+        font-size: 14px;
+    }
+    .board-show-user-info {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 520px){
+    .article-body-kakomons-show {
+        width: 80%;
+    }
+    .back-link-wrapper {
+        width: 80%;
     }
 }
 
@@ -1579,6 +1775,16 @@
     }
     .user-info-show {
         padding-top: 50px;
+    }
+    .end-users-show-kakomon-content {
+        width: 85%;
+    }
+    .board-show-wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .back-link-wrapper-board {
+        width: 100%;
     }
 }
 

@@ -32,7 +32,7 @@
                                         <%= render 'admin/kakomons/favorite' ,kakomon:kakomon %>
                                     </span>
                                     <span>
-                                        <%= link_to'削除する',admin_kakomon_path(kakomon),class:'btn btn-danger report-board-delete-button',method: :delete,data:{confirm:'本当に削除しますか？'} %>
+                                        <%= link_to'削除する',admin_kakomon_path(kakomon),class:'btn btn-outline-danger report-board-delete-button',method: :delete,data:{confirm:'本当に削除しますか？'} %>
                                     </span>
 
                                 </div>
@@ -61,25 +61,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class='admin-index-kakomon-comment-content'>
-                                <% comments = kakomon.kakomon_comments.order(created_at: :desc) %>
-                                <% if comments.count == 0 %>
-                                    <span class='admin-kakomon-show-no-comment'>コメントはありません</span>
-                                <% end %>
-                                <% comments.each do |comment| %>
-                                    <div class='other-user-comment'>
-                                        <%= link_to admin_end_user_path(comment.end_user),class:'index-profile-image-link' do %>
-                                            <%= image_tag comment.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-                                        <% end %>
-                                        <span class='comment-user-name'><%= comment.end_user.name %></span>
-                                        <span class='kakomon-date-report'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
-                                        <div class='admin-other-user-comment-report-content'>
-                                            <%= simple_format(comment.comment, {}, wrapper_tag: "div") %>
-                                        </div>
-                                    </div>
-                                    <br />
-                                <% end %>
                             </div>
                         </div>
                     <% end %>

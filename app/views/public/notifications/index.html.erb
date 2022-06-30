@@ -3,7 +3,7 @@
         <div class='col-md-6 notifications-index-wrapper'>
             <div class='notification-wrapper'>
                 <% notifications = @notifications.where.not(visitor_id: current_end_user.id) %>
-                <% if notifications.exists? %>
+                <% if notifications.present? %>
                     <%= render 'notification' %>
                 <% else %>
                     <div class='no-notification-wrapper' %>

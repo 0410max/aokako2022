@@ -7,8 +7,6 @@ class Public::BoardCommentsController < ApplicationController
         comment.board_id = @board.id
         comment.end_user_id = current_end_user.id
         comment.save
-        
-        @board.create_notification_comment!(current_end_user, comment.id)
         @comment = BoardComment.new
     end
 

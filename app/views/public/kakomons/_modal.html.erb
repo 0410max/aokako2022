@@ -9,10 +9,53 @@
             <% else %>
                 <%= form_with(model:[@kakomon,@report],local:true,url:kakomon_kakomonreports_path(@kakomon)) do |f| %>
                     <%= f.hidden_field :id, :value => @kakomon.id %>
-                    <%= f.submit '報告する',class:'kakomon-report' %>
+                    <div class='kakomon-report'>報告する</div>
                 <% end %>
             <% end %>
             <div class='index-modal-close-button'>キャンセル</div>
         </div>
     </div>
 </div>
+<div class='report-reason-modal'>
+    <div class='modal-content'>
+        <%= form_with(model:[@kakomon,@report],url:kakomon_kakomonreports_path(@kakomon),local:false) do |f| %>
+            <div class='report-reason-content'>
+                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(0) %></span>スパムである
+            </div>
+            <div class='report-reason-content'>
+                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(1) %></span>いじめまたは嫌がらせ
+            </div>
+            <div class='report-reason-content'>
+                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(2) %></span>虚偽の情報
+            </div>
+            <div class='report-reason-content'>
+                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(3) %></span>単に気に入らない
+            </div>
+            <div class='report-reason-content'>
+                <%= f.submit'報告する',class:'end-user-report-button-last' %>
+            </div>
+        <% end %>
+    </div>
+</div>
+<script>
+    $('.kakomon-report').on('click',function() {
+        $('.report-reason-modal').fadeIn();
+        $('.index-modal').fadeOut();
+    });
+    $('.index-modal-bg').on('click',function(){
+        $("body").removeClass("no_scroll");
+        $('.index-modal-bg,.report-reason-modal').fadeOut();
+        $('.index-modal').fadeOut(3);
+    });
+    $('.index-modal-close-button').on('click',function(){
+        $('.index-modal-bg,.index-modal').fadeOut();
+    });
+    $('.modal-show-close-button').on('click',function(){
+        $('.kakomons-show,.index-modal-bg').fadeOut();
+        $('.index-modal').fadeOut(3);
+    });
+    $('.kakomon-report').on('click',function() {
+        $('.report-reason-modal').fadeIn();
+        $('.index-modal').fadeOut();
+    });
+</script>

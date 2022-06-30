@@ -33,6 +33,8 @@ class Public::EndUsersController < ApplicationController
     end
 
     @report = Userreport.new
+    @boardreport = Boardreport.new
+    @kakomonreport = Kakomonreport.new
 
   end
 

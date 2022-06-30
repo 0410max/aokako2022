@@ -1,0 +1,69 @@
+<div class='index-kakomon-report-modal'>
+    <div class='modal-content'>
+        <% if kakomon.end_user === current_end_user %>
+            <div class='kakomon-delete'>
+                <%= link_to'削除する',kakomon_path(kakomon),class:'kakomon-delete-link',method: :delete %><br />
+            </div>
+        <% else %>  
+            <div class='kakomon-report-<%= i %> kakomon-report'>報告する</div>
+        <% end %>
+        <div class='index-modal-close-button'>キャンセル</div>
+    </div>
+</div>
+<script>
+    $('#<%= i %>-kakomon-report').on('click',function(){
+        var numberstr = '<%= i %>';
+        var numberInd = Number(numberstr)
+        $('.index-kakomon-report-modal').eq(numberInd).fadeIn();
+        $('.index-modal-bg').fadeIn();
+        $("body").addClass("no_scroll");
+    });
+</script>
+
+<div class='report-kakomon-reason-modal'>
+    <div class='modal-content'>
+        <%= form_with(model:[kakomon,@kakomonreport],url:kakomon_kakomonreports_path(kakomon),local:false) do |f| %>
+            <div class='report-reason-content'>
+                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(0) %></span>スパムである
+            </div>
+            <div class='report-reason-content'>
+                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(1) %></span>いじめまたは嫌がらせ
+            </div>
+            <div class='report-reason-content'>
+                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(2) %></span>虚偽の情報
+            </div>
+            <div class='report-reason-content'>
+                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(3) %></span>単に気に入らない
+            </div>
+            <div class='report-reason-content'>
+                <%= f.submit'報告する',class:'end-user-report-button-last' %>
+            </div>
+        <% end %>
+    </div>
+</div>
+<script>
+    $('.kakomon-report-<%= i %>').on('click',function() {
+        var numberstr = '<%= i %>';
+        var numberInd = Number(numberstr)
+        $('.report-kakomon-reason-modal').eq(numberInd).fadeIn();
+        $('.index-kakomon-report-modal').fadeOut();
+    });
+    $('.index-modal-bg').on('click',function(){
+        $("body").removeClass("no_scroll");
+        $('.index-modal-bg,.report-kakomon-reason-modal').fadeOut();
+        $('.index-kakomon-report-modal').fadeOut(3);
+    });
+    $('.index-modal-close-button').on('click',function(){
+        $('.index-modal-bg,.index-kakomon-report-modal').fadeOut();
+    });
+    $('.modal-show-close-button').on('click',function(){
+        $('.kakomons-show,.index-modal-bg').fadeOut();
+        $('.index-kakomon-report-modal').fadeOut(3);
+    });
+    $('.kakomon-report-<%= i %>').on('click',function() {
+        var numberstr = '<%= i %>';
+        var numberInd = Number(numberstr)
+        $('.report-kakomon-reason-modal').eq(numberInd).fadeIn();
+        $('.index-kakomon-report-modal').fadeOut();
+    });
+</script>

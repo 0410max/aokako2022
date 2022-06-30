@@ -168,12 +168,12 @@
     display: flex;
     border:1px solid #dbdbdb;
     border-radius: 4px;
-    width: 800px;
+    width: 500px;
     margin: 10px auto 0 auto;
 }                       
 
 .board-report-wrapper {
-    width: 400px;
+    width: 500px;
     height: 280px;
     padding: 10px;
 }
@@ -223,9 +223,8 @@
 }                                        
 
 .kakomon-report-wrapper {
-    width: 400px;
+    width: 500px;
     padding: 10px;
-    border-right: 1px solid #dbdbdb;
 }
 
 .kakomonreports-index-wrapper:first-child {
@@ -233,6 +232,6 @@
 }
 
 .admin-kakomons-image-size {
-    width: 380px;
+    width: 100%;
     height: auto;
 }

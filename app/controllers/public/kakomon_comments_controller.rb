@@ -6,7 +6,6 @@ class Public::KakomonCommentsController < ApplicationController
         comment.kakomon_id = @kakomon.id
         comment.end_user_id = current_end_user.id
         comment.save
-        @kakomon.create_notification_comment!(current_end_user, comment.id)
         @comment = KakomonComment.new
     end
 

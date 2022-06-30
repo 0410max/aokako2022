@@ -8,7 +8,8 @@
             <% @boards.each do |board| %>
             <div class='show-board-content'>
                 <div class='article-bottom'>
-                    講義 : <%= board.sub %><br>
+                    講義 : <%= board.sub %>
+                    <span id='<%= i %>-top-report-button' class='end-users-boards-top-button'><i class="fa-solid fa-ellipsis"></i></span><br>
                     教授 : <%= board.prof %><br>
                     <span class='user-form1'>講義の面白さ</span><span class='star-rate1' id="star-rate1-<%= board.id %>"></span><br />
                     <span class='user-form2'>教授の人柄</span><span class='star-rate2' id="star-rate2-<%= board.id %>"></span><br />
@@ -16,6 +17,8 @@
                     <span class='board-favorites-<%= board.id %> end-users-show-board-favorites'>
                         <%= render 'public/boards/favorite' ,board:board %>
                     </span>
+                    <% #モーダル %>
+                    <%= render 'modalIndex' ,board:board,i:i %>
 
                     <span class='board-date-show'><br /><%= board.created_at.strftime('%Y/%m/%d') %>
                 </div>

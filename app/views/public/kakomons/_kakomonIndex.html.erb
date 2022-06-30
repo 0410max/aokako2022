@@ -18,14 +18,8 @@
                             <div class='kakomon-delete'>
                                 <%= link_to'削除する',kakomon_path(kakomon),class:'kakomon-delete-link',method: :delete %><br />
                             </div>
-                            <div class='kakomons-show-link-hr'>
-                                <span class='index-kakomons-show-link-<%= i %>'>詳細を表示</span>
-                            </div>
                         <% else %>  
                             <div class='kakomon-report-<%= i %> kakomon-report'>報告する</div>
-                            <div class='kakomons-show-link-hr'>
-                                <span class='index-kakomons-show-link-<%= i %>'>詳細を表示</span>
-                            </div>
                         <% end %>
                         <div class='index-modal-close-button'>キャンセル</div>
                     </div>
@@ -44,10 +38,16 @@
                     <div class='modal-content'>
                         <%= form_with(model:[kakomon,@report],url:kakomon_kakomonreports_path(kakomon),local:false) do |f| %>
                             <div class='report-reason-content'>
-                                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(0) %></span>投稿内容が不適切
+                                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(0) %></span>スパムである
                             </div>
                             <div class='report-reason-content'>
-                                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(1) %></span>投稿のコメントが不適切
+                                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(1) %></span>いじめまたは嫌がらせ
+                            </div>
+                            <div class='report-reason-content'>
+                                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(2) %></span>虚偽の情報
+                            </div>
+                            <div class='report-reason-content'>
+                                <span class='user-radio-button'><%= f.radio_button :report, Kakomonreport.reports.key(3) %></span>単に気に入らない
                             </div>
                             <div class='report-reason-content'>
                                 <%= f.submit'報告する',class:'end-user-report-button-last' %>
@@ -107,5 +107,6 @@
         <% i += 1 %>
     <% end %>
 <% end %>
+
 
 

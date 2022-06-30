@@ -34,7 +34,7 @@ class Public::BoardsController < ApplicationController
     board = Board.find(params[:id])
     board.destroy
     flash[:notice] = "削除されました"
-    redirect_to request.referer
+    redirect_to end_user_path(current_end_user)
   end
 
   def searchSub

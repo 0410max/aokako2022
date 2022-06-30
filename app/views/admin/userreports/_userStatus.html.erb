@@ -1,5 +1,5 @@
 <% if user.status == false %>
-    <%= link_to '未処理',admin_userreport_path(user),remote:true,method: :patch,class:'btn btn-danger user-status' %>
+    <%= link_to '未処理',admin_userreport_path(user),remote:true,method: :patch,class:'btn btn-outline-success user-status' %>
 <% else %>
     <span class='btn btn-success user-status'>処理済</span>
 <% end %>

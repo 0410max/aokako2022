@@ -39,14 +39,14 @@
                         <div class='mt-2'>
                             <%= link_to admin_end_user_path(reportedUser),class:'end-user-name-link' do %>
                                 <%= image_tag reportedUser.get_profile_image ,class:'reported-user-image-size' %>
-                                <span class='reported-name'><%= reportedUser.name %></span>の<%= user.report_i18n %>
+                                <span class='reported-name'><%= reportedUser.name %></span> → <%= user.report_i18n %>
                             <% end %>
                         </div> 
                     </div>
                 <% end %>
-                <div class='pagenate'>
-                    <%= paginate @users %>
-                </div>
+            </div>
+            <div class='pagenate'>
+                <%= paginate @users %>
             </div>
         </div>
     </div>

@@ -1,12 +1,20 @@
 <% #モーダル %>
 <div class='index-modal-bg'></div>
-<%= render 'showModal' %>
+<%= render 'showModal',board:@board %>
 
 <div class='kakomons-show-wrapper'>
     <div class='conainer'>
         <div class='row'>
             <div class='col-md-9 kakomon-show'>
-                <div class='kakomon-show-content'>
+                <div class='board-show-wrapper'>
+                    <div class='back-link-wrapper-board'><%= link_to '<',:back,class:'back-link' %></div>
+                    <div class='boars-show-user-info'>
+                        <%= link_to end_user_path(@board.end_user),class:'index-profile-image-link' do %>
+                            <%= image_tag @board.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
+                        <% end %>
+                        <span class='kakomons-show-user-name'><%= @board.end_user.name %></span>
+                        <span class='kakomons-show-top-button' id='top-button'><i class="fa-solid fa-ellipsis"></i></span>
+                    </div>
                     <div class='board-show'>
                         講義 : <%= @board.sub %><br>
                         教授 : <%= @board.prof %><br>
@@ -45,115 +53,9 @@
                         score: <%= @board.rate3 %>
                         });
                     </script>
-                    <div class='comment-wrapper'>
-                        <% #アイコン、名前 %>   
-                        <div class='kakomons-show-user-info'>
-                            <%= link_to end_user_path(@board.end_user),class:'index-profile-image-link' do %>
-                                <%= image_tag @board.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-                            <% end %>
-                            <span class='kakomons-show-user-name'><%= @board.end_user.name %></span>
-                            <span class='kakomons-show-top-button'><i class="fa-solid fa-ellipsis"></i></span>
-                        </div>
-                        <% #コメント %>
-                        <div class='board-show-comment-scroll'>
-                            <%= render 'boardShow' %>
-                        </div>
-                        <div class='kakomons-show-comment-new'>
-                            <%= form_with(model:[@board,@comment], local: false) do |f| %>
-                                <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
-                                <%= f.submit "投稿する",class:'kakomons-show-comment-submit' %>
-                            <% end %>
-                        </div> 
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
-<div class='kakomons-show-wrapper-1000'>
-    <div class='conatiner'>
-        <div class='row'>
-            <div class='col-md-9 kakomon-show-1000'>
-                <div class='boards-show-content-1000'>
-                    <div class='comment-wrapper-1000'>
-                        <% #アイコン、名前 %> 
-                        <div class='kakomons-show-user-info-1000'>
-                            <%= link_to end_user_path(@board.end_user),class:'index-profile-image-link' do %>
-                                <%= image_tag @board.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-                            <% end %>
-                            <span class='kakomons-show-user-name'><%= @board.end_user.name %></span>
-                            <span class='kakomons-show-top-button'><i class="fa-solid fa-ellipsis"></i></span>
-                        </div>
-                        <% #コメント %>
-                        <div class='board-comment-scroll-1000'>
-                            <div class='kakomon-comment-content-top'>   
-                                <div class='board-comment-content'>
-                                    講義 : <%= @board.sub %><br>
-                                    教授 : <%= @board.prof %><br>
-                                    <span class='form1'>講義の面白さ</span><span class='star-rate1' id="1000-star-rate1-<%= @board.id %>"></span><br />
-                                    <span class='form2'>教授の人柄</span><span class='star-rate2' id="1000-star-rate2-<%= @board.id %>"></span><br />
-                                    <span class='form3'>単位の取りやすさ</span><span class='star-rate3' id="1000-star-rate3-<%= @board.id %>"></span><br />
-                                    <span class='board-date'><%= @board.created_at.strftime('%Y/%m/%d') %></span>
-                                </div>
-                            </div>
-                            <div class='board-show-comment-scroll-1000'>
-                                <%= render 'boardShow1000' %>
-                            </div>
-                        </div>
-                        <div class='kakomons-show-comment-new-1000'>
-                            <%= form_with(model:[@board,@comment], local: false ) do |f| %>
-                                <%= f.text_area :comment,placeholder:"コメントを追加...",class:'kakomons-show-text-area' %>
-                                <%= f.submit "投稿する",class:'kakomons-show-comment-submit-1000' %>
-                            <% end %>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <script>
-        $('#1000-star-rate1-<%= @board.id %>').empty();
-        $('#1000-star-rate1-<%= @board.id %>').raty({
-        starOff:  '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        readOnly: true,
-        score: <%= @board.rate1 %>
-        });
-    </script>
-    <script>
-        $('#1000-star-rate2-<%= @board.id %>').empty();
-        $('#1000-star-rate2-<%= @board.id %>').raty({
-        starOff:  '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        readOnly: true,
-        score: <%= @board.rate2 %>
-        });
-    </script>
-    <script>
-        $('#1000-star-rate3-<%= @board.id %>').empty();
-        $('#1000-star-rate3-<%= @board.id %>').raty({
-        starOff:  '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        readOnly: true,
-        score: <%= @board.rate3 %>
-        });
-    </script>
-</div>
-
-
-
-
-
-
-
-
-
-
 

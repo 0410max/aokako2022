@@ -70,6 +70,8 @@
 
 .user-search-wrapper {
     position: fixed;
+    z-index: 10;
+    background-color: #fafafa;
     left: 420px;
     top: 55px;
     width: 600px;
@@ -165,6 +167,24 @@
     display: flex;
     border: 1px solid #dbdbdb;
     border-radius: 4px;
-    width: 800px;
+    width: 49%;
     margin: 10px auto 0 auto;
+}
+
+.admin-enduser-kakomon-wrapper {
+    width: 100%;
+    padding: 10px;
+}
+
+.admin-enduser-kakomon-image-size {
+    width: 100%;
+    height: out;
+}
+
+.admin-enduser-board-content {
+    width: 390px;
+    float: left;
+    border: 1px solid #dbdbdb;
+    margin-top: 10px;
+    margin-right: 10px;
 }

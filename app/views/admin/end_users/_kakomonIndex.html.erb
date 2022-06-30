@@ -1,10 +1,10 @@
 <% if @user.kakomons.count === 0 %>
     <span class='no-follower'>投稿はありません</span>
 <% else %>
-    <div class='board-reports-index-wrapper'>
+    <div class='admin-enduser-kakomon-index-wrapper'>
         <% @kakomons.each do |kakomon| %>
             <div class='admin-enduser-boards-index-wrapper'>
-                <div class='kakomon-report-wrapper'>
+                <div class='admin-enduser-kakomon-wrapper'>
                     <div>
                         講義名: <%= kakomon.sub %>
                         <%= link_to '削除する',admin_kakomon_path(kakomon),class:'btn btn-outline-danger admin-end-user-board-delete',method: :delete,data:{confirm:'本当に削除しますか？'} %><br />
@@ -17,7 +17,7 @@
                                 <div class="swiper-wrapper kakomons-show-swiper-wrapper">
                                     <% kakomon.images.each do |image|%>
                                         <div class="swiper-slide">
-                                            <%= image_tag image,class:'admin-kakomons-image-size' %>
+                                            <%= image_tag image,class:'admin-enduser-kakomon-image-size' %>
                                         </div>
                                     <% end %>
                                 </div>
@@ -27,25 +27,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class='admin-index-kakomon-comment-content'>
-                    <% comments = kakomon.kakomon_comments.order(created_at: :desc) %>
-                    <% if comments.count == 0 %>
-                        <span class='admin-kakomon-show-no-comment'>コメントはありません</span>
-                    <% end %>
-                    <% comments.each do |comment| %>
-                        <div class='other-user-comment'>
-                            <%= link_to admin_end_user_path(comment.end_user),class:'index-profile-image-link' do %>
-                                <%= image_tag comment.end_user.get_profile_image,size:'30x30',class:'index-profile-image' %>
-                            <% end %>
-                            <span class='comment-user-name'><%= comment.end_user.name %></span>
-                            <span class='kakomon-date-report'><%= comment.created_at.strftime('%Y/%m/%d') %></span>
-                            <div class='admin-other-user-comment-report-content'>
-                                <%= simple_format(comment.comment, {}, wrapper_tag: "div") %>
-                            </div>
-                        </div>
-                        <br />
-                    <% end %>
                 </div>
             </div>
         <% end %>

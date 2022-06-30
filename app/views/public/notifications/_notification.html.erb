@@ -7,7 +7,7 @@
         <%= link_to end_user_path(visitor) do %>
           <%= image_tag visitor.get_profile_image,size:'50x50',class:'notification-profile-image-visitor' %>
         <% end %>
-      </div>
+      </div> 
       <div class='notification-content'>
         <%= link_to end_user_path(visitor),class:'visitor-name' do %>
           <strong><%= visitor.name %></strong>
@@ -16,40 +16,6 @@
         <% case notification.action %>
           <% when 'follow' then %>
             <%= link_to 'あなたをフォローしました',end_user_path(visitor),class:'visitor-name' %>
-          <% when 'comment' then %>
-            <% if visitor == current_end_user %>
-              <%= link_to kakomon_path(notification.kakomon),class:'visitor-name' do %>
-                <strong>自分の過去問</strong>
-              <% end %>
-              <%= link_to 'にコメントしました',kakomon_path(notification.kakomon),class:'visitor-name' %>        
-            <% elsif notification.kakomon.end_user == current_end_user %>
-              <%= link_to kakomon_path(notification.kakomon),class:'visitor-name' do %>
-                <strong>あなたの過去問</strong>
-              <% end %>
-              <%= link_to 'にコメントしました',kakomon_path(notification.kakomon),class:'visitor-name' %>  
-            <% else %>
-              <%= link_to kakomon_path(notification.kakomon),class:'visitor-name' do %>
-                <strong><%= notification.kakomon.end_user.name %>の過去問</strong>
-              <% end %>
-              <%= link_to 'にコメントしました',kakomon_path(notification.kakomon),class:'visitor-name' %>
-            <% end %>
-          <% when 'board_comment' then %>
-            <% if visitor == current_end_user %>
-              <%= link_to board_path(notification.board),class:'visitor-name' do %>
-                <strong>自分の講義評価</strong>
-              <% end %>
-              <%= link_to 'にコメントしました',board_path(notification.board),class:'visitor-name' %>        
-            <% elsif notification.board.end_user == current_end_user %>
-              <%= link_to board_path(notification.board),class:'visitor-name' do %>
-                <strong>あなたの講義評価</strong>
-              <% end %>
-              <%= link_to 'にコメントしました',board_path(notification.board),class:'visitor-name' %>  
-            <% else %>
-              <%= link_to board_path(notification.board),class:'visitor-name' do %>
-                <strong><%= notification.board.end_user.name %>の講義評価</strong>
-              <% end %>
-              <%= link_to 'にコメントしました',board_path(notification.board),class:'visitor-name' %>
-            <% end %>
           <% when 'thanks' then %>
             <% if visitor == current_end_user %>
               <%= link_to board_path(notification.board),class:'visitor-name' do %>

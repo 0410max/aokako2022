@@ -6,13 +6,10 @@ class Public::BoardreportsController < ApplicationController
     report.save
   end
 
-  def report
-    render :layout => '/Users/taiga/Documents/kakomon2/kakomon/app/views/public/boardreports/_boardReport.html.erb'
-  end
-
   private
 
   def report_params 
     params.require(:boardreport).permit(:report,:board_id,:end_user_id)
   end
 end
+

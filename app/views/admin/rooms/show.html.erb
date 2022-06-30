@@ -66,7 +66,7 @@
             </div>
 
             <div class='message-area-wrapper'>
-                <div class='message-area'>
+                <div class='admin-message-area'>
                     <% @messages = @room.messages %>
                     <% if @messages.present? %>
                         <div class='message-wrapper'>
@@ -105,13 +105,6 @@
                 <script>   
                     $('.message-area').scrollTop(1000000000000);
                 </script>
-            </div>
-            <div class='rooms-show-form'>
-                <%= form_with model: @message do |f| %>
-                    <%= f.text_area :message, placeholder: "メッセージを入力してください",class:'message-text-area' %>
-                    <%= f.hidden_field :room_id, value: @room.id %>
-                    <%= f.submit '送信',class:'message-submit' %>
-                <% end %>
             </div>
             </div>
         </div>

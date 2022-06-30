@@ -58,3 +58,4 @@ Rails.application.routes.draw do
     patch 'end_users/unsubscribe' => 'end_users#unsubscribe'
   end
 end
+
