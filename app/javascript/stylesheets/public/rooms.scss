@@ -55,28 +55,13 @@
     margin: 0 auto;
     width: 95%;
     border-radius: 4px;
-    height: 75vh;
+    height: 70vh;
     background-color: white;
     padding: 0;
     line-height: 65px;
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
-}
-
-.rooms-show-1000 {
-    border: 1px solid #dbdbdb;
-    margin: 0 auto;
-    width: 95%;
-    height: 50vh;
-    background-color: white;
-    padding: 0;
-    line-height: 65px;
-    overflow: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    border-bottom: none;
-    border-top: none;
 }
 
 .rooms-show-bottom-1000 {
@@ -165,10 +150,25 @@
    display: none;
 }
 
+.rooms-show-1000 {
+    border: 1px solid #dbdbdb;
+    margin: 0 auto;
+    width: 95%;
+    height: 50vh;
+    background-color: white;
+    padding: 0;
+    line-height: 65px;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    border-bottom: none;
+    border-top: none;
+}
+
 .message-area-1000 {
     overflow: scroll;
     padding-bottom: 10px;
-    height: calc(420px - 10px);
+    height: 50vh;
     margin: 0;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -598,6 +598,10 @@ body {
     margin-left: 20px;
 }
 
+.scroll-top-1000 {
+    display: none;
+}
+
 
 
 
@@ -648,6 +652,12 @@ body {
     }
     .message-text-area {
         width: 540px;
+    }
+    .scroll-top {
+        display: none;
+    }
+    .scroll-top-1000 {
+        display: inline;
     }
 }
 

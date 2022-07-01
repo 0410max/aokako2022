@@ -263,6 +263,11 @@ ul {
   bottom: 3px;
 }
 
+.nav-profile-image {
+  border: 1px solid #dbdbdb;
+  border-radius: 20px;
+}
+
 html {
   background-color: #fafafa;
   -ms-overflow-style: none;
@@ -438,6 +443,11 @@ button.close {
   color: white;
 }
 
+.registrations-top-font {
+  font-weight: bold;
+  font-size: 22px;
+}
+
 
 
 
@@ -470,7 +480,12 @@ button.close {
 }
 
 @media (max-width:1000px) {
-
+  .aokako-font {
+    font-family: 'Snell Roundhand';
+  }
+  .sessions-aokako-font {
+    font-family: 'Snell Roundhand';
+  }
 }
 
 @media (max-width:900px) {

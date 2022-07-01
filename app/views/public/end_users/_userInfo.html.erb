@@ -46,11 +46,7 @@
 </div>
 
 <div class='users-info-wrapper'>
-    <%= render 'year',user:@user,number2:@number2,number4:@number4,number5:@number5 %>
     <ul class='users-info'>
-        <% unless @user.year === '' %>
-            <li class='li-user-year'><%= @user.year %></li>
-        <% end %>
         <li class='li-user-dep'><%= @user.dep %></li>
         <li class='li-user-cor'><%= @user.cor %></li>
     </ul>

@@ -1193,7 +1193,7 @@
   background-color: white;
   border-radius: 2px;
   position: relative;
-  width: 70%;
+  width: 50%;
   margin: 20px auto 0 auto;
 }
 
@@ -1222,15 +1222,13 @@
     margin-top: 20px;
     margin: 10px 20px;
   }
+  .index-nokakomon-content {
+    width: 60%;
+  }
 }
 
 @media (max-width:1000px) {
   .index-kakomon-content {
-    margin: 10px auto;
-    width: 70%;
-    padding: 0;
-  }
-  .index-nokakomon-content {
     margin: 10px auto;
     width: 70%;
     padding: 0;
@@ -1260,7 +1258,7 @@
     width: 75%;
   }
   .index-nokakomon-content {
-    width: 95%;
+    width: 80%;
   }
 }
 
