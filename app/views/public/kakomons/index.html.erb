@@ -11,6 +11,9 @@
         <div class='kakomonIndex'>
           <%= render 'kakomonIndex',kakomons:@kakomons %>
         </div>
+        <div class='pagenate'>
+          <%= paginate @kakomons %>
+        </div>
       </div>
       <div class='col-md-4 fixed-area'>
         <%= render 'public/boards/recommendation' %>
@@ -31,6 +34,9 @@
         <div class='index-modal-bg'></div>
         <div class='kakomonIndex1000'>
           <%= render 'kakomonIndex1000',kakomons:@kakomons %>
+        </div>
+        <div class='pagenate'>
+          <%= paginate @kakomons %>
         </div>
       </div>
     </div>

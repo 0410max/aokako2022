@@ -11,6 +11,9 @@
 
         <div class='boardIndex'>
           <%= render 'boardIndex',boards:@boards %>
+          <div class='pagenate'>
+            <%= paginate @boards %>
+          </div>
         </div>
 
       <div class='col-md-4 fixed-area'>
@@ -36,6 +39,9 @@
 
         <div class='boardIndex1000'>
           <%= render 'boardIndex1000',board:@board %>
+          <div class='pagenate'>
+            <%= paginate @boards %>
+          </div>
         </div>
 
     </div>
