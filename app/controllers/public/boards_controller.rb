@@ -2,7 +2,7 @@ class Public::BoardsController < ApplicationController
   before_action :authenticate_end_user!,except: [:index,:show]
   def index
     @boards = Board.find(Boardfavorite.group(:board_id).order('count(board_id) desc').pluck(:board_id))
-    @boards = Kaminari.paginate_array(@boards).page(params[:page]).per(1)
+    @boards = Kaminari.paginate_array(@boards).page(params[:page]).per(30)
     @comment = BoardComment.new
     @report = Boardreport.new
     dep = current_end_user.dep
@@ -68,7 +68,7 @@ class Public::BoardsController < ApplicationController
 
   def searchClear
     @boards = Board.find(Boardfavorite.group(:board_id).order('count(board_id) desc').pluck(:board_id))
-    @boards = Kaminari.paginate_array(@boards).page(params[:page]).per(3)
+    @boards = Kaminari.paginate_array(@boards).page(params[:page]).per(30)
     @report = Boardreport.new
     @comment = BoardComment.new
     dep = current_end_user.dep
