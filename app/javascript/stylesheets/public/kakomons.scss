@@ -260,8 +260,9 @@
 .kakomons-index-top-button {
   margin-left: 200px;
   position: absolute;
-  right: 20px;
-  top: 12px;
+  right: 15px;
+  top: 3px;
+  padding: 10px;
 }
 
 .index-profile-image {
@@ -446,8 +447,8 @@
 
 .no-board-search-submit {
   color: white;
-  background-color: #a9a9a9;
-  padding: 3px 9.8px 3px 10.2px;
+  background-color: #a9a9a9;  
+  padding: 3px 10px;
   border: none;
   border-radius: 4px;
   height: 30px;
@@ -965,10 +966,10 @@
 }
 
 .kakomons-show-top-button {
-  margin-left: 200px;
   position: absolute;
-  right: 20px;
-  top: 12px;
+  right: 10px;
+  top: 3px;
+  padding: 10px;
 }
 
 .kakomons-show-top-button:hover {
@@ -1240,10 +1241,7 @@
     display: block;
   }
   .kakomons-index-top-button {
-    top: 8px;
-  }
-  .kakomons-show-top-button {
-    top: 14px;
+    top: 0;
   }
   .kakomons-index-wrapper {
     display: none;
@@ -1283,7 +1281,7 @@
   }
   .kakomons-index-top-button {
     font-size: 14px;
-    top: 9px;
+    top: 0;
   }
   .kakomon-thanks-link {
     font-size: 14px;
@@ -1310,6 +1308,33 @@
     padding: 1px 5px;
     position: relative;
     bottom: 2px;
+  }
+  .sub-search-submit{
+    padding: 0;
+    color: white;
+    background-color: #a9a9a9;
+    padding: 3px 10px;
+    border: none;
+    border-radius: 4px;
+    height: 30px;
+    font-weight: 400;
+    position: relative;
+    top: 1px;
+    left: 1px;
+  }
+  
+  .prof-search-submit {
+    padding: 0;
+    color: white;
+    background-color: #a9a9a9;
+    padding: 3px 10px;
+    border: none;
+    border-radius: 4px;
+    height: 30px;
+    font-weight: 400;
+    position: relative;
+    top: 1px;
+    left: 1px;
   }
 }
 

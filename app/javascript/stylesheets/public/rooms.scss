@@ -203,7 +203,7 @@
 .room-back-link-wrapper {
     overflow: hidden;
     position: relative;
-    margin: 0 auto 10px auto;
+    margin: 5px auto 10px auto;
     padding: 0;
 }
 
@@ -217,6 +217,7 @@
 .room-back-link:hover {
     cursor: pointer;
     text-decoration: none;
+    color: black;
 }
 
 .rooms-show-top-1000 {
@@ -714,6 +715,24 @@ body {
         height: 60px;
         line-height: 60px;
     }
+    .no-rooms-message-long {
+        background-color: #efefef;
+        height: 15px;
+        width: 150px;
+        position: relative;
+        top: 17px;
+        border-radius: 5px;
+    }
+    .no-rooms-message-short {
+        background-color: #efefef;
+        height: 15px;
+        width: 100px;
+        position: relative;
+        bottom: 35px;
+        border-radius: 5px;
+    }
+    
+    
 }
 
 @media(max-width: 585px){

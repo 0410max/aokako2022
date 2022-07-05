@@ -99,6 +99,9 @@
 
 .watch-all-link {
   color: black;
+  padding: 5px;
+  position: relative;
+  left: 7px;
 }
 
 .watch-all-link:hover {
@@ -216,6 +219,16 @@
   margin-top: 13px;
 }
 
+
+.sub-demo-text-area:hover {
+  cursor:text;
+}
+
+.sub-demo-text-area-kakomon:hover {
+  cursor:text;
+}
+
+
 .sub-demo-text-area {
   border: 1px solid gray;
   border-radius: 3px;
@@ -225,14 +238,7 @@
   height: 30px;
   outline: none;
   margin-bottom: 10px;
-  margin-right: 4px;
-}
-
-.sub-demo-text-area-content {
-  color: gray;
-  position: relative;
-  bottom: 3px;
-  right: 8px;
+  margin-right: 5px;
 }
 
 .sub-demo-text-area-kakomon {
@@ -251,7 +257,13 @@
   color: gray;
   position: relative;
   bottom: 3px;
-  right: 7px;
+  right: 8px;
+}
+.sub-demo-text-area-content {
+  color: gray;
+  position: relative;
+  bottom: 3px;
+  right: 8px;
 }
 
 .sub-demo-text-area-login {
@@ -278,6 +290,7 @@
     top: 13px;
     color: gray;
 }
+
 
 .search-prof-wrapper {
   display: none;
@@ -1226,6 +1239,59 @@
   .thanks-count {
     font-size: 14px;
     padding: 1px 5px;
+  }
+  .sub-demo-text-area {
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin-top: 13px;
+    width: 201px;
+    height: 30px;
+    outline: none;
+    margin-bottom: 10px;
+    margin-right: 5px;
+  }
+  
+  .sub-demo-text-area-kakomon {
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin-top: 13px;
+    width: 201px;
+    height: 30px;
+    outline: none;
+    margin-bottom: 10px;
+    margin-right: 5px;
+  }
+  .board-search-sub {
+    width: 201px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    outline: none;
+    margin-bottom: 10px;
+    margin-top: 13px;
+  }
+  .board-search-prof {
+    width: 201px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    outline: none;
+    margin-bottom: 10px;
+    margin-top: 13px;
+  }
+  .sub-demo-text-area-content-kakomon {
+    color: #c0c0c0;
+    position: relative;
+    bottom: 3px;
+    right: 1px;
+  }
+  .sub-demo-text-area-content {
+    color: #c0c0c0;
+    position: relative;
+    bottom: 3px;
+    right: 1px;
   }
 }
 
