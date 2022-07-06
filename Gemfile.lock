@@ -133,7 +133,6 @@ GEM
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
-    pg (1.4.1)
     public_suffix (4.0.7)
     puma (4.3.12)
       nio4r (~> 2.0)
@@ -256,7 +255,6 @@ DEPENDENCIES
   jquery-rails
   kaminari (~> 1.2.1)
   listen (~> 3.2)
-  pg
   puma (~> 4.1)
   rails (~> 6.0.4, >= 6.0.4.6)
   rails-i18n
@@ -270,6 +268,9 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 5.0)
+
+RUBY VERSION
+   ruby 2.6.3p62
 
 BUNDLED WITH
    1.17.2
