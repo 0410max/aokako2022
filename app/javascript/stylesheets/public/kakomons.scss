@@ -669,7 +669,7 @@
 }         
 
 .kakomon-show {
-  padding-top: 70px;
+  padding-top: 80px;
   margin: 0 auto;
   width: 100%;
 }
@@ -1336,6 +1336,11 @@
     top: 1px;
     left: 1px;
   }
+  
+  .kakomon-show {
+    padding-top: 70px;
+  }
+
 }
 
 @media (max-width:520px) {
